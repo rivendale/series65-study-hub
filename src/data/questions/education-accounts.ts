@@ -1,0 +1,88 @@
+import type { Question } from '../questions';
+
+export const items: Question[] = [
+  {
+    id: 191,
+    topic: 'education-accounts',
+    q: 'A grandparent makes a large lump-sum contribution to a 529 plan for one grandchild and elects five-year gift-tax averaging. Which statement is correct?',
+    choices: [
+      'The contribution is treated as made ratably over five years, up to five times the annual exclusion, and further exclusion gifts to that same beneficiary during the period would use lifetime exemption',
+      'The contribution is fully excluded from gift tax regardless of size',
+      'The election makes the grandparent an irrevocable grantor who loses the ability to change the beneficiary',
+      'The same five-year election is also available for Coverdell ESA contributions',
+    ],
+    answer: 0,
+    exp: 'Front-loading (superfunding) lets a donor contribute up to five annual exclusions at once and elect to spread the gift ratably over five years on a gift tax return. Additional gifts to that beneficiary during the five years exceed the exclusion already used. Owner control is unaffected, and the election is unique to 529 plans.',
+    difficulty: 'hard',
+  },
+  {
+    id: 192,
+    topic: 'education-accounts',
+    q: 'A couple wants to save for their child college in the way most favorable to federal financial aid eligibility. Comparing a parent-owned 529 plan with an UTMA account titled in the child name, which is generally true?',
+    choices: [
+      'There is no difference, because both are counted as student assets',
+      'The 529 is better, because 529 assets are entirely excluded from the aid formula',
+      'The UTMA is better, because custodial assets are excluded from the aid formula',
+      'The parent-owned 529 is better, because parental assets are assessed at a much lower rate than student-owned assets',
+    ],
+    answer: 3,
+    exp: 'A parent-owned 529 is reported as a parental asset and assessed at a low rate, while an UTMA is the child property and assessed far more heavily. The UTMA carries a second drawback: it is an irrevocable gift that the beneficiary controls outright at the age of majority and may spend on anything.',
+    difficulty: 'medium',
+  },
+  {
+    id: 193,
+    topic: 'education-accounts',
+    q: 'An account owner withdraws $10,000 from a 529 plan to buy a boat. Of that amount, $6,000 represents contributions and $4,000 represents earnings. What is the tax result?',
+    choices: [
+      'The entire $10,000 is subject only to a 10% penalty, with no income tax',
+      'Nothing is taxable because the owner already paid tax on the contributions',
+      'The entire $10,000 is taxable as ordinary income plus a 10% penalty',
+      'The $4,000 of earnings is taxable as ordinary income to the recipient plus a 10% penalty on the earnings; the $6,000 of contributions is not taxed',
+    ],
+    answer: 3,
+    exp: 'Non-qualified 529 withdrawals are taxed pro rata: only the earnings portion is included in income and hit with the 10% additional tax. Contributions come out tax free because they were made with after-tax dollars. The penalty is waived (income tax still applies) in cases such as a scholarship, disability, or death of the beneficiary.',
+    difficulty: 'medium',
+  },
+  {
+    id: 194,
+    topic: 'education-accounts',
+    q: 'Which statement about a Coverdell Education Savings Account is TRUE?',
+    choices: [
+      'The annual contribution limit is far lower than what a 529 permits, contributions must stop when the beneficiary reaches 18, and the balance generally must be used by age 30',
+      'There are no income limits on who may contribute',
+      'Contributions are deductible on the contributor federal return',
+      'Funds may be used only for post-secondary education expenses',
+    ],
+    answer: 0,
+    exp: 'Coverdell ESAs have a small annual limit, contributor income phase-outs, an age 18 contribution cutoff and an age 30 use-by deadline, all waived for a special-needs beneficiary. Their advantage over 529 plans is that they cover elementary and secondary expenses broadly. Contributions are never deductible.',
+    difficulty: 'medium',
+  },
+  {
+    id: 195,
+    topic: 'education-accounts',
+    q: 'The owner of a 529 savings plan decides her oldest child will not attend college. Which of the following may she do?',
+    choices: [
+      'Change the beneficiary only with the written consent of the current beneficiary',
+      'Transfer the account to a Coverdell ESA, but only before the beneficiary turns 18',
+      'Nothing — the assets belong irrevocably to the named beneficiary',
+      'Change the beneficiary to another qualifying member of the beneficiary family without triggering tax or penalty',
+    ],
+    answer: 3,
+    exp: 'A distinguishing feature of the 529 is that the account owner keeps control: she may change the beneficiary to a qualifying family member, change investments within plan limits, or take the money back as a non-qualified withdrawal. That control is exactly what an UTMA lacks.',
+    difficulty: 'easy',
+  },
+  {
+    id: 196,
+    topic: 'education-accounts',
+    q: 'A client asks about moving unused 529 funds into a Roth IRA. Which set of conditions applies?',
+    choices: [
+      'The 529 must have been open at least 15 years, the Roth must be in the beneficiary name, the transfer counts against the annual Roth contribution limit, contributions made in the prior five years are ineligible, and a lifetime cap applies',
+      'Any 529 balance may be rolled to the account owner Roth IRA at any time with no limit',
+      'The rollover is permitted only if the beneficiary never attended college',
+      'The rollover is treated as a non-qualified withdrawal subject to the 10% penalty on earnings',
+    ],
+    answer: 0,
+    exp: 'The 529-to-Roth rollover is allowed but heavily conditioned: a 15-year account seasoning requirement, a five-year lookback excluding recent contributions and their earnings, transfer to a Roth in the beneficiary name, an annual amount capped by the Roth contribution limit (the beneficiary needs earned income), and an overall lifetime maximum.',
+    difficulty: 'medium',
+  },
+];
