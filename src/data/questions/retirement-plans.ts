@@ -208,7 +208,7 @@ export const items: Question[] = [
       'It is subject to ERISA fiduciary rules while a 401(k) is not',
     ],
     answer: 0,
-    exp: "The hallmark of the 457(b) is the absence of the 10% early distribution penalty once the participant separates from service, whatever the age. Pre-tax deferrals are the norm, distributions are ordinary income, and governmental 457(b) plans are outside ERISA entirely — the reverse of the last choice.",
+    exp: "The hallmark of the governmental 457(b) is the absence of the 10% early distribution penalty once the participant separates from service, whatever the age. Pre-tax deferrals are the norm, distributions are ordinary income, and governmental 457(b) plans are outside ERISA entirely — the reverse of the last choice. Two boundaries on the exemption: amounts rolled INTO the 457(b) from a 401(k) or an IRA keep their own penalty treatment, and rolling the 457(b) balance OUT to an IRA surrenders the advantage entirely.",
     difficulty: 'easy',
   },
   {

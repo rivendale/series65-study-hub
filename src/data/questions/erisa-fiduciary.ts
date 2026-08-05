@@ -203,12 +203,12 @@ export const items: Question[] = [
     q: 'The ERISA minimum participation rules generally permit a qualified plan to require that an employee be:',
     choices: [
       'At least 25 years old with three years of service',
-      'At least 21 years old with one year of service, with long-term part-time employees admitted after a shorter period of consecutive years of limited hours',
+      'At least 21 years old with one year of service, with long-term part-time employees admitted to defer after two consecutive years of at least 500 hours',
       'A full-time employee for five continuous years',
       'Employed at least ten years before any participation is permitted',
     ],
     answer: 1,
-    exp: "The standard maximum barriers are age 21 and one year of service. Later legislation added a path for long-term part-time employees who work limited hours over consecutive years, so a plan can no longer exclude persistent part-timers indefinitely. Plans may always be more generous than the minimums.",
+    exp: "The standard maximum barriers are age 21 and one year of service. SECURE 2.0 shortened the SECURE 1.0 three-year long-term part-time rule to two consecutive years of at least 500 hours, effective for plan years beginning in 2025 and extended to ERISA-covered 403(b) plans, so a plan can no longer exclude persistent part-timers indefinitely. Note the rule reaches elective deferrals only — an employer need not extend matching or nonelective contributions to these employees. Plans may always be more generous than the minimums.",
     difficulty: 'easy',
   },
 ];

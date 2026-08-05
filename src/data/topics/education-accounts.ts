@@ -65,7 +65,7 @@ Leftover 529 money may be rolled into a **Roth IRA for the beneficiary**, subjec
 - The 529 account must have been **open for at least 15 years**
 - Contributions (and their earnings) made in the **last 5 years** are ineligible
 - The rollover is capped at the **annual IRA contribution limit** each year and counts against it
-- A **statutory lifetime cap per beneficiary** applies — look up the current figure rather than assuming it
+- A **lifetime cap of $35,000 per beneficiary** applies. Unlike most retirement figures this one is a flat statutory amount that is **not indexed for inflation**, so it has not moved since SECURE 2.0 set it
 - The beneficiary must have **earned income** at least equal to the amount rolled over; the Roth income phaseout does **not** apply
 
 Read the conditions together and the design becomes obvious: this is a **modest release valve for genuine over-funding, not a Roth-funding strategy**. The 15-year seasoning stops a parent from opening an account solely to convert it, the five-year lookback stops a last-minute deposit from being laundered into a Roth, and the annual limit means a family with a meaningful leftover balance will need several years of rollovers. Changing the beneficiary may also restart the 15-year clock, an unsettled point that argues for caution.
@@ -126,7 +126,7 @@ When resources are finite, quantify rather than debate. Where education is under
     'Only the EARNINGS portion of a non-qualified 529 withdrawal is taxed and penalized; the contributions come out tax-free, and the 10% penalty is waived (but earnings still taxed) for scholarship, death, or disability.',
     "A Coverdell has income phaseouts for the contributor and a $2,000 annual cap; a 529 has neither. Recommending a Coverdell to a high earner is a classic wrong answer.",
     'A parent-owned 529 counts as a parental asset at roughly 5.64% for aid, while a UTMA counts as a student asset at about 20% — the aid math favors the 529 substantially.',
-    "The 529-to-Roth rollover is not a general escape hatch: the account must be 15 years old, the last five years of contributions are excluded, the beneficiary needs earned income, each year is capped at the annual IRA limit, and a statutory lifetime cap applies per beneficiary.",
+    "The 529-to-Roth rollover is not a general escape hatch: the account must be 15 years old, the last five years of contributions are excluded, the beneficiary needs earned income, each year is capped at the annual IRA limit, and a $35,000 lifetime cap applies per beneficiary. Because the annual limit binds too, moving the full $35,000 takes several years — it is not a one-time transfer.",
   ],
   keyTerms: [
     {

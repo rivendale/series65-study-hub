@@ -90,26 +90,30 @@ export const reviewItems: ReviewItem[] = [
     topic: 'ia-iar-registration',
     title: 'Pension consultant SEC registration threshold',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'A pension consultant with $200M or more in plan assets under advisement may elect SEC registration.',
     concern:
       'Stated as an election under SEC Rule 203A-2(a) rather than a mandate. The figure and the elective framing both come from the rule, but study material sometimes presents it as compulsory.',
     verify: 'Confirm the threshold and that the exam treats it as elective.',
     questionIds: [533],
+    resolution:
+      'Verified against 17 CFR 275.203A-2(a). The $200,000,000 figure is correct, counting only the portion of plan assets on which the adviser advises. The rule is titled "Exemptions from prohibition on Commission registration" — it lifts the §203A bar rather than imposing a duty, so the elective framing is right. A compliance vendor guide read during verification stated it as "must register with the SEC", which is precisely the misreading this item anticipated. No content change.',
   },
   {
     id: 'issuer-rep-exclusion',
     topic: 'bd-agent-registration',
     title: 'Issuer-representative exclusion and the no-commission condition',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'Under USA section 401(b) an individual representing an issuer in exempt securities falls outside the agent definition regardless of commission; the no-remuneration condition attaches specifically to the employees, partners and directors branch.',
     concern:
       'The branches are commonly collapsed in study material into a blanket "no commission" rule, which would make the app disagree with a candidate\'s other materials.',
     verify: 'Confirm which branch the no-remuneration condition actually modifies.',
     questionIds: [559, 560],
+    resolution:
+      'Verified against the 2002 Uniform Securities Act text. The exclusion for an individual representing an issuer runs to exempt securities, exempt transactions, and federal covered securities with no compensation condition attached; the "no commission or other remuneration for soliciting" condition modifies only the separate branch covering transactions with the issuer\'s existing employees, partners and directors. The app reads the statute correctly and the collapsed blanket version is the error. No content change.',
   },
   {
     id: 'dual-registration',
@@ -144,36 +148,42 @@ export const reviewItems: ReviewItem[] = [
     topic: 'alternative-investments',
     title: 'Accredited investor and qualified purchaser qualification routes',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'corrected',
     asserted:
-      'The dollar tests: $1M net worth excluding primary residence, $200,000 individual or $300,000 joint income for accredited investor; $5M in investments for qualified purchaser.',
+      'The dollar tests: $1M net worth excluding primary residence, $200,000 individual or $300,000 joint income for accredited investor; $5M in investments for qualified purchaser. Plus the non-financial routes added in 2020.',
     concern:
       'An auditor flagged this deliberately rather than editing it. The dollar tests are statutory and stable, but the qualification routes were amended in 2020 to add professional certifications and knowledgeable employees, and the app may state the routes too narrowly.',
     verify:
       'Confirm the current qualification routes, not just the dollar tests, and whether the exam tests the non-financial routes.',
+    resolution:
+      'The auditor was right to flag it. The dollar tests were verified unchanged, but the chapter disposed of the 2020 amendments in five words ("with additional professional-credential paths") without naming them. Now stated in full: an individual qualifies by holding the Series 7, Series 65, or Series 82 in good standing, or as a knowledgeable employee of the fund making the offering, and the amendments widened the routes without moving the dollar tests. A pitfall was added because "only net worth or income can qualify an individual" is now an affirmatively wrong answer. Worth Colleen knowing directly: passing the Series 65 and registering as an IAR makes her an accredited investor on credential alone.',
   },
   {
     id: 'qualified-client',
     topic: 'advisory-contracts-fees',
     title: 'Qualified client thresholds',
     category: 'indexed-figure',
-    status: 'open',
+    status: 'corrected',
     asserted:
-      '$1.1M assets under management with the adviser, or $2.2M net worth excluding primary residence, described throughout as periodically indexed and tested at contract inception.',
+      '$1.4M assets under management with the adviser, or $2.7M net worth excluding primary residence, indexed and tested at contract inception, with existing contracts grandfathered when the thresholds rise.',
     concern: 'The SEC adjusts these by order. A stale figure would be wrong rather than merely dated.',
     verify: 'Confirm the current figures and that "tested at inception" is right.',
-    questionIds: [253, 1083],
+    questionIds: [253, 594, 1083],
+    resolution:
+      'The concern was justified and the figures were stale. An SEC order effective June 29, 2026 raised the thresholds from $1.1M/$2.2M to $1.4M/$2.7M, with contracts already in place grandfathered. Corrected in the chapter body, pitfalls, key terms, the cheat sheet and CLAUDE.md, and in questions 253, 594 and 1083. Two knock-on fixes the figure swap alone would have missed: the worked example offered "$1.2M under management" as a permissible variant, which no longer clears the new threshold and is now $1.5M, and the same example gave the client a $1.6M net worth that had been $1.4M — numerically identical to the new AUM threshold and needlessly confusing. "Tested at inception" is confirmed, and the grandfathering in the order is a clean illustration of it.',
   },
   {
     id: 'reg-a-tier-2',
     topic: 'securities-registration',
     title: 'Regulation A+ Tier 2 offering cap',
     category: 'indexed-figure',
-    status: 'open',
-    asserted: 'No figure stated. The chapter tests the Tier 1 and Tier 2 preemption structure instead.',
+    status: 'corrected',
+    asserted: 'Tier 1 capped at $20M and Tier 2 at $75M in a 12-month period, with the preemption structure flagged as the durable point.',
     concern: 'The cap has been raised more than once. Deliberately omitted rather than risk a stale number.',
     verify: 'Decide whether the current cap is worth stating, given it may change again.',
     questionIds: [618],
+    resolution:
+      'The premise was partly wrong: the chapter body did already state $75M, so only question 618 was hedging. Verified that $75M has been the Tier 2 cap since the March 2021 amendments and is unchanged as of August 2026; Tier 1 remains $20M. Both figures are now stated in question 618 alongside a note that increases have been proposed, so a student meets the number without being taught to trust it permanently. Worth re-checking if the pending Regulation A+ Improvement Act (which would double Tier 2 to $150M) becomes law.',
   },
   {
     id: 'private-placement-limit',
@@ -191,10 +201,12 @@ export const reviewItems: ReviewItem[] = [
     topic: 'fixed-income-basics',
     title: 'Trust Indenture Act dollar threshold',
     category: 'indexed-figure',
-    status: 'open',
+    status: 'confirmed',
     asserted: 'Left as "a stated dollar threshold" rather than a number.',
     concern: 'Deliberately vague. May be worth stating if the exam tests it.',
     verify: 'Decide whether to state the figure.',
+    resolution:
+      'Verified for the record: TIA §304(a)(9) and Rule 4a-3 exempt indentures limited to $10,000,000 aggregate principal outstanding, measured over a rolling 36-month period from the initial offering — not the 12 months one would assume by analogy to the other offering caps. Treatment deliberately left qualitative, because this sits well below Series 65 depth and the 36-month measurement is more likely to mislead than help at this level. Recorded here so the next contributor does not have to re-derive it.',
   },
 
   /* ---------------------------------------------------------------- */
@@ -205,13 +217,15 @@ export const reviewItems: ReviewItem[] = [
     topic: 'erisa-fiduciary',
     title: 'ERISA long-term part-time employee eligibility',
     category: 'source-disagreement',
-    status: 'open',
+    status: 'corrected',
     asserted:
-      'Described qualitatively as admission after a shorter period of consecutive years of limited hours, without naming the year count.',
+      'Two consecutive years of at least 500 hours, age 21, effective for plan years beginning in 2025 and extended to ERISA-covered 403(b) plans. The duty reaches elective deferrals only.',
     concern:
       'SECURE 2.0 reduced the SECURE 1.0 three-year rule to two years, and the 403(b) application has had regulatory churn. Written vaguely on purpose.',
     verify: 'Confirm the current year count and whether it reads correctly for a 2026 candidate.',
     questionIds: [502],
+    resolution:
+      'The churn has settled, so the vagueness is no longer earning its keep. Confirmed: SECURE 2.0 cut the count from three consecutive years to two, effective for plan years beginning in 2025, and ERISA-covered 403(b) plans are in scope. Now stated concretely in the chapter and in question 502, whose correct choice previously read "a shorter period of consecutive years of limited hours" — true but untestable. Added the boundary that the obligation covers elective deferrals only; an employer may extend match or nonelective contributions but is not required to.',
   },
   {
     id: 'coverdell-excise',
@@ -230,25 +244,29 @@ export const reviewItems: ReviewItem[] = [
     topic: 'retirement-plans',
     title: 'Governmental versus tax-exempt 457(b) early withdrawal',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'corrected',
     asserted:
-      'The absence of a 10% early withdrawal penalty is scoped explicitly to governmental 457(b) plans.',
+      'The absence of a 10% early withdrawal penalty is scoped to governmental 457(b) plans, with the tax-exempt "top hat" variety described separately.',
     concern:
       'Tax-exempt employer 457(b) plans behave differently, and study material often states the exemption without the qualifier. The distinction may deserve more prominence.',
     verify: 'Confirm the scoping and whether the exam draws the distinction.',
     questionIds: [484],
+    resolution:
+      'The scoping was only half applied — exactly the failure mode this manifest exists to catch. The chapter\'s comparison section correctly said "governmental 457(b)", but the plan-type list forty lines earlier named both employer types and then asserted the no-penalty feature unqualified. Fixed, and the tax-exempt top-hat plan is now described on its own terms: assets subject to the employer\'s creditors, distributions generally only at separation, no rollover to an IRA. Question 484 was already correctly scoped in its stem; its explanation now adds the two boundaries on the exemption — amounts rolled IN from a 401(k) or IRA keep their own penalty treatment, and rolling the balance OUT to an IRA surrenders the advantage.',
   },
   {
     id: '529-conditions',
     topic: 'education-accounts',
     title: '529-to-Roth rollover conditions',
     category: 'indexed-figure',
-    status: 'open',
+    status: 'corrected',
     asserted:
-      'Fifteen-year account seasoning, a five-year lookback on contributions, and a statutory lifetime cap per beneficiary, with the cap described rather than numbered.',
+      'Fifteen-year account seasoning, a five-year lookback on contributions, and a $35,000 lifetime cap per beneficiary that is not indexed.',
     concern: 'The cap is statutory but may be indexed. Stated qualitatively to avoid going stale.',
     verify: 'Confirm the conditions and whether the cap should be named.',
     questionIds: [503, 509],
+    resolution:
+      'The caution was unnecessary: the $35,000 cap SECURE 2.0 set is a flat statutory figure with no indexing provision, and it has not moved in the three years since. Now named in the chapter, the pitfall, and question 509. The 15-year seasoning and 5-year lookback were both verified as stated. Added the practical consequence that because the annual IRA limit also binds, moving the full $35,000 takes several years — students read the cap as a one-time transfer amount.',
   },
   {
     id: 'muni-de-minimis',
@@ -271,13 +289,15 @@ export const reviewItems: ReviewItem[] = [
     topic: 'custody-safekeeping',
     title: 'Standing letter of authorization and custody relief',
     category: 'state-variation',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'The surprise-examination relief conditions are described as resting on SEC staff no-action relief, with state treatment noted as varying.',
     concern:
       'This is staff relief rather than a rule, and states do not treat standing letters uniformly.',
     verify: 'Confirm the conditions and how your state treats standing letters.',
     questionIds: [649, 1085],
+    resolution:
+      'Federal framing verified: the Investment Adviser Association no-action letter dated February 21, 2017 sets seven conditions, and the relief is narrower than it is often described. The adviser still HAS custody under Rule 206(4)-2; what the letter withholds is an enforcement recommendation over the missing surprise examination, and failing any one of the seven conditions restores the exam requirement. The app states this correctly, so no content change. The state half is left to you as a practice question rather than a lookup: the letter binds no state administrator, and how your own state treats a standing letter is something you would know better than a source search.',
   },
   {
     id: 'criminal-penalties',
@@ -312,47 +332,55 @@ export const reviewItems: ReviewItem[] = [
     topic: 'communications-marketing',
     title: 'Marketing Rule promoter agreement de minimis',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'confirmed',
     asserted:
-      'A written promoter agreement is required above de minimis compensation, stated as $1,000 over twelve months.',
+      'A written promoter agreement is required above de minimis compensation, stated as $1,000 or its non-cash equivalent over the preceding twelve months, measured in aggregate.',
     concern: 'The threshold and its measurement period are worth confirming.',
     verify: 'Confirm the de minimis figure and period.',
     questionIds: [678],
+    resolution:
+      'Confirmed against Rule 206(4)-1: $1,000 or the equivalent value in non-cash compensation during the preceding twelve months, with the exception reaching only the written-agreement condition — disclosure and oversight apply at any amount, which the app already said. Added one point verification surfaced that the app was missing: the measurement is AGGREGATE across the twelve months, and SEC examiners have cited advisers who treated a series of sub-$1,000 payments as separately exempt when the total exceeded the threshold. That is a better distractor than the raw figure.',
   },
   {
     id: 'reg-sp-breach',
     topic: 'cybersecurity-privacy',
     title: 'Regulation S-P breach notification window',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'confirmed',
     asserted:
-      'A 30-day individual notification requirement under the amended rule, with stricter state statutes noted as applying on top.',
+      'A 30-day individual notification requirement under the amended rule, now fully in effect for all covered firms, with stricter state statutes applying on top.',
     concern: 'Compliance dates were tiered by firm size. Confirm the timing as it now stands.',
     verify: 'Confirm the window and whether it is fully in effect.',
     questionIds: [688, 298, 1102],
+    resolution:
+      'Both tiers are now live: December 3, 2025 for larger entities and June 3, 2026 for smaller ones, so as of this revision the amended rule binds every covered firm and should not be taught as forthcoming. The 30-day window is confirmed. Added the point that most often gets it wrong in practice — the clock runs from awareness that unauthorised access has occurred or is reasonably likely to have occurred, not from the close of the investigation, so a firm waiting on forensics before starting to count has already misread the rule.',
   },
   {
     id: 'form-crs-amendment',
     topic: 'advisory-contracts-fees',
     title: 'Form CRS amendment delivery timing',
     category: 'scope-nuance',
-    status: 'open',
-    asserted: 'Described as "within the periods specified by the rule" rather than a day count.',
+    status: 'corrected',
+    asserted: 'Filed within 30 days of the information becoming materially inaccurate; changes delivered to existing retail clients within 60 days after that filing was required.',
     concern:
       'The filing window and the delivery window differ, and the agent declined to pin either.',
     verify: 'Confirm both windows and whether they are worth stating.',
     questionIds: [597],
+    resolution:
+      'Both windows confirmed and now stated: 30 days to file the amendment, 60 days after that filing was required to deliver the changes to existing retail clients, with changed text marked or a summary of material changes provided. The agent was right that they differ and wrong to hide the difference — that the two clocks are separate is the tested point, and "within the periods specified by the rule" taught nothing. Added to the chapter body, which had no coverage of amendment timing at all, as well as to question 597.',
   },
   {
     id: 'coordination-period',
     topic: 'securities-registration',
     title: 'Registration by coordination filing period',
     category: 'state-variation',
-    status: 'open',
-    asserted: 'Described as commonly ten to twenty days, matching the model act.',
+    status: 'corrected',
+    asserted: 'Model act: registration statement on file at least ten days, pricing statement on file two full business days, no stop order in effect. Adopting states may lengthen the filing period.',
     concern: 'States vary and not all offer every registration method.',
     verify: 'Confirm the model-act period.',
     questionIds: [608, 609],
+    resolution:
+      'The model act is more specific than "ten to twenty days" suggested, and the vaguer phrasing was obscuring a testable condition. Verified: effectiveness is simultaneous with federal effectiveness provided the registration statement has been on file with the Administrator at least ten days, a statement of maximum and minimum proposed offering prices and maximum underwriting discounts has been on file two full business days, and no stop order is in effect or proceeding pending. All three now stated in the chapter and in question 608, with the note that adopting states may lengthen the filing period so a fact pattern giving a different number is not necessarily wrong.',
   },
 
   /* ---------------------------------------------------------------- */

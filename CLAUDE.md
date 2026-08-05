@@ -68,7 +68,7 @@ Content is written as of 2026. Things that are easy to get wrong because older s
 - **Marketing Rule (SEC Rule 206(4)-1)**, compliance date November 4, 2022, replaced the old advertising and cash-solicitation rules. **Testimonials and endorsements are permitted** with disclosure, written promoter agreements, and oversight. Any content asserting a blanket prohibition is obsolete.
 - **SECURE 2.0**: RMD age is **73**, rising to 75 in 2033. The stretch IRA is gone for most non-spouse beneficiaries — **10-year rule** with eligible-designated-beneficiary exceptions.
 - **Settlement is T+1** (since 2024). This also shifted the ex-dividend convention.
-- **Federal covered IA threshold** $110M AUM, with the $100M–$110M buffer band. **Qualified client** $1.1M AUM with the adviser or $2.2M net worth excluding primary residence.
+- **Federal covered IA threshold** $110M AUM, with the $100M–$110M buffer band. **Qualified client** $1.4M AUM with the adviser or $2.7M net worth excluding primary residence — raised from $1.1M/$2.2M by SEC order effective **June 29, 2026**, with existing contracts grandfathered. The SEC re-indexes these about every five years, so re-check before each content revision.
 - **NASAA IAR continuing education**: 12 credits annually (6 Products and Practice + 6 Ethics) in adopting states.
 
 Inflation-indexed figures (IRA/401(k) contribution limits, gift exclusion, estate exemption, IRMAA and NIIT thresholds) drift every year. Prefer testing the *concept*; where a number is unavoidable, say it is indexed and approximate.

@@ -124,7 +124,7 @@ export const items: Question[] = [
       'One year after the state filings are made',
     ],
     answer: 1,
-    exp: 'Coordination ties state effectiveness to federal effectiveness. The conditions are that the documents have been on file for the required period, commonly ten to twenty days, that the price range and underwriting terms have been on file for the required period, and that no stop order is pending. Only qualification depends on an affirmative order of the Administrator.',
+    exp: 'Coordination ties state effectiveness to federal effectiveness. Under the model act the conditions are that the registration statement has been on file with the Administrator for at least ten days, that the maximum and minimum proposed offering prices and maximum underwriting discounts have been on file for two full business days, and that no stop order is in effect or proceeding pending. Adopting states may set a different filing period, so read the fact pattern. Only qualification depends on an affirmative order of the Administrator.',
     difficulty: 'medium',
   },
   {
@@ -264,7 +264,7 @@ export const items: Question[] = [
       'Use Tier 2, whose securities are treated as federal covered when sold to qualified purchasers, leaving the states only notice filings and antifraud authority',
     ],
     answer: 3,
-    exp: 'Regulation A+ Tier 1 offerings remain subject to state registration and coordinated state review, while Tier 2 offerings are preempted so that a state may require only a notice filing and retains antifraud jurisdiction. Tier 2 carries the higher offering cap along with audited financial statements and ongoing reporting; the dollar caps are adjusted from time to time, so verify the current figure.',
+    exp: 'Regulation A+ Tier 1 offerings remain subject to state registration and coordinated state review, while Tier 2 offerings are preempted so that a state may require only a notice filing and retains antifraud jurisdiction. Tier 1 is capped at $20 million and Tier 2 at $75 million in a 12-month period, and Tier 2 carries the higher cap along with audited financial statements and ongoing reporting. The caps have been raised before and further increases have been proposed, so treat the preemption structure rather than the number as the durable point.',
     difficulty: 'hard',
   },
   {

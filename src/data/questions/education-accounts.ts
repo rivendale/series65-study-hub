@@ -82,7 +82,7 @@ export const items: Question[] = [
       'The rollover is treated as a non-qualified withdrawal subject to the 10% penalty on earnings',
     ],
     answer: 0,
-    exp: 'The 529-to-Roth rollover is allowed but heavily conditioned: a 15-year account seasoning requirement, a five-year lookback excluding recent contributions and their earnings, transfer to a Roth in the beneficiary name, an annual amount capped by the Roth contribution limit (the beneficiary needs earned income), and an overall lifetime maximum.',
+    exp: 'The 529-to-Roth rollover is allowed but heavily conditioned: a 15-year account seasoning requirement, a five-year lookback excluding recent contributions and their earnings, transfer to a Roth in the beneficiary name, an annual amount capped by the Roth contribution limit (the beneficiary needs earned income), and a $35,000 lifetime maximum per beneficiary.',
     difficulty: 'medium',
   },
   {
@@ -180,7 +180,7 @@ export const items: Question[] = [
       'No rollover is permitted yet, because the account has not been open at least 15 years; even once it is, each year is capped by her earned income and the annual IRA limit, recent contributions are excluded, and a lifetime cap applies',
     ],
     answer: 3,
-    exp: "The 15-year account seasoning requirement is a threshold condition and this account is only eight years old, so nothing may be rolled. When the account does season, contributions made in the prior five years and their earnings remain ineligible, the annual transfer counts against her IRA contribution limit and cannot exceed her earned income, and a lifetime maximum applies per beneficiary.",
+    exp: "The 15-year account seasoning requirement is a threshold condition and this account is only eight years old, so nothing may be rolled. When the account does season, contributions made in the prior five years and their earnings remain ineligible, the annual transfer counts against her IRA contribution limit and cannot exceed her earned income, and a $35,000 lifetime maximum applies per beneficiary.",
     difficulty: 'medium',
   },
   {

@@ -6,15 +6,15 @@ This file lists the places where internal consistency was not enough. Each entry
 
 Each item states exactly what the app currently tells a student, why it was flagged rather than asserted, and the single specific thing to check. The intent is that a review is an hour or two of targeted checking rather than a re-read of the whole curriculum.
 
-**29 items — 27 open, 2 corrected — across 17 chapters and 37 questions.**
+**29 items — 13 open, 6 confirmed, 10 corrected — across 17 chapters and 38 questions.**
 
 | Category | Items | Open | What the category means |
 |---|---:|---:|---|
-| Sources disagree | 2 | 1 | Study material and primary sources give different answers. The app picked the better-supported one and says so, but it is worth confirming which is tested. |
-| Inflation-indexed figure | 4 | 4 | The figure changes with inflation. The app avoids asserting a current number, supplying it as a scenario given instead. Confirm the treatment reads correctly for this year. |
-| Varies by state | 7 | 6 | The Uniform Securities Act is model legislation and adopting states differ. The app describes the structure rather than pinning a national number. |
+| Sources disagree | 2 | 0 | Study material and primary sources give different answers. The app picked the better-supported one and says so, but it is worth confirming which is tested. |
+| Inflation-indexed figure | 4 | 0 | The figure changes with inflation. The app avoids asserting a current number, supplying it as a scenario given instead. Confirm the treatment reads correctly for this year. |
+| Varies by state | 7 | 4 | The Uniform Securities Act is model legislation and adopting states differ. The app describes the structure rather than pinning a national number. |
 | Reasonable advisors differ | 7 | 7 | There is no single correct answer, only a defensible one. Confirm the keyed answer matches how you would actually advise. |
-| Scope or nuance | 9 | 9 | The rule is right but its boundary is easy to state too broadly or too narrowly. |
+| Scope or nuance | 9 | 2 | The rule is right but its boundary is easy to state too broadly or too narrowly. |
 
 *Generated from [`src/data/reviewItems.ts`](src/data/reviewItems.ts) by `npm run review:md`. Edit that file, not this one — the in-app `/review` page renders the same data, so the two cannot disagree.*
 
@@ -25,24 +25,24 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **Sources disagree**
 
 - [x] [Form ADV-W effective timing](#adv-w-timing) — Investment Adviser and IAR Registration · corrected, no action needed
-- [ ] [ERISA long-term part-time employee eligibility](#erisa-ltpt) — ERISA and Retirement Plan Fiduciary Rules · Q502
+- [x] [ERISA long-term part-time employee eligibility](#erisa-ltpt) — ERISA and Retirement Plan Fiduciary Rules · corrected, no action needed
 
 **Inflation-indexed figure**
 
-- [ ] [Qualified client thresholds](#qualified-client) — Advisory Contracts, Fees, and Compensation · Q253, Q1083
-- [ ] [Regulation A+ Tier 2 offering cap](#reg-a-tier-2) — Registration of Securities · Q618
-- [ ] [Trust Indenture Act dollar threshold](#trust-indenture-threshold) — Fixed-Income Securities · chapter text only
-- [ ] [529-to-Roth rollover conditions](#529-conditions) — Education and Special-Needs Accounts · Q503, Q509
+- [x] [Qualified client thresholds](#qualified-client) — Advisory Contracts, Fees, and Compensation · corrected, no action needed
+- [x] [Regulation A+ Tier 2 offering cap](#reg-a-tier-2) — Registration of Securities · corrected, no action needed
+- [x] [Trust Indenture Act dollar threshold](#trust-indenture-threshold) — Fixed-Income Securities · confirmed, no action needed
+- [x] [529-to-Roth rollover conditions](#529-conditions) — Education and Special-Needs Accounts · corrected, no action needed
 
 **Varies by state**
 
 - [ ] [Dual registration as agent and IAR](#dual-registration) — Broker-Dealer and Agent Registration · Q565
 - [ ] [Minimum net worth and bonding amounts](#net-worth-bonding) — Investment Adviser and IAR Registration · Q546, Q547, Q571
 - [ ] [State private placement purchaser limit](#private-placement-limit) — Exempt Securities and Exempt Transactions · Q241
-- [ ] [Standing letter of authorization and custody relief](#sloa-custody) — Custody, Safekeeping, and Client Assets · Q649, Q1085
+- [x] [Standing letter of authorization and custody relief](#sloa-custody) — Custody, Safekeeping, and Client Assets · confirmed, no action needed
 - [x] [Criminal penalties and statute of limitations](#criminal-penalties) — Administrative Oversight, Remedies, and Penalties · corrected, no action needed
 - [ ] [Statutory disqualification lookback](#felony-window) — Administrative Oversight, Remedies, and Penalties · Q669
-- [ ] [Registration by coordination filing period](#coordination-period) — Registration of Securities · Q608, Q609
+- [x] [Registration by coordination filing period](#coordination-period) — Registration of Securities · corrected, no action needed
 
 **Reasonable advisors differ**
 
@@ -56,15 +56,15 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Scope or nuance**
 
-- [ ] [Pension consultant SEC registration threshold](#pension-consultant-threshold) — Investment Adviser and IAR Registration · Q533
-- [ ] [Issuer-representative exclusion and the no-commission condition](#issuer-rep-exclusion) — Broker-Dealer and Agent Registration · Q559, Q560
-- [ ] [Accredited investor and qualified purchaser qualification routes](#accredited-qualified-purchaser) — Alternative Investments and Direct Participation · chapter text only
+- [x] [Pension consultant SEC registration threshold](#pension-consultant-threshold) — Investment Adviser and IAR Registration · confirmed, no action needed
+- [x] [Issuer-representative exclusion and the no-commission condition](#issuer-rep-exclusion) — Broker-Dealer and Agent Registration · confirmed, no action needed
+- [x] [Accredited investor and qualified purchaser qualification routes](#accredited-qualified-purchaser) — Alternative Investments and Direct Participation · corrected, no action needed
 - [ ] [Coverdell excess contribution excise tax](#coverdell-excise) — Education and Special-Needs Accounts · Q505
-- [ ] [Governmental versus tax-exempt 457(b) early withdrawal](#457b-penalty) — Retirement Plans and Accounts · Q484
+- [x] [Governmental versus tax-exempt 457(b) early withdrawal](#457b-penalty) — Retirement Plans and Accounts · corrected, no action needed
 - [ ] [Municipal bond de minimis rule](#muni-de-minimis) — Fixed-Income Securities · chapter text only
-- [ ] [Marketing Rule promoter agreement de minimis](#promoter-de-minimis) — Communications, Advertising, and the Marketing Rule · Q678
-- [ ] [Regulation S-P breach notification window](#reg-sp-breach) — Cybersecurity, Privacy, and Business Continuity · Q688, Q298, Q1102
-- [ ] [Form CRS amendment delivery timing](#form-crs-amendment) — Advisory Contracts, Fees, and Compensation · Q597
+- [x] [Marketing Rule promoter agreement de minimis](#promoter-de-minimis) — Communications, Advertising, and the Marketing Rule · confirmed, no action needed
+- [x] [Regulation S-P breach notification window](#reg-sp-breach) — Cybersecurity, Privacy, and Business Continuity · confirmed, no action needed
+- [x] [Form CRS amendment delivery timing](#form-crs-amendment) — Advisory Contracts, Fees, and Compensation · corrected, no action needed
 
 ## Sources disagree
 
@@ -92,17 +92,19 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### ERISA long-term part-time employee eligibility
 
-**Status:** Open · **Item id:** `erisa-ltpt`
+**Status:** Corrected · **Item id:** `erisa-ltpt`
 
 **Chapter:** [ERISA and Retirement Plan Fiduciary Rules](src/data/topics/erisa-fiduciary.ts) — topic id `erisa-fiduciary` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/erisa-fiduciary)
 
-**The app asserts.** Described qualitatively as admission after a shorter period of consecutive years of limited hours, without naming the year count.
+**The app asserts.** Two consecutive years of at least 500 hours, age 21, effective for plan years beginning in 2025 and extended to ERISA-covered 403(b) plans. The duty reaches elective deferrals only.
 
 **Why it is flagged.** SECURE 2.0 reduced the SECURE 1.0 three-year rule to two years, and the 403(b) application has had regulatory churn. Written vaguely on purpose.
 
 **To verify.** Confirm the current year count and whether it reads correctly for a 2026 candidate.
 
 **Questions that change with it.** 502 in [`src/data/questions/erisa-fiduciary.ts`](src/data/questions/erisa-fiduciary.ts)
+
+**Resolution.** The churn has settled, so the vagueness is no longer earning its keep. Confirmed: SECURE 2.0 cut the count from three consecutive years to two, effective for plan years beginning in 2025, and ERISA-covered 403(b) plans are in scope. Now stated concretely in the chapter and in question 502, whose correct choice previously read "a shorter period of consecutive years of limited hours" — true but untestable. Added the boundary that the obligation covers elective deferrals only; an employer may extend match or nonelective contributions but is not required to.
 
 ## Inflation-indexed figure
 
@@ -112,27 +114,29 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Qualified client thresholds
 
-**Status:** Open · **Item id:** `qualified-client`
+**Status:** Corrected · **Item id:** `qualified-client`
 
 **Chapter:** [Advisory Contracts, Fees, and Compensation](src/data/topics/advisory-contracts-fees.ts) — topic id `advisory-contracts-fees` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/advisory-contracts-fees)
 
-**The app asserts.** \$1.1M assets under management with the adviser, or \$2.2M net worth excluding primary residence, described throughout as periodically indexed and tested at contract inception.
+**The app asserts.** \$1.4M assets under management with the adviser, or \$2.7M net worth excluding primary residence, indexed and tested at contract inception, with existing contracts grandfathered when the thresholds rise.
 
 **Why it is flagged.** The SEC adjusts these by order. A stale figure would be wrong rather than merely dated.
 
 **To verify.** Confirm the current figures and that "tested at inception" is right.
 
-**Questions that change with it.** 253, 1083 in [`src/data/questions/advisory-contracts-fees.ts`](src/data/questions/advisory-contracts-fees.ts)
+**Questions that change with it.** 253, 594, 1083 in [`src/data/questions/advisory-contracts-fees.ts`](src/data/questions/advisory-contracts-fees.ts)
+
+**Resolution.** The concern was justified and the figures were stale. An SEC order effective June 29, 2026 raised the thresholds from \$1.1M/\$2.2M to \$1.4M/\$2.7M, with contracts already in place grandfathered. Corrected in the chapter body, pitfalls, key terms, the cheat sheet and CLAUDE.md, and in questions 253, 594 and 1083. Two knock-on fixes the figure swap alone would have missed: the worked example offered "\$1.2M under management" as a permissible variant, which no longer clears the new threshold and is now \$1.5M, and the same example gave the client a \$1.6M net worth that had been \$1.4M — numerically identical to the new AUM threshold and needlessly confusing. "Tested at inception" is confirmed, and the grandfathering in the order is a clean illustration of it.
 
 <a id="reg-a-tier-2"></a>
 
 ### Regulation A+ Tier 2 offering cap
 
-**Status:** Open · **Item id:** `reg-a-tier-2`
+**Status:** Corrected · **Item id:** `reg-a-tier-2`
 
 **Chapter:** [Registration of Securities](src/data/topics/securities-registration.ts) — topic id `securities-registration` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/securities-registration)
 
-**The app asserts.** No figure stated. The chapter tests the Tier 1 and Tier 2 preemption structure instead.
+**The app asserts.** Tier 1 capped at \$20M and Tier 2 at \$75M in a 12-month period, with the preemption structure flagged as the durable point.
 
 **Why it is flagged.** The cap has been raised more than once. Deliberately omitted rather than risk a stale number.
 
@@ -140,11 +144,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 618 in [`src/data/questions/securities-registration.ts`](src/data/questions/securities-registration.ts)
 
+**Resolution.** The premise was partly wrong: the chapter body did already state \$75M, so only question 618 was hedging. Verified that \$75M has been the Tier 2 cap since the March 2021 amendments and is unchanged as of August 2026; Tier 1 remains \$20M. Both figures are now stated in question 618 alongside a note that increases have been proposed, so a student meets the number without being taught to trust it permanently. Worth re-checking if the pending Regulation A+ Improvement Act (which would double Tier 2 to \$150M) becomes law.
+
 <a id="trust-indenture-threshold"></a>
 
 ### Trust Indenture Act dollar threshold
 
-**Status:** Open · **Item id:** `trust-indenture-threshold`
+**Status:** Confirmed · **Item id:** `trust-indenture-threshold`
 
 **Chapter:** [Fixed-Income Securities](src/data/topics/fixed-income-basics.ts) — topic id `fixed-income-basics` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/fixed-income-basics)
 
@@ -156,21 +162,25 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** None — this one is chapter text only.
 
+**Resolution.** Verified for the record: TIA §304(a)(9) and Rule 4a-3 exempt indentures limited to \$10,000,000 aggregate principal outstanding, measured over a rolling 36-month period from the initial offering — not the 12 months one would assume by analogy to the other offering caps. Treatment deliberately left qualitative, because this sits well below Series 65 depth and the 36-month measurement is more likely to mislead than help at this level. Recorded here so the next contributor does not have to re-derive it.
+
 <a id="529-conditions"></a>
 
 ### 529-to-Roth rollover conditions
 
-**Status:** Open · **Item id:** `529-conditions`
+**Status:** Corrected · **Item id:** `529-conditions`
 
 **Chapter:** [Education and Special-Needs Accounts](src/data/topics/education-accounts.ts) — topic id `education-accounts` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/education-accounts)
 
-**The app asserts.** Fifteen-year account seasoning, a five-year lookback on contributions, and a statutory lifetime cap per beneficiary, with the cap described rather than numbered.
+**The app asserts.** Fifteen-year account seasoning, a five-year lookback on contributions, and a \$35,000 lifetime cap per beneficiary that is not indexed.
 
 **Why it is flagged.** The cap is statutory but may be indexed. Stated qualitatively to avoid going stale.
 
 **To verify.** Confirm the conditions and whether the cap should be named.
 
 **Questions that change with it.** 503, 509 in [`src/data/questions/education-accounts.ts`](src/data/questions/education-accounts.ts)
+
+**Resolution.** The caution was unnecessary: the \$35,000 cap SECURE 2.0 set is a flat statutory figure with no indexing provision, and it has not moved in the three years since. Now named in the chapter, the pitfall, and question 509. The 15-year seasoning and 5-year lookback were both verified as stated. Added the practical consequence that because the annual IRA limit also binds, moving the full \$35,000 takes several years — students read the cap as a one-time transfer amount.
 
 ## Varies by state
 
@@ -228,7 +238,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Standing letter of authorization and custody relief
 
-**Status:** Open · **Item id:** `sloa-custody`
+**Status:** Confirmed · **Item id:** `sloa-custody`
 
 **Chapter:** [Custody, Safekeeping, and Client Assets](src/data/topics/custody-safekeeping.ts) — topic id `custody-safekeeping` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/custody-safekeeping)
 
@@ -239,6 +249,8 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **To verify.** Confirm the conditions and how your state treats standing letters.
 
 **Questions that change with it.** 649, 1085 in [`src/data/questions/custody-safekeeping.ts`](src/data/questions/custody-safekeeping.ts)
+
+**Resolution.** Federal framing verified: the Investment Adviser Association no-action letter dated February 21, 2017 sets seven conditions, and the relief is narrower than it is often described. The adviser still HAS custody under Rule 206(4)-2; what the letter withholds is an enforcement recommendation over the missing surprise examination, and failing any one of the seven conditions restores the exam requirement. The app states this correctly, so no content change. The state half is left to you as a practice question rather than a lookup: the letter binds no state administrator, and how your own state treats a standing letter is something you would know better than a source search.
 
 <a id="criminal-penalties"></a>
 
@@ -278,17 +290,19 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Registration by coordination filing period
 
-**Status:** Open · **Item id:** `coordination-period`
+**Status:** Corrected · **Item id:** `coordination-period`
 
 **Chapter:** [Registration of Securities](src/data/topics/securities-registration.ts) — topic id `securities-registration` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/securities-registration)
 
-**The app asserts.** Described as commonly ten to twenty days, matching the model act.
+**The app asserts.** Model act: registration statement on file at least ten days, pricing statement on file two full business days, no stop order in effect. Adopting states may lengthen the filing period.
 
 **Why it is flagged.** States vary and not all offer every registration method.
 
 **To verify.** Confirm the model-act period.
 
 **Questions that change with it.** 608, 609 in [`src/data/questions/securities-registration.ts`](src/data/questions/securities-registration.ts)
+
+**Resolution.** The model act is more specific than "ten to twenty days" suggested, and the vaguer phrasing was obscuring a testable condition. Verified: effectiveness is simultaneous with federal effectiveness provided the registration statement has been on file with the Administrator at least ten days, a statement of maximum and minimum proposed offering prices and maximum underwriting discounts has been on file two full business days, and no stop order is in effect or proceeding pending. All three now stated in the chapter and in question 608, with the note that adopting states may lengthen the filing period so a fact pattern giving a different number is not necessarily wrong.
 
 ## Reasonable advisors differ
 
@@ -414,7 +428,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Pension consultant SEC registration threshold
 
-**Status:** Open · **Item id:** `pension-consultant-threshold`
+**Status:** Confirmed · **Item id:** `pension-consultant-threshold`
 
 **Chapter:** [Investment Adviser and IAR Registration](src/data/topics/ia-iar-registration.ts) — topic id `ia-iar-registration` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/ia-iar-registration)
 
@@ -426,11 +440,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 533 in [`src/data/questions/ia-iar-registration.ts`](src/data/questions/ia-iar-registration.ts)
 
+**Resolution.** Verified against 17 CFR 275.203A-2(a). The \$200,000,000 figure is correct, counting only the portion of plan assets on which the adviser advises. The rule is titled "Exemptions from prohibition on Commission registration" — it lifts the §203A bar rather than imposing a duty, so the elective framing is right. A compliance vendor guide read during verification stated it as "must register with the SEC", which is precisely the misreading this item anticipated. No content change.
+
 <a id="issuer-rep-exclusion"></a>
 
 ### Issuer-representative exclusion and the no-commission condition
 
-**Status:** Open · **Item id:** `issuer-rep-exclusion`
+**Status:** Confirmed · **Item id:** `issuer-rep-exclusion`
 
 **Chapter:** [Broker-Dealer and Agent Registration](src/data/topics/bd-agent-registration.ts) — topic id `bd-agent-registration` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/bd-agent-registration)
 
@@ -442,21 +458,25 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 559, 560 in [`src/data/questions/bd-agent-registration.ts`](src/data/questions/bd-agent-registration.ts)
 
+**Resolution.** Verified against the 2002 Uniform Securities Act text. The exclusion for an individual representing an issuer runs to exempt securities, exempt transactions, and federal covered securities with no compensation condition attached; the "no commission or other remuneration for soliciting" condition modifies only the separate branch covering transactions with the issuer's existing employees, partners and directors. The app reads the statute correctly and the collapsed blanket version is the error. No content change.
+
 <a id="accredited-qualified-purchaser"></a>
 
 ### Accredited investor and qualified purchaser qualification routes
 
-**Status:** Open · **Item id:** `accredited-qualified-purchaser`
+**Status:** Corrected · **Item id:** `accredited-qualified-purchaser`
 
 **Chapter:** [Alternative Investments and Direct Participation](src/data/topics/alternative-investments.ts) — topic id `alternative-investments` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/alternative-investments)
 
-**The app asserts.** The dollar tests: \$1M net worth excluding primary residence, \$200,000 individual or \$300,000 joint income for accredited investor; \$5M in investments for qualified purchaser.
+**The app asserts.** The dollar tests: \$1M net worth excluding primary residence, \$200,000 individual or \$300,000 joint income for accredited investor; \$5M in investments for qualified purchaser. Plus the non-financial routes added in 2020.
 
 **Why it is flagged.** An auditor flagged this deliberately rather than editing it. The dollar tests are statutory and stable, but the qualification routes were amended in 2020 to add professional certifications and knowledgeable employees, and the app may state the routes too narrowly.
 
 **To verify.** Confirm the current qualification routes, not just the dollar tests, and whether the exam tests the non-financial routes.
 
 **Questions that change with it.** None — this one is chapter text only.
+
+**Resolution.** The auditor was right to flag it. The dollar tests were verified unchanged, but the chapter disposed of the 2020 amendments in five words ("with additional professional-credential paths") without naming them. Now stated in full: an individual qualifies by holding the Series 7, Series 65, or Series 82 in good standing, or as a knowledgeable employee of the fund making the offering, and the amendments widened the routes without moving the dollar tests. A pitfall was added because "only net worth or income can qualify an individual" is now an affirmatively wrong answer. Worth Colleen knowing directly: passing the Series 65 and registering as an IAR makes her an accredited investor on credential alone.
 
 <a id="coverdell-excise"></a>
 
@@ -478,17 +498,19 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Governmental versus tax-exempt 457(b) early withdrawal
 
-**Status:** Open · **Item id:** `457b-penalty`
+**Status:** Corrected · **Item id:** `457b-penalty`
 
 **Chapter:** [Retirement Plans and Accounts](src/data/topics/retirement-plans.ts) — topic id `retirement-plans` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/retirement-plans)
 
-**The app asserts.** The absence of a 10% early withdrawal penalty is scoped explicitly to governmental 457(b) plans.
+**The app asserts.** The absence of a 10% early withdrawal penalty is scoped to governmental 457(b) plans, with the tax-exempt "top hat" variety described separately.
 
 **Why it is flagged.** Tax-exempt employer 457(b) plans behave differently, and study material often states the exemption without the qualifier. The distinction may deserve more prominence.
 
 **To verify.** Confirm the scoping and whether the exam draws the distinction.
 
 **Questions that change with it.** 484 in [`src/data/questions/retirement-plans.ts`](src/data/questions/retirement-plans.ts)
+
+**Resolution.** The scoping was only half applied — exactly the failure mode this manifest exists to catch. The chapter's comparison section correctly said "governmental 457(b)", but the plan-type list forty lines earlier named both employer types and then asserted the no-penalty feature unqualified. Fixed, and the tax-exempt top-hat plan is now described on its own terms: assets subject to the employer's creditors, distributions generally only at separation, no rollover to an IRA. Question 484 was already correctly scoped in its stem; its explanation now adds the two boundaries on the exemption — amounts rolled IN from a 401(k) or IRA keep their own penalty treatment, and rolling the balance OUT to an IRA surrenders the advantage.
 
 <a id="muni-de-minimis"></a>
 
@@ -510,11 +532,11 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Marketing Rule promoter agreement de minimis
 
-**Status:** Open · **Item id:** `promoter-de-minimis`
+**Status:** Confirmed · **Item id:** `promoter-de-minimis`
 
 **Chapter:** [Communications, Advertising, and the Marketing Rule](src/data/topics/communications-marketing.ts) — topic id `communications-marketing` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/communications-marketing)
 
-**The app asserts.** A written promoter agreement is required above de minimis compensation, stated as \$1,000 over twelve months.
+**The app asserts.** A written promoter agreement is required above de minimis compensation, stated as \$1,000 or its non-cash equivalent over the preceding twelve months, measured in aggregate.
 
 **Why it is flagged.** The threshold and its measurement period are worth confirming.
 
@@ -522,15 +544,17 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 678 in [`src/data/questions/communications-marketing.ts`](src/data/questions/communications-marketing.ts)
 
+**Resolution.** Confirmed against Rule 206(4)-1: \$1,000 or the equivalent value in non-cash compensation during the preceding twelve months, with the exception reaching only the written-agreement condition — disclosure and oversight apply at any amount, which the app already said. Added one point verification surfaced that the app was missing: the measurement is AGGREGATE across the twelve months, and SEC examiners have cited advisers who treated a series of sub-\$1,000 payments as separately exempt when the total exceeded the threshold. That is a better distractor than the raw figure.
+
 <a id="reg-sp-breach"></a>
 
 ### Regulation S-P breach notification window
 
-**Status:** Open · **Item id:** `reg-sp-breach`
+**Status:** Confirmed · **Item id:** `reg-sp-breach`
 
 **Chapter:** [Cybersecurity, Privacy, and Business Continuity](src/data/topics/cybersecurity-privacy.ts) — topic id `cybersecurity-privacy` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/cybersecurity-privacy)
 
-**The app asserts.** A 30-day individual notification requirement under the amended rule, with stricter state statutes noted as applying on top.
+**The app asserts.** A 30-day individual notification requirement under the amended rule, now fully in effect for all covered firms, with stricter state statutes applying on top.
 
 **Why it is flagged.** Compliance dates were tiered by firm size. Confirm the timing as it now stands.
 
@@ -538,21 +562,25 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 688, 298, 1102 in [`src/data/questions/cybersecurity-privacy.ts`](src/data/questions/cybersecurity-privacy.ts)
 
+**Resolution.** Both tiers are now live: December 3, 2025 for larger entities and June 3, 2026 for smaller ones, so as of this revision the amended rule binds every covered firm and should not be taught as forthcoming. The 30-day window is confirmed. Added the point that most often gets it wrong in practice — the clock runs from awareness that unauthorised access has occurred or is reasonably likely to have occurred, not from the close of the investigation, so a firm waiting on forensics before starting to count has already misread the rule.
+
 <a id="form-crs-amendment"></a>
 
 ### Form CRS amendment delivery timing
 
-**Status:** Open · **Item id:** `form-crs-amendment`
+**Status:** Corrected · **Item id:** `form-crs-amendment`
 
 **Chapter:** [Advisory Contracts, Fees, and Compensation](src/data/topics/advisory-contracts-fees.ts) — topic id `advisory-contracts-fees` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/advisory-contracts-fees)
 
-**The app asserts.** Described as "within the periods specified by the rule" rather than a day count.
+**The app asserts.** Filed within 30 days of the information becoming materially inaccurate; changes delivered to existing retail clients within 60 days after that filing was required.
 
 **Why it is flagged.** The filing window and the delivery window differ, and the agent declined to pin either.
 
 **To verify.** Confirm both windows and whether they are worth stating.
 
 **Questions that change with it.** 597 in [`src/data/questions/advisory-contracts-fees.ts`](src/data/questions/advisory-contracts-fees.ts)
+
+**Resolution.** Both windows confirmed and now stated: 30 days to file the amendment, 60 days after that filing was required to deliver the changes to existing retail clients, with changed text marked or a summary of material changes provided. The agent was right that they differ and wrong to hide the difference — that the two clocks are separate is the tested point, and "within the periods specified by the rule" taught nothing. Added to the chapter body, which had no coverage of amendment timing at all, as well as to question 597.
 
 ## Feeding corrections back
 
@@ -584,7 +612,7 @@ Do not edit `REVIEW.md` by hand — the next regeneration discards it, and the i
 
 ### Every affected question, in one place
 
-37 questions across the whole list. If a question appears against two items, both rules have to be settled before it is safe to touch.
+38 questions across the whole list. If a question appears against two items, both rules have to be settled before it is safe to touch.
 
 | Question | Module | Item |
 |---:|---|---|
@@ -605,6 +633,7 @@ Do not edit `REVIEW.md` by hand — the next regeneration discards it, and the i
 | 560 | [`src/data/questions/bd-agent-registration.ts`](src/data/questions/bd-agent-registration.ts) | [Issuer-representative exclusion and the no-commission condition](#issuer-rep-exclusion) |
 | 565 | [`src/data/questions/bd-agent-registration.ts`](src/data/questions/bd-agent-registration.ts) | [Dual registration as agent and IAR](#dual-registration) |
 | 571 | [`src/data/questions/bd-agent-registration.ts`](src/data/questions/bd-agent-registration.ts) | [Minimum net worth and bonding amounts](#net-worth-bonding) |
+| 594 | [`src/data/questions/advisory-contracts-fees.ts`](src/data/questions/advisory-contracts-fees.ts) | [Qualified client thresholds](#qualified-client) |
 | 597 | [`src/data/questions/advisory-contracts-fees.ts`](src/data/questions/advisory-contracts-fees.ts) | [Form CRS amendment delivery timing](#form-crs-amendment) |
 | 608 | [`src/data/questions/securities-registration.ts`](src/data/questions/securities-registration.ts) | [Registration by coordination filing period](#coordination-period) |
 | 609 | [`src/data/questions/securities-registration.ts`](src/data/questions/securities-registration.ts) | [Registration by coordination filing period](#coordination-period) |

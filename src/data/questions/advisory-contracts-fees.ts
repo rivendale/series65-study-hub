@@ -34,13 +34,13 @@ export const items: Question[] = [
     topic: 'advisory-contracts-fees',
     q: 'An investment adviser wishes to charge a fee equal to 20% of the capital appreciation of an account above a stated benchmark. Such an arrangement is permitted only where:',
     choices: [
-      'The client is a qualified client — at least $1.1 million under management with the adviser, or a net worth of more than $2.2 million excluding the primary residence',
+      'The client is a qualified client — at least $1.4 million under management with the adviser, or a net worth of more than $2.7 million excluding the primary residence',
       'The client signs a waiver of the protections of the Investment Advisers Act',
       'The adviser also offers the client an asset-based fee alternative',
       'The adviser itself has at least $110 million in regulatory assets under management',
     ],
     answer: 0,
-    exp: 'Performance-based compensation is generally prohibited, but Rule 205-3 permits it for qualified clients, currently defined as at least $1.1 million in assets under management with the adviser or more than $2.2 million in net worth excluding the primary residence. These dollar thresholds are adjusted for inflation periodically, so verify them against the current rule.',
+    exp: 'Performance-based compensation is generally prohibited, but Rule 205-3 permits it for qualified clients, defined since June 29, 2026 as at least $1.4 million in assets under management with the adviser or more than $2.7 million in net worth excluding the primary residence. The SEC adjusts these for inflation by order — the prior pair was $1.1 million and $2.2 million — so verify them against the current rule.',
     difficulty: 'medium',
   },
   {
@@ -104,13 +104,13 @@ export const items: Question[] = [
     topic: 'advisory-contracts-fees',
     q: 'A prospect will place $850,000 under management with an adviser. His net worth is $1.9 million, of which $600,000 is equity in his primary residence. The adviser proposes a fee of 20% of gains above a stated benchmark. The adviser may:',
     choices: [
-      "Charge the performance fee, because the client's total net worth exceeds $1.1 million",
+      "Charge the performance fee, because the client's total net worth exceeds $1.4 million",
       'Charge the performance fee if the client signs an acknowledgment that he understands the risks',
       'Not charge the performance fee, because the client satisfies neither the assets-under-management test nor the net worth test',
       'Charge the performance fee, because equity in the primary residence counts toward the net worth test',
     ],
     answer: 2,
-    exp: 'A qualified client must have at least $1.1 million under management with the adviser immediately after entering the contract, or a net worth above $2.2 million excluding the primary residence. Here assets under management are $850,000 and net worth excluding the residence is $1.3 million, so neither test is met and no client acknowledgment can substitute. These thresholds are indexed for inflation and adjusted periodically by SEC order.',
+    exp: 'A qualified client must have at least $1.4 million under management with the adviser immediately after entering the contract, or a net worth above $2.7 million excluding the primary residence. Here assets under management are $850,000 and net worth excluding the residence is $1.3 million, so neither test is met and no client acknowledgment can substitute. These thresholds are indexed for inflation and adjusted periodically by SEC order, most recently on June 29, 2026.',
     difficulty: 'medium',
   },
   {
@@ -152,7 +152,7 @@ export const items: Question[] = [
       'It must be delivered no later than the time the firm enters into an advisory agreement with the retail investor, in addition to the brochure',
     ],
     answer: 3,
-    exp: 'Form CRS is a short relationship summary delivered to a retail investor by the time the advisory agreement is entered into. It supplements rather than replaces the Part 2A brochure, it is filed and posted on the firm website, and amendments must be filed and delivered to affected clients within the periods specified by the rule.',
+    exp: 'Form CRS is a short relationship summary delivered to a retail investor by the time the advisory agreement is entered into. It supplements rather than replaces the Part 2A brochure, and it is filed and posted on the firm website. Amendments run on two separate clocks that are easy to merge into one: the amended form must be FILED within 30 days of the information becoming materially inaccurate, and the changes must be DELIVERED to existing retail clients within 60 days after that filing was required.',
     difficulty: 'medium',
   },
   {
@@ -292,7 +292,7 @@ export const items: Question[] = [
       'The adviser may continue for twelve more months, after which the contract must be renegotiated',
     ],
     answer: 0,
-    exp: "Rule 205-3 measures qualified client status when the advisory contract is entered into, so market losses that drop a client below the line do not invalidate an existing performance-fee arrangement. The thresholds are $1.1 million under management with the adviser or more than $2.2 million of net worth excluding the primary residence, both periodically indexed for inflation, and a new contract would be tested against whatever thresholds are in force on that later date.",
+    exp: "Rule 205-3 measures qualified client status when the advisory contract is entered into, so market losses that drop a client below the line do not invalidate an existing performance-fee arrangement. The thresholds are $1.4 million under management with the adviser or more than $2.7 million of net worth excluding the primary residence, both periodically indexed for inflation, and a new contract would be tested against whatever thresholds are in force on that later date. The same principle explains why the June 29, 2026 increase grandfathered contracts already in place.",
     difficulty: 'medium',
   },
   {

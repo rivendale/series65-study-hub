@@ -96,7 +96,7 @@ export const items: Question[] = [
       'Paid to a person unaffiliated with the adviser',
     ],
     answer: 0,
-    exp: "The de minimis exception from the written-agreement condition is $1,000 or its non-cash equivalent in the prior twelve months. Non-cash compensation such as event tickets, software, or directed brokerage counts toward the threshold, and disclosure and oversight are required at any amount.",
+    exp: "The de minimis exception from the written-agreement condition is $1,000 or its non-cash equivalent in the prior twelve months. Non-cash compensation such as event tickets, software, or directed brokerage counts toward the threshold, and disclosure and oversight are required at any amount. The measurement is AGGREGATE across the twelve months, not per payment — SEC examiners have cited advisers who treated a series of sub-$1,000 payments as separately exempt when the total exceeded the threshold.",
     difficulty: 'easy',
   },
   {

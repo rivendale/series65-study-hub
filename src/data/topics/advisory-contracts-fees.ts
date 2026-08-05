@@ -74,12 +74,12 @@ An advisory fee on assets held in funds or ETFs sits **on top of** each fund's e
 
 **Rule 205-3** permits a performance fee if the client is a **qualified client**, meaning the client either:
 
-- has at least **$1.1M in assets under management with the adviser** immediately after entering the contract, **or**
-- has a **net worth of more than $2.2M**, **excluding the value of the primary residence**, or is a qualified purchaser or a knowledgeable employee of the adviser.
+- has at least **$1.4M in assets under management with the adviser** immediately after entering the contract, **or**
+- has a **net worth of more than $2.7M**, **excluding the value of the primary residence**, or is a qualified purchaser or a knowledgeable employee of the adviser.
 
-These dollar thresholds are **indexed for inflation** and adjusted periodically by SEC order, so know the current figures and know that they move.
+These dollar thresholds are **indexed for inflation** and adjusted periodically by SEC order — most recently effective **June 29, 2026**, when they rose from $1.1M and $2.2M. Know the current figures, and know that they move: a candidate studying from older material will have memorised the previous pair.
 
-**Status is tested at inception**, when the client enters into the contract. A client who qualified at signing and later drops below the threshold need not be moved off the fee; a client who does not qualify at signing cannot be given one on the expectation of growing into it. The exception exists because a qualified client can absorb the risk the fee encourages and can bargain over it, which an ordinary retail client cannot.
+**Status is tested at inception**, when the client enters into the contract. A client who qualified at signing and later drops below the threshold need not be moved off the fee; a client who does not qualify at signing cannot be given one on the expectation of growing into it. The same logic runs through the indexing: when the SEC raises the thresholds, contracts already in place are **grandfathered** rather than repriced, because the test was passed on the day it was applied. The exception exists because a qualified client can absorb the risk the fee encourages and can bargain over it, which an ordinary retail client cannot.
 
 ### Additional Requirements
 
@@ -122,6 +122,8 @@ The contract fixes the terms; the **brochure** is how the client comes to unders
 | Style | Narrative | Prescribed headings and required **conversation starters** |
 
 They do not substitute for one another: an adviser with retail clients delivers **both**.
+
+**Amending Form CRS** runs on two clocks, and merging them into one is the usual error. The amended form must be **filed within 30 days** of the information becoming materially inaccurate; the changes must then be **delivered to existing retail clients within 60 days** after that filing was required — with the changed text marked or a summary of material changes provided. Filing and delivery are separate duties with separate deadlines.
 
 ## Third-Party Compensation and Conflicts
 
@@ -171,11 +173,11 @@ That is an **assignment**. Transfer of a **controlling block** is a change in co
 
 ### The Performance Fee Nobody Could Consent To
 
-Bram Vogel manages $600,000 for a client whose net worth excluding a primary residence is roughly $1.4M. The client is sophisticated, wants aggressive management, and himself proposes 1% of assets plus 20% of any gain above an 8% annual return. Both sides sign, and Bram discloses the conflict in detail.
+Bram Vogel manages $600,000 for a client whose net worth excluding a primary residence is roughly $1.6M. The client is sophisticated, wants aggressive management, and himself proposes 1% of assets plus 20% of any gain above an 8% annual return. Both sides sign, and Bram discloses the conflict in detail.
 
-Bram still cannot take it. **Section 205** bars performance compensation unless the client is a **qualified client**, and this client meets neither test — not **$1.1M under management with the adviser** ($600,000), not **more than $2.2M net worth** excluding the residence ($1.4M). Note what fails to save it: sophistication, the fact that the client proposed it, and complete disclosure. This is a rule about **who may pay**, not about what was disclosed — the cleanest exam example of a conflict consent cannot cure. Two variants: at $1.2M under management the fee is permissible provided it accounts for **losses as well as gains** over at least 12 months; and "1% of the **average value of assets** over the year" is not a performance fee at all and is open to any client.`,
+Bram still cannot take it. **Section 205** bars performance compensation unless the client is a **qualified client**, and this client meets neither test — not **$1.4M under management with the adviser** ($600,000), not **more than $2.7M net worth** excluding the residence ($1.6M). Note what fails to save it: sophistication, the fact that the client proposed it, and complete disclosure. This is a rule about **who may pay**, not about what was disclosed — the cleanest exam example of a conflict consent cannot cure. Two variants: at $1.5M under management the fee is permissible provided it accounts for **losses as well as gains** over at least 12 months; and "1% of the **average value of assets** over the year" is not a performance fee at all and is open to any client.`,
   pitfalls: [
-    "Performance fees are prohibited unless the client is a qualified client — $1.1M AUM with the adviser or more than $2.2M net worth excluding the primary residence. These figures are indexed and change over time.",
+    "Performance fees are prohibited unless the client is a qualified client — $1.4M AUM with the adviser or more than $2.7M net worth excluding the primary residence, effective June 29, 2026. These figures are indexed and change over time; older study material still shows $1.1M and $2.2M.",
     "A permitted performance fee must account for losses as well as gains. A fee on gains only, with no downside offset, is not compliant.",
     "A fee based on the average value of assets over a period is not a performance fee and is allowed for any client. Do not confuse it with a share of capital appreciation.",
     "A change in the minority membership of an advisory partnership is not an assignment — it only requires notice to clients within a reasonable time. A change in control is an assignment requiring consent.",
@@ -196,7 +198,7 @@ Bram still cannot take it. **Section 205** bars performance compensation unless 
     {
       term: 'Qualified client',
       definition:
-        'A client permitted to pay performance-based fees: at least $1.1M under management with the adviser, or net worth exceeding $2.2M excluding the primary residence, or a qualified purchaser or knowledgeable employee. Thresholds are indexed.',
+        'A client permitted to pay performance-based fees: at least $1.4M under management with the adviser, or net worth exceeding $2.7M excluding the primary residence, or a qualified purchaser or knowledgeable employee. Thresholds are indexed and rose from $1.1M and $2.2M on June 29, 2026.',
     },
     {
       term: 'Performance-based fee',

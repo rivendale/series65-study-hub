@@ -56,7 +56,7 @@ The workhorse for **public offerings registered federally under the Securities A
 
 Coordination exists to prevent a timing absurdity. An offering priced and cleared federally cannot sensibly wait for fifty separate state effectiveness dates; underwriting syndicates form and price on a single date. So the state deliberately **synchronizes** with the federal process rather than running its own clock.
 
-The tested point: a coordinated registration becomes **effective at the same moment the federal registration becomes effective**, provided the state filing has been on file for the required period (commonly **10 to 20 days**), no stop order is in effect, and a **price range and underwriting terms** have been on file for the required period. **State effectiveness rides on federal effectiveness** — the Administrator does not choose the date.
+The tested point: a coordinated registration becomes **effective at the same moment the federal registration becomes effective**, provided three conditions hold. Under the model act these are that the registration statement has been **on file with the Administrator for at least 10 days**; that a statement of the **maximum and minimum proposed offering prices** and the **maximum underwriting discounts and commissions** has been on file for **two full business days**; and that **no stop order is in effect** and no proceeding is pending. Adopting states may lengthen the filing period, so a fact pattern giving a different number is not necessarily wrong. **State effectiveness rides on federal effectiveness** — the Administrator does not choose the date.
 
 ### Registration by Qualification
 
