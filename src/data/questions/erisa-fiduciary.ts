@@ -1,0 +1,88 @@
+import type { Question } from '../questions';
+
+export const items: Question[] = [
+  {
+    id: 185,
+    topic: 'erisa-fiduciary',
+    q: 'Which of the following retirement plans is generally NOT covered by ERISA?',
+    choices: [
+      'A corporate 401(k) plan sponsored by a publicly traded manufacturer',
+      'A defined benefit pension plan of a privately held company',
+      'A retirement plan established for employees of a state government',
+      'A profit-sharing plan sponsored by a small private employer',
+    ],
+    answer: 2,
+    exp: 'ERISA governs private-sector employee benefit plans. Federal, state and local government plans are excluded, as are most church plans, though they may be regulated under other state or federal law.',
+    difficulty: 'easy',
+  },
+  {
+    id: 186,
+    topic: 'erisa-fiduciary',
+    q: 'Which of the following are required for a participant-directed plan to obtain fiduciary relief under ERISA Section 404(c)?\n\nI. Participants must be able to choose among a broad range of investment alternatives with materially different risk and return characteristics.\nII. Participants must be able to give investment instructions with a frequency appropriate to the volatility of the options, generally at least quarterly.\nIII. Participants must receive sufficient information to make informed investment decisions.\nIV. The plan must guarantee participants a minimum rate of return.',
+    choices: [
+      'I and III only',
+      'I, II and III only',
+      'II and IV only',
+      'I, II, III and IV',
+    ],
+    answer: 1,
+    exp: 'Section 404(c) relief requires a broad range of alternatives, a reasonable opportunity to give instructions, and adequate disclosure so participants can decide knowledgeably. No plan may guarantee a return, and 404(c) never relieves the fiduciary of responsibility for prudently selecting and monitoring the menu itself.',
+    difficulty: 'hard',
+  },
+  {
+    id: 187,
+    topic: 'erisa-fiduciary',
+    q: 'ERISA requires a plan fiduciary to act with the care, skill, prudence and diligence that a prudent person acting in a like capacity and familiar with such matters would use. This standard is commonly called:',
+    choices: [
+      'The best execution standard',
+      'The reasonable basis suitability standard',
+      'The prudent layperson standard',
+      'The prudent expert standard',
+    ],
+    answer: 3,
+    exp: 'ERISA imposes a prudent expert standard — the benchmark is a knowledgeable professional, not an ordinary person. The other core duties are acting solely in the exclusive benefit of participants and beneficiaries, diversifying investments to minimize the risk of large losses, and following plan documents to the extent consistent with ERISA.',
+    difficulty: 'easy',
+  },
+  {
+    id: 188,
+    topic: 'erisa-fiduciary',
+    q: 'A plan sponsor wants to fully delegate the selection, monitoring and replacement of the plan investment options, transferring discretion and the associated fiduciary liability for those decisions to an outside firm. Which arrangement accomplishes this?',
+    choices: [
+      'Hiring a third-party administrator',
+      'Hiring a recordkeeper with an enhanced service agreement',
+      'Engaging an ERISA 3(21) investment adviser to provide recommendations',
+      'Engaging an ERISA 3(38) investment manager with full discretion',
+    ],
+    answer: 3,
+    exp: 'A 3(38) investment manager takes discretionary control and accepts fiduciary responsibility for the investment decisions themselves. A 3(21) adviser is a co-fiduciary who advises while the sponsor retains discretion and final responsibility. TPAs and recordkeepers perform ministerial functions and are typically not fiduciaries.',
+    difficulty: 'medium',
+  },
+  {
+    id: 189,
+    topic: 'erisa-fiduciary',
+    q: 'A plan fiduciary arranges for the plan to purchase an office building from the corporation that sponsors the plan. An independent appraisal confirms the price is fair market value. Under ERISA this transaction is:',
+    choices: [
+      'Permitted, provided a majority of participants consent in writing',
+      'Permitted, because real estate diversifies the plan portfolio',
+      'Permitted, because the plan paid no more than fair market value',
+      'A prohibited transaction with a party in interest unless a statutory or administrative exemption applies',
+    ],
+    answer: 3,
+    exp: 'ERISA bars specified transactions between a plan and a party in interest — including sales, exchanges, leases and loans — regardless of fairness of price. The sponsoring employer is a party in interest, so an exemption is required. Fair pricing and participant consent do not cure a prohibited transaction.',
+    difficulty: 'medium',
+  },
+  {
+    id: 190,
+    topic: 'erisa-fiduciary',
+    q: 'An investment adviser representative recommends that a plan participant roll her 401(k) balance into an IRA that the IAR will manage for an asset-based fee. Which statement is most accurate?',
+    choices: [
+      'Rollover recommendations from an ERISA plan to an IRA are prohibited',
+      'Disclosure is required only if the rollover balance exceeds $100,000',
+      'There is no conflict of interest because the client will receive ongoing advice she did not have before',
+      'The recommendation creates a conflict of interest that must be disclosed, and the adviser should document a comparison of the plan and IRA fees, services and investment options',
+    ],
+    answer: 3,
+    exp: 'The IAR earns a fee only if the assets move, which is a textbook conflict. The recommendation must rest on a documented, client-specific comparison of costs, available investments, services and any loss of plan features such as institutional pricing or creditor protection, with the conflict fully disclosed. Rollovers are not prohibited and there is no dollar threshold that turns the duty on.',
+    difficulty: 'medium',
+  },
+];

@@ -1,0 +1,88 @@
+import type { Question } from '../questions';
+
+export const items: Question[] = [
+  {
+    id: 197,
+    topic: 'estate-gift-basics',
+    q: 'A client dies leaving a valid will that gives his entire estate to his two children. His IRA beneficiary form, never updated after the divorce, still names his ex-spouse. Who receives the IRA?',
+    choices: [
+      'The probate estate, to be divided under state intestacy law',
+      'The children and the ex-spouse equally',
+      'The two children, because the will is the controlling document',
+      'The ex-spouse, because a valid beneficiary designation controls',
+    ],
+    answer: 3,
+    exp: 'A beneficiary designation is a contract with the custodian and passes the asset outside probate — the will never touches it. This is why reviewing beneficiary forms after divorce, marriage, birth or death is a core planning step.',
+    difficulty: 'easy',
+  },
+  {
+    id: 198,
+    topic: 'estate-gift-basics',
+    q: 'Which of the following is NOT an advantage of a revocable living trust?',
+    choices: [
+      'Assets titled in the trust avoid probate',
+      'The trust provides for management of assets if the grantor becomes incapacitated',
+      'Assets in the trust are removed from the grantor taxable estate',
+      'The disposition of assets remains private rather than becoming a public record',
+    ],
+    answer: 2,
+    exp: 'Because the grantor can revoke or amend it and retains control, a revocable trust provides no estate tax reduction and no creditor protection — the assets remain in the taxable estate. Only an irrevocable transfer accomplishes that. A durable power of attorney and healthcare proxy typically accompany the trust to cover assets left outside it.',
+    difficulty: 'medium',
+  },
+  {
+    id: 199,
+    topic: 'estate-gift-basics',
+    q: 'An elderly client in declining health owns stock with a very low basis and a large unrealized gain. She asks whether to gift the shares to her son now or leave them to him at death. Assuming her estate is well below the exemption amount, which is correct?',
+    choices: [
+      'Bequeathing the shares is generally better, because the son receives a step-up in basis to fair market value at death, while a lifetime gift carries over her basis',
+      'Gifting now is generally better, because the son receives a step-up in basis on the date of the gift',
+      'The result is identical either way, because the step-up applies to gifts and bequests alike',
+      'Gifting now is better, because it eliminates the capital gain entirely',
+    ],
+    answer: 0,
+    exp: 'A lifetime gift transfers the donor carryover basis; the built-in gain survives the transfer. Property passing at death receives a basis step-up (or step-down) to date-of-death fair market value, wiping out the unrealized gain. For a below-exemption estate holding appreciated assets, holding until death is generally the more tax-efficient path.',
+    difficulty: 'medium',
+  },
+  {
+    id: 200,
+    topic: 'estate-gift-basics',
+    q: 'Which of the following assets pass outside of probate?\n\nI. Real estate held joint tenants with right of survivorship\nII. A life insurance policy with a named individual beneficiary\nIII. A brokerage account titled solely in the decedent name with no beneficiary designation\nIV. A transfer on death brokerage account',
+    choices: [
+      'I and II only',
+      'I, II and IV only',
+      'III and IV only',
+      'I, II, III and IV',
+    ],
+    answer: 1,
+    exp: 'Survivorship titling, contractual beneficiary designations and TOD or POD registrations all transfer by operation of law or contract and bypass probate. An account titled in the decedent name alone with no beneficiary is the classic probate asset, controlled by the will.',
+    difficulty: 'medium',
+  },
+  {
+    id: 201,
+    topic: 'estate-gift-basics',
+    q: 'Which statement about a qualified charitable distribution is correct?',
+    choices: [
+      'It is available to IRA owners age 70½ or older, must go directly from the IRA custodian to a qualifying charity, is excluded from taxable income, and may count toward the RMD',
+      'It is available to IRA owners of any age and is reported as a charitable deduction on Schedule A',
+      'It may be taken from an active 401(k) as well as an IRA',
+      'It is included in income and then offset by an equal deduction',
+    ],
+    answer: 0,
+    exp: 'A QCD lets an IRA owner 70½ or older direct funds straight to a qualifying public charity. The amount is excluded from adjusted gross income rather than deducted, which benefits taxpayers who take the standard deduction, and it can satisfy part or all of the RMD. Donor-advised funds and private foundations do not qualify.',
+    difficulty: 'medium',
+  },
+  {
+    id: 202,
+    topic: 'estate-gift-basics',
+    q: 'What is the difference between an estate tax and an inheritance tax?',
+    choices: [
+      'An estate tax is imposed on the decedent estate before distribution; an inheritance tax is imposed on the recipient and is levied only by certain states',
+      'An estate tax is imposed on the recipient; an inheritance tax is imposed on the estate',
+      'They are two names for the same federal tax',
+      'An estate tax applies only to probate assets; an inheritance tax applies only to non-probate assets',
+    ],
+    answer: 0,
+    exp: 'The federal transfer tax at death is an estate tax paid by the estate; a handful of states add an inheritance tax assessed on each beneficiary, often at rates that vary with the relationship to the decedent. Transfers to a US citizen spouse are shielded by the unlimited marital deduction, and portability lets a surviving spouse claim the deceased spouse unused federal exemption if a timely estate tax return is filed.',
+    difficulty: 'easy',
+  },
+];
