@@ -64,7 +64,7 @@ An advisory fee on assets held in funds or ETFs sits **on top of** each fund's e
 
 ### Prepayment and Refunds
 
-**Prepaid fees create a balance sheet obligation.** An adviser collecting **more than $1,200 in fees six or more months in advance** must include an **audited balance sheet** with its brochure and meet minimum net worth or bonding requirements. The logic is solvency: a client who prepaid is an **unsecured creditor**, and if the firm fails his refund claim stands in line with everyone else's. States use a lower trigger, commonly **more than $500** six or more months in advance. The **refund** is a separate duty: on termination the unearned portion goes back **pro rata**, and a contract keeping the whole prepayment is a prohibited penalty.
+**Prepaid fees create a balance sheet obligation.** An adviser taking **substantial prepayment** must include an **audited balance sheet** with its brochure and meet minimum net worth or bonding requirements. The logic is solvency: a client who prepaid is an **unsecured creditor**, and if the firm fails his refund claim stands in line with everyone else's. The threshold depends on who regulates the adviser: the **SEC** brochure rule (Form ADV Part 2A) uses **more than $1,200 six or more months in advance**, while the **NASAA model rule** that states apply to **state-registered** advisers uses **more than $500** on the same timing. Adopting states vary, so read the fact pattern for which regime is in play rather than defaulting to one number. The **refund** is a separate duty: on termination the unearned portion goes back **pro rata**, and a contract keeping the whole prepayment is a prohibited penalty.
 
 ## Performance-Based Fees
 
@@ -107,7 +107,7 @@ The rule exists because **advice is personal**. A client picked this adviser —
 
 The contract fixes the terms; the **brochure** is how the client comes to understand them. **Rule 204-3** governs delivery of **Form ADV Part 2A** (the firm brochure) and **Part 2B** (the supplement covering the individuals who actually advise the client):
 
-- **At or before entering into the contract.** The federal rule permits delivery at entry; **many states require it at least 48 hours before** signing, or at signing with a **five-business-day right to terminate without penalty**. The reason is plain once stated: disclosure delivered after the client is committed cannot inform the decision it was meant to inform.
+- **At or before entering into the contract.** The federal rule, as amended in 2010, requires delivery **before or at the time** of entry and gives no rescission right; the **NASAA model rule** applied to **state-registered** advisers instead requires delivery **at least 48 hours before** signing, or at signing with a **five-business-day right to terminate without penalty**. The reason is plain once stated: disclosure delivered after the client is committed cannot inform the decision it was meant to inform.
 - **Annually**, within **120 days of fiscal year end**, deliver either the updated brochure with a **summary of material changes**, or the summary alone with an **offer** of the full brochure.
 - **Promptly** whenever brochure information becomes **materially inaccurate**, disciplinary information above all.
 
@@ -118,7 +118,7 @@ The contract fixes the terms; the **brochure** is how the client comes to unders
 | Purpose | Full disclosure of services, fees, conflicts, discipline | Short comparison tool |
 | Length | As long as needed | **2 pages** (4 for dual registrants) |
 | Audience | All clients | **Retail investors** |
-| Delivery | At or before the contract; annually within 120 days | **Before or at the earliest** of a recommendation, an account opening, or placing an order |
+| Delivery | Federal: at or before the contract. State (NASAA model rule): 48 hours before, or at signing with a 5-business-day right to terminate. Annually within 120 days either way | **Before or at the earliest** of a recommendation, an account opening, or placing an order |
 | Style | Narrative | Prescribed headings and required **conversation starters** |
 
 They do not substitute for one another: an adviser with retail clients delivers **both**.
@@ -179,12 +179,12 @@ Bram still cannot take it. **Section 205** bars performance compensation unless 
     "A permitted performance fee must account for losses as well as gains. A fee on gains only, with no downside offset, is not compliant.",
     "A fee based on the average value of assets over a period is not a performance fee and is allowed for any client. Do not confuse it with a share of capital appreciation.",
     "A change in the minority membership of an advisory partnership is not an assignment — it only requires notice to clients within a reasonable time. A change in control is an assignment requiring consent.",
-    "Collecting more than $1,200 in fees six or more months in advance triggers the audited balance sheet and financial disclosure requirements.",
+    "Substantial prepayment triggers the audited balance sheet and financial disclosure requirements, but the trigger differs by regime: more than $1,200 six or more months in advance under the SEC brochure rule, more than $500 under the NASAA model rule applied to state-registered advisers.",
     "The §28(e) soft dollar safe harbor covers research and brokerage services that benefit all clients. Hardware, travel, entertainment, rent, and marketing are outside it.",
     "Testimonials and endorsements are permitted under the Marketing Rule with disclosure, a written agreement, and adviser oversight. The old blanket prohibition no longer applies.",
     "Placing a client in a 12b-1 paying share class when a cheaper class of the same fund was available, without disclosure, is a fiduciary breach even if the fund itself was suitable.",
     "Qualified client status is tested at inception. Falling below the threshold later does not unwind a valid performance fee, and expecting to grow into the threshold does not create one.",
-    "The brochure is delivered at or before contract and updated annually within 120 days of fiscal year end. Form CRS is a separate two-page relationship summary for retail investors — an adviser with retail clients delivers both, not one instead of the other.",
+    "Brochure delivery timing splits by regime: the federal rule delivers at or before the contract, while the NASAA model rule for state-registered advisers requires 48 hours before signing, or at signing with a five-business-day right to terminate without penalty. Either way the brochure is updated annually within 120 days of fiscal year end. Form CRS is a separate two-page relationship summary for retail investors — an adviser with retail clients delivers both, not one instead of the other.",
     "A hedge clause is a violation even if a court would refuse to enforce it, because the violation is the misleading impression that rights were waived.",
   ],
   keyTerms: [

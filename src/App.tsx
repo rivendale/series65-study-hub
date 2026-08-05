@@ -11,6 +11,7 @@ import StudyPlan from './pages/StudyPlan';
 import Glossary from './pages/Glossary';
 import CheatSheet from './pages/CheatSheet';
 import Formulas from './pages/Formulas';
+import Review from './pages/Review';
 import Sync from './pages/Sync';
 import { useTheme } from './hooks/useProgress';
 
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/glossary" element={<Glossary />} />
           <Route path="/formulas" element={<Formulas />} />
           <Route path="/cheatsheet" element={<CheatSheet />} />
+          <Route path="/review" element={<Review />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

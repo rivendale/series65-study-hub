@@ -1,6 +1,8 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Home, BookOpen, Brain, BarChart3, CalendarDays } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
+import InstallPrompt from './InstallPrompt';
+import UpdateBanner, { OfflineIndicator } from './UpdateBanner';
 
 interface Props {
   children: ReactNode;
@@ -29,6 +31,15 @@ const desktopLinks = [
 export default function Layout({ children }: Props) {
   const location = useLocation();
   const hideChrome = location.pathname.startsWith('/quiz/');
+
+  /**
+   * The dock shows one decision card at a time. The update and the install
+   * offer are both full-width cards asking a question, and together they cover
+   * roughly a third of a phone screen; the update wins, because what is behind
+   * it is usually corrected exam content. The offline pill is a single line of
+   * fact rather than a question, so it is allowed to sit alongside either.
+   */
+  const [updateShowing, setUpdateShowing] = useState(false);
 
   return (
     <div className="min-h-full flex flex-col bg-slate-50 dark:bg-slate-950">
@@ -96,6 +107,22 @@ export default function Layout({ children }: Props) {
           </ul>
         </nav>
       )}
+
+      {/*
+        App-shell notices. Mounted on every route rather than per page, and
+        mounted unconditionally: each one decides for itself whether to render,
+        so a service worker update that arrives during a quiz is still waiting
+        afterwards instead of being unmounted along with its state.
+
+        The dock is fixed above the mobile tab bar and clear of the home
+        indicator (see .pwa-dock). It takes no pointer events itself, so an
+        empty dock — the usual case — cannot swallow taps on the page beneath.
+      */}
+      <div className="pwa-dock pointer-events-none fixed inset-x-0 z-40 flex flex-col items-center gap-2 px-3">
+        <UpdateBanner onVisibilityChange={setUpdateShowing} />
+        <InstallPrompt suppressed={updateShowing} />
+        <OfflineIndicator />
+      </div>
     </div>
   );
 }

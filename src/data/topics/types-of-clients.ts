@@ -162,7 +162,7 @@ What would have preserved control: a **529 plan** owned by the grandparent, who 
 - A **springing** power takes effect only on a stated event, typically certified incapacity; the firm needs evidence the trigger occurred before accepting orders.
 - Revocation is effective when the firm has **notice** — telling the agent is not telling the firm.
 
-**Discretionary authority** is different again: it lets the adviser choose **asset, action, and amount** without contacting the client, and requires **prior written authorization**. Choosing only **time and price** is not discretion.
+**Discretionary authority** is different again: it lets the adviser choose **asset, action, and amount** without contacting the client, and requires **written authorization**. A **broker-dealer agent** must have that writing **before the first discretionary trade**; an **investment adviser** may act on **oral** authority for up to **10 business days** after the first discretionary transaction while the writing is obtained. Choosing only **time and price** is not discretion.
 
 ## Transfer on Death
 
@@ -237,7 +237,7 @@ A **TOD** (or payable on death) registration lets an **individual or JTWROS** ac
       with: 'Full trading authorization — orders plus withdrawal of cash and securities',
     },
     {
-      dont: 'Discretionary authority — adviser chooses asset, action, and amount, requiring prior written client authorization',
+      dont: 'Discretionary authority — adviser chooses asset, action, and amount, requiring written client authorization',
       with: 'Time and price discretion — choosing only when and at what price to execute a client-specified trade, which is not discretion',
     },
     {

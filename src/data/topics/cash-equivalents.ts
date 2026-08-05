@@ -38,7 +38,7 @@ The trade-off is **return**. Cash equivalents almost always deliver the lowest e
 
 **Commercial paper (CP)** is an **unsecured promissory note** issued by a corporation to fund short-term needs such as payroll and inventory. It is sold at a **discount**, like a T-bill.
 
-The **270-day** ceiling is not a market convention; it is the edge of the Securities Act registration exemption, and the exemption is a package of conditions rather than a single number. The paper must mature in **nine months or less**, the **proceeds must fund current transactions** (receivables, inventory, payroll — not a new plant or a long-term acquisition), and it must be of **prime quality** sold to sophisticated buyers. Stretch the maturity past 270 days, or use the money to build a factory, and the exemption is gone. Denominations of **$100,000 or more** are the market's own doing rather than a rule, but they have the same effect: retail investors reach CP through a **prime money market fund**, not directly.
+The **270-day** ceiling is not a market convention; it is the edge of the Securities Act registration exemption, and the exemption is a package of conditions rather than a single number. The paper must mature in **nine months or less**, the **proceeds must fund current transactions** (receivables, inventory, payroll — not a new plant or a long-term acquisition), and it must be of **prime quality** sold to sophisticated buyers. Stretch the maturity past 270 days, or use the money to build a factory, and the exemption is gone. That **federal** exemption imposes no minimum denomination, so the **$100,000 and larger** blocks the market actually trades are convention rather than a federal requirement — but do not carry that conclusion across to state law. The **Uniform Securities Act has its own commercial paper exemption**, and it does set a denomination floor: maturity of **nine months or less**, denominations of **at least $50,000**, and a rating in one of the **three highest categories**. Two separate tests on the same instrument, and the exam asks about both. Either way the practical effect is identical: retail investors reach CP through a **prime money market fund**, not directly.
 
 Because it is unsecured, **credit risk is real**, and CP carries its own short-term rating scale (top tier **A-1 / P-1 / F1**) rather than the long-term letter scale. The separate scale exists because the instrument's real vulnerability is not the 30-day credit of a strong company but **rollover risk**: CP is repaid almost entirely by issuing new paper to retire maturing paper, and when buyers step back the issuer must draw on **backup bank lines of credit**. The CP market can shut with almost no notice, as it did in 2008.
 
@@ -145,6 +145,7 @@ If the $2,000,000 meets payroll, the answer is no: the asset must be liquid on a
     "Do not treat a money market mutual fund as FDIC-insured. It is a securities product; the stable $1.00 NAV is an objective, not a guarantee, and funds have broken the buck.",
     "SIPC does not protect against market losses or bad advice. It replaces missing securities and cash when a broker-dealer fails, with a $500,000 ceiling of which only $250,000 may be cash.",
     "The 270-day commercial paper limit is a registration-exemption threshold under the Securities Act of 1933, not a market convention — paper longer than 270 days loses the exemption.",
+    "Federal and state commercial paper exemptions are different tests. The federal exemption sets no minimum denomination (the $100,000 blocks are market practice), while the Uniform Securities Act exemption requires nine months or less, denominations of at least $50,000, and a top-three rating.",
     "T-bill interest is exempt from state and local tax but fully taxable federally. Candidates routinely reverse this or assume it is tax-free everywhere.",
     "Only institutional prime and institutional municipal money funds must use a floating NAV. Government funds and retail funds may still transact at a stable $1.00.",
     "A negotiable CD is FDIC-insured only up to the standard maximum per depositor, per bank, per ownership category, so a $1 million jumbo CD in one name at one bank is mostly uninsured bank credit.",
@@ -176,7 +177,7 @@ If the $2,000,000 meets payroll, the answer is no: the asset must be liquid on a
     {
       term: 'Commercial paper',
       definition:
-        "An unsecured corporate promissory note maturing in 270 days or less, sold at a discount, exempt from Securities Act registration when the proceeds fund current transactions, and typically issued in $100,000 minimums.",
+        "An unsecured corporate promissory note maturing in 270 days or less, sold at a discount, exempt from Securities Act registration when the proceeds fund current transactions, and traded in $100,000 and larger blocks by market convention. The separate Uniform Securities Act exemption additionally requires denominations of at least $50,000 and a top-three rating.",
     },
     {
       term: 'Negotiable CD',

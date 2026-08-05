@@ -6,7 +6,7 @@ export const items: Question[] = [
     topic: 'exempt-securities-transactions',
     q: 'Which of the following is an exempt SECURITY under the Uniform Securities Act?',
     choices: [
-      'A limited partnership interest sold to fewer than ten non-institutional investors',
+      'A limited partnership interest offered to fewer than ten non-institutional persons',
       'Common stock of a bank holding company',
       'Common stock of a start-up sold in response to an unsolicited customer order',
       'A general obligation bond issued by a city',
@@ -40,7 +40,7 @@ export const items: Question[] = [
       'Be registered by notification with the Administrator before its first sale',
     ],
     answer: 0,
-    exp: 'The commercial paper exemption requires all three conditions: a maturity of nine months or less, a minimum denomination of $50,000, and a rating in one of the three highest categories. Paper that fails any single condition is not an exempt security.',
+    exp: "The commercial paper exemption under the Uniform Securities Act requires all three conditions: a maturity of nine months or less, a minimum denomination of $50,000, and a rating in one of the three highest categories. Paper that fails any single condition is not an exempt security under state law. Do not import the federal test here — the Securities Act exemption turns on maturity and use of proceeds for current transactions and sets no denomination minimum, so the two tests are answered separately.",
     difficulty: 'medium',
   },
   {
@@ -68,7 +68,7 @@ export const items: Question[] = [
       'No more than ten non-institutional persons in any 12-month period, provided no commissions are paid for soliciting non-institutional buyers and the seller reasonably believes those buyers are purchasing for investment',
     ],
     answer: 3,
-    exp: 'The state private placement exemption counts only non-institutional persons — no more than ten in twelve months — while offers to institutional investors are unlimited. The seller must also reasonably believe the non-institutional buyers are buying for investment rather than resale, and may pay no commission for soliciting them. The 35-purchaser figure belongs to federal Regulation D, not to the Uniform Securities Act.',
+    exp: 'The model act exempts a transaction pursuant to an offer directed to not more than ten persons other than institutional investors during any twelve consecutive months, so the count runs on offerees rather than on completed sales and offers to institutions are unlimited. The seller must also reasonably believe the non-institutional buyers are buying for investment rather than resale, and may pay no commission for soliciting them. The 35-purchaser figure belongs to federal Regulation D, not to the Uniform Securities Act.',
     difficulty: 'medium',
   },
   {
@@ -306,7 +306,7 @@ export const items: Question[] = [
       'The exemption is intact so long as the commission is disclosed to every purchaser',
     ],
     answer: 0,
-    exp: "The limited offering exemption has four conditions and all of them must hold: no more than ten non-institutional purchasers in twelve months, no general solicitation, a reasonable belief in investment intent, and no commission for soliciting non-institutional purchasers. Failing the commission condition turns the sales into sales of an unregistered non-exempt security, with the burden of proving the exemption on the person claiming it. Separately, an individual who solicits purchasers for compensation must be registered as an agent.",
+    exp: "The limited offering exemption has four conditions and all of them must hold: the offer is directed to no more than ten non-institutional persons in twelve consecutive months, there is no general solicitation, the seller reasonably believes the buyers are purchasing for investment, and no commission is paid for soliciting non-institutional purchasers. Failing the commission condition turns the sales into sales of an unregistered non-exempt security, with the burden of proving the exemption on the person claiming it. Separately, an individual who solicits purchasers for compensation must be registered as an agent.",
     difficulty: 'hard',
   },
   {
@@ -348,7 +348,7 @@ export const items: Question[] = [
       'Does not qualify, because the exemption is unavailable where the offering is made by general solicitation or advertising, no matter how few purchasers ultimately buy',
     ],
     answer: 3,
-    exp: "The purchaser cap and the no-general-solicitation condition are independent requirements, and the solicitation condition is tested against the manner in which the offering was made rather than the outcome. A newspaper advertisement is general solicitation on its face. Contrast federal Rule 506(c), which does permit general solicitation when every purchaser is a verified accredited investor and which is a federal covered offering.",
+    exp: "The numerical cap and the no-general-solicitation condition are independent requirements, and the solicitation condition is tested against the manner in which the offering was made rather than the outcome. A newspaper advertisement is general solicitation on its face, and because the model act counts the persons an offer is directed to rather than the persons who buy, a public advertisement also blows past the ten-offeree limit no matter how few subscribe. Contrast federal Rule 506(c), which does permit general solicitation when every purchaser is a verified accredited investor and which is a federal covered offering.",
     difficulty: 'easy',
   },
 ];

@@ -21,6 +21,28 @@ body {
   .safe-bottom {
     padding-bottom: max(1rem, env(safe-area-inset-bottom));
   }
+
+  /*
+   * Where the install, update and offline notices sit.
+   *
+   * On a phone the tab bar owns the bottom of the screen: 56px of controls plus
+   * its own safe-area padding. A banner that ignores that either covers the
+   * navigation or sits under the iPhone home indicator, so the offset is
+   * derived from the same two numbers the bar itself uses, plus a gap.
+   *
+   * Tailwind can express this, but only as an arbitrary value with escaped
+   * whitespace inside calc() — unreadable, and repeated at every use site.
+   */
+  .pwa-dock {
+    bottom: calc(3.5rem + max(1rem, env(safe-area-inset-bottom)) + 0.5rem);
+  }
+
+  /* No tab bar from md up; only the inset is left to respect. */
+  @media (min-width: 768px) {
+    .pwa-dock {
+      bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+  }
 }
 
 .font-size-sm {

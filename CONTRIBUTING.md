@@ -75,6 +75,22 @@ When correcting a rule, **cite the source** — the USA section, NASAA model rul
 
 Currently reflected as of 2026: the Marketing Rule permitting testimonials and endorsements with disclosure, SECURE 2.0 RMD age 73 and the 10-year inherited-account rule, T+1 settlement, the $110M federal covered threshold, and NASAA IAR continuing education.
 
+## Reviewing content
+
+Some rules are flagged rather than asserted flatly — sources disagree, a figure is indexed, a rule varies by state, or the answer is a judgment call. Those live in `src/data/reviewItems.ts` and surface two ways: [`REVIEW.md`](./REVIEW.md) at the repo root, and the in-app `/review` page. Both render from that one file, so they cannot disagree.
+
+If you settle one of these, the correction has to land everywhere the rule appears:
+
+1. **Fix the chapter** in `src/data/topics/<topic-id>.ts`. If the point is genuinely contested, say so in the text rather than picking a side silently.
+2. **Fix every question in that item's `questionIds`.** Check the stem, the `answer` index, *and* the `exp` string. A reversed rule usually moves all three — changing only `answer` leaves an explanation arguing for the old answer.
+3. **Grep for the figure.** Dollar thresholds and day counts also turn up in `src/pages/CheatSheet.tsx`, in a topic's `keyTerms` or `confusions`, and in chapters that cross-reference the one you edited.
+4. **Update the item** in `src/data/reviewItems.ts`: set `status` to `confirmed` or `corrected` and write a `resolution` saying what you checked and against what. Confirmed items stay in the list — a settled question is worth recording so nobody reopens it next year.
+5. **Regenerate the doc:** `npm run review:md`. It is deliberately not part of `npm run build`, so it will not update itself. Do not hand-edit `REVIEW.md`; the next run overwrites it.
+
+**A half-applied correction is worse than none.** Fix the chapter and leave the question, and the wrong version survives alone, unqualified, and carrying the app's authority in the one place a student is being graded on it. This has happened here: a chapter stated the oral-discretion grace period backwards, the error propagated into a question that keyed the wrong choice and taught the reversal in its explanation, and a student met the same mistake three times. That incident is why `questionIds` exists.
+
+To flag something new rather than fix it, add an entry to `reviewItems.ts` with `status: 'open'` and regenerate. Flagging an uncertainty is a real contribution — it is better than a confident guess.
+
 ## The CFP track
 
 Topics under the `cfp-advisor` category are supplemental — **not tested on the Series 65**. They exist to build practical advisory skill. Two things to preserve:

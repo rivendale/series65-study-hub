@@ -152,7 +152,7 @@ export const items: Question[] = [
       'The contract term does not exceed one year',
     ],
     answer: 1,
-    exp: "The brochure must be delivered at least 48 hours before entering into the advisory contract, or at the time of entry provided the client has an unconditional right to terminate within five business days without penalty. Delivering 48 hours in advance avoids the rescission window altogether.",
+    exp: "Under the NASAA model brochure rule, which governs state-registered advisers, the brochure must be delivered at least 48 hours before entering into the advisory contract, or at the time of entry provided the client has an unconditional right to terminate within five business days without penalty. Delivering 48 hours in advance avoids the rescission window altogether. Watch the scope: an SEC-registered adviser follows Rule 204-3, which requires delivery before or at the time of contracting and confers no rescission right.",
     difficulty: 'medium',
   },
   {
@@ -516,7 +516,7 @@ export const items: Question[] = [
       'The withdrawal is effective on filing, but the Administrator retains jurisdiction for five years',
     ],
     answer: 1,
-    exp: "Withdrawal is never immediate and filing does not end accountability: the Administrator keeps jurisdiction to institute revocation or suspension proceedings for one year after the withdrawal takes effect, and a pending proceeding suspends the withdrawal entirely. The waiting period itself varies by source — the model act sets 30 days, while the SEC rule governing a federal covered adviser is longer — so confirm the period that applies in the relevant jurisdiction rather than memorizing one figure.",
+    exp: "Withdrawal is never immediate and filing does not end accountability: the Administrator keeps jurisdiction to institute revocation or suspension proceedings for one year after the withdrawal takes effect, and a pending proceeding suspends the withdrawal entirely. The waiting period depends on which regime applies: the model act makes a state withdrawal effective 30 days after filing, subject to the Administrator setting an earlier date and to variation among adopting states, while SEC Rule 203-2 makes a federal covered adviser's ADV-W effective 60 days after filing.",
     difficulty: 'hard',
   },
   {

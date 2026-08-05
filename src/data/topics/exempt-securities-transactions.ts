@@ -52,13 +52,13 @@ Securities of an **insurance company authorized to do business in the state**. S
 
 ### Money Market Paper
 
-**Commercial paper** is exempt when it meets **all three** conditions:
+**Commercial paper** is exempt **under the Act** when it meets **all three** conditions:
 
 - maturity of **9 months (270 days) or less**;
 - denominations of **at least $50,000**;
 - one of the **top three** ratings from a nationally recognized rating agency.
 
-Each condition removes one risk. Short maturity limits how far the credit can deteriorate before repayment. The large denomination keeps retail investors out of the instrument entirely. The rating floor supplies the credit analysis a prospectus would otherwise provide. Miss any one and the exemption is gone — candidates routinely accept 9-month paper in $25,000 denominations, or A-rated paper below the ratings floor.
+Each condition removes one risk. Short maturity limits how far the credit can deteriorate before repayment. The large denomination keeps retail investors out of the instrument entirely. The rating floor supplies the credit analysis a prospectus would otherwise provide. Miss any one and the exemption is gone — candidates routinely accept 9-month paper in $25,000 denominations, or A-rated paper below the ratings floor. Keep this state test separate from the **federal** exemption from Securities Act registration, which turns on maturity of nine months or less and proceeds used for **current transactions** and imposes **no denomination minimum** at all. The same note can clear one test and fail the other.
 
 ### Federal Covered
 
@@ -76,12 +76,12 @@ Exempt transactions are defined by the **manner of sale**. Rather than memorizin
 
 **Private placement (limited offering).** A private placement is exempt under the model act when:
 
-- directed to **no more than 10 non-institutional (retail) purchasers** in the state during any **12 consecutive months** — offers to institutions are **unlimited** and do not count;
+- **directed to no more than 10 non-institutional (retail) persons** in the state during any **12 consecutive months** — the count runs on the people the offer is directed to, and offers to institutions are **unlimited** and do not count;
 - there is **no general solicitation or advertising**;
 - the seller **reasonably believes** all non-institutional buyers are purchasing **for investment**, not resale;
 - **no commission or remuneration** is paid for soliciting **non-institutional** purchasers.
 
-Note the counting rule: it counts **purchasers**, not offerees, and only **non-institutional** ones. The four conditions work together to describe a sale that never reached the public — a small, private, negotiated placement to people who will hold what they bought.
+Note the counting rule. The model act exempts a transaction pursuant to an **offer directed to not more than ten persons** other than institutional investors, so the count is of **offerees, not purchasers**, and only **non-institutional** ones. An eleventh retail person who is offered the security breaks the exemption even if that person never buys; ten offers that produce ten sales are inside the limit. The four conditions work together to describe a sale that never reached the public — a small, private, negotiated placement to people who will hold what they bought.
 
 **Pre-organization certificates and subscriptions.** Exempt when there are **no more than 10 subscribers**, **no commission or remuneration** is paid for soliciting, and **no payment is made by any subscriber** until the corporation is organized. All three are required. The zero-payment condition is what usually breaks the fact pattern, and it is the most important of the three: an unorganized corporation has no assets, no governance, and nobody to sue, so the exemption survives only if no money changes hands.
 
@@ -113,7 +113,7 @@ Halstead Partners, an unregistered issuer, sells its common stock in three ways 
 
 **Sale one:** to a state-chartered bank's investment department, $2M. This is an **exempt transaction** — an institutional sale. Halstead stock is not an exempt security; the bank's status is what makes this particular sale exempt.
 
-**Sale two:** to seven local individuals, each introduced personally by a partner, with no advertising, each signing a representation that she is buying for investment, and no one paid a commission. This is an **exempt transaction** — the private placement exemption, with seven of the ten permitted retail purchasers used.
+**Sale two:** to seven local individuals, each introduced personally by a partner, with no advertising, each signing a representation that she is buying for investment, and no one paid a commission. This is an **exempt transaction** — the private placement exemption, with the offer directed to seven of the ten permitted retail persons.
 
 **Sale three:** one of those seven individuals decides four months later to sell her shares to her neighbor, who asked her about them. That is a **non-issuer transaction**, and if genuinely one-off it is an **isolated** transaction, exempt on its own footing.
 
@@ -125,7 +125,7 @@ Transactional exemptions are conditional, and the conditions are not decorative.
 
 **General solicitation.** Any advertisement, mass mailing, seminar open to the public, cold-calling campaign, or unrestricted website posting destroys the private placement exemption. The condition exists because general solicitation is the definition of a public distribution — the moment the offering is broadcast, the state's interest in registration is fully engaged, regardless of how few people ultimately buy. Note the trap: **the exemption is lost by the solicitation itself, not by the number of resulting sales.** An issuer that advertises in a newspaper and sells to only two people has still made a general solicitation and has still lost the exemption.
 
-**Exceeding the purchaser limits.** The eleventh non-institutional purchaser inside 12 months breaks the private placement exemption; the eleventh subscriber breaks the pre-organization exemption. Two counting rules save candidates here: count **purchasers, not offerees**, and count only **non-institutional** ones. Note also that the private placement count runs over any **12 consecutive months**, not a calendar year, so a promoter cannot reset it on January 1.
+**Exceeding the numerical limits.** The eleventh non-institutional **offeree** inside 12 months breaks the private placement exemption, whether or not that person buys; the eleventh subscriber breaks the pre-organization exemption. Two counting rules save candidates here: count **offerees, not purchasers**, and count only **non-institutional** ones. Note also that the private placement count runs over any **12 consecutive months**, not a calendar year, so a promoter cannot reset it on January 1.
 
 **Paying commissions.** The private placement, pre-organization, and existing-security-holder exemptions all condition on **no commission or remuneration for soliciting** the protected class of purchasers. Transaction-based pay is the engine of selling pressure — it is what turns a passive offering into a sales campaign — so its presence is treated as proof that the transaction was the kind of distribution the exemptions were never meant to cover. Salary paid to an officer who happens to answer questions is not a commission; a percentage of the amount raised is.
 
@@ -133,9 +133,9 @@ Transactional exemptions are conditional, and the conditions are not decorative.
 
 Ostend Renewables intends a private placement of $3M in its home state. It identifies 8 wealthy local individuals and 2 insurance companies as targets and hires a consultant, paying her 3% of whatever she raises.
 
-Count the purchasers first: 8 non-institutional, which is within 10 — the 2 insurers are institutional and do not count. So far, so good. But the consultant is being paid **remuneration for soliciting non-institutional purchasers**, and that condition alone destroys the exemption for the retail leg. If Ostend closes anyway, the sales to the 8 individuals were unregistered, non-exempt sales, and each purchaser has a **rescission right**.
+Count the non-institutional offerees first: 8, which is within 10 — the 2 insurers are institutional and do not count. So far, so good. But the consultant is being paid **remuneration for soliciting non-institutional purchasers**, and that condition alone destroys the exemption for the retail leg. If Ostend closes anyway, the sales to the 8 individuals were unregistered, non-exempt sales, and each purchaser has a **rescission right**.
 
-Now change the facts. Ostend pays the consultant a flat monthly retainer regardless of results, and she solicits only the 2 insurance companies while the founders personally approach the 8 individuals. The commission condition is not violated, no advertising occurred, the purchaser count is inside the limit, and the exemption holds.
+Now change the facts. Ostend pays the consultant a flat monthly retainer regardless of results, and she solicits only the 2 insurance companies while the founders personally approach the 8 individuals. The commission condition is not violated, no advertising occurred, the retail offeree count is inside the limit, and the exemption holds.
 
 One more variation. Ostend keeps the clean structure but posts a summary of the offering on its public website to "let people know what we are building." That is **general solicitation**, and it is fatal even though every actual purchaser was contacted personally. **The exemption dies at the broadcast, not at the sale.**
 
@@ -161,16 +161,16 @@ The **person claiming an exemption bears the burden of proving it**. That alloca
 The Administrator may **deny, suspend, or revoke** a transactional or securities exemption by order — usually prospectively, and with notice and an opportunity for a hearing. Exemptions are not permanent grants; they are standing permissions the Administrator can withdraw when they are being misused.`,
   pitfalls: [
     "Bank securities are exempt; bank holding company stock is not. The holding company is a separate issuer with no exemption.",
-    "Commercial paper needs all three conditions — 9 months or less, at least $50,000 denominations, and a top-three rating. Failing any one destroys the exemption.",
+    "Commercial paper needs all three conditions for the STATE exemption — 9 months or less, at least $50,000 denominations, and a top-three rating. Failing any one destroys it. The federal Securities Act exemption is a different test and has no denomination minimum.",
     "A trustee of a living trust is not a court-appointed fiduciary, so the fiduciary transaction exemption does not apply. Executors, receivers, guardians, and trustees in bankruptcy do qualify.",
-    "The private placement limit counts non-institutional PURCHASERS, not offerees, and offers to institutional investors are unlimited.",
+    "The private placement limit counts non-institutional OFFEREES, not purchasers — an eleventh retail person offered the security breaks it even if nobody buys. Offers to institutional investors are unlimited.",
     "Pre-organization subscriptions require no payment from any subscriber until the corporation is organized — not merely a cap of 10 subscribers.",
     "No exemption of any kind excuses fraud. Antifraud provisions reach every security and every transaction.",
     "An exempt transaction does not relieve the agent or broker-dealer of registration. The security may be exempt while the person selling it is not.",
     'Canadian provincial obligations are exempt, but political subdivisions of other foreign countries generally are not.',
     "A general solicitation destroys the private placement exemption at the moment of the broadcast, regardless of how few people actually buy. Do not count the sales — look for the advertisement.",
     "Exempt transactions do not accumulate into an exempt security. Each sale of the same stock must find its own exemption; the previous one never helps.",
-    "The private placement purchaser count runs over any 12 consecutive months, not a calendar year, so it cannot be reset on January 1.",
+    "The private placement offeree count runs over any 12 consecutive months, not a calendar year, so it cannot be reset on January 1.",
   ],
   keyTerms: [
     {
@@ -191,7 +191,7 @@ The Administrator may **deny, suspend, or revoke** a transactional or securities
     {
       term: 'Private placement exemption',
       definition:
-        'A state exemption for offerings to 10 or fewer non-institutional purchasers in 12 months with no general solicitation, investment intent, and no commission on retail sales.',
+        'A state exemption for an offer directed to 10 or fewer non-institutional persons in 12 months, with no general solicitation, investment intent on the part of the buyers, and no commission for soliciting retail purchasers.',
     },
     {
       term: 'Pre-organization certificate',
@@ -234,6 +234,10 @@ The Administrator may **deny, suspend, or revoke** a transactional or securities
     {
       dont: 'An exemption from registration — relieves the filing requirement only',
       with: 'The antifraud provisions — apply to every security and every transaction without exception',
+    },
+    {
+      dont: 'The private placement count — offers directed to no more than 10 non-institutional persons',
+      with: 'Regulation D — a federal rule counting up to 35 non-accredited purchasers',
     },
   ],
 };

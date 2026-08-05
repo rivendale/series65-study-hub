@@ -117,7 +117,7 @@ When a question describes conduct and asks whether it is permitted, run three te
 
 A "no" to any of the three usually makes the answer a violation.`,
   pitfalls: [
-    "Time-and-price discretion needs NO written authorization because the client already chose the security, the amount, and whether to buy or sell — but any discretion over asset, action, or amount requires prior written authority for an investment adviser.",
+    "Time-and-price discretion needs NO written authorization because the client already chose the security, the amount, and whether to buy or sell — but any discretion over asset, action, or amount requires written authority: in hand before the first discretionary trade for a broker-dealer agent, and within 10 business days of the first discretionary trade for an investment adviser.",
     "An investment adviser gets roughly 10 business days of oral discretionary authority after the first discretionary trade while written authorization is obtained; a broker-dealer agent gets no grace period and needs the writing first. Do not reverse them.",
     "Guaranteeing a client against loss is always prohibited, but accurately describing a guarantee that a third party has actually made on the security itself is not — read carefully for who is doing the guaranteeing.",
     "Principal transaction consent must be obtained trade by trade before completion of the transaction; a blanket authorization buried in the advisory agreement is not sufficient.",

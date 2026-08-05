@@ -116,7 +116,7 @@ export const items: Question[] = [
   {
     id: 595,
     topic: 'advisory-contracts-fees',
-    q: 'Under the brochure rule, an adviser must deliver its Form ADV Part 2A brochure to a new advisory client:',
+    q: 'Under the NASAA model brochure rule, a state-registered investment adviser must deliver its Form ADV Part 2A brochure to a new advisory client:',
     choices: [
       'Within 30 days after the advisory contract is signed',
       'At least 48 hours before entering into the advisory contract, or at the time of entering into the contract if the client may terminate without penalty within five business days',
@@ -124,7 +124,7 @@ export const items: Question[] = [
       'Only upon request, because Form ADV is publicly available on the IAPD website',
     ],
     answer: 1,
-    exp: 'The brochure must be delivered at least 48 hours before the contract is entered into, or at the time of contracting if the client is given a five-business-day right to rescind without penalty. Public availability of the filing on IAPD does not satisfy the delivery obligation.',
+    exp: 'Under the NASAA model rule applied to state-registered advisers, the brochure must be delivered at least 48 hours before the contract is entered into, or at the time of contracting if the client is given a five-business-day right to rescind without penalty. The scope matters: an SEC-registered adviser is governed by Rule 204-3, which since the 2010 amendments requires delivery before or at the time of entering into the contract and provides neither a 48-hour alternative nor a rescission window. Public availability of the filing on IAPD does not satisfy the delivery obligation under either regime.',
     difficulty: 'medium',
   },
   {
@@ -180,7 +180,7 @@ export const items: Question[] = [
       'Refund the entire $6,000, because prepayment of advisory fees is prohibited',
     ],
     answer: 0,
-    exp: 'The advisory contract must provide for the return of prepaid fees on a pro rata basis when the client terminates early, and retaining unearned fees is an unethical practice. Prepayment itself is permitted, although collecting more than $1,200 six or more months in advance triggers additional balance sheet and financial disclosure requirements.',
+    exp: 'The advisory contract must provide for the return of prepaid fees on a pro rata basis when the client terminates early, and retaining unearned fees is an unethical practice. Prepayment itself is permitted, although substantial prepayment triggers additional balance sheet and financial disclosure requirements — more than $1,200 six or more months in advance under the SEC brochure rule, and more than $500 on the same timing under the NASAA model rule that most states apply to state-registered advisers.',
     difficulty: 'easy',
   },
   {
@@ -264,7 +264,7 @@ export const items: Question[] = [
       'Include an audited balance sheet with its brochure and satisfy the applicable minimum net worth or bonding requirement',
     ],
     answer: 3,
-    exp: 'Collecting more than $1,200 in fees six or more months in advance is substantial prepayment, which triggers the audited balance sheet disclosure in the brochure and the related minimum net worth or surety bond requirement under state rules. Prepayment itself is not prohibited and has nothing to do with qualified client status.',
+    exp: 'For a state-registered adviser the substantial prepayment trigger is the NASAA model rule figure — more than $500 per client, six or more months in advance — not the $1,200 figure the SEC uses in the Form ADV Part 2A brochure for federal covered advisers. States adopt the model rule with variations, so confirm the local figure; $2,500 twelve months in advance clears either threshold, and it triggers the balance sheet disclosure in the brochure plus the related minimum net worth or surety bond requirement. Prepayment itself is not prohibited and has nothing to do with qualified client status.',
     difficulty: 'medium',
   },
   {

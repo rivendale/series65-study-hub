@@ -15,7 +15,7 @@ const thresholds: { rule: string; threshold: string }[] = [
   { rule: 'Brochure annual delivery', threshold: 'Within 120 days of fiscal year end' },
   { rule: 'Form ADV annual updating amendment', threshold: 'Within 90 days of fiscal year end' },
   { rule: 'Custody — adviser-payable check', threshold: 'Custody for ANY period held' },
-  { rule: 'Custody — third-party check forwarded', threshold: 'Under 3 business days = NOT custody' },
+  { rule: 'Custody — third-party check forwarded', threshold: 'Within 3 business days = NOT custody' },
   { rule: 'Form U5 filing', threshold: 'Within 30 days of termination' },
   { rule: 'Hearing request after notice', threshold: 'Within 15 days' },
   { rule: 'Registration withdrawal effective', threshold: '30 days; Administrator keeps jurisdiction 1 year' },

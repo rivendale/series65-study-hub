@@ -502,7 +502,7 @@ export const items: Question[] = [
       'I, II, III and IV',
     ],
     answer: 1,
-    exp: "A firm cannot file its way out of an enforcement problem. A pending proceeding suspends automatic effectiveness, the Administrator keeps jurisdiction to begin a revocation or suspension proceeding for one year after withdrawal takes effect, and any resulting order may be backdated to the last date the registration was effective. The number of days a withdrawal takes to become effective is fixed by the act as each state has adopted it. Withdrawal has no effect on customers' civil remedies, which run on their own limitation periods set by state law.",
+    exp: "A firm cannot file its way out of an enforcement problem. A pending proceeding suspends automatic effectiveness, the Administrator keeps jurisdiction to begin a revocation or suspension proceeding for one year after withdrawal takes effect, and any resulting order may be backdated to the last date the registration was effective. Absent a pending proceeding the model act makes a withdrawal effective 30 days after filing, subject to the Administrator setting an earlier date and to variation among adopting states. Withdrawal has no effect on customers' civil remedies, which run on their own limitation periods set by state law.",
     difficulty: 'hard',
   },
   {

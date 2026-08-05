@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom';
+import { ScrollText } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { examInfo } from '../data/examInfo';
 import { topics } from '../data/curriculum';
 import { questions } from '../data/questions';
+import { reviewItems, reviewItemsByStatus } from '../data/reviewItems';
 
 export default function About() {
   const { progress, setPreferences } = useProgress();
   const { theme, fontSize } = progress.preferences;
+  const openReviewItems = reviewItemsByStatus('open').length;
 
   return (
     <div className="space-y-5 max-w-2xl">
@@ -94,6 +98,32 @@ export default function About() {
             <dd className="font-medium text-right">{examInfo.developer}</dd>
           </div>
         </dl>
+      </section>
+
+      <section className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
+        <div className="flex items-center gap-2 mb-2">
+          <ScrollText
+            className="w-5 h-5 text-blue-600 dark:text-blue-400"
+            aria-hidden="true"
+          />
+          <h2 className="font-semibold">Flagged for review</h2>
+        </div>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          The content is written from public sources and is internally
+          consistent. {reviewItems.length} passages are flagged anyway &mdash;
+          places where sources disagree, a figure is indexed, a rule varies by
+          adopting state, or two competent advisors would key the answer
+          differently. {openReviewItems} are still open. The list names what the
+          app asserts, why it was flagged and what to check, alongside the
+          questions that would change with the rule.
+        </p>
+        <Link
+          to="/review"
+          className="mt-3 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:border-blue-400 min-h-[44px]"
+        >
+          <ScrollText className="w-4 h-4" aria-hidden="true" />
+          Open the review list
+        </Link>
       </section>
 
       <section className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 prose prose-slate dark:prose-invert max-w-none prose-headings:mt-0 prose-p:text-sm">

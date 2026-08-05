@@ -140,7 +140,7 @@ Filings go through the **IARD** system. The four pieces are not redundant; each 
 
 ### Brochure Delivery Rule
 
-Deliver Part 2A either **at least 48 hours before** entering the advisory contract, **or at the time** of entering it, in which case the client has **5 business days to rescind without penalty**. The structure is a choice between time to read and a right to change your mind. Then deliver annually, within **120 days of the adviser's fiscal year end**, either the updated brochure or a summary of material changes with an offer to provide the full document.
+Scope the rule before you time it, because the two regimes are not the same. Under the **NASAA model brochure rule**, which governs **state-registered** advisers, deliver Part 2A either **at least 48 hours before** entering the advisory contract, **or at the time** of entering it, in which case the client has **5 business days to rescind without penalty**. That structure is a choice between time to read and a right to change your mind. The **federal** rule is different: **Advisers Act Rule 204-3**, as amended in 2010, requires an SEC-registered adviser to deliver **before or at the time** of entering the contract, with **no** 48-hour alternative and **no** rescission window. The 48-hour/5-business-day construct mirrors the pre-2011 federal rule and now survives only at the state level, so read the fact pattern for which regulator is in play. Both regimes then require **annual** delivery, within **120 days of the adviser's fiscal year end**, of either the updated brochure or a summary of material changes with an offer to provide the full document.
 
 ### Amendments
 
@@ -157,7 +157,7 @@ The two annual deadlines are swapped constantly. Sequence them: the firm tells t
 
 **Renewal.** State registrations of advisers, IARs, broker-dealers, and agents **expire December 31** and are renewed annually with a fee. Renewal is not automatic; a lapsed registration leaves the person unregistered, and continuing to act is a violation, not a late filing.
 
-**Withdrawal.** An adviser withdraws on **Form ADV-W**, and two things matter more than any date. **Withdrawal is not immediate** — it takes effect after a waiting period following filing, and the model act and the SEC rule do not use the same period, so learn the principle rather than a day count. And **a pending proceeding suspends it**: filing ADV-W does not let a registrant walk away from an instituted revocation or denial proceeding.
+**Withdrawal.** An adviser withdraws on **Form ADV-W**, and two things matter more than any date. **Withdrawal is not immediate** — it takes effect after a waiting period following filing, and the two regimes use different periods. A state registration withdrawn under the **Uniform Securities Act** becomes effective **30 days** after filing, and the Administrator may set an earlier date; adopting states can and do vary the figure, so a fact pattern naming a state statute controls over the model number. A federal covered adviser withdrawing on ADV-W is governed by **SEC Rule 203-2**, under which the withdrawal becomes effective **60 days** after filing. And **a pending proceeding suspends it**: filing ADV-W does not let a registrant walk away from an instituted revocation or denial proceeding.
 
 **Retained jurisdiction.** Even after withdrawal takes effect, the Administrator generally **retains jurisdiction for one year** to institute proceedings over conduct occurring while the person was registered. Without that, resignation would be a complete defense and revocation worthless against anyone willing to quit first.
 
@@ -181,9 +181,9 @@ The **NASAA Model Rule on IAR continuing education** requires **12 credits annua
     'IAR registration is always at the state level, including IARs of SEC-registered federal covered advisers. The SEC does not register individuals.',
     "The IAR de minimis exemption requires NO place of business in the state. A place of business defeats it immediately, no matter how few clients there are.",
     "The annual updating amendment is due within 90 days of fiscal year end, but the annual brochure delivery is within 120 days. Do not swap the two numbers.",
-    "The 5-business-day rescission right exists only when the brochure is delivered at contract signing. Deliver 48 hours early and there is no rescission period.",
+    "The 48-hour / 5-business-day brochure timing is the NASAA model rule for state-registered advisers, not federal law. Under it the 5-business-day rescission right arises only when the brochure is delivered at contract signing, and delivering 48 hours early avoids the rescission period entirely. An SEC-registered adviser follows Rule 204-3 instead: before or at the time of contracting, with no rescission window at all.",
     "Crossing the federal threshold is not symmetric: registration with the SEC is mandatory at $110M, but an SEC-registered adviser only becomes ineligible below $90M.",
-    "Filing Form ADV-W does not end the matter. Withdrawal takes effect only after a waiting period, a pending proceeding suspends it, and the Administrator retains jurisdiction for a year afterward.",
+    "Filing Form ADV-W does not end the matter. Withdrawal takes effect only after a waiting period — 30 days after filing under the model act, subject to the Administrator shortening it and to variation among adopting states, and 60 days under SEC Rule 203-2 for a federal covered adviser — a pending proceeding suspends it, and the Administrator retains jurisdiction for a year afterward.",
     "Net worth and bonding minimums are set by the states and vary; an adviser must also notify the Administrator by the close of the next business day if its net worth falls below the minimum.",
   ],
   keyTerms: [
@@ -235,7 +235,7 @@ The **NASAA Model Rule on IAR continuing education** requires **12 credits annua
     {
       term: 'Form ADV-W',
       definition:
-        "The withdrawal filing for an investment adviser. Withdrawal is not immediate, a pending proceeding suspends it, and the Administrator generally retains jurisdiction for a year after it takes effect.",
+        "The withdrawal filing for an investment adviser. Withdrawal is not immediate — 30 days after filing under the model act (the Administrator may shorten it, and adopting states vary) or 60 days under SEC Rule 203-2 for a federal covered adviser — a pending proceeding suspends it, and the Administrator generally retains jurisdiction for a year after it takes effect.",
     },
     {
       term: 'Retained jurisdiction',

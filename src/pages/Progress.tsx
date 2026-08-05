@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Download,
@@ -7,9 +7,15 @@ import {
   Upload,
   Check,
   AlertCircle,
+  AlertTriangle,
+  HardDrive,
+  Smartphone,
+  Scissors,
   Cloud,
+  LifeBuoy,
 } from 'lucide-react';
-import { useProgress } from '../hooks/useProgress';
+import { readQuarantinedRecord, useProgress } from '../hooks/useProgress';
+import { formatBytes, refreshEstimate } from '../lib/storage';
 import {
   overallStats,
   statsByTopic,
@@ -21,6 +27,200 @@ import { parseProgressFile } from '../lib/mergeProgress';
 import { examInfo } from '../data/examInfo';
 import { TOPIC_TO_CATEGORY, OFFICIAL_CATEGORIES } from '../data/categories';
 
+/**
+ * Storage health, shown inside the Data card.
+ *
+ * The loud case is a write that is not landing. Everywhere else in this app the
+ * screen is the truth — answers appear, counters move — and that is exactly
+ * what makes a refused write dangerous: it looks identical to a healthy one
+ * until a reload wipes the session. So the warning is prominent, cannot be
+ * dismissed, and carries the one action that salvages the situation.
+ *
+ * The quiet cases matter too. "Saved on this device" is worth stating plainly,
+ * and a browser tab on iOS is a normal, non-broken state that still deserves a
+ * word about eviction, since the fix is something only the student can do.
+ */
+function StorageHealth({
+  storage,
+  onExport,
+  onDownloadRecoverable,
+  onDiscardRecoverable,
+}: {
+  storage: ReturnType<typeof useProgress>['storage'];
+  onExport: () => void;
+  onDownloadRecoverable: () => void;
+  onDiscardRecoverable: () => void;
+}) {
+  const failing = storage.writeStatus === 'failing';
+  const showDurabilityNote =
+    !failing && !storage.standalone && storage.persistence !== 'persisted';
+
+  return (
+    <div className="mb-4 space-y-3">
+      {failing ? (
+        <div
+          role="alert"
+          className="rounded-lg border-2 border-red-500 dark:border-red-500 bg-red-50 dark:bg-red-950/50 p-4"
+        >
+          <h3 className="flex items-start gap-2 font-bold text-red-900 dark:text-red-100">
+            <AlertTriangle
+              className="w-5 h-5 flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            />
+            <span>Your progress is not being saved</span>
+          </h3>
+          <p className="mt-2 text-sm text-red-900 dark:text-red-100">
+            {storage.failureKind === 'quota'
+              ? 'This browser has run out of room for this site, so nothing you answer is reaching storage.'
+              : 'This browser is refusing to store data for this site — a private window, or a setting that blocks site data, will do that.'}{' '}
+            What you see on screen is held in memory only and will be gone when
+            you close or reload this tab.
+          </p>
+          <button
+            type="button"
+            onClick={onExport}
+            className="mt-3 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold bg-red-600 text-white hover:bg-red-700 min-h-[44px] w-full sm:w-auto"
+          >
+            <Download className="w-4 h-4" aria-hidden="true" />
+            Export progress now
+          </button>
+          <p className="mt-3 text-sm text-red-900 dark:text-red-100">
+            {storage.failureKind === 'quota' ? (
+              <>
+                Then make room: clearing stored data for other sites in your
+                browser settings is usually enough. If nothing else can go,
+                resetting progress here frees the space this record takes and
+                your export file becomes the backup &mdash; import it again once
+                there is room, and the merge puts everything back.
+              </>
+            ) : (
+              <>
+                Then leave the private window, or allow site data for this
+                address, and saving will start working again. Import the file
+                afterwards to pick up where you left off.
+              </>
+            )}
+          </p>
+        </div>
+      ) : storage.writeStatus === 'ok' ? (
+        <p className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
+          <HardDrive
+            className="w-4 h-4 flex-shrink-0 mt-0.5 text-slate-400 dark:text-slate-500"
+            aria-hidden="true"
+          />
+          <span>
+            <span className="font-medium text-slate-700 dark:text-slate-300">
+              Saved on this device.
+            </span>{' '}
+            {storage.recordBytes !== null && (
+              <>Your record is about {formatBytes(storage.recordBytes)}. </>
+            )}
+            {storage.estimate ? (
+              <>
+                This site is using {formatBytes(storage.estimate.usedBytes)} of
+                the {formatBytes(storage.estimate.quotaBytes)} the browser
+                allows, counting the offline copy of the app.
+              </>
+            ) : (
+              <>This browser does not report how much storage is left.</>
+            )}
+            {storage.persistence === 'persisted' && (
+              <> Storage here is marked persistent, so it will not be evicted.</>
+            )}
+          </span>
+        </p>
+      ) : (
+        // Status is settled in an effect on first mount, so 'unknown' lasts a
+        // single frame. Saying nothing for that frame is better than claiming
+        // the record is saved before anything has proved that it is.
+        null
+      )}
+
+      {storage.recovery && (
+        <div
+          role="alert"
+          className="rounded-lg text-sm px-3 py-3 bg-amber-50 text-amber-900 dark:bg-amber-950/40 dark:text-amber-200"
+        >
+          <p className="flex items-start gap-2">
+            <LifeBuoy className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+            <span>
+              <span className="font-semibold">
+                An earlier record could not be read.
+              </span>{' '}
+              Something was stored here &mdash; about{' '}
+              {formatBytes(storage.recovery.bytes)} of it &mdash; that this
+              version of the app could not open, so progress on this device
+              started again from empty. That happens if a save was cut short, or
+              if the record was written by a different version.{' '}
+              {storage.recovery.preserved ? (
+                <>
+                  The original has been set aside untouched and nothing has
+                  overwritten it. Download it before discarding it: a later
+                  version may be able to read it, and it is the only copy.
+                </>
+              ) : (
+                <>
+                  This browser would not let it be copied somewhere safe, so it
+                  is still under the main key and the next thing you save will
+                  replace it. Fixing whatever is blocking storage and reloading
+                  is the only way to keep the chance of recovering it.
+                </>
+              )}
+            </span>
+          </p>
+          {storage.recovery.preserved && (
+            <div className="mt-3 flex flex-col sm:flex-row gap-2">
+              <button
+                type="button"
+                onClick={onDownloadRecoverable}
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold bg-amber-600 text-white hover:bg-amber-700 min-h-[44px]"
+              >
+                <Download className="w-4 h-4" aria-hidden="true" />
+                Download the unreadable record
+              </button>
+              <button
+                type="button"
+                onClick={onDiscardRecoverable}
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200 min-h-[44px]"
+              >
+                <Trash2 className="w-4 h-4" aria-hidden="true" />
+                Discard it
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {storage.trim && (
+        <p className="flex items-start gap-2 text-sm rounded-lg px-3 py-2 bg-amber-50 text-amber-900 dark:bg-amber-950/40 dark:text-amber-200">
+          <Scissors className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+          <span>
+            <span className="font-semibold">Mock history was trimmed.</span>{' '}
+            Storage filled up, so the {storage.trim.dropped} oldest mock attempt
+            {storage.trim.dropped === 1 ? '' : 's'} had to be dropped to keep
+            saving. The {storage.trim.kept} most recent are kept, and your
+            answers and topics read were not touched. Export now if you want a
+            copy before it happens again.
+          </span>
+        </p>
+      )}
+
+      {showDurabilityNote && (
+        <p className="flex items-start gap-2 text-sm rounded-lg px-3 py-2 bg-slate-50 text-slate-700 dark:bg-slate-800/60 dark:text-slate-300">
+          <Smartphone className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+          <span>
+            <span className="font-semibold">Worth doing:</span> add this app to
+            your home screen. Running in a browser tab, iOS may clear the record
+            after about a week without opening it &mdash; easily a holiday
+            inside a study cycle. Installed, it stays put. On iPhone: Share, then
+            Add to Home Screen. Exporting now and then covers the rest.
+          </span>
+        </p>
+      )}
+    </div>
+  );
+}
+
 function barColor(pct: number) {
   if (pct >= 80) return 'emerald' as const;
   if (pct >= 65) return 'blue' as const;
@@ -29,7 +229,8 @@ function barColor(pct: number) {
 }
 
 export default function ProgressPage() {
-  const { progress, resetAll, exportJson, importProgress } = useProgress();
+  const { progress, storage, resetAll, discardRecoverable, exportJson, importProgress } =
+    useProgress();
   const fileInput = useRef<HTMLInputElement>(null);
   const [importMsg, setImportMsg] = useState<
     { kind: 'ok' | 'error'; text: string } | null
@@ -39,6 +240,13 @@ export default function ProgressPage() {
   const categoryStats = statsByCategory(progress);
   const missed = missedQuestionIds(progress);
   const [confirming, setConfirming] = useState(false);
+
+  // The usage figure is only interesting on the page that shows it, and it can
+  // move between visits, so it is re-read here rather than left at whatever the
+  // reading was when the app started.
+  useEffect(() => {
+    void refreshEstimate();
+  }, []);
 
   const handleFile = async (file: File) => {
     const result = parseProgressFile(await file.text());
@@ -54,14 +262,29 @@ export default function ProgressPage() {
     });
   };
 
-  const download = () => {
-    const blob = new Blob([exportJson()], { type: 'application/json' });
+  const saveFile = (contents: string, name: string) => {
+    const blob = new Blob([contents], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `series65-progress-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = name;
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  const today = () => new Date().toISOString().split('T')[0];
+
+  const download = () => saveFile(exportJson(), `series65-progress-${today()}.json`);
+
+  const downloadRecoverable = () => {
+    const raw = readQuarantinedRecord();
+    if (raw === null) {
+      // Gone between the notice rendering and the tap — nothing to hand over,
+      // and pretending otherwise by downloading an empty file would be worse.
+      discardRecoverable();
+      return;
+    }
+    saveFile(raw, `series65-unreadable-record-${today()}.json`);
   };
 
   return (
@@ -196,6 +419,12 @@ export default function ProgressPage() {
 
       <section className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
         <h2 className="font-semibold mb-3">Data</h2>
+        <StorageHealth
+          storage={storage}
+          onExport={download}
+          onDownloadRecoverable={downloadRecoverable}
+          onDiscardRecoverable={discardRecoverable}
+        />
         <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
           To carry progress between a phone, tablet and laptop, export here and
           import the file on the other device. Importing <em>merges</em> rather
