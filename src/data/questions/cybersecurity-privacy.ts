@@ -169,4 +169,32 @@ export const items: Question[] = [
     exp: "Multi-factor authentication, encryption, and least-privilege access with prompt removal on termination are baseline expectations. Off-channel business communications defeat both the safeguards program and the books-and-records rule, and have produced very large enforcement penalties even where nothing improper was said in the messages.",
     difficulty: 'medium',
   },
+  {
+    id: 1101,
+    topic: 'cybersecurity-privacy',
+    q: 'A state-registered adviser shares client nonpublic personal information only with the qualified custodian that processes client transactions and with its own service providers under contract. Its privacy policies have not changed since the last notice it delivered. Which statement is most accurate?',
+    choices: [
+      'No initial privacy notice is required either, because none of the sharing triggers an opt-out right',
+      'The annual notice is required in every case, without exception',
+      'The adviser must still deliver the initial privacy notice, but may be excused from the annual notice because its sharing stays within the statutory exceptions and its policies have not changed',
+      'Because no opt-out right arises, the adviser need not maintain a written privacy policy at all',
+    ],
+    answer: 2,
+    exp: "The initial notice is due no later than when the customer relationship is established and does not depend on whether information is shared. The annual notice is excused only where sharing stays inside the exceptions, such as service providers under contract or processing a transaction the customer requested, and the policies are unchanged since the last notice delivered. The written policy and safeguards obligations continue regardless.",
+    difficulty: 'hard',
+  },
+  {
+    id: 1102,
+    topic: 'cybersecurity-privacy',
+    q: 'An adviser learns that its cloud-based client relationship management vendor suffered a breach exposing the names, account numbers and Social Security numbers of advisory clients. The vendor has notified the adviser. Which statement is most accurate?',
+    choices: [
+      'The vendor rather than the adviser is responsible for notifying affected individuals, because the vendor held the data',
+      'No notice is required as long as the adviser terminates the vendor relationship promptly',
+      'Notice is required only if the adviser can establish that the data was actually misused',
+      'The adviser must still notify affected individuals as soon as practicable and no later than 30 days after becoming aware, because responsibility for customer information does not transfer to the service provider holding it',
+    ],
+    answer: 3,
+    exp: "The amended Regulation S-P incident response requirements sit with the firm, including notification of affected individuals no later than 30 days after becoming aware of unauthorized access, and the service provider oversight provisions exist precisely so the firm learns of a vendor breach in time to meet that deadline. Outsourcing the system never outsources the obligation.",
+    difficulty: 'medium',
+  },
 ];
