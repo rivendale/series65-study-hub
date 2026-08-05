@@ -38,6 +38,14 @@ A Roth withdrawal is tax-free and penalty-free only if it is **qualified**, whic
 
 Roth IRA distributions follow **ordering rules**: contributions come out first (always tax- and penalty-free), then conversions, then earnings. Each **conversion** carries its own separate five-year clock for the 10% penalty.
 
+Keep the two five-year clocks apart. The **contribution clock** starts once, with the first dollar into any Roth IRA, never restarts, and governs whether **earnings** come out tax-free. The **conversion clock** starts separately for each conversion and governs only the **10% penalty** on that conversion before 59½. A client over 59½ ignores the conversion clocks entirely.
+
+### Choosing between them is a rate forecast
+
+The decision reduces to one question: **is the client's marginal rate higher today or at withdrawal?** A deduction taken at 32% and repaid at 12% favors Traditional; a deduction skipped at 12% to buy tax-free growth favors Roth. At the same rate in both periods the two are mathematically identical, as the worked example below shows.
+
+Everything else is a tiebreaker, and the tiebreakers mostly favor Roth: no lifetime RMDs for the original owner; a tax-free asset is a better inheritance, since the beneficiary must empty it inside ten years either way; and Roth withdrawals do not inflate the income that drives Social Security taxation and Medicare premiums. Against Roth: a certain deduction is surrendered for a benefit that depends on tax law decades away.
+
 ## Distributions
 
 ### Required minimum distributions
@@ -47,6 +55,21 @@ Under SECURE 2.0, RMDs from Traditional IRAs and most employer plans begin at **
 - The **excise tax on a shortfall is 25%**, reduced to **10%** if corrected within a two-year correction window.
 - **Roth IRAs have no RMDs during the owner's lifetime.** As of 2024, **designated Roth accounts inside employer plans also have no lifetime RMDs**.
 - A **still-working exception** can delay RMDs from the current employer's plan for a non-owner participant. It never applies to IRAs.
+
+#### The first-year trap
+
+Delaying the first RMD to April 1 sounds like free deferral and is not: the second RMD is still due by **December 31 of that same year**, so two distributions land in one tax year — pushing the client into a higher bracket, exposing more Social Security to tax, and raising Medicare premiums two years later.
+
+#### Which accounts can be combined
+
+| Account type | May the RMD be aggregated? |
+| --- | --- |
+| Multiple **traditional IRAs** | Compute for each, take the **total from any one** or any combination |
+| Multiple **403(b)** accounts | Aggregate among themselves only |
+| **401(k)** and other qualified plans | **No** — compute and take separately from each plan |
+| Across categories | **Never** |
+
+The factor comes from the **Uniform Lifetime Table**, except where the sole beneficiary is a spouse more than 10 years younger, in which case the more favorable Joint and Last Survivor Table applies. A **qualified charitable distribution** paid directly from an IRA to a charity beginning at 70½ counts toward the RMD and is excluded from income, up to an annual indexed limit.
 
 ### The 10% early withdrawal penalty
 
@@ -70,6 +93,7 @@ Note the split: **education and first-home exceptions are IRA-only**; the **age 
 - **Roth 401(k)** — after-tax deferrals, tax-free qualified withdrawals, and **no income limit** to participate, unlike a Roth IRA.
 - **403(b) / TSA** — for public school and 501(c)(3) employees; historically limited to annuities and mutual funds.
 - **457(b)** — deferred compensation for state and local government and some tax-exempt employers. Its distinguishing feature: **no 10% early withdrawal penalty** on separation from service, regardless of age.
+- **Solo (individual) 401(k)** — for an owner-only business with no full-time employees besides the owner and spouse. The owner contributes in **two capacities**: an employee elective deferral plus an employer profit-sharing contribution up to **25% of compensation**, subject to a combined cap. That deferral piece usually permits a **larger** contribution than a SEP at the same income. Hiring one full-time non-spouse employee ends eligibility.
 - **SEP IRA** — employer-funded only, contributions up to **25% of compensation** (capped at an indexed dollar limit), easy to establish, and the employer must generally cover all eligible employees at the **same percentage**.
 - **SIMPLE IRA** — for employers with **100 or fewer employees**; employee deferrals plus a mandatory employer **3% match or 2% non-elective** contribution. Employee deferrals are **immediately 100% vested**. Watch the **25% penalty** on withdrawals within the first two years of participation.
 - **Defined benefit** — the employer promises a formula-based benefit and bears the investment risk; favors older, highly paid owners.
@@ -77,6 +101,23 @@ Note the split: **education and first-home exceptions are IRA-only**; the **age 
 - **Vesting** — employee deferrals are always immediately vested. Employer money may vest on a **cliff** (all at once, e.g. after three years) or **graded** schedule. **Safe harbor** plans make immediately vested employer contributions in exchange for automatically passing nondiscrimination testing.
 
 Qualified plans must be in writing, non-discriminatory, for the exclusive benefit of employees, and communicated to participants.
+
+### 401(k), 403(b), and 457(b) side by side
+
+| | **401(k)** | **403(b)** | **457(b)** |
+| --- | --- | --- | --- |
+| Sponsor | Any employer | Public schools, 501(c)(3) | State/local government, some tax-exempts |
+| Investments | Whatever the plan offers | Historically annuities and mutual funds | Plan menu |
+| Early withdrawal penalty | 10% before 59½ | Same | **None on separation, at any age** |
+| Age-55 separation exception | Yes | Yes | Not needed |
+| ERISA | Yes | Sometimes | Governmental plans, no |
+| Rollover to an IRA | Yes | Yes | Governmental 457(b), yes |
+
+The exam's favorite fact is the 457(b) penalty exemption. A separated 50-year-old draws on a governmental 457(b) with no 10% penalty; the same withdrawal from a 401(k) at 50 is penalized unless another exception applies. The trap: **rolling a 457(b) into an IRA destroys that advantage**, since IRA distributions before 59½ are penalized normally.
+
+### Who bears the risk
+
+The defined benefit / defined contribution distinction is about **who carries investment and longevity risk**. A **defined benefit** plan promises a formula-based payment for life, so the employer bears the risk that returns disappoint or retirees live longer than assumed. A **defined contribution** plan ends the employer's promise at the contribution; the **employee** bears investment risk and the risk of outliving the balance — which is why glide paths, guaranteed income products, and safe withdrawal rate research exist at all.
 
 ## Rollovers and transfers
 
@@ -89,11 +130,46 @@ Qualified plans must be in writing, non-discriminatory, for the exclusive benefi
 
 The 20% withholding trap: a participant taking a $100,000 distribution from a 401(k) receives $80,000 but must deposit **$100,000** within 60 days to avoid tax, making up the $20,000 from other funds. This is why **direct rollovers are almost always the right recommendation**.
 
+### What the once-per-12-months rule does and does not cover
+
+It **applies** to an IRA-to-IRA (or Roth-to-Roth) **60-day rollover**, counted across **all** of the taxpayer's IRAs over a **rolling 12 months**, not a calendar year. A second one makes the distribution taxable, penalized if under 59½, and an excess contribution in the receiving IRA. It does **not** apply to **trustee-to-trustee transfers**, **plan-to-IRA** or **IRA-to-plan** rollovers, or **Roth conversions**. Since a direct transfer does everything a 60-day rollover does with none of the limits, the rule is **never let the client touch the money**.
+
 ## Inherited accounts
 
-The pre-2020 lifetime "stretch" is gone for most non-spouse beneficiaries. A designated beneficiary must generally **empty the account within 10 years** of the owner's death. If the owner had already begun RMDs, annual distributions are also required during those 10 years.
+The pre-2020 lifetime "stretch" is gone for most non-spouse beneficiaries. A designated beneficiary must generally **empty the account within 10 years** of the owner's death. Whether annual distributions are also required inside those ten years turns on when the owner died: **before** the required beginning date, no annual RMDs; **on or after** it, annual RMDs in years one through nine **and** the account empty by the end of year 10.
 
-**Eligible designated beneficiaries** who may still stretch over life expectancy: the **surviving spouse**, a **minor child of the account owner** (only until majority, then a 10-year clock starts), a **disabled or chronically ill** individual, and a beneficiary **not more than 10 years younger** than the owner. A surviving spouse may alternatively **treat the IRA as their own**. Non-designated beneficiaries such as an estate or a non-qualifying trust fall back on a **five-year rule** (or the decedent's remaining life expectancy if RMDs had begun).
+**Eligible designated beneficiaries** who may still stretch over life expectancy: the **surviving spouse**, a **minor child of the account owner** (only until majority, then a 10-year clock starts), a **disabled or chronically ill** individual, and a beneficiary **not more than 10 years younger** than the owner. A grandchild is not an EDB. Non-designated beneficiaries such as an estate, a charity, or a non-qualifying trust fall back on a **five-year rule** (or the decedent's remaining life expectancy if RMDs had begun).
+
+A **surviving spouse** has the widest choices: treat the IRA as their own, remain a beneficiary, or use the 10-year rule. Treating it as their own suits an older spouse who does not need the money; remaining a beneficiary suits a spouse **under 59½** who does, because **distributions from an inherited IRA carry no 10% penalty at any age**.
+
+An **inherited Roth** is still subject to the 10-year rule — tax-free does not mean distribution-free. Earnings come out tax-free provided the deceased owner's five-year clock was satisfied; the beneficiary inherits that clock rather than starting a new one.
+
+## Social Security claiming basics
+
+Claiming is one of the few genuinely irreversible choices a client makes. The benefit starts from the **primary insurance amount (PIA)**, computed from the highest **35 years** of inflation-indexed earnings — fewer than 35 years means zeros are averaged in, so one more working year late in a career can raise the benefit by replacing a zero.
+
+**Full retirement age (FRA)** is **67** for anyone born in 1960 or later. From there:
+
+- Claiming at the earliest age, **62**, permanently reduces the benefit by roughly **30%** of PIA when FRA is 67.
+- Delaying past FRA earns **delayed retirement credits of 8% per year** to age **70**, roughly **24%** above PIA. Waiting past 70 adds nothing.
+- Breakeven against an early claim typically falls in the early-to-mid eighties. **Longevity, not the breakeven table, drives the right answer.**
+- **Spousal benefit** — up to **50%** of the worker's PIA at the spouse's own FRA. Delayed credits do **not** raise it, so never delay a purely spousal claim past FRA.
+- **Survivor benefit** — up to **100%** of what the deceased worker received. This is why the **higher earner usually should delay**: that larger benefit becomes the survivor's and lasts as long as either spouse lives.
+- **Earnings test** — claiming before FRA while working withholds benefits above an annual exempt amount ($1 for every $2 over, $1 for every $3 in the FRA year). Withheld amounts are **not lost** — the benefit is recomputed upward at FRA. Say "deferred," not "forfeited."
+
+Benefits are also **partly taxable**: depending on provisional income (AGI plus tax-exempt interest plus half the benefit), up to **85%** is included in taxable income. Those thresholds are **not indexed**, so more retirees cross them every year — a strong argument for Roth assets, since Roth withdrawals do not enter provisional income at all.
+
+## Scenario: the 56-year-old who just left his employer
+
+Marcus is 56 and separated from service this year. He holds a **$600,000 401(k)** at his former employer, a **$150,000 traditional IRA** including **$30,000 of non-deductible basis**, and a **$90,000 Roth IRA** opened four years ago. He needs **$40,000** and is in the 22% bracket.
+
+Take it **from the 401(k), before rolling anything**. Because he separated in or after the year he turned 55, the plan distribution escapes the 10% penalty: $40,000 of ordinary income, roughly **$8,800** of tax, no penalty.
+
+Take it from the **traditional IRA** instead and two things go wrong. The **pro-rata rule** treats only 30,000 ÷ 150,000 = **20%** of any distribution as basis, so $8,000 is tax-free and $32,000 is taxable — about $7,040 of tax — and the 10% penalty applies to that taxable amount for another **$3,200**. Total **$10,240**, and $8,000 of basis is consumed. The age-55 exception does not exist in an IRA.
+
+The **Roth** reaches contributions penalty-free but spends the account with the longest tax-free runway, and at four years its five-year clock is unmet.
+
+For the rest of the 401(k): a **direct trustee-to-trustee rollover**, no check ever issued to Marcus, avoiding the 20% withholding and the 60-day clock. But note the cost of rolling — the moment the balance sits in an IRA the age-55 exception is gone for good. **A client under 59½ who may need more money before then has a real reason to leave part of the balance in the plan.**
 
 ## Other SECURE 2.0 items worth knowing
 

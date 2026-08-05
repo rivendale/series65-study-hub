@@ -1,6 +1,14 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Download, Trash2, RotateCcw } from 'lucide-react';
+import {
+  Download,
+  Trash2,
+  RotateCcw,
+  Upload,
+  Check,
+  AlertCircle,
+  Cloud,
+} from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import {
   overallStats,
@@ -9,6 +17,7 @@ import {
   missedQuestionIds,
 } from '../lib/stats';
 import ProgressBar from '../components/ProgressBar';
+import { parseProgressFile } from '../lib/mergeProgress';
 import { examInfo } from '../data/examInfo';
 import { TOPIC_TO_CATEGORY, OFFICIAL_CATEGORIES } from '../data/categories';
 
@@ -20,12 +29,30 @@ function barColor(pct: number) {
 }
 
 export default function ProgressPage() {
-  const { progress, resetAll, exportJson } = useProgress();
+  const { progress, resetAll, exportJson, importProgress } = useProgress();
+  const fileInput = useRef<HTMLInputElement>(null);
+  const [importMsg, setImportMsg] = useState<
+    { kind: 'ok' | 'error'; text: string } | null
+  >(null);
   const overall = overallStats(progress);
   const topicStats = statsByTopic(progress);
   const categoryStats = statsByCategory(progress);
   const missed = missedQuestionIds(progress);
   const [confirming, setConfirming] = useState(false);
+
+  const handleFile = async (file: File) => {
+    const result = parseProgressFile(await file.text());
+    if (!result.ok || !result.progress) {
+      setImportMsg({ kind: 'error', text: result.error ?? 'Could not read that file.' });
+      return;
+    }
+    importProgress(result.progress);
+    const s = result.stats!;
+    setImportMsg({
+      kind: 'ok',
+      text: `Merged ${s.answered} answered question${s.answered === 1 ? '' : 's'}, ${s.topicsRead} topic${s.topicsRead === 1 ? '' : 's'} read and ${s.mockAttempts} mock attempt${s.mockAttempts === 1 ? '' : 's'}. Nothing already on this device was lost.`,
+    });
+  };
 
   const download = () => {
     const blob = new Blob([exportJson()], { type: 'application/json' });
@@ -169,7 +196,13 @@ export default function ProgressPage() {
 
       <section className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
         <h2 className="font-semibold mb-3">Data</h2>
-        <div className="flex flex-col sm:flex-row gap-3">
+        <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+          To carry progress between a phone, tablet and laptop, export here and
+          import the file on the other device. Importing <em>merges</em> rather
+          than replaces, so work done on either device survives and it is safe
+          to import the same file twice.
+        </p>
+        <div className="flex flex-col sm:flex-row flex-wrap gap-3">
           <button
             type="button"
             onClick={download}
@@ -177,6 +210,25 @@ export default function ProgressPage() {
           >
             <Download className="w-4 h-4" />
             Export progress
+          </button>
+          <input
+            ref={fileInput}
+            type="file"
+            accept="application/json,.json"
+            className="sr-only"
+            onChange={(e) => {
+              const f = e.target.files?.[0];
+              if (f) void handleFile(f);
+              e.target.value = '';
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => fileInput.current?.click()}
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:border-blue-400 min-h-[44px]"
+          >
+            <Upload className="w-4 h-4" />
+            Import and merge
           </button>
           {!confirming ? (
             <button
@@ -208,6 +260,44 @@ export default function ProgressPage() {
               </button>
             </div>
           )}
+        </div>
+        {importMsg && (
+          <p
+            role="status"
+            aria-live="polite"
+            className={`mt-3 flex items-start gap-2 text-sm rounded-lg px-3 py-2 ${
+              importMsg.kind === 'ok'
+                ? 'bg-emerald-50 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200'
+                : 'bg-red-50 text-red-900 dark:bg-red-950/40 dark:text-red-200'
+            }`}
+          >
+            {importMsg.kind === 'ok' ? (
+              <Check className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+            ) : (
+              <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+            )}
+            <span>{importMsg.text}</span>
+          </p>
+        )}
+
+        <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <h3 className="text-sm font-semibold mb-1">
+            Or sync automatically
+          </h3>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+            Moving files by hand gets old. Optional encrypted sync does the same
+            merge over the network &mdash; but there is no shared server here, so
+            it means deploying a small worker to your own account first. It is
+            off until you set it up, and while it is off nothing leaves this
+            device.
+          </p>
+          <Link
+            to="/sync"
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:border-blue-400 min-h-[44px]"
+          >
+            <Cloud className="w-4 h-4" aria-hidden="true" />
+            Sync settings
+          </Link>
         </div>
       </section>
     </div>

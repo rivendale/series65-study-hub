@@ -207,8 +207,8 @@ export const items: Question[] = [
       'Prohibited, because an investment adviser must have written discretionary authority in hand before the first discretionary trade',
       'Permitted if written authorization is obtained within 10 business days',
     ],
-    answer: 2,
-    exp: "The client left the choice of security and the amount of each position to the adviser, which is full discretion over asset and amount, not merely time and price. Broker-dealers get a narrow 10-business-day oral grace period; investment advisers do not.",
+    answer: 3,
+    exp: "The client left the choice of security and the size of each position to the adviser, which is full discretion over asset and amount rather than merely time and price. Under the NASAA model rule an investment adviser may act on a client's oral grant of discretion but must obtain written authorization within 10 business days of the first discretionary transaction. It is the broker-dealer agent who has no grace period and needs the signed authorization in hand before the first trade.",
     difficulty: 'medium',
   },
   {

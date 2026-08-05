@@ -1,0 +1,90 @@
+# Cloudflare Worker config for the optional Series 65 Study Hub sync endpoint.
+#
+# One thing must be filled in before this will deploy:
+#   `id` under [[kv_namespaces]] — see step 3 of README.md
+#
+# One more must be set straight after the first deploy:
+#   the SYNC_TOKEN secret — see step 5 (set with `wrangler secret put`, never
+#   written in this file, which is checked into a public repo). Until it is set
+#   the worker is open to anyone who learns its URL. Verify with the two-command
+#   smoke test in README.md; the positive half passes either way.
+#
+# Everything else works as-is.
+
+name = "series65-sync"
+main = "worker.js"
+
+# Pins the Workers runtime behaviour. Leave it alone unless you know you want a
+# newer runtime; changing it can change how the platform behaves under you.
+compatibility_date = "2025-09-01"
+
+# Publishes to https://series65-sync.<your-subdomain>.workers.dev. That URL is
+# what you paste into the app's sync settings. Set to false if you are attaching
+# your own domain with a [[routes]] block instead.
+workers_dev = true
+
+# ---------------------------------------------------------------------------
+# KV namespace (required)
+# ---------------------------------------------------------------------------
+# Create it once with:
+#
+#   npx wrangler kv namespace create SYNC_KV
+#
+# Wrangler prints an id; paste it below. The binding name must stay SYNC_KV —
+# worker.js looks for exactly that.
+
+[[kv_namespaces]]
+binding = "SYNC_KV"
+id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+
+# Optional: a separate namespace for `wrangler dev --remote`, so local testing
+# never touches your real records. Create it with the --preview flag:
+#
+#   npx wrangler kv namespace create SYNC_KV --preview
+#
+# then uncomment and paste the preview id.
+#
+# preview_id = "PASTE_YOUR_PREVIEW_KV_NAMESPACE_ID_HERE"
+
+# ---------------------------------------------------------------------------
+# Bearer token (optional, strongly recommended)
+# ---------------------------------------------------------------------------
+# Set as a secret, not a var, so it is encrypted at rest and never appears in
+# this file or in your git history:
+#
+#   npx wrangler secret put SYNC_TOKEN
+#
+# Run it *after* the first `wrangler deploy`: a secret attaches to a Worker that
+# already exists, and against one that does not, wrangler stops to ask whether
+# it should create a placeholder. It takes effect within seconds, with no
+# redeploy needed.
+#
+# With it set, every request needs `Authorization: Bearer <token>`; the app asks
+# for the token in its sync settings. Unset — or set to an empty value, which
+# counts as the same thing — the worker runs open. See "Running without a token"
+# in README.md for what that does and does not expose.
+
+# ---------------------------------------------------------------------------
+# CORS (optional)
+# ---------------------------------------------------------------------------
+# Unset, the worker sends `Access-Control-Allow-Origin: *`, so the app works
+# from GitHub Pages, from a local dev server, and from your own host without
+# further configuration.
+#
+# Set it to the one origin you actually load the app from and only that origin
+# gets CORS headers. A comma-separated list works if you use more than one.
+# Remember this is a browser-enforced control, not authentication: it stops
+# another web page from calling your worker on a visitor's behalf, and does
+# nothing about a direct request. The token is what keeps strangers out.
+#
+# [vars]
+# ALLOWED_ORIGIN = "https://rivendale.github.io"
+
+# ---------------------------------------------------------------------------
+# Logs (optional)
+# ---------------------------------------------------------------------------
+# Uncomment to keep request logs in the Cloudflare dashboard. Off by default,
+# because the fewer places a record of your sync traffic exists, the better.
+#
+# [observability]
+# enabled = true

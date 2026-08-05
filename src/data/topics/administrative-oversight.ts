@@ -25,6 +25,8 @@ The Administrator may investigate **within or outside the state** whenever it ap
 
 If a person **refuses to comply with a subpoena**, the Administrator applies to a **court** for an order compelling compliance; disobedience of the court order is **contempt of court**. The Administrator cannot punish contempt directly. A witness may not refuse on self-incrimination grounds where the state provides **immunity**, but such testimony cannot be used against the witness in a criminal case.
 
+The out-of-state reach exists because securities fraud travels. A statute limited to conduct occurring physically inside the state would leave every resident exposed to any boiler room willing to dial long distance, and would let an in-state operator escape by aiming only at victims elsewhere. Jurisdiction therefore follows the **effect**, in both directions.
+
 ### 3. Administrative enforcement
 
 - **Cease-and-desist orders**, with or without a prior hearing depending on urgency
@@ -40,6 +42,8 @@ The Administrator may refer a matter to the **attorney general or the appropriat
 ### The hard limit
 
 **The Administrator cannot imprison anyone, cannot impose a criminal fine, and cannot issue an injunction.** Those are **judicial** functions. An Administrator who wants any of them must go to court. This single boundary is one of the most frequently tested facts in the whole exam.
+
+That line is not a drafting accident. The Administrator sits in the **executive** branch: it licenses, examines, and orders. Taking a person's liberty, or compelling conduct on pain of contempt, are **judicial** acts, and the separation of powers puts them in a court where the respondent gets a judge, rules of evidence, and — for a crime — a jury and proof beyond a reasonable doubt. So the Administrator's real lever is not force but **access**: it controls whether a person may lawfully do securities business in the state. Everything heavier requires a courtroom.
 
 ## Grounds for denial, suspension, or revocation
 
@@ -60,6 +64,14 @@ An adverse action must be **in the public interest** AND supported by at least o
 
 The Administrator **may not** base a denial solely on **lack of experience** if training and knowledge are adequate, and must consider that an **agent or representative** is not required to have the same qualifications as a **principal or supervisor**. The Administrator **may** require an applicant who has not been registered in any state within the prior two years to pass an examination, including one written or oral.
 
+### Worked scenario: which convictions disqualify
+
+An applicant in 2026 discloses three items: a **felony** conviction for aggravated assault in 2013, a **misdemeanor** conviction for check fraud in 2009, and a **misdemeanor** for driving under the influence in 2021.
+
+Take them separately. The felony is an automatic ground only inside the **10-year** window, and 2013 falls outside it — the Administrator may still weigh the conduct in the public-interest determination, but it is not an enumerated ground. The 2009 check-fraud misdemeanor is fraud-related and involves the wrongful taking of property, and in the classic formulation **no 10-year limit** applies to that category, so age does not save it. The DUI is recent but is a misdemeanor unrelated to securities, investments, fraud, false statements, or property, and is not an enumerated ground at all.
+
+The trap is assuming recency decides. For a **felony the calendar decides**; for a **misdemeanor the nature of the offense decides**.
+
 ## Due process
 
 The Administrator may not enter a final adverse order without:
@@ -70,9 +82,17 @@ The Administrator may not enter a final adverse order without:
 
 Any person aggrieved by a final order may seek **judicial review** by filing a petition in the appropriate court, generally **within 60 days** of the order. **Filing the petition does not by itself stay the order** — a stay must be obtained from the court.
 
+Review is on the **administrative record**. The court asks whether the findings are supported by substantial evidence and whether the Administrator stayed within the statute, not whether the judge would have decided the same way — which is exactly why the **written findings of fact and conclusions of law** matter so much. They are what gets reviewed.
+
 ### Summary (emergency) orders
 
 The Administrator may issue an order **summarily** — postponing or suspending a registration pending final determination, or entering a cease-and-desist order — **without a prior hearing**, when the public interest requires immediate action. The Administrator must **promptly notify** the affected persons that the order has been entered, state the reasons, and inform them that a **hearing will be held within 15 days of a written request**. If no hearing is requested and none is ordered, the summary order **remains in effect until modified or vacated**.
+
+### Why a summary order survives due process
+
+Due process normally means notice and a hearing **before** the state takes something away. A summary order inverts that, and the justification is urgency: where money is being dissipated or investors solicited right now, a pre-deprivation hearing would guarantee the harm it exists to prevent. The trade is a **prompt post-deprivation hearing** — the order issues at once, notice goes out immediately, and the hearing follows within 15 days of a written request.
+
+Two consequences get tested. A summary order is **not a finding of guilt**; it is provisional relief pending final determination. And it does not lapse on its own: if nobody requests a hearing it **stays in effect until modified or vacated**. Silence favors the order, not the respondent.
 
 ## The five outcomes — precise distinctions
 
@@ -99,13 +119,32 @@ Points the exam presses:
 - A purchaser who **no longer owns the security** sues for damages measured the same way, less the amount realized on the disposition.
 - The same framework extends to a **client of an investment adviser** who was harmed by unlawful advice — recovery is the **advisory fees paid plus interest and costs, less any income received**, and, where the client acted on the advice, losses on the resulting transactions.
 
+### Worked scenario: computing the rescission amount
+
+On **March 1, 2023** a client pays **$30,000** for 1,000 shares in a transaction that violated the act. She collects **$600** of dividends in each of the next two years. She sues in **March 2025**. The state legal rate is **6%** simple, and the court awards **$2,500** in attorneys' fees and costs.
+
+Run the formula in order:
+
+- **Consideration paid:** $30,000
+- **Plus interest** at 6% for two years: 30,000 × 0.06 × 2 = **$3,600**
+- **Less income received** on the security: 600 + 600 = **$1,200**
+- **Plus fees and costs:** **$2,500**
+
+30,000 + 3,600 − 1,200 + 2,500 = **$34,900**, payable **on tender of the shares**.
+
+Notice what never entered the arithmetic. The current market value of the shares is irrelevant, because she hands them back. So is anything the investment might have earned: **lost profits are not recoverable**.
+
+**Variation — she already sold.** Having disposed of the shares she cannot tender them, so she sues for damages on the same measure less what she realized. If the sale brought $18,000: 30,000 + 3,600 − 1,200 − 18,000 + 2,500 = **$16,900**.
+
+**Variation — unlawful advice rather than a sale.** A client who paid **$8,000** in fees over two years under an unlawful advisory contract, received **$2,000** of income by acting on the advice, and is awarded **$1,500** in costs recovers the consideration paid for the advice plus interest, less that income: 8,000 + 480 + 480 − 2,000 + 1,500 = **$8,460**.
+
 ### The rescission offer
 
 A seller who realizes it has violated the act may make a written **offer of rescission** — repurchasing the security at the same formula amount plus interest — before suit is filed. If the buyer **does not accept in writing within 30 days** of receipt, the buyer **loses the right to sue** on that violation. Joint and several liability extends to **partners, officers, directors, employees who materially aided the sale, and broker-dealers or agents who participated**, subject to a defense that the person did not know and could not reasonably have known of the facts.
 
 ## Criminal penalties
 
-**Willful violation** of the act, of a rule under it, or of an order of which the person had knowledge is a crime punishable by a fine of **up to $5,000, imprisonment of up to 3 years, or both, per violation** under the model act. Many states adopt higher amounts; the exam uses the model figures.
+**Willful violation** of the act, of a rule under it, or of an order of which the person had knowledge is a crime punishable by a fine of **up to $5,000, imprisonment of up to 3 years, or both, per violation** under the model act. Treat those as the **model act's figures, not a national standard** — each adopting state sets its own, and many are higher.
 
 Two defenses to remember:
 
@@ -113,6 +152,25 @@ Two defenses to remember:
 - **"Willful" means intending the act, not intending to break the law.** Ignorance of the statute is not a defense; ignorance of a specific rule or order is.
 
 Only the **courts** impose these penalties — the Administrator refers the case.
+
+## Consent orders and settlements
+
+Most enforcement matters end by agreement rather than hearing. In a **consent order** the respondent accepts a sanction — a suspension, a bar, restitution, a fine, undertakings such as retaining a compliance consultant — and the Administrator forgoes litigation. The characteristic formula is that the respondent **neither admits nor denies** the findings.
+
+What that formula does and does not accomplish is the tested point.
+
+- It **avoids an admission** that a private plaintiff could later use as an established fact.
+- It does **not** make the matter private. A consent order is a public disciplinary event, disclosable on **Form U-4 and Form ADV** and carried on the CRD and IARD record.
+- It does **not** neutralize the order as a **ground for future action**. An order of another state's Administrator is itself an enumerated ground, so a consent order in one state can support a proceeding in the next.
+- Breaching the undertakings reopens the matter.
+
+## How state and federal proceedings interact
+
+NSMIA divided **registration** authority — federal covered advisers and covered securities belong to the SEC — but it expressly **preserved state anti-fraud jurisdiction**. A federal covered adviser that deceives a client in a state answers to that state's Administrator even though it never registered there.
+
+- **Parallel proceedings are permitted.** The SEC, the state, an SRO, and a criminal prosecutor may all act on the same facts; separate sovereigns and remedial administrative sanctions mean double jeopardy does not bar them.
+- **Each other's orders are grounds.** An SEC order, an SRO expulsion or suspension, or another state's order is an enumerated basis for state action, so one proceeding often begets several.
+- **Regulators share.** Administrators cooperate through NASAA and exchange examination findings and investigative material routinely.
 
 ## Statute of limitations
 
@@ -130,6 +188,8 @@ Every application for registration, and every notice filing, must be accompanied
     "A rescission offer must be rejected or ignored for 30 days to bar the buyer's suit; a buyer who fails to accept in writing within 30 days loses the right to sue on that violation.",
     "Criminal penalties under the model act are up to $5,000 and three years per violation, and a person who had no knowledge of the rule or order cannot be criminally liable — though administrative and civil exposure remains.",
     "A hearing must be granted within 15 days of a WRITTEN request; the Administrator is not required to hold a hearing that nobody asks for, and a summary order stays in effect until modified or vacated.",
+    "A consent order in which the respondent neither admits nor denies the findings is still a public disciplinary event: it is reportable on Form U-4 and Form ADV and can itself be the enumerated ground for another state's proceeding.",
+    "A felony is an enumerated ground only within the 10-year window, but a securities-, fraud-, or property-related misdemeanor has no such time limit in the classic formulation — for felonies the calendar decides, for misdemeanors the nature of the offense decides.",
   ],
   keyTerms: [
     {
@@ -171,6 +231,11 @@ Every application for registration, and every notice filing, must be accompanied
       term: 'Consent to service of process',
       definition:
         "An irrevocable appointment of the Administrator as agent to receive service in noncriminal proceedings, filed once with the initial application or notice filing and not renewed annually.",
+    },
+    {
+      term: 'Consent order',
+      definition:
+        "A negotiated resolution in which the respondent accepts a sanction while neither admitting nor denying the findings; it avoids an admission usable in private litigation but remains a public, reportable disciplinary event and a ground for action by other regulators.",
     },
     {
       term: 'Willful violation',

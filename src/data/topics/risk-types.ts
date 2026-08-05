@@ -13,6 +13,10 @@ Every risk on the exam sorts into one of two buckets, and the sorting determines
 
 **Systematic risk** affects the whole market, **cannot be diversified away**, and is the risk investors are **compensated** for bearing. **Unsystematic risk** is specific to a company, industry, or security, **can be substantially diversified away**, and therefore earns **no risk premium**.
 
+The compensation rule has a reason behind it. A risk you can eliminate for the cost of a few extra trades is not something anyone must be paid to accept, so competition drives its price to zero. A risk **every** investor is stuck with must be paid for, or nobody would hold the assets that carry it. That is why the split is not a taxonomy but a pricing rule: diversifiable risk is free to remove and therefore free of reward, while market-wide risk is unavoidable and therefore rewarded.
+
+The risks that **cannot** be diversified away are the short list worth memorizing: **market, interest rate, inflation, currency, and political risk**. If an answer choice claims diversification solves any of those, it is wrong. Everything else — business, credit, liquidity, call, prepayment, concentration — is at least partly diversifiable.
+
 A useful memory aid for systematic risks: **PRIME** — **P**olitical, **R**einvestment (debated; see below), **I**nterest rate, **M**arket, **E**xchange rate. Note that reinvestment risk is often classified as unsystematic in exam materials because it is tied to a particular bond's cash flows; if a question forces a choice, market, interest rate, inflation, currency, and political are the safe systematic answers.
 
 ## Systematic Risks
@@ -31,6 +35,16 @@ The risk that rising rates reduce the market value of existing fixed-income secu
 
 Interest rate risk also touches equities: **preferred stock** and **utilities** trade like bonds and fall when rates rise.
 
+#### Duration Is the Measurement
+
+**Macaulay duration** is the weighted-average time, in years, until an investor receives the bond's cash flows. **Modified duration** converts that into a price sensitivity: the approximate percentage price change for a **1 percentage point** change in yield, in the opposite direction. A bond with a modified duration of 7 falls about 7% if yields rise 1%.
+
+Duration rises with **longer maturity** and falls with a **higher coupon** and a **higher yield**, because each of those pulls the average cash flow forward in time. A zero-coupon bond has only one cash flow, so its Macaulay duration equals its **maturity** — the maximum available for that term, and the reason zeros are the most rate-sensitive bonds in existence.
+
+Duration is a **straight-line estimate of a curved relationship**, so it is accurate for small moves and increasingly wrong for large ones. The curvature is **convexity**, and for an ordinary bond it works in the investor's favour: duration overstates the loss when rates rise sharply and understates the gain when they fall. Mortgage-backed securities are the exception — their **negative convexity** makes the estimate wrong in the painful direction.
+
+Duration is also the tool for the mitigant. **Immunization** matches portfolio duration to the investor's horizon, so that the price loss from rising rates is offset by the higher reinvestment income on the coupons, and the target value is reached regardless of which way rates move.
+
 ### Inflation (Purchasing Power) Risk
 
 The risk that returns fail to keep pace with the cost of living, so **real** purchasing power declines. It is the dominant risk for **cash, CDs, money market funds, and long-term fixed-rate bonds** — anything paying a fixed nominal amount. Common stock and real assets are the traditional hedges; **TIPS** address it directly by adjusting principal with the CPI. A retiree holding only bonds and cash for a 30-year retirement faces inflation risk, not market risk, as the primary threat.
@@ -42,6 +56,14 @@ The risk that a change in exchange rates reduces the home-currency value of a fo
 ### Political and Geopolitical Risk
 
 The risk that government action — expropriation, capital controls, sanctions, currency devaluation, war, or instability — impairs an investment. Highest in **emerging markets** and in **sovereign debt** of unstable issuers. Also called **country risk**.
+
+### Scenario: The Safest Bond in the World
+
+A client buys a newly issued 30-year Treasury with a 2% coupon at par, on the reasoning that Treasuries are the safest security available. Yields then rise to 5%.
+
+Her credit judgment was correct: there is no default risk, and if she holds to maturity she receives every coupon and her $1,000 back. Her **market value** is another matter. The bond's modified duration is about 22.5, which by itself predicts a 22.5 × 3 = 67.5% decline. Convexity softens that: the bond actually reprices to roughly **54 cents on the dollar**, a loss near 46%. A $500,000 position is worth about $268,000.
+
+Three lessons the exam tests together. **Credit risk and interest rate risk are independent** — removing one says nothing about the other. **Duration overstates the damage on large moves**, because it is a linear approximation of a convex curve. And the 2% coupon she is locked into for three decades is a textbook case of **inflation risk** sitting on top of the price loss.
 
 ## Unsystematic Risks
 
@@ -80,13 +102,33 @@ The risk that interim cash flows — coupons, called principal, maturing bonds �
 
 ### Concentration Risk
 
-The risk of too much exposure to one security, issuer, sector, or factor. The classic case is **employer stock**, where the client's human capital and financial capital ride on the same company. This risk is entirely uncompensated — the market pays nothing extra for holding it.
+The risk of too much exposure to one security, issuer, sector, or factor. The classic case is **employer stock**, where the client's human capital and financial capital ride on the same company: a bankruptcy costs the salary, the equity, and often the retirement plan simultaneously, precisely when the labour market for that skill set is worst.
+
+Concentration is the purest example of **uncompensated risk**. The extra volatility of a single stock over a diversified portfolio is almost entirely unsystematic, so the market pays nothing for it — the client accepts more risk for the same expected return. Concentration also hides in less obvious forms: a portfolio of thirty stocks in one sector, a municipal portfolio drawn from one state, several funds that all hold the same mega-caps, or a client whose home, job, and largest client are all tied to a single local economy.
+
+The practical obstacles to fixing it are usually **taxes** (a very low basis), **restrictions** (Rule 144, lock-ups, blackout windows), and **attachment**. Standard mitigants are staged selling, exchange funds, charitable gifting of appreciated shares, and hedging with collars or protective puts.
 
 ### Opportunity Cost, Timing, and Tax Risk
 
 - **Opportunity cost** — the return forgone by choosing one investment over another, often benchmarked against the risk-free rate.
 - **Timing risk** — buying or selling at an unfavorable point in the cycle. **Dollar-cost averaging** is the standard mitigant.
 - **Tax risk** — the risk that taxes consume more of the return than expected, or that a tax characterization changes. Related, **legislative risk** may alter tax treatment entirely.
+
+## Sequence-of-Returns Risk
+
+During **accumulation**, the order in which returns arrive does not matter — a portfolio compounding the same set of returns in any order finishes at the same value. Once the investor is **withdrawing**, order becomes decisive, because a loss taken while money is leaving the account destroys shares that are never available to participate in the recovery.
+
+This is **sequence-of-returns risk**, and it is the dominant risk of the first decade of retirement. It is not solved by diversification, it does not show up in an average-return projection, and two clients with identical average returns can end in completely different places.
+
+### Scenario: Two Retirements, Same Average Return
+
+Two retirees each begin with $1,000,000, withdraw $50,000 at the end of each year, and experience the same three annual returns: −30%, +10%, and +25%. The arithmetic average is the same 1.67% for both. Only the order differs.
+
+**Retiree A takes the loss first** (−30%, +10%, +25%). Year one: $1,000,000 falls to $700,000, then the withdrawal leaves $650,000. Year two: $715,000 less the withdrawal is $665,000. Year three: $831,250 less the withdrawal is **$781,250**.
+
+**Retiree B takes the loss last** (+25%, +10%, −30%). Year one ends at $1,200,000, year two at $1,270,000, and year three at **$839,000**.
+
+Same returns, same withdrawals, a gap of **$57,750** after only three years — and the gap compounds from there. With **no withdrawals**, both portfolios finish at exactly $962,500, which proves the point: order matters only when cash is moving. The mitigants are a cash or short-bond bucket covering the first few years of spending, a flexible withdrawal rule that cuts spending after a bad year, and avoiding an equity allocation whose worst plausible drawdown the withdrawal schedule cannot survive.
 
 ## Signature Pairings
 
@@ -106,13 +148,17 @@ The risk of too much exposure to one security, issuer, sector, or factor. The cl
 
 ## Measuring Risk
 
-**Standard deviation** measures **total risk** — the dispersion of returns around their mean. In a normal distribution, roughly **68%** of outcomes fall within one standard deviation, **95%** within two, and **99%** within three. A portfolio with a 9% expected return and 15% standard deviation has about a 68% chance of returning between −6% and +24% in a given year. Standard deviation is the risk input for the **Sharpe ratio**.
+Each measure is a different lens, and the exam tests whether you know which one the question is asking about.
 
-**Beta** measures **systematic risk** only — sensitivity to the market. It is the risk input for the **Treynor ratio** and **Jensen's alpha**.
+**Variance** is the average squared deviation from the mean. It is the mathematically convenient form — variances of independent series add — but it is in **squared units** and cannot be compared with a return or a standard deviation. Always take the square root before comparing.
 
-The choice between them follows from diversification: for a **well-diversified** portfolio, unsystematic risk is already gone and **beta** is the relevant measure. For a **single security or a concentrated portfolio**, total risk still matters, so **standard deviation** is the relevant measure.
+**Standard deviation** is the square root of variance and measures **total risk** in the same units as return. In a normal distribution roughly **68%** of outcomes fall within one standard deviation, **95%** within two, and **99%** within three. A portfolio with a 9% expected return and 15% standard deviation has about a 68% chance of landing between −6% and +24% in a given year. It is the risk input for the **Sharpe ratio**.
 
-Two related measures: **semivariance and downside deviation** capture only unfavorable dispersion, answering the objection that standard deviation penalizes upside surprises. **R-squared** shows how much of an asset's movement the benchmark explains — a low R-squared makes the reported beta unreliable.`,
+**Semivariance and downside deviation** measure only *unfavourable* dispersion, answering the fair objection that standard deviation penalizes an unexpectedly good year exactly as much as a bad one. Downside deviation is the denominator of the **Sortino ratio**, and it is the better lens where returns are skewed — options strategies, hedge funds, and anything with a long tail on one side only.
+
+**Beta** measures **systematic risk** alone — sensitivity to the market, not total variability. It is the input for the **Treynor ratio** and **Jensen's alpha**. **R-squared** tells you whether to trust the beta at all: it is the share of the asset's movement the benchmark explains, and a low R-squared means the beta was measured against the wrong index and should not be relied on.
+
+Choosing between them follows from diversification. In a **well-diversified** portfolio the unsystematic component is already gone, so **beta** describes the risk that remains. For a **single security or a concentrated portfolio**, the investor still bears the unsystematic part, so **standard deviation** is the honest measure. A stock with a high standard deviation and a low beta is genuinely risky to someone who owns only that stock and largely harmless to someone who owns four hundred others.`,
   pitfalls: [
     "A long-term Treasury bond has essentially no default risk but enormous interest rate and inflation risk. Safety of principal at maturity is not the same as safety of market value along the way.",
     "Interest rate risk and reinvestment risk move in opposite directions. Rising rates hurt bond prices but improve reinvestment, which is the entire premise of immunization.",

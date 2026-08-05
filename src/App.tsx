@@ -11,6 +11,7 @@ import StudyPlan from './pages/StudyPlan';
 import Glossary from './pages/Glossary';
 import CheatSheet from './pages/CheatSheet';
 import Formulas from './pages/Formulas';
+import Sync from './pages/Sync';
 import { useTheme } from './hooks/useProgress';
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/quiz/mock" element={<Quiz mode="mock" />} />
           <Route path="/quiz/missed" element={<Quiz mode="missed" />} />
           <Route path="/progress" element={<Progress />} />
+          <Route path="/sync" element={<Sync />} />
           <Route path="/glossary" element={<Glossary />} />
           <Route path="/formulas" element={<Formulas />} />
           <Route path="/cheatsheet" element={<CheatSheet />} />

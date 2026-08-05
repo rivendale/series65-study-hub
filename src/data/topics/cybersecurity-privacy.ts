@@ -19,6 +19,8 @@ export const topic: Topic = {
 
 Only **natural persons** are covered. A corporate or institutional client is outside Reg S-P.
 
+Reg S-P implements three ideas from Gramm-Leach-Bliley, and the exam questions track them: **notice** (tell people what you collect and share), **choice** (let them stop some of the sharing), and **safeguards** (protect what you hold, whether or not you share any of it). The safeguards duty is the one candidates underweight: it binds even a firm that shares nothing with anyone, because holding the information is what creates it.
+
 ### The notices
 
 | Notice | When |
@@ -50,6 +52,17 @@ The amendments to Regulation S-P added an explicit **incident response program**
 The notice must describe **what happened, what information was involved, and what the individual can do to protect themselves**, including contact information.
 
 Note also the separate SEC **Form ADV** and examination expectations, plus state data-breach statutes that may impose **shorter** deadlines and **attorney-general notification**. When state law is stricter, the firm complies with both.
+
+### Worked scenario: the vendor is breached
+
+A state-registered adviser keeps client records in a cloud CRM. In March the vendor discovers unauthorized access to a database containing client names, Social Security numbers, and account numbers. It tells the adviser eight days later. Work through who owes what.
+
+- **The obligation is the adviser's.** Reg S-P runs to the covered firm, not its vendors: an adviser can outsource the processing, never the duty. The firm assesses scope, contains the incident, and notifies.
+- **Eight days is itself a finding.** The amended rule requires oversight of service providers by **written contract** obligating them to take appropriate measures and to notify the firm **as soon as possible and no later than 72 hours** after becoming aware of a breach. A vendor that took eight days either had no such clause or ignored it — either way the oversight program failed independently of the breach.
+- **The 30-day clock starts when the firm becomes aware** that unauthorized access to sensitive customer information has occurred or is reasonably likely to have occurred. Notice must go out **as soon as practicable and in no event later than 30 days**.
+- **The exception requires a determination, not silence.** A firm may withhold notice only if it determines the information has not been and is not reasonably likely to be used in a way causing substantial harm or inconvenience. The default is to notify, and the determination must be documented.
+- **The vendor may deliver the notices; the firm remains responsible** for them and their content.
+- **State law still applies on top.** Many state breach statutes impose shorter deadlines and require notice to the attorney general; where they are stricter, the firm satisfies both.
 
 ## Regulation S-ID — identity theft red flags
 
@@ -88,6 +101,8 @@ State-registered advisers must adopt a **written business continuity and success
 
 **Succession** is the piece candidates forget. For a **solo adviser**, the plan should identify who will step in, how clients will be told, and how accounts will be transitioned or the business wound down. Regulators consider the absence of a succession arrangement at a one-person firm a direct client-harm risk.
 
+Business continuity sits in a rulebook rather than an operations manual because its failures land on clients, not on the firm. A client who cannot reach anyone to raise cash during a dislocation, or whose account sits unmanaged for months after a solo adviser dies, has suffered a real loss caused by the adviser's planning. Continuity and succession are **client-protection obligations**, and their absence is a **deficiency**, not a business risk the adviser may choose to accept.
+
 ## Common threats and practical controls
 
 | Threat | How it works | Primary controls |
@@ -101,6 +116,31 @@ State-registered advisers must adopt a **written business continuity and success
 Baseline hygiene the exam expects an adviser to have: **encryption of data at rest and in transit**, **multi-factor authentication**, **least-privilege access** with prompt removal on termination, **prompt patching**, a **written mobile-device and remote-work policy**, and **no business communications on unmonitored personal channels**.
 
 Never verify a change of wire instructions by replying to the email that requested it. That is the single most tested practical control.
+
+### Worked scenario: the urgent wire
+
+A representative receives an email from a client of eleven years — correct address, familiar signature block — asking that $85,000 be wired to a new account for a property closing tomorrow. A second line adds: in meetings all day, please just email.
+
+Every element of that message is the attack. The **new destination**, the **artificial deadline**, and the **pre-emptive excuse for not talking** are the pattern, and the excuse is the tell: an attacker who controls the mailbox can answer any question sent to it, so replying to the email and receiving a confirmation proves nothing at all. Verification must move to a **different channel** — a callback to the number already on file, never a number supplied in the request.
+
+The controls that stop this are procedural rather than technical: **verbal verification on a known number**, **dual approval** for changes to disbursement instructions, and a **delayed release** on first use of new instructions. If the client is elderly and the story is thin, the matter also escalates as possible exploitation, where the delayed-disbursement framework may apply.
+
+Note where the violation lands if the money leaves: the firm's exposure is a **failure to follow and supervise its own procedure**, and that failure exists whether or not the wire is recovered.
+
+### What an examiner actually asks for
+
+Regulators test cybersecurity by asking for artifacts:
+
+- The **written information security program** and the date of its last review
+- The **incident response plan**, with named roles, plus the log of any incidents and the firm's response
+- Evidence that **multi-factor authentication** is enforced — on email above all, since email is the entry point for wire fraud and credential theft
+- Proof of **encryption** in transit and at rest, including laptops and mobile devices
+- A current **access review**, with evidence that access was removed promptly on termination
+- **Training records** with dates, attendance, and content, including phishing simulations
+- **Vendor due diligence** files: what was reviewed before onboarding, what the contract requires on security and breach notification, and what monitoring has happened since
+- The **privacy policy delivered to clients** initially and annually, with each version retained
+
+A plan never tested and training nobody attended are recurring deficiencies; "we have a policy" answers none of these questions.
 
 ## Senior and vulnerable client protection
 
@@ -136,6 +176,7 @@ Reporting obligations run to the **state securities regulator and adult protecti
     "Regulation S-P protects natural persons obtaining products for personal, family, or household purposes; institutional and corporate client information is outside its scope.",
     "A trusted contact person cannot trade, withdraw, or direct the account — naming one is not the same as granting a power of attorney or adding a beneficiary.",
     "A hold on a suspected exploitative disbursement is temporary, typically 15 business days plus a 10-business-day extension, and requires prompt notice to authorized parties other than the suspected exploiter, plus documented internal review.",
+    "A breach at a service provider does not shift the obligation: the covered firm still owes the customer notice, the contract must require the vendor to report a breach within 72 hours, and the vendor may deliver the notices only on the firm's continuing responsibility.",
     "Business continuity plans must include SUCCESSION — a solo adviser without a named successor and a client transition plan is a compliance deficiency, not merely a business risk.",
   ],
   keyTerms: [

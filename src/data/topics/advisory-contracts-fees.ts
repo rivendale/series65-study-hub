@@ -11,17 +11,23 @@ export const topic: Topic = {
 
 Under **Advisers Act §205** and the **NASAA model rule on advisory contracts**, most state rules require the contract to be **in writing**; the federal act does not require a writing for all advisers but conditions several protections on the contract terms.
 
-Required and expected contents:
+Each required term closes a specific abuse. Learn the pairing, not the list:
 
-- **Description of the services** to be provided;
-- **Term** of the contract;
-- The **fee** and **how it is calculated** — the formula, the billing frequency, and whether it is billed in advance or arrears;
-- **Provision for refund of prepaid fees** on early termination, on a pro rata basis;
-- Whether the contract grants **discretionary authority**, and any limits on it;
-- A statement that the contract **may not be assigned without the client's consent**;
-- For an adviser organized as a **partnership**, an undertaking to **notify the client of any change in the membership of the partnership within a reasonable time**.
+- **Description of the services** — so an ongoing fee cannot be charged for a relationship whose content was never defined;
+- **Term** of the contract — so the client can see when it ends and decide again;
+- The **fee** and **how it is calculated** — formula, billing frequency, advance or arrears, so the client can verify a bill rather than take it on faith;
+- **Pro rata refund of prepaid fees** on early termination — so prepayment cannot function as a lock-in penalty;
+- Whether the contract grants **discretionary authority**, and its limits — because discretion is the power to trade without asking, and must be granted knowingly;
+- A statement that the contract **may not be assigned without the client's consent** — because the client chose *this* adviser, and advice is personal;
+- For a **partnership**, an undertaking to **notify the client of any change in the membership within a reasonable time** — so turnover among the people doing the work does not go unnoticed.
 
 Prohibited: any provision **waiving compliance** with the Advisers Act or state law (**§215**), and any misleading **hedge clause**.
+
+### Why a Hedge Clause Cannot Work
+
+A **hedge clause** is language limiting the adviser's liability — "shall not be liable for any loss," or "shall not be liable except for gross negligence or willful misconduct." Section 215 voids it, for a structural reason rather than a technical one: the fiduciary duty is a **statutory protection conferred on clients as a class**, not a private bargain. If a client could sign it away, every adviser would put the waiver in its standard form and the duty would survive only for clients who negotiate — which is to say, not for retail clients at all.
+
+That is also why the analysis does not turn on whether a court would enforce the clause. Even an unenforceable clause **violates the rule on its own**, because it is **misleading**: a client who believes he has no claim does not bring one. The test is whether the language **could lead a client to believe he has waived a non-waivable right**, and for a retail client most general disclaimers do. The permitted move is the mirror image — an adviser may **narrow the scope**, advising only on a named account or excluding held-away assets. Limiting **what the adviser is engaged to do** is legitimate; limiting **the standard applied to what it does** is void.
 
 ### Discretion
 
@@ -40,7 +46,25 @@ Prohibited: any provision **waiving compliance** with the Advisers Act or state 
 
 Fees must be **reasonable in relation to the services provided** and broadly **comparable to what other advisers charge for similar services**. There is no fixed maximum, but a fee materially above prevailing rates must be **disclosed as such** — that the client could obtain comparable services elsewhere for less. Differing fee schedules for different clients are permitted but are a **conflict requiring disclosure**.
 
-**Prepaid fees create a balance sheet obligation.** An adviser collecting **more than $1,200 in fees six or more months in advance** must include an **audited balance sheet** with its brochure and meet minimum net worth or bonding requirements.
+### The Conflict Inside Each Model
+
+No fee model is neutral. Each pays the adviser to do something, and the conflict sits wherever the money is:
+
+- **Percentage of AUM** rewards **gathering and keeping assets** — so the adviser is paid less for any advice that shrinks the account (pay off the mortgage, buy an annuity, make a large gift) and more for rollovers that pull outside money under the fee. The most heavily tested fee conflict.
+- **Hourly** rewards **time spent**: longer engagements, more meetings.
+- **Fixed or flat fee** rewards **finishing fast**, so the risk runs the other way — a thin plan against a full fee.
+- **Subscription or retainer** rewards **renewal**; broadly aligned, but it pressures the adviser to look busy.
+- **Commission-based** rewards **transactions** — the classic churning incentive.
+- **Performance-based** rewards **upside volatility**: the adviser shares the gains but not personally the losses, so the incentive is more risk than the client would choose. That asymmetry is why §205 restricts it.
+- **Wrap fee** bundles advisory fee, execution and custody into one asset-based charge. It removes the incentive to over-trade and installs the opposite: **the fewer trades, the more of the wrap the sponsor keeps.** A wrap account that barely trades is the reverse-churning pattern, and the brochure must say the wrap **may cost more** than paying separately.
+
+### Layered Fees
+
+An advisory fee on assets held in funds or ETFs sits **on top of** each fund's expense ratio, and the client pays both. Not prohibited — it is what managing a fund portfolio looks like — but the layering must be **disclosed**, and it becomes a problem in three places: a full advisory fee on the adviser's **own proprietary funds** with no layer waived or offset; the fee charged on large **cash** balances held for long stretches; and a third layer stacked through a **fund of funds** or wrap program. The client must see **every layer**, and reasonableness is tested against the **total**.
+
+### Prepayment and Refunds
+
+**Prepaid fees create a balance sheet obligation.** An adviser collecting **more than $1,200 in fees six or more months in advance** must include an **audited balance sheet** with its brochure and meet minimum net worth or bonding requirements. The logic is solvency: a client who prepaid is an **unsecured creditor**, and if the firm fails his refund claim stands in line with everyone else's. States use a lower trigger, commonly **more than $500** six or more months in advance. The **refund** is a separate duty: on termination the unearned portion goes back **pro rata**, and a contract keeping the whole prepayment is a prohibited penalty.
 
 ## Performance-Based Fees
 
@@ -55,13 +79,17 @@ Fees must be **reasonable in relation to the services provided** and broadly **c
 
 These dollar thresholds are **indexed for inflation** and adjusted periodically by SEC order, so know the current figures and know that they move.
 
+**Status is tested at inception**, when the client enters into the contract. A client who qualified at signing and later drops below the threshold need not be moved off the fee; a client who does not qualify at signing cannot be given one on the expectation of growing into it. The exception exists because a qualified client can absorb the risk the fee encourages and can bargain over it, which an ordinary retail client cannot.
+
 ### Additional Requirements
 
-- The fee must be based on gains **net of losses** — accounting for **both gains and losses** over a measurement period of typically at least **12 months**.
+- The fee must be based on gains **net of losses** — accounting for **both gains and losses** over a measurement period of typically at least **12 months**. Without the loss offset, a manager could collect on an up quarter that merely recovers a prior drawdown.
 - **Full disclosure** of the arrangement, how it is computed, and the conflict it creates.
 - Fees based on the **average value of assets over a defined period** are **not** performance fees and are permitted for any client.
 
 ## Assignment
+
+The rule exists because **advice is personal**. A client picked this adviser — these people, this philosophy, this fee schedule — so handing the relationship to someone the client never chose demands a **fresh decision**, not a notice. That also explains the boundary: what matters is whether **actual control** changed hands, not whether a legal entity was reshuffled.
 
 **No advisory contract may be assigned without the client's consent.** Assignment includes:
 
@@ -74,6 +102,26 @@ These dollar thresholds are **indexed for inflation** and adjusted periodically 
 ### Consent
 
 **Affirmative (positive) consent** — the client signs or otherwise affirmatively agrees — is the safest form. **Negative consent**, where the adviser notifies the client that the contract will be assigned unless the client objects within a stated period, has been permitted by SEC no-action relief in defined circumstances, but the exam answer favors **affirmative written consent**.
+
+## Delivering the Brochure, and Form CRS
+
+The contract fixes the terms; the **brochure** is how the client comes to understand them. **Rule 204-3** governs delivery of **Form ADV Part 2A** (the firm brochure) and **Part 2B** (the supplement covering the individuals who actually advise the client):
+
+- **At or before entering into the contract.** The federal rule permits delivery at entry; **many states require it at least 48 hours before** signing, or at signing with a **five-business-day right to terminate without penalty**. The reason is plain once stated: disclosure delivered after the client is committed cannot inform the decision it was meant to inform.
+- **Annually**, within **120 days of fiscal year end**, deliver either the updated brochure with a **summary of material changes**, or the summary alone with an **offer** of the full brochure.
+- **Promptly** whenever brochure information becomes **materially inaccurate**, disciplinary information above all.
+
+**Form CRS (Part 3)** does a different job. The brochure runs to whatever length full disclosure requires; Form CRS is a **relationship summary** capped at **two pages** for a standalone firm (four for a dual registrant), in plain English, answering what a long brochure answers badly: *what kind of firm is this, and what will it cost me?*
+
+| | Brochure (Part 2A) | Form CRS (Part 3) |
+| --- | --- | --- |
+| Purpose | Full disclosure of services, fees, conflicts, discipline | Short comparison tool |
+| Length | As long as needed | **2 pages** (4 for dual registrants) |
+| Audience | All clients | **Retail investors** |
+| Delivery | At or before the contract; annually within 120 days | **Before or at the earliest** of a recommendation, an account opening, or placing an order |
+| Style | Narrative | Prescribed headings and required **conversation starters** |
+
+They do not substitute for one another: an adviser with retail clients delivers **both**.
 
 ## Third-Party Compensation and Conflicts
 
@@ -111,7 +159,21 @@ The old cash solicitation rule (206(4)-3) was **rescinded and folded into the Ma
 - **Disclosure at the time of the testimonial or endorsement** must state whether the promoter is a **client**, that the promoter is **compensated**, and the **material conflicts** arising from the relationship. The disclosure is the **adviser's responsibility**, though the promoter may deliver it.
 - **Disqualified persons** may not act as compensated promoters, and the adviser must **oversee** the promoter's compliance.
 
-Most importantly: **testimonials and endorsements are now permitted** on these conditions — the old blanket prohibition is gone. **Performance advertising** must show **net-of-fee** results with at least equal prominence to gross, present **1-, 5-, and 10-year** periods for most performance, and substantiate all material claims.`,
+Most importantly: **testimonials and endorsements are now permitted** on these conditions — the old blanket prohibition is gone. **Performance advertising** must show **net-of-fee** results with at least equal prominence to gross, present **1-, 5-, and 10-year** periods for most performance, and substantiate all material claims.
+
+## Worked Scenarios
+
+### The Fee That Followed the Firm
+
+Kestrel Capital is an LLC with three members: the founder holds 70%, two junior partners hold 15% each. The founder sells her entire 70% interest to an outside acquirer and retires. Kestrel emails clients that "the ownership of the firm has changed" and keeps billing under the existing contracts.
+
+That is an **assignment**. Transfer of a **controlling block** is a change in control however it is papered, and an assignment requires the client's **consent**, not notice. An email announcing what already happened is not consent, and billing on under an improperly assigned contract charges fees under an agreement the client never made. Two near cases come out the other way. Had one **15% junior partner** sold out, no control would have moved — a **minority membership change**, requiring only **notification within a reasonable time**. And had Kestrel converted from an LLC to a corporation with the same owners and the same people advising, no actual control changes and there is **no assignment at all**.
+
+### The Performance Fee Nobody Could Consent To
+
+Bram Vogel manages $600,000 for a client whose net worth excluding a primary residence is roughly $1.4M. The client is sophisticated, wants aggressive management, and himself proposes 1% of assets plus 20% of any gain above an 8% annual return. Both sides sign, and Bram discloses the conflict in detail.
+
+Bram still cannot take it. **Section 205** bars performance compensation unless the client is a **qualified client**, and this client meets neither test — not **$1.1M under management with the adviser** ($600,000), not **more than $2.2M net worth** excluding the residence ($1.4M). Note what fails to save it: sophistication, the fact that the client proposed it, and complete disclosure. This is a rule about **who may pay**, not about what was disclosed — the cleanest exam example of a conflict consent cannot cure. Two variants: at $1.2M under management the fee is permissible provided it accounts for **losses as well as gains** over at least 12 months; and "1% of the **average value of assets** over the year" is not a performance fee at all and is open to any client.`,
   pitfalls: [
     "Performance fees are prohibited unless the client is a qualified client — $1.1M AUM with the adviser or more than $2.2M net worth excluding the primary residence. These figures are indexed and change over time.",
     "A permitted performance fee must account for losses as well as gains. A fee on gains only, with no downside offset, is not compliant.",
@@ -121,6 +183,9 @@ Most importantly: **testimonials and endorsements are now permitted** on these c
     "The §28(e) soft dollar safe harbor covers research and brokerage services that benefit all clients. Hardware, travel, entertainment, rent, and marketing are outside it.",
     "Testimonials and endorsements are permitted under the Marketing Rule with disclosure, a written agreement, and adviser oversight. The old blanket prohibition no longer applies.",
     "Placing a client in a 12b-1 paying share class when a cheaper class of the same fund was available, without disclosure, is a fiduciary breach even if the fund itself was suitable.",
+    "Qualified client status is tested at inception. Falling below the threshold later does not unwind a valid performance fee, and expecting to grow into the threshold does not create one.",
+    "The brochure is delivered at or before contract and updated annually within 120 days of fiscal year end. Form CRS is a separate two-page relationship summary for retail investors — an adviser with retail clients delivers both, not one instead of the other.",
+    "A hedge clause is a violation even if a court would refuse to enforce it, because the violation is the misleading impression that rights were waived.",
   ],
   keyTerms: [
     {
@@ -157,6 +222,16 @@ Most importantly: **testimonials and endorsements are now permitted** on these c
       term: 'Promoter',
       definition:
         'A person compensated for a testimonial or endorsement, including client referrals, subject to the written agreement, disclosure, disqualification, and oversight conditions of the Marketing Rule.',
+    },
+    {
+      term: 'Form CRS (Part 3)',
+      definition:
+        'A two-page plain-English relationship summary for retail investors (four pages for a dual registrant), delivered before or at the earliest of a recommendation, an account opening, or the placing of an order. It supplements rather than replaces the brochure.',
+    },
+    {
+      term: 'Wrap fee',
+      definition:
+        'A single asset-based charge bundling advisory services, execution, and custody. It removes the incentive to over-trade and creates the opposite one, so the brochure must disclose that the wrap may cost more than paying separately for a low-activity account.',
     },
     {
       term: 'Marketing Rule (Rule 206(4)-1)',

@@ -12,16 +12,24 @@ export const topic: Topic = {
 - **Primary market** — the issuer sells new securities and **receives the proceeds**. IPOs, follow-on offerings, and new bond issues live here. Sales are made by prospectus.
 - **Secondary market** — investors trade **with each other**; the issuer gets nothing. All ordinary trading is secondary.
 
+The distinction decides who bears which risk. In the **primary** market the buyer funds the company, the issuer has an informational advantage the law corrects with a **registration statement and prospectus**, and the underwriter is paid out of the spread between what the issuer receives and what the public pays. In the **secondary** market no new capital is raised — a purchase of listed shares sends money to another investor, not to the company. What the secondary market gives the issuer is **liquidity**, and liquidity is why investors accept lower expected returns on listed securities than on private ones.
+
 The secondary market has two structures:
 
 - **Exchanges (auction market)** — a centralized order book where the highest bid meets the lowest offer, with a **designated market maker** (formerly the specialist) maintaining a fair and orderly market.
 - **OTC (negotiated / dealer market)** — an interdealer network with **no central floor**, where multiple **market makers** post two-sided quotes and trade from inventory. Most **bonds** and many smaller equities trade here.
+
+Beyond those sit the **alternative venues**. **Electronic communication networks (ECNs)** match customer orders directly with no dealer in the middle. **Dark pools and other alternative trading systems (ATSs)** accept orders without displaying them, so a pension fund can work a two-million-share order without telegraphing it and moving the price against itself: **pre-trade transparency is surrendered to reduce market impact.** The **third market** is exchange-listed stock traded OTC; the **fourth market** is institution-to-institution trading with no intermediary.
 
 ### Broker vs dealer, bid vs ask
 
 A firm acting as **broker (agent)** arranges the trade and charges a **commission**; acting as **dealer (principal)** it trades from **its own inventory** and earns a **markup or markdown**. It may never charge both on the same trade.
 
 The **bid** is what a dealer will **pay** (the customer sells at the bid); the **ask/offer** is what a dealer will **sell for**. The **spread** is the market maker's compensation, and a wide spread signals **low liquidity** — a point that recurs in suitability questions about thinly traded securities.
+
+Treat the spread as a **real, immediate cost**. A client who buys 1,000 shares quoted 24.90 bid, 25.10 ask pays $25,100 for a position she could immediately resell for only $24,900 — down **$200, or 0.8%, before any commission and before the price has moved**. On a stock quoted 24.98 by 25.02 the same round trip costs $40. The difference between a two-cent and a twenty-cent spread is invisible on a confirmation and enormous over a year of trading, which is why the spread belongs in every conversation about **thinly traded small caps, municipal bonds, and frequent trading**: the commission is disclosed and the spread is not, but the spread is often larger.
+
+Market makers earn it for a reason. They buy when everyone is selling, carrying **inventory risk**, and they quote against traders who may know more, which is **adverse selection risk**. Spreads widen when either risk rises — around earnings, in fast markets, in illiquid names. A quote is a service being priced, not a fixed feature of the security.
 
 ## Order types
 
@@ -43,6 +51,15 @@ Two things the exam checks relentlessly:
 
 A **sell stop** protects a **long** position from further decline (a "stop-loss"); a **buy stop** protects a **short**. A stop-limit adds price control but risks **no execution at all** in a fast-moving market, stranding the client the stop was meant to protect.
 
+### Choosing the right order
+
+The order type should follow from what the client is actually afraid of.
+
+- **Market order** when **certainty of execution matters more than a few cents** — a large cap with a penny spread, a position that must close today, an index rebalance. In a liquid name it is usually cheapest, because chasing a cent with a limit risks missing the trade.
+- **Limit order** when the security is **thinly traded, the spread is wide, or the order is large relative to average volume**, where a market order can walk up the book and fill far from the last print. Also correct whenever the client has a firm view on value.
+- **Sell stop** when the client owns a position and wants to **cap a loss or protect a gain** unattended. Its weakness: it becomes a market order at the worst moment, so a gap-down opening can fill far below the stop.
+- **Stop-limit** when the client would rather **hold than sell at a panic price**. The trade-off is stark: in a genuine collapse the limit is never reached, no sale occurs, and the client rides the decline down. A stop-limit protects against a bad fill, not a bad market.
+
 ### Time in force
 
 - **Day order** — expires at the close if unexecuted. **This is the default.**
@@ -60,6 +77,8 @@ Memory hook: **FOK = all and now. IOC = part is fine, now. AON = all, whenever.*
 
 Because of that unlimited loss potential, short selling requires a **margin account**, may never be done in a **cash account**, and is unsuitable for most retail clients.
 
+Work the mechanics once and the risk profile explains itself. To sell short the broker must **locate and borrow** shares, usually from another client's margin account under a **loan consent agreement**. The short seller receives the proceeds but never controls them; they sit as a **credit balance** securing the stock loan. Meanwhile the client pays a **borrow fee** — a few basis points on a liquid name, double digits annually on a heavily shorted one — and makes **payments in lieu of dividends** to the lender, who may **recall the shares at any time** and force a **buy-in** at whatever the price happens to be. Unlimited loss, a carrying cost, a dividend obligation, and no control over the holding period. Compare a **long put**, which caps loss at the premium and cannot be recalled, and you have the standard exam answer for a bearish retail client.
+
 ## Margin accounts
 
 Buying on margin means borrowing from the broker-dealer using the securities as collateral.
@@ -70,6 +89,12 @@ Buying on margin means borrowing from the broker-dealer using the securities as 
 - **Hypothecation** — the customer pledges securities as collateral. The margin paperwork comprises a **credit agreement**, a **hypothecation agreement**, and an optional **loan consent agreement** letting the firm lend the shares out.
 - **Not marginable**: **options** (except certain LEAPS), new issues, and **mutual fund shares for the first 30 days** — a fund may serve as collateral only after that, and a fund purchase itself may never be made on margin.
 - Margin **magnifies gains and losses** and adds **interest cost**; the client can lose **more than the original investment**. **Retirement accounts generally cannot be margined.**
+
+Keep the three numbers in separate boxes; swapping them is the most common margin error. **Reg T at 50% is an initial requirement from the Federal Reserve**, applied when a position is opened. **The 25% long maintenance requirement comes from SRO rules** and applies continuously afterward. **A house requirement above 30% is the firm's own policy**, enforceable by contract.
+
+The two levels solve different problems: the initial requirement limits how much leverage the market can build, while the maintenance requirement protects the **lender**, keeping collateral above the loan after prices move. That is why a margin call is not negotiable — the firm is a secured creditor whose collateral has fallen, and the agreement lets it **sell out positions of its choosing, without notice or consent**. An adviser who fails to explain that before the account opens has a disclosure problem, not a service problem.
+
+**Buying power** is the arithmetic consequence. Equity above the Reg T requirement is **excess equity**, credited to the **special memorandum account (SMA)**, and since only 50% must be posted on a new purchase, each dollar of excess supports **two dollars** of stock. SMA is a high-water credit line, not cash — it does not shrink when the market falls, which is why a client can show buying power in an account close to a maintenance call.
 
 ## Cash accounts and freeriding
 
@@ -82,6 +107,18 @@ In a **cash account** the customer pays in full, and **Regulation T** requires p
 - **Best execution** — reasonable diligence to obtain the most favorable terms reasonably available, weighing price, speed, likelihood of execution, and size. For an adviser it is part of the **duty of care**; routing to whichever venue pays the firm most, without periodic review, violates it.
 - **Payment for order flow** — compensation for routing orders to a particular market center. Legal, but it must be **disclosed** and creates a conflict with best execution.
 - **Dark pools / alternative trading systems** — private venues that do not display orders before execution, letting institutional blocks trade with less market impact at the cost of pre-trade transparency.
+
+### Why T+1 moved the ex-dividend date
+
+The dividend rules follow from settlement, not the reverse. A corporation pays whoever is the **holder of record** on the record date, and to be the holder of record you must have **settled**. Under the old T+2 convention a Monday buyer settled Wednesday, so buying the business day before the record date came too late — which is why the ex-date sat **one business day before** the record date. Under **T+1** a Monday buyer settles Tuesday, so buying the business day before the record date still works, and the **ex-date and record date fall on the same day**.
+
+Two consequences. **Buying on or after the ex-date means buying without the dividend**, and the stock typically opens lower by roughly the dividend, so the buyer is not being cheated — the price already reflects it. And a **regular-way sale on the ex-date still collects the dividend**, because the seller was the holder of record. Shorter settlement also cuts counterparty risk across the system while leaving less room for operational error.
+
+### Best execution as an ongoing obligation
+
+Best execution is not a promise of the best price on every trade, which no one can guarantee. It is an obligation of **process**: identify the relevant factors, route accordingly, and **review periodically** with documentation. Price leads but does not stand alone — **speed, likelihood of execution, order size, and the character of the market** all count, which is why a large order in an illiquid name may properly be worked over hours rather than sent at once.
+
+The conflicts to name are **payment for order flow**, **soft dollars** (research bought with client commissions, permissible only within the Section 28(e) safe harbor), **directed brokerage**, and **affiliated broker-dealer routing**. Each is legal with disclosure, and each fails if the firm never checks whether clients actually get competitive executions. The tested formulation: **an adviser who has never reviewed execution quality cannot claim to have sought best execution, however good the fills happened to be.**
 
 ## Mutual fund trade mechanics
 

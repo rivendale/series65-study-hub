@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { mergeProgress } from '../lib/mergeProgress';
 
 const STORAGE_KEY = 'series65_progress';
 const SCHEMA_VERSION = 1 as const;
@@ -122,6 +123,15 @@ export function useProgress() {
 
   const exportJson = useCallback(() => JSON.stringify(current, null, 2), []);
 
+  /**
+   * Fold another device's record into this one. Merging rather than replacing
+   * means importing an older file can never lose work done here since that file
+   * was written, so the operation is safe to repeat.
+   */
+  const importProgress = useCallback((incoming: Progress) => {
+    setProgress((p) => mergeProgress(p, incoming));
+  }, []);
+
   return {
     progress: state,
     recordAnswer,
@@ -130,6 +140,7 @@ export function useProgress() {
     setPreferences,
     resetAll,
     exportJson,
+    importProgress,
   };
 }
 

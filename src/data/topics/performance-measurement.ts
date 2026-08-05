@@ -21,6 +21,21 @@ Two bond measures to keep straight: **current yield** is annual coupon divided b
 
 To compare across different holding periods you must **annualize**. A 21% return over three years is **not** 7% per year; compounding makes the true annualized figure about **6.6%**. **Annualized (compound) return** is the constant annual rate that would produce the observed cumulative result — the geometric mean.
 
+### Which Measure Answers Which Question
+
+| The question | The right measure |
+| --- | --- |
+| What did this investment produce, all in? | **Total return** |
+| What did the position do over the years I owned it? | **Holding period return** |
+| How do I compare a 3-year result to a 5-year result? | **Annualized (geometric) return** |
+| How good is the manager? | **Time-weighted return** |
+| How did the client's actual dollars do? | **Dollar-weighted return (IRR)** |
+| What return should I assume for next year? | **Arithmetic mean** of the historical series |
+| Did the client gain purchasing power? | **Real return** |
+| Was the return worth the risk taken? | **Sharpe, Treynor, alpha, or information ratio** |
+
+Most exam errors on this topic are not arithmetic errors. They are picking a measure that answers a different question than the one asked.
+
 ## Time-Weighted Versus Dollar-Weighted Return
 
 This is the most heavily tested idea in the topic, and the reasoning matters more than the arithmetic.
@@ -38,6 +53,16 @@ This is the most heavily tested idea in the topic, and the reasoning matters mor
 | Better when the manager controls flows | No | Yes |
 
 The intuition: if a client wires in a large deposit right before a market drop, dollar-weighted return falls sharply, but the manager did nothing wrong. **Because the manager did not choose the timing, time-weighted return is the fair basis for evaluating the manager.** Where the manager does control the timing of capital calls — private equity, for instance — dollar-weighted is the appropriate measure.
+
+### Scenario: The Fund Made Money and Its Investors Lost It
+
+A niche fund launches with $100 million and returns **+30%** in its first year. The performance table looks excellent, money floods in, and $900 million of new capital arrives at the start of year two. In year two the fund returns **−10%**.
+
+The fund's **time-weighted** return is honest and easy to compute: 1.30 × 0.90 = 1.17 cumulative, about **+8.17% per year** over two years. Nothing about that number is misleading, and it is the figure that will appear in every database.
+
+Now follow the dollars. The first $100 million grows to $130 million; $900 million joins it for a balance of $1.03 billion; the 10% decline leaves **$927 million** against **$1 billion contributed**. The **dollar-weighted** return is about **−6.7% per year**. The typical investor in the fund lost money in a fund that reported a healthy positive return.
+
+Both numbers are correct and neither is a lie. The gap exists because the good year happened when almost no client money was present and the bad year happened when nearly all of it was. This is why performance reporting to an individual client should show the dollar-weighted result on the statement, why manager selection should use the time-weighted figure, and why a chart of past returns is a poor predictor of what a client will actually earn.
 
 ## Arithmetic Versus Geometric Mean
 
@@ -74,19 +99,44 @@ The Sharpe/Treynor decision rule for the exam: **is the portfolio the investor's
 | **Jensen's alpha** | Beta (via CAPM) | **Percentage points** | Judging manager skill against a risk-adjusted expectation |
 | **Information ratio** | **Tracking error** | Ratio | Judging consistency of active management vs a benchmark |
 
-## Benchmarks and Tracking Error
+### What Each Measure Actually Isolates
 
-A benchmark is only meaningful if it is **appropriate**: it should match the portfolio's asset class, style, capitalization range, geography, and credit quality, and be **investable**, **measurable**, and **specified in advance**. Comparing a small-cap value fund to the S&P 500 produces conclusions about **style**, not skill.
+The four are not four ways of saying the same thing. Each strips out a different piece of the story, and the exam rewards knowing which.
 
-**Tracking error** is the standard deviation of the difference between portfolio and benchmark return. A passive index fund should have very low tracking error — high tracking error in an index fund is a defect. In an active fund it is expected, and it is the denominator of the information ratio. **R-squared** reports how much of the portfolio's movement the benchmark explains; a low R-squared means the reported beta and alpha are unreliable.
+- **Sharpe** asks: per unit of **everything that could go wrong**, how much reward? It punishes a manager for volatility of any kind, diversifiable or not. That is the right question when this account is all the client has.
+- **Treynor** asks: per unit of **market exposure**, how much reward? It gives the manager a pass on idiosyncratic volatility, on the assumption that the rest of the client's holdings have already diluted it. Ask a concentrated sleeve to justify itself on Sharpe and it will fail for a reason that does not matter to the whole portfolio.
+- **Jensen's alpha** asks: **relative to what CAPM said this beta deserved**, did the manager add anything? It nets out the return the manager got for free by simply taking market risk. A leveraged index fund can post a wonderful raw return and an alpha of zero.
+- **Information ratio** asks: **how reliably** does the manager beat the stated benchmark? A manager with 1.5% of active return and 2.0% of tracking error scores 0.75; a manager with 4.0% of active return and 9.0% of tracking error scores 0.44. The second manager wins bigger and is much less trustworthy about it.
+
+A practical ordering: use **alpha** to decide whether skill exists at all, the **information ratio** to decide whether it is repeatable, and **Sharpe or Treynor** to decide whether the client is being paid for the risk taken.
+
+## Benchmarks, R-Squared, and Tracking Error
+
+A benchmark is only meaningful if it is **appropriate**: it should match the portfolio's asset class, style, capitalization range, geography, and credit quality. The conventional criteria are that it be **specified in advance**, **appropriate**, **measurable**, **unambiguous**, **reflective of the manager's current investment opinion**, **accountable** (the manager accepts it), and **investable**. Comparing a small-cap value fund to the S&P 500 produces conclusions about **style**, not skill — in a year large growth leads, the manager will look incompetent for doing exactly the job hired for.
+
+**R-squared** reports what fraction of the portfolio's movement the benchmark explains, from 0 to 1. It is the gatekeeper for every other number in this chapter. A broad index fund runs an R-squared near 1.00, so its beta and alpha mean what they say. A concentrated sector fund measured against the S&P 500 might run 0.55, meaning nearly half its movement has nothing to do with the benchmark — and a beta or alpha computed from that relationship is close to noise. **Check R-squared before you believe an alpha.** The usual remedy is not to distrust the manager but to change the benchmark to one the portfolio actually resembles.
+
+**Tracking error** is the standard deviation of the difference between portfolio and benchmark return. In a passive index fund high tracking error is a **defect** — the fund is failing at its only job. In an active fund it is the expected cost of trying, and it is the denominator of the information ratio. Note the different questions: tracking error measures how far the manager wanders, alpha measures whether the wandering paid.
 
 ## Fees, Taxes, and Inflation
 
 **Gross-of-fees** return is before the adviser's fee; **net-of-fees** is after. The client's actual result is always the **net** figure, and advertising gross returns without prominent disclosure of the fee impact risks a violation of the Investment Advisers Act marketing rule.
 
-**After-tax return** subtracts tax on distributions and realized gains. Two funds with identical pretax returns can differ sharply after tax if one turns over aggressively and realizes short-term gains taxed as **ordinary income** while the other defers gains — which is why turnover belongs in any taxable-account comparison.
+### The Corrosive Arithmetic of Fees
+
+A fee does not cost the client the fee. It costs the client the fee **plus everything the fee would have earned for the rest of the holding period**, and that compounding is what makes a number that sounds trivial enormous.
+
+Take $250,000 invested for 30 years at an 8% gross return. Left alone, it grows to about **$2,515,664**. Charge 1% a year and the money compounds at 7% instead, reaching about **$1,903,064**. The difference is **$612,600** — roughly **24% of the ending wealth**, surrendered for a fee the client would describe as "one percent." Raise the drag to 2% and the account ends near **$1,435,873**; of the roughly $2.27 million the money earned gross, the client keeps barely half.
+
+Three consequences follow. First, **fee differences dominate most manager-selection decisions**, because they are certain while outperformance is not. Second, an active manager's alpha must be measured **after** its own fee, since that is the only version the client experiences. Third, the same arithmetic applies to layered fees — a wrap fee on top of fund expense ratios on top of trading costs — so the number that matters is the client's **all-in** annual cost, not any single line item.
+
+### After-Tax and Real Return
+
+**After-tax return** subtracts tax on distributions and realized gains. Two funds with identical pretax returns can differ sharply after tax if one turns over aggressively and realizes short-term gains taxed as **ordinary income** while the other defers gains — which is why turnover belongs in any taxable-account comparison. Distinguish **pre-liquidation** after-tax return, which taxes only distributions actually received, from **post-liquidation** after-tax return, which also taxes the embedded gain as if the position were sold today.
 
 **Real (inflation-adjusted) return** strips out lost purchasing power. The approximation — nominal minus inflation — is close enough at low rates. A 4% nominal return with 3% inflation is roughly a **1% real return** before tax and can easily be **negative after tax**.
+
+The layers stack **multiplicatively, and in order**: gross return, minus fees, minus taxes, minus inflation. A 6% gross return net of a 1% fee is 5%; taxed at 24% it is 3.80%; deflated at 3% inflation it is about **0.78% real, after-tax, net-of-fee**. That last figure is the only one that tells the client whether they are actually getting wealthier, and it is roughly one-eighth of the number on the marketing sheet.
 
 ## GIPS
 

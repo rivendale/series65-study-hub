@@ -51,7 +51,33 @@ Client Recommendations and Laws & Ethics are 60% of the exam between them. The a
 - **Progress tracking** by NASAA category *and* by topic, with mock history
 - **Mobile-first PWA** — installable on iOS/Android, works offline
 - **Dark mode**, adjustable font size
-- **100% client-side** — no accounts, no tracking, no data leaves your device
+- **Client-side by default** — no accounts, no tracking, nothing leaves your device unless you deliberately turn on sync
+- **Optional end-to-end-encrypted sync** — off by default, and you bring your own endpoint; see [Sync](#sync-optional)
+
+## Sync (optional)
+
+**Sync is off by default, and with it off nothing leaves your device.** No accounts, no analytics, no phoning home. Progress lives in `localStorage`, and the Export button hands you a JSON file you can carry anywhere. That is the whole story unless you deliberately turn sync on.
+
+If you do want your phone and your laptop to share a study record, you can — by bringing your own endpoint.
+
+**Why bring your own?** This app is public and so is its repository. A default shared server would funnel every stranger's study record into infrastructure the maintainer pays for and answers for, and anyone could exhaust its quota. Rather than ship that and hope, the repo carries a small Cloudflare Worker you deploy to your own account in about five minutes. It is free on Cloudflare's free plan, and it is a few hundred lines of plain JavaScript with no dependencies and no build step, so you can read the whole thing before you run it.
+
+**It is end-to-end encrypted.** You generate a sync key on one device and type it into the others. Everything derives from that key locally:
+
+```
+sync key (128 random bits, shown to you)
+     |
+     +-- HKDF "id"  --> storage id   (sent to your endpoint)
+     +-- HKDF "enc" --> AES-GCM key  (never leaves your browser)
+```
+
+Your endpoint therefore stores an identifier it cannot invert and a blob it cannot read. Enabling sync does not require trusting the server with your *content* — not even your own server. It is still the one shared copy, so an endpoint that loses or corrupts a record costs you that copy; what is on each device is untouched, and the Export button stays the backup that depends on nothing.
+
+**Merging, not overwriting.** Devices reconcile item by item on timestamps, so answering questions on a phone at lunch and sitting a mock on a laptop that evening leaves you with both. Answers and topics read are merged, never dropped. Mock history survives a merge: each device keeps its 50 most recent attempts locally, and a merged record holds up to 200, so two devices with long histories combine rather than truncating each other. Theme and font size stay device-local on purpose.
+
+The trade you are accepting: lose the sync key and the synced record is unrecoverable, because nobody holds a copy that could be decrypted. Keep it in a password manager, and keep exporting.
+
+Setup instructions, free-tier limits and what the worker does and does not see: [`sync-worker/README.md`](./sync-worker/README.md).
 
 ## Quick start
 
@@ -94,7 +120,12 @@ src/
 │                         # Progress, Glossary, Formulas, CheatSheet, About
 ├── components/           # Layout, ProgressBar, TopicCard, QuestionCard
 ├── hooks/                # useProgress (localStorage), useQuiz (state machine)
-└── lib/                  # shuffle, stats
+└── lib/                  # shuffle, stats, mergeProgress, syncCrypto, syncClient
+
+sync-worker/              # optional, self-deployed sync endpoint (see Sync above)
+├── worker.js             # Cloudflare Worker + KV, no dependencies
+├── wrangler.toml
+└── README.md
 ```
 
 Content lives in one small module per topic rather than a few large files. That keeps each file reviewable, lets contributors touch a single topic without merge conflicts, and keeps individual payloads small enough to push over constrained connections.

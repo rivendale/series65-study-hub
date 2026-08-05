@@ -7,7 +7,21 @@ export const topic: Topic = {
   order: 34,
   summary:
     "Custody is defined by control, not by intent — an adviser who can reach client funds or securities has custody whether or not it ever touches them, and that triggers the qualified custodian, notice, quarterly statement, surprise examination, and net worth rules the exam tests relentlessly.",
-  body: `## What custody actually means
+  body: `## What the rule is actually preventing
+
+Every element of the rule traces to one fact pattern: an adviser holds or can reach client assets, tells the client the account is worth what it is not, and the client has **no independent source of truth** to check against. Where the adviser and the custodian are the same enterprise, the statement a client receives is the adviser's own arithmetic, and nothing in the portfolio has to exist for the number to look right.
+
+Read each requirement as an answer to that problem:
+
+- **Qualified custodian** — puts the assets somewhere the adviser does not control, held by a third party with its own regulator and its own records.
+- **Statements sent directly by the custodian** — gives the client a number the adviser did not compute and cannot intercept.
+- **Urge the client to compare** — makes the client the auditor of the gap between the two documents.
+- **Surprise examination** — sends an independent accountant to confirm the assets are actually there, on a date the adviser cannot prepare for.
+- **Internal control report** — where the adviser or an affiliate *is* the custodian, restores part of the independence that arrangement destroys.
+
+This is why custody is defined by **capability rather than conduct**. An adviser who *could* move client money is an adviser whose reported numbers cannot be independently trusted, whether or not a dollar ever moved.
+
+## What custody actually means
 
 **Custody is holding client funds or securities, directly or indirectly, or having any authority to obtain possession of them.** The definition is deliberately broad. The exam wants you to reason from *capability*, not from what the adviser actually did. If the adviser **could** take the money, the adviser has custody.
 
@@ -19,6 +33,13 @@ Custody exists when the adviser:
 - Serves as **trustee**, executor, conservator, or in a similar capacity for a client account.
 - Serves as **general partner of a limited partnership, managing member of an LLC, or in a comparable role** for a pooled investment vehicle it advises. This is a capacity-based trigger — the adviser has legal access to pool assets by definition.
 - **Deducts advisory fees directly** from client accounts. Under the SEC rule this is custody; under most state rules it is custody too, but with a lighter compliance path (below).
+- Holds **client login credentials that permit withdrawal or transfer.** Having the client's username and password to a custodial account, where those credentials could move money, is authority to obtain possession. Read-only or adviser-level trading access generally is not.
+
+### The standing letter of authorization
+
+The **SLOA** is the trigger advisers least expect. The client signed it, the custodian honors it, the adviser never touches the account — but the adviser can direct money to **someone other than the client**, and that is authority to obtain possession.
+
+The treatment is more nuanced than a one-line rule. SEC staff have said in no-action guidance that an adviser with a third-party standing letter may avoid the **surprise examination** where defined conditions are met: the client gives the custodian a **written instruction naming the recipient**, the client may change or terminate it, the **custodian verifies** the instruction and sends a transfer notice, the **adviser cannot designate or alter the recipient**, and records are kept. Two cautions: that relief is **staff guidance addressed to the surprise exam**, not a declaration that no custody exists, and **state treatment varies**. Treat it as conditional relief whose availability depends on the regulator, not a national safe harbor.
 
 ### What is NOT custody
 
@@ -49,7 +70,7 @@ Client assets must be maintained with a **qualified custodian**, defined as:
 - A **registered futures commission merchant** (for futures and related assets)
 - A **foreign financial institution** that customarily holds financial assets for customers and segregates them from its own
 
-Assets are held either in the **client's own name** or in the **adviser's name as agent or trustee for clients**, segregated from the adviser's proprietary assets.
+Assets are held either in the **client's own name** or in the **adviser's name as agent or trustee for clients**, segregated from the adviser's proprietary assets. The requirement is about **separation**: the entity that computes a client's performance should not also be the entity holding the assets and producing the record of what is held. Segregation matters for a second reason — commingled assets cannot be traced to a particular client if the firm becomes insolvent.
 
 ### 2. Notice to the client
 
@@ -57,13 +78,19 @@ When the adviser opens an account with a qualified custodian on the client's beh
 
 ### 3. Account statements direct from the custodian
 
-The qualified custodian must send **account statements at least quarterly directly to each client**, showing all funds and securities held and all transactions in the period. "Directly" is the operative word — routing statements through the adviser defeats the control. If the adviser also sends its own statements, it must **urge the client to compare** the two.
+The qualified custodian must send **account statements at least quarterly directly to each client**, showing all funds and securities held and all transactions in the period. "Directly" is the operative word — routing statements through the adviser defeats the control.
+
+If the adviser also sends its own statements, it must **urge the client to compare** the two. That instruction is not boilerplate: it makes the client the control. An adviser whose performance report shows a balance the custodian's statement does not is exactly the situation the rule exists to surface, and the client is the only party holding both pieces of paper.
 
 ### 4. Annual surprise examination
 
 An **independent public accountant** must verify client funds and securities **at least once during each calendar year, at a time chosen by the accountant without prior notice to the adviser**. The accountant files **Form ADV-E** with the results and must notify the regulator within **one business day** of discovering any material discrepancy.
 
+**Why "surprise" carries the weight.** A scheduled audit tests whether assets exist on a date the adviser knew about in advance — exactly the date an adviser running a shortfall would arrange to have them. Letting the accountant pick an undisclosed date removes the ability to prepare, which is the whole evidentiary value of the exercise. A thorough year-end audit on a known schedule therefore does **not** satisfy the rule.
+
 **Exception:** the surprise exam is generally not required where the adviser's only form of custody is **direct fee deduction** meeting the conditions below, or where the adviser has custody solely because a **related person** holds assets and that person is operationally independent, or under the **pooled vehicle audit alternative**.
+
+The fee-deduction carve-out is the boundary most often missed. Fee deduction is custody of a peculiarly limited kind: the adviser can take only a **computable amount**, from an account whose custodian reports every disbursement straight to the client. Where that is the adviser's **only** custody, the exam is waived. Add one second trigger — a third-party standing letter, a trustee appointment, a check made out to the firm — and the surprise examination returns.
 
 ### 5. Internal control report
 
@@ -102,6 +129,40 @@ An adviser whose net worth falls **below** the required minimum must **notify th
 
 Federal covered advisers are not subject to state net worth rules — the SEC does not impose a general minimum net worth, relying instead on the custody rule itself. This is a preemption point, not a policy point.
 
+## Structuring a practice to avoid custody entirely
+
+Most small firms deliberately arrange never to have custody, because the surprise exam, net worth and notice apparatus is expensive. Custody is a **status an adviser can design around**, and the design is a checklist:
+
+- **Never accept a check payable to the firm.** Have clients make checks payable to the qualified custodian, and forward third-party checks within **three business days** with a log entry.
+- **Take discretion, not access.** A limited power of attorney authorizing trading and nothing else is discretion. Never accept a **general** power of attorney.
+- **Deduct fees under the four conditions, or bill the client directly.** Direct billing is the only path that avoids custody on fees altogether.
+- **Decline appointments** as trustee, executor, or attorney-in-fact, and decline **general partner** or managing member roles in pooled vehicles unless prepared for the full rule.
+- **Refuse third-party standing letters**, or satisfy the no-action conditions and confirm the treatment in every state where clients reside.
+- **Do not hold client credentials** that permit withdrawal. Use read-only or adviser-level access issued by the custodian.
+- **Return anything received inadvertently within three business days**, with a record of receipt and return.
+
+## Worked scenarios
+
+### Three ways to receive the same $50,000
+
+A client wants to add $50,000 to her managed account at Pinnacle Trust Company, the qualified custodian. Consider three deliveries to Rowan Advisers.
+
+**A check payable to "Rowan Advisers."** Custody attaches the moment it arrives, and it does not matter that Rowan forwards it that afternoon. A check payable to the firm is an instrument the firm could have deposited into its own account, and that capability is what the definition targets. Speed cannot undo it.
+
+**A check payable to "Pinnacle Trust Company."** No custody — provided Rowan forwards it **within three business days** and logs receipt and forwarding. Rowan could not have deposited this instrument to itself. Hold it a week and custody attaches, because Rowan is then holding client property.
+
+**A wire straight to Pinnacle that Rowan never sees.** No custody, nothing to log.
+
+Same client, same $50,000, three answers. Reason from **who could have taken the money**, never from what happened to it.
+
+### The fee deduction that grew into custody
+
+Ellery Wealth Management deducts fees quarterly from accounts held at a qualified custodian. It has written client authorization, notifies the custodian of each deduction, sends every client an invoice showing the formula, the assets the fee was computed on, and the period covered, and the custodian mails quarterly statements directly to clients showing the fee as a disbursement. Ellery has custody, and **no surprise examination is required**.
+
+A longstanding client then asks Ellery to send $4,000 a month to her daughter and signs a standing letter authorizing it. Ellery now has authority to move client money **to a third party** — a second, independent form of custody. The fee-deduction leniency covers fee deduction and nothing else. Unless Ellery satisfies the staff no-action conditions for standing letters and confirms its state accepts that treatment, it needs the **annual surprise examination** and everything traveling with it.
+
+Compare the near case that stays clean: had the client asked Ellery to move $4,000 a month to **her own identically titled account** elsewhere, that is generally treated as a transfer between the client's own accounts rather than custody — again subject to the conditions and to state treatment.
+
 ## Practical safeguards the exam rewards
 
 - Never accept cash or bearer securities.
@@ -116,6 +177,9 @@ Federal covered advisers are not subject to state net worth rules — the SEC do
     "Serving as general partner of a fund or trustee of a client trust is custody by virtue of the role itself, even if the adviser never touches a dollar.",
     "Direct fee deduction is custody in most states; the surprise exam is waived only if the client authorized it in writing, the custodian is notified of the amount, the client receives an itemized invoice, and the custodian sends quarterly statements to the client.",
     "Net worth deficiency notice is due by the close of the NEXT business day, with the detailed financial report due one business day after that — not within 30 days.",
+    "A standing letter of authorization to pay a third party is custody. SEC staff no-action relief can excuse the surprise examination if specific conditions are met, but it is conditional staff guidance aimed at the exam, not a declaration that custody does not exist, and state treatment varies.",
+    "The fee-deduction leniency applies only when fee deduction is the adviser's ONLY form of custody. One additional trigger brings the surprise examination back for the whole practice.",
+    "Holding client login credentials that could be used to withdraw or transfer funds is custody. Read-only or adviser-level trading access generally is not.",
   ],
   keyTerms: [
     {
@@ -152,6 +216,11 @@ Federal covered advisers are not subject to state net worth rules — the SEC do
       term: 'Inadvertent receipt',
       definition:
         "Unsolicited receipt of client funds or securities that does not create custody if the property is returned to the sender promptly, generally within three business days, with a record of the receipt and return.",
+    },
+    {
+      term: 'Standing letter of authorization',
+      definition:
+        "A client instruction permitting the adviser to direct transfers from the account. A letter permitting payment to a third party is custody; SEC staff no-action relief may excuse the surprise examination where defined conditions are satisfied, and state treatment varies.",
     },
     {
       term: 'Minimum net worth',
