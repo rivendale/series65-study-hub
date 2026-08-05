@@ -12,6 +12,9 @@ export interface MockAttempt {
   answers: { qid: number; selected: number; correct: boolean }[];
 }
 
+/** Which self-paced study plan the user has chosen on the Study Plan page. */
+export type StudyPlanId = 'eight-week' | 'twelve-week' | 'intensive';
+
 export interface Progress {
   schemaVersion: typeof SCHEMA_VERSION;
   answers: Record<number, { correct: boolean; ts: number; selected?: number }>;
@@ -20,6 +23,12 @@ export interface Progress {
   preferences: {
     fontSize: 'sm' | 'md' | 'lg';
     theme: 'system' | 'light' | 'dark';
+    /**
+     * Optional and additive: records already in localStorage simply have no
+     * value here, so the stored schema stays at version 1 and existing
+     * progress keeps loading unchanged.
+     */
+    studyPlan?: StudyPlanId;
   };
 }
 

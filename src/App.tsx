@@ -7,6 +7,7 @@ import Topics from './pages/Topics';
 import Quiz from './pages/Quiz';
 import Progress from './pages/Progress';
 import About from './pages/About';
+import StudyPlan from './pages/StudyPlan';
 import Glossary from './pages/Glossary';
 import CheatSheet from './pages/CheatSheet';
 import Formulas from './pages/Formulas';
@@ -19,6 +20,7 @@ export default function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/study-plan" element={<StudyPlan />} />
           <Route path="/curriculum" element={<Curriculum />} />
           <Route path="/curriculum/:id" element={<TopicReader />} />
           <Route path="/topics" element={<Topics />} />

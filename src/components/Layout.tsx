@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Home, BookOpen, Brain, BarChart3, Sparkles } from 'lucide-react';
+import { Home, BookOpen, Brain, BarChart3, CalendarDays } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 interface Props {
@@ -10,12 +10,13 @@ const tabs = [
   { to: '/', label: 'Home', icon: Home, end: true },
   { to: '/curriculum', label: 'Read', icon: BookOpen, end: false },
   { to: '/topics', label: 'Quiz', icon: Brain, end: false },
-  { to: '/cheatsheet', label: 'Cram', icon: Sparkles, end: true },
+  { to: '/study-plan', label: 'Plan', icon: CalendarDays, end: true },
   { to: '/progress', label: 'Stats', icon: BarChart3, end: true },
 ];
 
 const desktopLinks = [
   { to: '/', label: 'Home', end: true },
+  { to: '/study-plan', label: 'Study Plan', end: true },
   { to: '/curriculum', label: 'Curriculum', end: false },
   { to: '/topics', label: 'Quiz', end: false },
   { to: '/formulas', label: 'Formulas', end: true },

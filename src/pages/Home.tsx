@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
+  CalendarDays,
   BookOpen,
   Brain,
   Timer,
@@ -102,6 +103,18 @@ export default function Home() {
       </section>
 
       <section className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <Link
+          to="/study-plan"
+          className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 hover:border-blue-400 transition"
+        >
+          <CalendarDays className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+          <h2 className="mt-3 font-semibold">Study plan</h2>
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+            A week-by-week route through every topic, with mocks built in. Pick 4,
+            8, or 12 weeks.
+          </p>
+        </Link>
+
         <Link
           to="/curriculum"
           className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 hover:border-blue-400 transition"
