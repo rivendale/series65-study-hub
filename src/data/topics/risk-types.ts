@@ -186,4 +186,73 @@ Two related measures: **semivariance and downside deviation** capture only unfav
       with: 'Financial risk — the leverage the company carries and its ability to service debt',
     },
   ],
+  workedExamples: [
+    {
+      title: 'One and two standard deviation ranges around an expected return',
+      setup:
+        'A portfolio has an expected return of 8% and a standard deviation of 14%. Describe the likely range of one-year outcomes.',
+      steps: [
+        'In a normal distribution, about 68% of outcomes fall within one standard deviation of the mean and about 95% within two.',
+        'One standard deviation down: 8% − 14% = −6%',
+        'One standard deviation up: 8% + 14% = +22%',
+        'For two standard deviations, first double the deviation: 2 × 14% = 28%',
+        'Two standard deviations down: 8% − 28% = −20%',
+        'Two standard deviations up: 8% + 28% = +36%',
+      ],
+      answer:
+        'Roughly 68% of years should land between −6% and +22%, and roughly 95% between −20% and +36%.',
+      watchOut:
+        'Reporting 32% as the chance of a loss worse than −6%. About 32% of outcomes fall outside the one-standard-deviation band, but the curve is symmetric, so only half of that — about 16% — lies below −6%.',
+    },
+    {
+      title: 'Dollar price change from modified duration',
+      setup:
+        'A client holds a bond position worth $50,000 with a modified duration of 7.2. Interest rates rise by 50 basis points. Estimate the price change.',
+      steps: [
+        'Modified duration estimates the percentage price change for a 1% (100 basis point) change in yield, in the opposite direction.',
+        'Convert the rate move: 50 basis points = 0.50%',
+        'Percentage price change ≈ −Modified duration × change in yield',
+        'Substitute: −7.2 × 0.50% = −3.6%',
+        'Dollar change: $50,000 × −0.036 = −$1,800',
+        'New approximate value: $50,000 − $1,800 = $48,200',
+      ],
+      answer: 'The position should fall about 3.6%, roughly $1,800, to about $48,200.',
+      watchOut:
+        'Dropping the minus sign and reporting a gain when rates rise — price and yield always move inversely. The other frequent slip is multiplying duration by 50 rather than 0.50; duration is stated per percentage point of yield, not per basis point.',
+    },
+    {
+      title: 'Converting variance to standard deviation before comparing',
+      setup:
+        'Fund X reports a return variance of 0.0256. Fund Y reports a standard deviation of 9%. Which fund carries more total risk?',
+      steps: [
+        'Variance and standard deviation are not on the same scale, so convert before comparing. Standard deviation = square root of variance.',
+        'Fund X: square root of 0.0256 = 0.16, or 16%',
+        'Now compare like with like: 16% against 9%',
+        'To go the other direction, square the standard deviation. Fund Y variance = 0.09² = 0.0081',
+        'Confirm the ranking holds in either unit: 0.0256 against 0.0081, and 16% against 9%',
+      ],
+      answer:
+        'Fund X has a standard deviation of 16% against Fund Y at 9%, so Fund X carries roughly 1.8 times the total risk.',
+      watchOut:
+        'Comparing the variance of 0.0256 directly against a standard deviation of 9% and concluding Fund X is safer because 0.0256 is the smaller number. Variance is in squared units and is never directly comparable to a standard deviation. Standard deviation, not variance, is also the figure that goes in the Sharpe ratio denominator.',
+    },
+    {
+      title: 'The real return a fixed-income retiree actually earns',
+      setup:
+        'A retiree holds $600,000 in bonds and CDs yielding 4.5%. Inflation is running 3.2% and the retiree is in a 22% marginal bracket. What is the real, after-tax return?',
+      steps: [
+        'Take taxes first, because tax is assessed on the full nominal yield: after-tax return = nominal × (1 − tax rate)',
+        'Substitute: 4.5% × (1 − 0.22) = 4.5% × 0.78 = 3.51%',
+        'Now subtract inflation: 3.51% − 3.2% = 0.31%',
+        'Exact Fisher check: (1.0351 / 1.032) − 1 = 0.0030, or 0.30%',
+        'In dollars, nominal income: $600,000 × 0.045 = $27,000',
+        'After tax: $27,000 × 0.78 = $21,060',
+        'Real purchasing power gained: $600,000 × 0.0031 = about $1,860',
+      ],
+      answer:
+        'About 0.31% real after tax — roughly $1,860 of genuine purchasing power on a portfolio that threw off $27,000 of nominal income.',
+      watchOut:
+        'Subtracting inflation before applying tax. Tax falls on the whole 4.5%, not on the inflation-adjusted remainder, so taxes come off first. Reversing the order gives (4.5% − 3.2%) × 0.78 = 1.01%, more than triple the true figure — and this arithmetic is exactly why inflation risk, not market risk, is the dominant threat to an all-fixed-income retiree.',
+    },
+  ],
 };

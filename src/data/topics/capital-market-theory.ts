@@ -201,4 +201,112 @@ For an adviser this is not academic. It explains why clients abandon plans at th
       note: 'Standardizes covariance onto the −1.0 to +1.0 scale.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Expected return with CAPM',
+      setup:
+        'The risk-free rate is 3%. The expected return on the market is 9%. A stock has a beta of 1.25. What return should an investor require for holding it?',
+      steps: [
+        'Write the model: E(R) = Rf + Beta × (Rm − Rf)',
+        'Substitute: E(R) = 0.03 + 1.25 × (0.09 − 0.03)',
+        'Market risk premium first: 0.09 − 0.03 = 0.06, or 6%',
+        'Scale the premium by beta: 1.25 × 0.06 = 0.075, or 7.5%',
+        'Add the risk-free rate back: 0.03 + 0.075 = 0.105',
+      ],
+      answer: 'The required return is 10.5%.',
+      watchOut:
+        'Multiplying beta by the whole market return instead of by the market risk premium. That gives 1.25 × 9% = 11.25%, plus 3% = 14.25%, which is wrong. Beta scales only the premium (Rm − Rf), never Rm itself.',
+    },
+    {
+      title: 'Solving CAPM backwards for beta',
+      setup:
+        'A stock is expected to return 13%. The risk-free rate is 4% and the expected market return is 10%. What beta does that imply?',
+      steps: [
+        'Start from E(R) = Rf + Beta × (Rm − Rf) and isolate beta: Beta = (E(R) − Rf) / (Rm − Rf)',
+        'Substitute: Beta = (0.13 − 0.04) / (0.10 − 0.04)',
+        "The stock's excess return: 0.13 − 0.04 = 0.09, or 9%",
+        'The market risk premium: 0.10 − 0.04 = 0.06, or 6%',
+        'Divide: 0.09 / 0.06 = 1.5',
+      ],
+      answer: 'The implied beta is 1.5 — the stock carries one and a half times market risk.',
+      watchOut:
+        'Dividing 13% by 10% and reporting a beta of 1.3. Both numerator and denominator must be measured in excess of the risk-free rate; raw returns produce the wrong number every time.',
+    },
+    {
+      title: 'Weighted-average portfolio beta with a risk-free sleeve',
+      setup:
+        'A $200,000 portfolio holds $80,000 of Stock A (beta 1.40), $60,000 of Stock B (beta 0.90), and $60,000 of Treasury bills. What is the portfolio beta?',
+      steps: [
+        'Treasury bills are the risk-free asset, so their beta is 0 — but they still count in the denominator.',
+        'Weight of A: $80,000 / $200,000 = 0.40',
+        'Weight of B: $60,000 / $200,000 = 0.30',
+        'Weight of T-bills: $60,000 / $200,000 = 0.30',
+        'Check the weights: 0.40 + 0.30 + 0.30 = 1.00',
+        "Stock A contribution: 0.40 × 1.40 = 0.56",
+        "Stock B contribution: 0.30 × 0.90 = 0.27",
+        'T-bill contribution: 0.30 × 0 = 0',
+        'Sum: 0.56 + 0.27 + 0 = 0.83',
+      ],
+      answer:
+        'The portfolio beta is 0.83, so the portfolio should move roughly 8.3% for every 10% move in the market.',
+      watchOut:
+        'Leaving the T-bill sleeve out of the denominator and averaging only the two stocks. That produces 0.57 × 1.40 + 0.43 × 0.90 = 1.19 and badly overstates market exposure. Cash has a beta of zero, not an absent beta.',
+    },
+    {
+      title: "Jensen's alpha — actual return versus CAPM-required return",
+      setup:
+        'A manager returned 11.5% for the year. The portfolio beta was 1.20, the risk-free rate 3%, and the market returned 9%. Did the manager add value?',
+      steps: [
+        'Alpha compares the actual return against the return CAPM required for that beta.',
+        'Required return = Rf + Beta × (Rm − Rf)',
+        'Substitute: 0.03 + 1.20 × (0.09 − 0.03)',
+        'Market risk premium: 0.09 − 0.03 = 0.06',
+        'Scale by beta: 1.20 × 0.06 = 0.072, or 7.2%',
+        'Required return: 0.03 + 0.072 = 0.102, or 10.2%',
+        'Alpha = actual − required = 11.5% − 10.2% = 1.3%',
+      ],
+      answer:
+        'Alpha is +1.3 percentage points. The manager beat the return CAPM demanded for the risk taken.',
+      watchOut:
+        'Comparing 11.5% against the 9% market return and calling the 2.5% gap skill. With a beta of 1.20 the portfolio was expected to beat the market; only the 1.3% above the risk-adjusted hurdle is alpha.',
+    },
+    {
+      title: 'Expected price move from beta',
+      setup:
+        'A client holds $25,000 of a stock with a beta of 1.30. The market falls 8%. What move should the client expect, and what is the position then worth?',
+      steps: [
+        'Expected asset move = Beta × market move',
+        'Substitute: 1.30 × (−8%)',
+        'Multiply: 1.30 × −0.08 = −0.104, or −10.4%',
+        'Dollar change: $25,000 × −0.104 = −$2,600',
+        'Ending value: $25,000 − $2,600 = $22,400',
+      ],
+      answer:
+        'The stock is expected to fall about 10.4%, roughly $2,600, leaving the position near $22,400.',
+      watchOut:
+        'Treating beta as an additive premium and answering −8% − 1.30% = −9.3%. Beta is a multiplier on the market move, not an amount added to it. Remember too that this captures systematic risk only; company-specific news can swamp the estimate.',
+    },
+    {
+      title: 'How portfolio standard deviation falls as correlation drops below 1.0',
+      setup:
+        'Two assets are held 50/50. Asset A has a standard deviation of 20%, Asset B 12%. Compare portfolio standard deviation at a correlation of +1.0 with the same portfolio at a correlation of +0.30.',
+      steps: [
+        'Two-asset variance = (wA × sdA)² + (wB × sdB)² + 2 × wA × wB × sdA × sdB × r',
+        'First term, identical in both cases: (0.50 × 0.20)² = 0.10² = 0.0100',
+        'Second term, identical in both cases: (0.50 × 0.12)² = 0.06² = 0.0036',
+        'Case 1, r = +1.0. Cross term: 2 × 0.50 × 0.50 × 0.20 × 0.12 × 1.0 = 0.0120',
+        'Variance = 0.0100 + 0.0036 + 0.0120 = 0.0256',
+        'Standard deviation = square root of 0.0256 = 0.16, or 16.0%',
+        'Sanity check: at r = +1.0 the answer must equal the simple weighted average, 0.50 × 20% + 0.50 × 12% = 16.0%',
+        'Case 2, r = +0.30. Cross term: 2 × 0.50 × 0.50 × 0.20 × 0.12 × 0.30 = 0.0036',
+        'Variance = 0.0100 + 0.0036 + 0.0036 = 0.0172',
+        'Standard deviation = square root of 0.0172 = 0.1311, or about 13.1%',
+        'Risk removed: 16.0% − 13.1% = about 2.9 percentage points, with no change in either holding and no change in expected return',
+      ],
+      answer:
+        'At perfect positive correlation the portfolio carries 16.0% standard deviation; at a correlation of +0.30 it carries about 13.1%. Correlation below +1.0 is the entire source of the diversification benefit.',
+      watchOut:
+        'Assuming correlation must be negative before diversification does anything — here a firmly positive +0.30 removed nearly three percentage points of risk. The other frequent slip is averaging the two standard deviations directly, which is correct only in the special case r = +1.0.',
+    },
+  ],
 };

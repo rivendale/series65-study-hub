@@ -7,6 +7,7 @@ import {
   ChevronRight,
   Shuffle,
   Sigma,
+  SquareFunction,
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -83,6 +84,61 @@ export default function TopicReader() {
       <div className="mt-6 prose prose-slate dark:prose-invert max-w-none prose-headings:font-semibold prose-h2:mt-8 prose-h2:mb-3 prose-h3:mt-6 prose-h3:mb-2 prose-p:leading-relaxed prose-table:text-sm prose-td:align-top">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{topic.body}</ReactMarkdown>
       </div>
+
+      {topic.workedExamples && topic.workedExamples.length > 0 && (
+        <section className="mt-8 rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/50 dark:bg-indigo-950/20 overflow-hidden">
+          <h2 className="flex items-center gap-2 text-lg font-semibold px-5 py-3 border-b border-indigo-100 dark:border-indigo-900/60 text-indigo-900 dark:text-indigo-200">
+            <SquareFunction className="w-5 h-5" aria-hidden="true" />
+            Worked examples
+          </h2>
+          <p className="px-5 pt-3 text-sm text-indigo-900/80 dark:text-indigo-200/70">
+            Follow the method, not just the answer. Cover the steps, try it
+            yourself, then check.
+          </p>
+          <ol className="px-5 py-4 space-y-5">
+            {topic.workedExamples.map((w, i) => (
+              <li
+                key={i}
+                className="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4"
+              >
+                <h3 className="font-semibold text-slate-900 dark:text-slate-100">
+                  <span className="text-indigo-600 dark:text-indigo-400 mr-1.5">
+                    {i + 1}.
+                  </span>
+                  {w.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {w.setup}
+                </p>
+                <ol className="mt-3 space-y-1.5">
+                  {w.steps.map((step, j) => (
+                    <li key={j} className="flex gap-2.5 text-sm">
+                      <span
+                        className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold flex items-center justify-center mt-0.5"
+                        aria-hidden="true"
+                      >
+                        {j + 1}
+                      </span>
+                      <span className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                        {step}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+                <p className="mt-3 text-sm font-semibold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 rounded px-3 py-2">
+                  Answer: {w.answer}
+                </p>
+                {w.watchOut && (
+                  <p className="mt-2 text-sm text-amber-900 dark:text-amber-200 bg-amber-50 dark:bg-amber-950/30 rounded px-3 py-2">
+                    <span className="font-semibold">Watch out: </span>
+                    {w.watchOut}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
 
       {topic.formulas && topic.formulas.length > 0 && (
         <section className="mt-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">

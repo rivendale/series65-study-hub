@@ -233,4 +233,119 @@ So a portfolio with a 10% expected return and a 15% standard deviation should la
       note: 'A 10% expected return with a 15% standard deviation implies −5% to +25% about two-thirds of the time.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Future value of a lump sum',
+      setup: 'A client invests $25,000 today at 7% compounded annually. What is it worth in 10 years?',
+      steps: [
+        'FV = PV × (1 + r)^n',
+        'Substitute: FV = $25,000 × (1 + 0.07)^10',
+        'Growth factor: 1.07^10 = 1.96715',
+        'Multiply: $25,000 × 1.96715 = $49,178.78',
+        'Sense check against the Rule of 72: 72 / 7 ≈ 10.3 years to double, so at 10 years the balance should be just under double — and it is.',
+      ],
+      answer: 'About $49,179, of which $24,179 is growth on the original $25,000.',
+      watchOut:
+        'Computing simple interest instead of compound: $25,000 × 7% × 10 = $17,500 of interest, for $42,500 total. That understates the result by about $6,679 because it never lets the interest earn interest.',
+    },
+    {
+      title: 'Present value of a future sum',
+      setup:
+        'A client needs $80,000 in 6 years for a down payment and can earn 5% compounded annually. How much must be invested today?',
+      steps: [
+        'PV = FV / (1 + r)^n',
+        'Substitute: PV = $80,000 / (1 + 0.05)^6',
+        'Discount factor: 1.05^6 = 1.34010',
+        'Divide: $80,000 / 1.34010 = $59,697.23',
+        'Check by compounding forward: $59,697.23 × 1.34010 = $80,000',
+      ],
+      answer: 'About $59,697 must be invested today.',
+      watchOut:
+        'Multiplying by the growth factor instead of dividing by it — $80,000 × 1.34010 = $107,208, which answers a question nobody asked. Keep the two directions straight: a higher discount rate or a longer horizon each make the present value smaller.',
+    },
+    {
+      title: 'Rule of 72 against the exact doubling time',
+      setup:
+        'How long does money take to double at 6%, at 8%, and at 12%? Compare the shortcut with the precise figure.',
+      steps: [
+        'Rule of 72: years to double ≈ 72 / the rate stated as a whole number of percent',
+        'At 6%: 72 / 6 = 12.0 years. The exact answer is 11.90 years.',
+        'At 8%: 72 / 8 = 9.0 years. The exact answer is 9.01 years.',
+        'At 12%: 72 / 12 = 6.0 years. The exact answer is 6.12 years.',
+        'Verify the 6% case directly: 1.06^12 = 2.012, just past double, so 12 years is a small overestimate',
+        'The rule inverts the same way: to double in 6 years you need roughly 72 / 6 = 12% a year',
+      ],
+      answer:
+        'The rule gives 12, 9, and 6 years against exact figures of 11.90, 9.01, and 6.12 years. It is most accurate near 8% and drifts at the extremes.',
+      watchOut:
+        'Dividing 72 by the decimal rate — 72 / 0.06 = 1,200 years. The rule takes the rate as a whole number of percent. It also applies only to a single sum growing at a constant compound rate; it does not work on a stream of contributions.',
+    },
+    {
+      title: 'Future value of a level annual contribution stream',
+      setup:
+        'A client contributes $6,000 at the end of each year for 20 years and earns 6% annually. What is the account worth at the end?',
+      steps: [
+        'This is an ordinary annuity: FV = Payment × [((1 + r)^n − 1) / r]',
+        'Substitute: FV = $6,000 × [(1.06^20 − 1) / 0.06]',
+        'Growth factor: 1.06^20 = 3.20714',
+        'Subtract 1: 3.20714 − 1 = 2.20714',
+        'Divide by the rate to get the annuity factor: 2.20714 / 0.06 = 36.7856',
+        'Multiply by the payment: $6,000 × 36.7856 = $220,713.55',
+        'Split the total: $6,000 × 20 = $120,000 contributed, leaving about $100,714 of compound growth',
+      ],
+      answer:
+        'About $220,714 — $120,000 of contributions plus roughly $100,714 of growth.',
+      watchOut:
+        'Applying the lump-sum formula to the whole $120,000 as though it were invested on day one: $120,000 × 1.06^20 = $384,856, wildly too high, because each contribution has been working for a different length of time. Note too that this is an ordinary annuity, paid at year end; contributions made at the start of each year form an annuity due worth 6% more, about $233,956.',
+    },
+    {
+      title: 'Probability-weighted expected return',
+      setup:
+        'An analyst assigns a 25% probability to a +18% return, a 50% probability to +8%, and a 25% probability to −6%. What is the expected return?',
+      steps: [
+        'Expected return = the sum of (probability × outcome) across all scenarios',
+        'First confirm the probabilities total 1.00: 0.25 + 0.50 + 0.25 = 1.00',
+        'Strong case: 0.25 × 18% = 4.5%',
+        'Base case: 0.50 × 8% = 4.0%',
+        'Weak case: 0.25 × (−6%) = −1.5%',
+        'Add the three: 4.5% + 4.0% − 1.5% = 7.0%',
+      ],
+      answer: 'The expected return is 7.0%.',
+      watchOut:
+        'Taking the simple average of the three outcomes, (18 + 8 − 6) / 3 = 6.67%, which silently assumes the scenarios are equally likely. They are not — the base case carries twice the weight of either tail.',
+    },
+    {
+      title: 'One, two and three sigma bands of a normal distribution',
+      setup:
+        'A portfolio has an expected return of 9% and a standard deviation of 12%. State the approximate 68%, 95%, and 99.7% ranges.',
+      steps: [
+        'One standard deviation, about 68% of outcomes: 9% ± 12%',
+        'Lower bound: 9% − 12% = −3%. Upper bound: 9% + 12% = +21%.',
+        'Two standard deviations, about 95%: first 2 × 12% = 24%, so 9% ± 24%',
+        'Lower bound: 9% − 24% = −15%. Upper bound: 9% + 24% = +33%.',
+        'Three standard deviations, about 99.7%: first 3 × 12% = 36%, so 9% ± 36%',
+        'Lower bound: 9% − 36% = −27%. Upper bound: 9% + 36% = +45%.',
+      ],
+      answer:
+        'About 68% of years between −3% and +21%, about 95% between −15% and +33%, and about 99.7% between −27% and +45%.',
+      watchOut:
+        'Doubling the endpoints of the one-sigma band instead of doubling the standard deviation. That gives −6% to +42% for two sigma, which is wrong; the correct band is 9% ± 24%, or −15% to +33%. Remember also that real return distributions have fatter tails than the normal curve, so extreme outcomes occur more often than 0.3% of the time.',
+    },
+    {
+      title: 'Converting covariance to a correlation coefficient',
+      setup:
+        'Two assets have a covariance of 0.0084. Asset A has a standard deviation of 14% and Asset B a standard deviation of 10%. What is the correlation coefficient?',
+      steps: [
+        'Correlation = Covariance(A,B) / (standard deviation of A × standard deviation of B)',
+        'Put the standard deviations in decimals: 14% = 0.14 and 10% = 0.10',
+        'Denominator: 0.14 × 0.10 = 0.014',
+        'Substitute: 0.0084 / 0.014',
+        'Divide: 0.0084 / 0.014 = 0.60',
+      ],
+      answer:
+        'The correlation coefficient is +0.60 — positively correlated, but far enough below +1.0 that combining the two still reduces portfolio risk.',
+      watchOut:
+        'Mixing units by dividing a decimal covariance by standard deviations written as whole percentages: 0.0084 / (14 × 10) = 0.00006, which is not a correlation at all. Keep everything in decimals, and use the bounds as a check — any result outside −1.0 to +1.0 is arithmetically impossible.',
+    },
+  ],
 };

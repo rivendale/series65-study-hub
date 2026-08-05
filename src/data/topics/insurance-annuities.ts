@@ -181,4 +181,74 @@ State regulators bring more annuity cases than almost any other product category
       note: 'Multiply by the payment to get the tax-free portion; the balance is ordinary income. Once basis is fully recovered, payments become fully taxable.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Exclusion ratio on a non-qualified annuity',
+      setup:
+        "A client annuitizes a non-qualified annuity. His investment in the contract — the after-tax premiums he paid in — is $120,000. Under the payout option selected he will receive $1,000 a month, and his life expectancy under the IRS tables is 25 years. How much of each payment is taxable?",
+      steps: [
+        "Compute the expected total return, which is the payment times the number of payments expected: 25 years × 12 months = 300 payments.",
+        "Multiply: $1,000 × 300 = $300,000 of expected total return.",
+        "Form the ratio: Exclusion Ratio = Investment in the Contract / Expected Total Return = $120,000 / $300,000.",
+        "Divide: 120,000 / 300,000 = 0.40, or 40%.",
+        "Apply it to a single payment: tax-free portion = 40% × $1,000 = $400. This is a return of his own after-tax basis and is not taxed again.",
+        "The remainder is taxable: $1,000 − $400 = $600, taxed as ORDINARY INCOME.",
+        "Confirm the basis recovers exactly: $400 × 300 payments = $120,000, the full investment in the contract.",
+      ],
+      answer:
+        "The exclusion ratio is 40%. Of each $1,000 payment, $400 is a tax-free return of basis and $600 is ordinary income. If he outlives his life expectancy the basis is exhausted and every later payment is 100% taxable; if he dies before recovering it, the unrecovered basis is deductible on his final return.",
+      watchOut:
+        "Calling the $600 a long-term capital gain because the contract was held for decades and the subaccounts owned stock. Every taxable dollar out of an annuity is ordinary income, and there is no step-up in basis at death. The other frequent slip is inverting the ratio — $300,000 / $120,000 = 2.5, which is not a percentage of anything.",
+    },
+    {
+      title: 'Pre-annuitization withdrawal under LIFO',
+      setup:
+        "A 55-year-old owns a non-qualified deferred annuity. She paid $50,000 of after-tax premiums and the contract is now worth $86,000. She withdraws $20,000 without annuitizing. What is taxable, and what penalty applies?",
+      steps: [
+        "Separate the two layers inside the contract: contract value − investment in the contract = $86,000 − $50,000 = $36,000 of earnings, sitting on top of $50,000 of basis.",
+        "Apply the ordering rule. A withdrawal from a non-qualified annuity BEFORE annuitization comes out earnings first — last in, first out.",
+        "Compare the withdrawal against the earnings layer: $20,000 requested versus $36,000 of earnings available. The entire withdrawal fits inside the earnings layer.",
+        "Therefore 100% of the $20,000 is taxable as ordinary income, and no basis is recovered on this withdrawal.",
+        "Update the contract: $36,000 − $20,000 = $16,000 of earnings remain, and all $50,000 of basis is still untouched.",
+        "Add the early-distribution penalty. She is under 59½, so 10% applies to the taxable portion: 10% × $20,000 = $2,000.",
+      ],
+      answer:
+        "The full $20,000 is ordinary income and she owes a $2,000 early-withdrawal penalty on top of the income tax. Her remaining basis is $50,000 and remaining earnings are $16,000.",
+      watchOut:
+        "Applying FIFO or pro-rata basis recovery, the way a mutual fund redemption works. Pro rata would treat $50,000 / $86,000 = 58.1% of the withdrawal, about $11,628, as a tax-free return of basis and only $8,372 as taxable — understating taxable income by nearly $11,600. Basis comes out LAST before annuitization. Once the contract IS annuitized the rule changes: annuitized payments use the exclusion ratio instead.",
+    },
+    {
+      title: 'Surrender charge net of the free-withdrawal allowance',
+      setup:
+        "A deferred annuity is in its third contract year with an account value of $120,000. The contract permits a free withdrawal of 10% of account value each year; amounts above that are subject to the surrender schedule, which is 6% in year three. The owner withdraws $30,000. What is the surrender charge and what does she receive?",
+      steps: [
+        "Compute the free-withdrawal allowance: 10% × $120,000 = $12,000. This slice carries no surrender charge.",
+        "Find the chargeable excess: $30,000 requested − $12,000 free = $18,000.",
+        "Apply the year-three rate to the excess only: 6% × $18,000 = $1,080.",
+        "Net the proceeds: $30,000 − $1,080 = $28,920 paid out.",
+        "Keep the tax analysis separate: the earnings portion of the withdrawal is ordinary income under LIFO, and a 10% early-distribution penalty applies on that taxable amount if the owner is under 59½. Neither is affected by the $1,080 contract charge.",
+      ],
+      answer:
+        "The surrender charge is $1,080 and she receives $28,920. Income tax and any early-withdrawal penalty are computed separately.",
+      watchOut:
+        "Applying the 6% to the entire withdrawal: 6% × $30,000 = $1,800, which ignores the free-withdrawal allowance and overstates the charge by $720. The mirror error is treating the 6% as a tax — it is a contract charge paid to the insurer to recover unamortized commissions, and income tax is assessed on top of it.",
+    },
+    {
+      title: 'Accumulation units purchased at two different unit values',
+      setup:
+        "A client contributes $6,000 to a variable annuity when the accumulation unit value is $12.00, and another $6,000 six months later when the accumulation unit value is $15.00. At year end the accumulation unit value is $16.00. How many units does she own and what is the contract worth?",
+      steps: [
+        "First purchase: $6,000 / $12.00 per unit = 500 accumulation units.",
+        "Second purchase: $6,000 / $15.00 per unit = 400 accumulation units. The higher unit value buys fewer units for the same dollars.",
+        "Add them: 500 + 400 = 900 accumulation units. During the accumulation phase the NUMBER of units changes with every contribution.",
+        "Value the contract at the current unit value: 900 units × $16.00 = $14,400.",
+        "Compare with money contributed: $6,000 + $6,000 = $12,000, so the gain is $14,400 − $12,000 = $2,400, growing tax-deferred inside the contract with no annual 1099.",
+        "Compute her average cost per unit: $12,000 / 900 units = $13.33, against a simple average of the two prices of ($12.00 + $15.00) / 2 = $13.50 — the dollar-cost averaging result.",
+      ],
+      answer:
+        "She owns 900 accumulation units worth $14,400 on $12,000 contributed, a $2,400 tax-deferred gain, at an average cost of $13.33 per unit versus a $13.50 average price.",
+      watchOut:
+        "Averaging the two unit values and dividing once: $12,000 / $13.50 = 888.9 units, which is fewer than she actually owns. Each contribution buys at its own unit value. Do not confuse these with annuity units either: at annuitization the accumulation units convert into a FIXED number of annuity units, after which the count never changes and only the value per unit moves the size of the check.",
+    },
+  ],
 };

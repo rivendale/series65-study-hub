@@ -203,4 +203,109 @@ Derivative questions usually resolve on risk profile. **Buying options** risks a
       note: 'Per share. If the put is bought at the money, the maximum loss is just the premium.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Long call: breakeven, maximum gain, maximum loss',
+      setup:
+        "An investor buys 1 XYZ September 50 call at a premium of 4 while XYZ trades at $49. Find the breakeven, the maximum gain, the maximum loss, and the profit if XYZ is $60 at expiration.",
+      steps: [
+        "Translate the quote into dollars. One equity option covers 100 shares, so a premium of 4 costs 4 × 100 = $400.",
+        "Breakeven: calls add. Strike + Premium = 50 + 4 = $54. XYZ must reach $54 before the holder is even.",
+        "Maximum loss is the premium and nothing more — the holder owns a right he can simply abandon: $400.",
+        "Maximum gain is unlimited. There is no ceiling on the stock price, and the call captures every dollar above the strike.",
+        "Profit at $60: intrinsic value = market − strike = 60 − 50 = 10 per share, so 10 × 100 = $1,000.",
+        "Net out the premium paid: $1,000 − $400 = $600. Check it against the breakeven: ($60 − $54) × 100 = $600. The two agree.",
+      ],
+      answer:
+        "Breakeven $54; maximum loss $400 (the premium paid); maximum gain unlimited; profit at $60 is $600.",
+      watchOut:
+        "Mixing per-share and per-contract figures in the same answer. A premium quoted as 4 is $4 per share but $400 for the contract. Remember also that the WRITER of this same call has the identical $54 breakeven — only the direction flips, and it is the writer who carries the unlimited loss.",
+    },
+    {
+      title: 'Long put: breakeven, maximum gain, maximum loss',
+      setup:
+        "An investor buys 1 ABC 40 put at 3. Find the breakeven, the maximum gain, and the maximum loss.",
+      steps: [
+        "Dollars first: premium 3 × 100 shares = $300 paid.",
+        "Breakeven: puts subtract. Strike − Premium = 40 − 3 = $37.",
+        "Maximum loss is the premium paid, $300. Like any option buyer, the holder can walk away from a right.",
+        "Maximum gain: a put profits as the stock falls, and a stock can fall only to zero. At zero the holder sells shares worth $0 for $40: 40 × 100 = $4,000 of intrinsic value.",
+        "Net the premium out of that best case: $4,000 − $300 = $3,700.",
+        "Notice the shortcut this produces: $3,700 = breakeven of 37 × 100. Maximum gain on a long put is always the breakeven times the shares.",
+      ],
+      answer:
+        "Breakeven $37; maximum loss $300; maximum gain $3,700, realized only in the extreme case where ABC goes to zero.",
+      watchOut:
+        "Adding the premium to the strike on a put. 40 + 3 = 43 is the trap answer, and it is the breakeven of a CALL. Calls add, puts subtract. Note too that a long put's gain is large but finite; only a long call is unlimited.",
+    },
+    {
+      title: 'Covered call: breakeven, maximum gain, maximum loss',
+      setup:
+        "An investor buys 100 shares of DEF at $48 and writes 1 DEF 50 call at 3 against them. Find the breakeven, the maximum gain, and the maximum loss.",
+      steps: [
+        "Money in and out: the shares cost 100 × $48 = $4,800, and the premium received is 3 × 100 = $300.",
+        "Net the premium against the cost: $4,800 − $300 = $4,500, which is $45 per share. Writing the call lowered the effective basis by the premium.",
+        "Breakeven is that net basis: stock cost − premium received = $48 − $3 = $45 per share.",
+        "Maximum gain: above $50 the shares are called away at the strike. Gain on the stock = strike − cost = 50 − 48 = $2 per share, plus the $3 premium kept.",
+        "Add: $2 + $3 = $5 per share, or 5 × 100 = $500. Gains stop there no matter how high DEF goes.",
+        "Maximum loss: the stock can fall to zero and only the premium cushions the fall. From the $45 net basis down to zero is $45 per share, or 45 × 100 = $4,500.",
+      ],
+      answer:
+        "Breakeven $45; maximum gain $500, reached at $50 and capped there; maximum loss $4,500. The premium bought $3 a share of cushion, not protection.",
+      watchOut:
+        "Calling a covered call a hedge. It offsets exactly the premium — $3 a share here — while the position still loses $4,500 if DEF collapses. When a question asks how to protect a holding against a significant decline, the answer is a protective put, not a covered call.",
+    },
+    {
+      title: 'Protective put: maximum loss on a hedged position',
+      setup:
+        "A client owns 100 shares of GHI purchased at $62 and buys 1 GHI 60 put at 2.50 to protect it. What is the maximum loss, the breakeven, and the upside?",
+      steps: [
+        "The put sets a floor: however far GHI falls, the client may sell at the $60 strike.",
+        "Measure the unprotected decline — the gap between the purchase price and the floor: cost − strike = 62 − 60 = $2 per share.",
+        "Add the cost of the insurance: the premium of 2.50 per share.",
+        "Total per share: $2.00 + $2.50 = $4.50, so maximum loss = 4.50 × 100 = $450.",
+        "Breakeven on the upside: the stock must first recover the premium spent, so 62 + 2.50 = $64.50.",
+        "Above $64.50 the gain is unlimited. The put simply expires worthless and the client keeps the appreciation less the $250 premium.",
+      ],
+      answer:
+        "Maximum loss $450; breakeven $64.50; upside unlimited less the premium. This is the standard answer for a client holding a large low-basis concentrated position who wants downside protection without selling and triggering a taxable gain.",
+      watchOut:
+        "Reporting the maximum loss as just the $250 premium. That is true only when the put is bought AT the money. Here the put is $2 out of the money, and that $2 per share of unprotected decline is part of the loss.",
+    },
+    {
+      title: 'Splitting a premium into intrinsic value and time value',
+      setup:
+        "JKL stock trades at $53. Split each of these premiums into intrinsic value and time value: the JKL 50 call at 5.75, the JKL 55 put at 3.20, and the JKL 50 put at 0.90.",
+      steps: [
+        "Start from Premium = Intrinsic Value + Time Value, so Time Value = Premium − Intrinsic Value.",
+        "JKL 50 call: a call is in the money when the market is ABOVE the strike. Intrinsic = market − strike = 53 − 50 = 3.00.",
+        "Time value on the call = 5.75 − 3.00 = 2.75.",
+        "JKL 55 put: a put is in the money when the market is BELOW the strike. Intrinsic = strike − market = 55 − 53 = 2.00.",
+        "Time value on that put = 3.20 − 2.00 = 1.20.",
+        "JKL 50 put: the market ($53) is above the strike ($50), so this put is out of the money. Intrinsic value can never be negative — it is 0, not −3.",
+        "Time value on that put = 0.90 − 0 = 0.90, the entire premium.",
+      ],
+      answer:
+        "50 call: 3.00 intrinsic + 2.75 time = 5.75. 55 put: 2.00 intrinsic + 1.20 time = 3.20. 50 put: 0 intrinsic + 0.90 time = 0.90. Multiply any of these by 100 for the contract amount.",
+      watchOut:
+        "Recording a negative intrinsic value for an out-of-the-money option — writing −3.00 for the 50 put instead of 0. Intrinsic value floors at zero. And because time value decays to zero at expiration, an option held to expiration is worth only its intrinsic value: that 50 put would expire worthless with JKL at $53.",
+    },
+    {
+      title: 'Profit on a zero-cost collar at several prices',
+      setup:
+        "A client owns 100 shares of MNO with a cost basis of $70. She buys 1 MNO 65 put at 2.50 and writes 1 MNO 80 call at 2.50. Compute her profit or loss at expiration if MNO finishes at $55, at $70, and at $90.",
+      steps: [
+        "Net the premiums first: $2.50 paid for the put − $2.50 received on the call = $0. This is a zero-cost collar, so the option legs wash and only the stock outcome drives the result.",
+        "Establish the range: the long put floors her sale price at $65, and the short call caps it at $80.",
+        "At $55: the put is in the money, so she exercises and sells at $65. Stock result = 65 − 70 = −$5 per share, or −$500. Premiums net zero, so the loss is $500 — and that is the maximum loss no matter how far MNO falls.",
+        "At $70: $70 sits between the $65 floor and the $80 ceiling, so both options expire worthless. The stock is unchanged from her $70 basis, so the result is $0. Breakeven is $70, the cost basis itself, precisely because the collar cost nothing.",
+        "At $90: the short call is assigned and the shares go out at $80. Stock result = 80 − 70 = +$10 per share, or +$1,000. That is the maximum gain.",
+        "Measure the price of the protection: holding the shares outright at $90 would have produced (90 − 70) × 100 = $2,000, so the cap gave up $2,000 − $1,000 = $1,000 of upside.",
+      ],
+      answer:
+        "Loss of $500 at $55, breakeven at $70, gain of $1,000 at $90. The collar defines a range of −$500 to +$1,000 and costs nothing in premium, in exchange for surrendering everything above $80.",
+      watchOut:
+        "Treating a zero-cost collar as free in every sense. The premiums offset, but the client pays in foregone upside — $1,000 of it in the $90 scenario. The second trap is measuring the floor and ceiling from the cost basis rather than from the strikes: the maximum loss is the $5 per share between the $70 basis and the $65 put strike, not the full value of the position.",
+    },
+  ],
 };

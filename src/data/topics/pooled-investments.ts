@@ -211,4 +211,102 @@ A fund that qualifies as a **regulated investment company** and distributes esse
       note: 'Includes the management fee and 12b-1 fee; excludes sales loads and portfolio transaction costs.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Net asset value per share',
+      setup:
+        "A mutual fund holds portfolio securities and cash worth $860,000,000, owes $12,000,000 in accrued expenses and unsettled purchases, and has 42,400,000 shares outstanding. What is NAV per share?",
+      steps: [
+        "Net the balance sheet first: Total Assets − Total Liabilities = $860,000,000 − $12,000,000 = $848,000,000. That figure is net assets.",
+        "Write the formula: NAV per Share = Net Assets / Shares Outstanding = $848,000,000 / 42,400,000.",
+        "Divide: 848 / 42.4 = 20.",
+      ],
+      answer:
+        "NAV is $20.00 per share. Under forward pricing, any purchase or redemption order already in hand is filled at the NEXT NAV computed after the order was received, not at this one.",
+      watchOut:
+        "Dividing total assets by shares outstanding and ignoring liabilities: $860,000,000 / 42,400,000 = $20.28. That is not net asset value — the word net is the entire instruction.",
+    },
+    {
+      title: 'Public offering price from NAV and a sales charge',
+      setup:
+        "A fund reports a NAV of $18.90 per share and carries a 5.5% front-end sales charge. What is the public offering price?",
+      steps: [
+        "Read the charge correctly. A 5.5% sales charge means 5.5% OF THE PUBLIC OFFERING PRICE, so the NAV must represent the other 94.5% of POP.",
+        "Write that as an equation: NAV = POP × (1 − 0.055), which rearranges to POP = NAV / (1 − 0.055).",
+        "Compute the denominator: 1 − 0.055 = 0.945.",
+        "Substitute and divide: $18.90 / 0.945 = $20.00.",
+        "Verify the charge in dollars: POP − NAV = $20.00 − $18.90 = $1.10, and $1.10 / $20.00 = 5.5%. The stated percentage reappears only when measured against POP, which confirms the method.",
+      ],
+      answer:
+        "The public offering price is $20.00 per share, of which $18.90 buys fund assets and $1.10 is the sales charge.",
+      watchOut:
+        "Computing the sales charge as a percentage of NAV: $18.90 × 1.055 = $19.94. Run that backward and the implied charge is only ($19.94 − $18.90) / $19.94 = 5.2%, not the 5.5% the fund stated. The charge is always a percentage of the offering price, so you divide by (1 − charge) rather than multiplying by (1 + charge).",
+    },
+    {
+      title: 'Backing the sales charge percentage out of NAV and POP',
+      setup:
+        "A fund is quoted with a NAV of $23.75 and a public offering price of $25.00. What sales charge is the investor paying, and is it within the FINRA maximum?",
+      steps: [
+        "Find the sales charge in dollars: POP − NAV = $25.00 − $23.75 = $1.25 per share.",
+        "Divide by POP, not by NAV: Sales Charge % = (POP − NAV) / POP = $1.25 / $25.00.",
+        "Divide: 1.25 / 25.00 = 0.05.",
+        "Compare with the ceiling: 5.0% is comfortably inside the 8.5% of POP maximum FINRA allows on a mutual fund.",
+      ],
+      answer:
+        "The sales charge is 5.0% of the public offering price, within the 8.5% maximum.",
+      watchOut:
+        "Dividing the $1.25 by NAV instead of POP: $1.25 / $23.75 = 5.26%. Same dollars, wrong denominator. On a question that turns on whether a fund exceeds the 8.5% ceiling, that inflation can flip your answer.",
+    },
+    {
+      title: 'How many shares a dollar amount buys',
+      setup:
+        "A client invests $9,000 in a fund whose NAV is $11.52 per share with a 4% front-end sales charge. How many shares does she receive?",
+      steps: [
+        "She buys at POP, never at NAV, so compute POP first: POP = NAV / (1 − 0.04) = $11.52 / 0.96.",
+        "Divide: 11.52 / 0.96 = $12.00 per share.",
+        "Now divide the dollars invested by the price actually paid: $9,000 / $12.00.",
+        "Divide: 9,000 / 12 = 750 shares.",
+        "Sanity-check the load. 750 shares × $11.52 NAV = $8,640 of net assets working for her, and $9,000 − $8,640 = $360 went to the sales charge. $360 / $9,000 = 4%, matching the stated charge measured on POP.",
+      ],
+      answer:
+        "The $9,000 buys 750 shares. Mutual funds issue fractional shares, so a non-whole answer would be perfectly acceptable here.",
+      watchOut:
+        "Dividing the investment by NAV: $9,000 / $11.52 = 781.25 shares. That credits the client with 31.25 shares the sales charge already paid for. Buy at POP, redeem at NAV.",
+    },
+    {
+      title: 'Qualifying for a breakpoint using rights of accumulation',
+      setup:
+        "A fund posts this Class A schedule — under $25,000: 5.75%; $25,000 to $49,999: 4.50%; $50,000 to $99,999: 3.50%; $100,000 and above: 2.50%. A client already owns shares of the same fund that she purchased for $35,000 and that are worth $42,000 today. She now invests another $15,000. The fund values rights of accumulation at current value. What sales charge applies, and what does ROA save her?",
+      steps: [
+        "Price the new purchase in isolation first. Standing alone, $15,000 falls in the lowest tier (under $25,000) and would be charged 5.75%.",
+        "Apply rights of accumulation: existing holdings count toward the breakpoint on a NEW purchase. Use the valuation basis the fund specifies — here current value of $42,000, not the $35,000 originally invested.",
+        "Add them: $42,000 existing + $15,000 new = $57,000 in combined holdings.",
+        "Locate $57,000 on the schedule. It lands in the $50,000 to $99,999 tier, so the applicable rate is 3.50%.",
+        "Apply the reduced rate to the new money only: $15,000 × 0.035 = $525.",
+        "Compute what she would have paid without aggregation: $15,000 × 0.0575 = $862.50.",
+        "Subtract: $862.50 − $525 = $337.50 saved.",
+      ],
+      answer:
+        "The 3.50% breakpoint applies, the sales charge on the new $15,000 is $525, and rights of accumulation save her $337.50. ROA carries no time limit and no commitment, unlike a letter of intent.",
+      watchOut:
+        "Applying the reduced rate to the whole $57,000 — the discount attaches to the new purchase, not retroactively to shares already owned. Two related traps: confusing ROA with a letter of intent (13 months forward, backdatable 90 days, non-binding), and the prohibited practice of steering her to invest only $7,000 so the combined total stays at $49,000 and below the $50,000 breakpoint. That is breakpoint selling, and staying silent about the aggregation is itself a violation.",
+    },
+    {
+      title: 'The drag of an expense ratio over twenty years',
+      setup:
+        "Two funds hold essentially the same portfolio and earn 7.00% a year gross. Fund A charges an expense ratio of 0.20%; Fund B charges 1.20%. A client invests $100,000 for 20 years. What does the extra one percentage point of expense cost?",
+      steps: [
+        "Convert gross return to net return by subtracting the expense ratio, which is deducted from fund assets every year: Fund A nets 7.00% − 0.20% = 6.80%; Fund B nets 7.00% − 1.20% = 5.80%.",
+        "Compound Fund A over 20 years: 1.068 raised to the 20th power = 3.7276.",
+        "Multiply: $100,000 × 3.7276 = $372,756.",
+        "Compound Fund B: 1.058 raised to the 20th power = 3.0883.",
+        "Multiply: $100,000 × 3.0883 = $308,826.",
+        "Subtract: $372,756 − $308,826 = $63,930.",
+      ],
+      answer:
+        "The one-percentage-point difference costs about $63,930 over 20 years — roughly 64% of the original investment, and about 21% more ending wealth in the cheaper fund. This is why the expense ratio is the first number to compare between two funds in the same category.",
+      watchOut:
+        "Estimating the damage as 1% × 20 years = 20% of the balance. The true drag is far larger, because every dollar taken as a fee is also a dollar that never compounds again. Note also that the expense ratio EXCLUDES sales loads — a front-end load would be deducted before any of this compounding begins, making the gap wider still.",
+    },
+  ],
 };

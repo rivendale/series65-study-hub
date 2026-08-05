@@ -213,4 +213,131 @@ GIPS compliance is not required by law and is not a substitute for the SEC marke
       note: 'The approximation Nominal − Inflation is adequate at low rates. A 6% nominal return with 3% inflation gives about 2.91% exactly, 3% by approximation.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Holding period return including income',
+      setup:
+        'A client bought 200 shares at $40, collected $1.20 per share in dividends over the year, and sold at $44. What was the holding period return?',
+      steps: [
+        'HPR = (Ending value − Beginning value + Income) / Beginning value',
+        'Beginning value: 200 × $40 = $8,000',
+        'Ending value: 200 × $44 = $8,800',
+        'Income: 200 × $1.20 = $240',
+        'Numerator: $8,800 − $8,000 + $240 = $1,040',
+        'Divide: $1,040 / $8,000 = 0.13',
+      ],
+      answer:
+        'The holding period return is 13%. The price-only return was $800 / $8,000 = 10%, so the dividend contributed 3 percentage points.',
+      watchOut:
+        'Reporting the 10% price return and omitting the dividends. Total return always includes income received, and on income-heavy holdings the omission is large.',
+    },
+    {
+      title: 'Annualizing a multi-year return',
+      setup:
+        'An account grew from $10,000 to $14,000 over four years with no deposits or withdrawals. What was the annualized return?',
+      steps: [
+        'Cumulative growth factor: $14,000 / $10,000 = 1.40, a 40% cumulative gain',
+        'Annualized return = (Ending / Beginning) ^ (1 / n) − 1, with n = 4',
+        'Substitute: 1.40 ^ (1 / 4) − 1',
+        'Take the fourth root: 1.40 ^ 0.25 = 1.08776',
+        'Subtract 1: 1.08776 − 1 = 0.08776',
+        'Check by compounding forward: 1.08776 ^ 4 = 1.40, and $10,000 × 1.40 = $14,000',
+      ],
+      answer: 'The annualized (geometric) return is about 8.78% per year.',
+      watchOut:
+        'Dividing 40% by 4 to get 10% a year. Simple division ignores compounding and overstates the rate — at a true 10% a year, $10,000 would have grown to $14,641, not $14,000.',
+    },
+    {
+      title: 'Arithmetic versus geometric mean on the same series',
+      setup:
+        'A fund returned +20%, −10%, +15%, and −5% over four consecutive years. Compute both means and explain the gap.',
+      steps: [
+        'Arithmetic mean: add the returns and divide by the count',
+        'Sum: 20 − 10 + 15 − 5 = 20',
+        'Divide: 20 / 4 = 5.00%',
+        'Geometric mean: chain the growth factors, then take the nth root',
+        'Chain step 1: 1.20 × 0.90 = 1.0800',
+        'Chain step 2: 1.0800 × 1.15 = 1.2420',
+        'Chain step 3: 1.2420 × 0.95 = 1.1799',
+        'Fourth root: 1.1799 ^ 0.25 = 1.04222',
+        'Subtract 1: 0.04222, or about 4.22%',
+        'Test both against the money: $10,000 actually became $10,000 × 1.1799 = $11,799',
+        'At the arithmetic 5%: $10,000 × 1.05 ^ 4 = $12,155 — about $356 that never existed',
+      ],
+      answer:
+        'Arithmetic mean 5.00%, geometric mean about 4.22%. The 0.78 percentage point gap is the cost of volatility, and only the geometric figure describes what happened to the money.',
+      watchOut:
+        'Using the arithmetic mean, which overstates compounded growth whenever returns vary, to describe historical multi-period performance. The gap widens as volatility rises. Reserve the arithmetic mean for a single-period expected return.',
+    },
+    {
+      title: 'Real return by subtraction and by the exact Fisher relation',
+      setup: 'A portfolio returned 7% nominal for the year. Inflation ran 4%. What was the real return?',
+      steps: [
+        'Approximation: Real ≈ Nominal − Inflation',
+        'Substitute: 7% − 4% = 3.00%',
+        'Exact Fisher relation: Real = [(1 + Nominal) / (1 + Inflation)] − 1',
+        'Substitute: (1.07 / 1.04) − 1',
+        'Divide: 1.07 / 1.04 = 1.02885',
+        'Subtract 1: 0.02885, or 2.88%',
+      ],
+      answer:
+        'About 3.00% by subtraction and 2.88% exactly. The approximation is adequate at these rates and slightly overstates the truth.',
+      watchOut:
+        'Adding inflation instead of subtracting it, or multiplying by the inflation rate rather than dividing by (1 + inflation). Note the approximation error grows with the rates involved: at 12% nominal and 10% inflation, subtraction says 2.00% while the exact answer is 1.82%.',
+    },
+    {
+      title: 'Sharpe ratio — why the higher return can lose',
+      setup:
+        'Portfolio A returned 11% with a standard deviation of 16%. Portfolio B returned 9% with a standard deviation of 10%. The risk-free rate is 3%. Which performed better on a risk-adjusted basis?',
+      steps: [
+        'Sharpe = (Rp − Rf) / standard deviation of the portfolio',
+        'Portfolio A excess return: 11% − 3% = 8%',
+        'Portfolio A Sharpe: 8 / 16 = 0.50',
+        'Portfolio B excess return: 9% − 3% = 6%',
+        'Portfolio B Sharpe: 6 / 10 = 0.60',
+        'Compare: 0.60 is greater than 0.50',
+      ],
+      answer:
+        'Portfolio B wins, 0.60 against 0.50, despite returning two percentage points less. It delivered more excess return per unit of total risk.',
+      watchOut:
+        'Forgetting to subtract the risk-free rate and dividing raw return by standard deviation. That gives 11 / 16 = 0.69 and 9 / 10 = 0.90 — the same ranking here by luck, but not the Sharpe ratio. The numerator is always return in excess of Rf.',
+    },
+    {
+      title: 'Treynor ratio, and how its denominator differs from Sharpe',
+      setup:
+        'Portfolio A returned 11%, with a standard deviation of 16% and a beta of 1.25. The risk-free rate is 3%. Compute both Treynor and Sharpe, and decide which applies.',
+      steps: [
+        'Both ratios share the same numerator: excess return, 11% − 3% = 8%',
+        'Sharpe divides by standard deviation, which is total risk: 8 / 16 = 0.50',
+        'Treynor divides by beta, which is systematic risk only: 8 / 1.25 = 6.4',
+        'The two figures are on unrelated scales — 6.4 is percentage points of excess return per unit of beta, while 0.50 is excess return per unit of standard deviation',
+        'Pick by context: if this portfolio is the whole of the client holdings, use Sharpe; if it is one sleeve inside an already diversified portfolio, use Treynor',
+      ],
+      answer:
+        'Sharpe is 0.50 and Treynor is 6.4. Same numerator, different risk denominator, different question answered.',
+      watchOut:
+        'Puts beta in the Sharpe denominator (or standard deviation in the Treynor denominator) and then ranks managers on the result. The second trap is comparing a Treynor of 6.4 against a Sharpe of 0.50 as though the bigger number meant better performance — the scales are not comparable.',
+    },
+    {
+      title: 'Time-weighted versus dollar-weighted return on the same cash flows',
+      setup:
+        'An account starts at $100,000. During year 1 it rises to $110,000. The client then deposits $100,000, bringing the balance to $210,000. During year 2 the market falls and the account ends at $189,000. Compute both returns.',
+      steps: [
+        'Time-weighted return: break the period at the cash flow and compute each sub-period on its own',
+        'Year 1 return: ($110,000 / $100,000) − 1 = +10.0%',
+        'Year 2 return: ($189,000 / $210,000) − 1 = −10.0%',
+        'Link the sub-periods geometrically: 1.10 × 0.90 = 0.99, a cumulative −1.0% over two years',
+        'Annualize: 0.99 ^ 0.5 − 1 = −0.0050, or about −0.50% per year',
+        'Dollar-weighted return: find the rate r at which both deposits grow into $189,000',
+        'Set up: $100,000 × (1 + r)² + $100,000 × (1 + r) = $189,000',
+        'Let x = (1 + r) and divide through by $100,000: x² + x − 1.89 = 0',
+        'Quadratic formula: x = (−1 + square root of (1 + 7.56)) / 2 = (−1 + 2.9257) / 2 = 0.96287',
+        'r = 0.96287 − 1 = −0.0371, or about −3.71% per year',
+      ],
+      answer:
+        'Time-weighted return is about −0.50% per year; dollar-weighted return is about −3.71% per year. They diverge because the client put the larger sum to work immediately before the losing year.',
+      watchOut:
+        'Blaming the manager for the −3.71%. The manager earned +10% then −10% on whatever balance was there; the client chose when the $100,000 arrived. Time-weighted is the fair basis for judging the manager, dollar-weighted for describing what the client actually lived through.',
+    },
+  ],
 };

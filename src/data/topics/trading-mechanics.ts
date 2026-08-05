@@ -190,4 +190,92 @@ Discretion requires **prior written authorization** — a limited power of attor
       note: "The market maker's compensation. A wide spread indicates thin liquidity and a higher effective cost to trade.",
     },
   ],
+  workedExamples: [
+    {
+      title: 'Regulation T initial requirement and cash due on a margin purchase',
+      setup:
+        'A client opens a new margin account and buys 1,000 shares of a marginable NYSE-listed stock at $60 per share. There are no other positions and no cash in the account. How much must the client deposit, and what is the resulting debit balance and equity?',
+      steps: [
+        'Step 1 — compute the market value of the purchase: 1,000 × $60 = $60,000.',
+        'Step 2 — apply the Regulation T initial requirement of 50%, set by the Federal Reserve Board: 50% × $60,000 = $30,000.',
+        'Step 3 — the client deposits $30,000; the broker-dealer lends the rest. Debit balance = $60,000 − $30,000 = $30,000.',
+        'Step 4 — verify the equity: Equity = long market value − debit balance = $60,000 − $30,000 = $30,000.',
+        'Step 5 — express it as a percentage: $30,000 ÷ $60,000 = 50%, exactly the Reg T requirement, as expected on day one.',
+        'Step 6 — check the floor. FINRA requires minimum equity of $2,000 in a margin account (or 100% of the purchase price if less). Here $30,000 clears it easily, but on a $3,000 purchase the requirement would be $2,000, not 50% × $3,000 = $1,500.',
+      ],
+      answer:
+        'The client must deposit $30,000. That leaves a $30,000 debit balance and $30,000 of equity — 50% of the $60,000 market value.',
+      watchOut:
+        'Forgetting the $2,000 minimum equity floor on small purchases, which makes the answer higher than a straight 50% calculation. The other error is confusing this INITIAL 50% Reg T requirement with the 25% ongoing MAINTENANCE requirement, which comes from SRO rules and applies only after the position is established.',
+    },
+    {
+      title: 'The price at which a long margin position triggers a maintenance call',
+      setup:
+        'Continuing the position above: 1,000 shares with a market value of $60,000 and a debit balance of $30,000. The SRO long maintenance requirement is 25% of market value. At what price is a maintenance call triggered? What if the firm imposes a 30% house requirement?',
+      steps: [
+        'Step 1 — state the condition. A call occurs when equity falls below 25% of market value: (MV − debit) < 0.25 × MV.',
+        'Step 2 — rearrange. MV − debit = 0.25 × MV, so MV − 0.25 × MV = debit, so 0.75 × MV = debit.',
+        'Step 3 — solve for MV: MV = debit ÷ 0.75 = $30,000 ÷ 0.75 = $40,000. (The debit balance does not change as the price moves — only interest and new activity change it.)',
+        'Step 4 — convert to a per-share price: $40,000 ÷ 1,000 shares = $40.00.',
+        'Step 5 — verify at $40. Market value $40,000, debit $30,000, equity $10,000. Equity ÷ market value = $10,000 ÷ $40,000 = 25%. Exactly at the requirement, so any price below $40 triggers the call.',
+        'Step 6 — redo it for a 30% house requirement: MV = debit ÷ (1 − 0.30) = $30,000 ÷ 0.70 = $42,857.14, or $42.86 per share. The house requirement triggers at a price about 7% higher, giving the firm an earlier warning — which is why most firms impose one.',
+      ],
+      answer:
+        'A maintenance call is triggered once the stock falls below $40.00 per share under the 25% SRO minimum, or below $42.86 per share under a 30% house requirement.',
+      watchOut:
+        'Dividing the debit by 0.25 instead of 0.75. That produces $120,000, or $120 per share, which would mean a call is due at DOUBLE the purchase price — an obviously impossible answer that should prompt a re-check. The divisor is 1 minus the maintenance percentage, not the maintenance percentage itself.',
+    },
+    {
+      title: 'Excess equity and buying power',
+      setup:
+        'A margin account holds securities with a long market value of $100,000 and a debit balance of $40,000. Regulation T remains 50%. How much can the client buy without depositing new cash?',
+      steps: [
+        'Step 1 — compute equity: Equity = long market value − debit balance = $100,000 − $40,000 = $60,000.',
+        'Step 2 — compute the Reg T requirement on the current position: 50% × $100,000 = $50,000.',
+        'Step 3 — excess equity (the amount credited to SMA) = actual equity − required equity = $60,000 − $50,000 = $10,000.',
+        'Step 4 — convert excess equity into buying power. Because the client only has to put up 50% of any new purchase, each dollar of excess equity supports two dollars of stock: buying power = $10,000 ÷ 0.50 = $20,000.',
+        'Step 5 — verify by walking the account forward. Buy $20,000 more: long market value = $100,000 + $20,000 = $120,000; debit = $40,000 + $20,000 = $60,000 (the whole purchase is financed).',
+        'Step 6 — recompute equity: $120,000 − $60,000 = $60,000, which is 50% of the new $120,000 market value. The account lands exactly at the Reg T requirement, confirming $20,000 was the maximum.',
+      ],
+      answer:
+        'The account has $10,000 of excess equity, which supports $20,000 of additional purchasing power without any new deposit.',
+      watchOut:
+        'Treating the full $60,000 of equity as buying power. Most of that equity is already committed to satisfying Reg T on the existing $100,000 position; only the $10,000 EXCESS is free. The mirror error is forgetting to double it — buying power is excess equity divided by the 50% requirement, not the excess equity itself.',
+    },
+    {
+      title: 'Short sale: proceeds, required deposit, and maximum gain',
+      setup:
+        'A client sells short 500 shares at $80 per share in a margin account. Regulation T is 50%. Compute the proceeds, the required deposit, the credit balance, the maximum possible gain, and the gain if the client covers at $62.',
+      steps: [
+        'Step 1 — sale proceeds: 500 × $80 = $40,000. These proceeds are held by the broker-dealer, not paid out to the client.',
+        "Step 2 — Regulation T deposit: 50% × $40,000 = $20,000 of the client's own money must be added.",
+        'Step 3 — credit balance in the short account = short sale proceeds + Reg T deposit = $40,000 + $20,000 = $60,000.',
+        'Step 4 — maximum gain. The best case is the stock going to zero, where the shares are repurchased for nothing: gain = $40,000 − $0 = $40,000, the full proceeds. A short seller can never make more than the proceeds because a price cannot fall below zero.',
+        'Step 5 — maximum loss. There is no ceiling on the price, so the loss is theoretically unlimited. This asymmetry is the reason short selling requires a margin account and is unsuitable for most retail clients.',
+        'Step 6 — the realistic case: cover at $62. Gain = 500 × ($80 − $62) = 500 × $18 = $9,000, before interest, borrowing fees, and any dividends the short seller must pay the lender.',
+      ],
+      answer:
+        'Proceeds $40,000; Reg T deposit $20,000; credit balance $60,000. Maximum gain $40,000 (only if the stock becomes worthless); maximum loss unlimited. Covering at $62 produces a $9,000 gain.',
+      watchOut:
+        'Saying the maximum gain is unlimited. That is the LONG position. Short is the mirror image: gain is capped at the proceeds, loss is unlimited. Reversing the two on this question is the most common trading-mechanics error on the exam.',
+    },
+    {
+      title: 'Credit balance and equity in a short account as the stock moves against the client',
+      setup:
+        'Continuing the short above: 500 shares sold short at $80 with a credit balance of $60,000. The stock rises to $92. The short maintenance requirement is 30% of short market value. Is there a call, and at what price does one occur?',
+      steps: [
+        'Step 1 — the credit balance is FIXED at $60,000. It does not move with the stock price; only the short market value does.',
+        'Step 2 — current short market value: 500 × $92 = $46,000. This is what it would cost to buy the shares back.',
+        'Step 3 — compute equity in a short account: Equity = credit balance − short market value = $60,000 − $46,000 = $14,000. (Note the order: the liability is subtracted from the credit, the opposite of a long account.)',
+        'Step 4 — express it as a percentage of short market value: $14,000 ÷ $46,000 = 30.43%.',
+        'Step 5 — compare to the 30% requirement: required equity = 30% × $46,000 = $13,800. Actual equity of $14,000 exceeds it, so no call yet — but only by $200.',
+        'Step 6 — find the call price. A call occurs when credit balance = 1.30 × short market value, so SMV = $60,000 ÷ 1.30 = $46,153.85.',
+        'Step 7 — per share: $46,153.85 ÷ 500 = $92.31. Above roughly $92.31 the account falls below 30% equity and a call is issued.',
+      ],
+      answer:
+        'Equity is $14,000, or 30.43% of the $46,000 short market value — just above the 30% requirement, so no call yet. A maintenance call is triggered once the stock rises above about $92.31 per share.',
+      watchOut:
+        'Computing short equity as short market value minus credit balance, which gives −$14,000 and a nonsensical negative equity. The credit balance always comes first in a short account. Note also the direction: for a SHORT, danger is a RISING price, and the divisor is 1 PLUS the maintenance rate (1.30), whereas a long position uses 1 MINUS it (0.75).',
+    },
+  ],
 };

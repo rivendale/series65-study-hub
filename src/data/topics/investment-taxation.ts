@@ -179,4 +179,128 @@ Selling a depreciated position to realize a loss, using it against gains and up 
       note: 'Net proceeds are sale price less commissions; adjusted basis includes purchase commissions and reinvested distributions.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Netting gains and losses, the $3,000 offset, and the carryforward',
+      setup:
+        "A client realizes four transactions this year: a short-term gain of $4,000, a short-term loss of $10,000, a long-term gain of $6,000, and a long-term loss of $14,000. The client also has wage income taxed at ordinary rates. How much is deductible this year, and what carries forward?",
+      steps: [
+        'Step 1 — net within the short-term bucket first: +$4,000 − $10,000 = −$6,000 net short-term loss.',
+        'Step 2 — net within the long-term bucket: +$6,000 − $14,000 = −$8,000 net long-term loss.',
+        'Step 3 — both buckets are losses, so there is nothing to offset across. Combine them: −$6,000 + (−$8,000) = −$14,000 net capital loss.',
+        'Step 4 — apply the ordinary-income offset. The deduction is capped at $3,000 per year ($1,500 if married filing separately), so $3,000 of the $14,000 reduces wage income this year.',
+        'Step 5 — compute the carryforward: $14,000 − $3,000 = $11,000 carried forward indefinitely.',
+        'Step 6 — track the character. Short-term loss is used first against ordinary income, so the $3,000 comes entirely out of the $6,000 short-term loss. Short-term carryforward = $6,000 − $3,000 = $3,000; long-term carryforward = $8,000, untouched.',
+      ],
+      answer:
+        "$3,000 is deducted against ordinary income this year. $11,000 carries forward — $3,000 short-term and $8,000 long-term — and it keeps that character in every future year until used up.",
+      watchOut:
+        "Applying the $3,000 limit before netting. The cap is the last step, not the first: a student who deducts $3,000 against each of the two losses, or who caps each transaction at $3,000, gets the wrong deduction and the wrong carryforward. Also note individuals carry losses forward only — there is no carryback.",
+    },
+    {
+      title: 'Wash sale: the disallowed loss and the basis of the replacement shares',
+      setup:
+        'A client buys 500 shares of XYZ at $40 per share. Ten months later, with the stock at $28, the client sells all 500 shares. Twelve days after that sale the client buys 500 shares of XYZ back at $30. Ignore commissions.',
+      steps: [
+        'Step 1 — original cost basis: 500 × $40 = $20,000.',
+        'Step 2 — sale proceeds: 500 × $28 = $14,000.',
+        'Step 3 — realized loss: $14,000 − $20,000 = −$6,000.',
+        'Step 4 — test the window. The repurchase is 12 days after the sale, inside the 30-days-after half of the 61-day window (30 days before + trade date + 30 days after). The loss is disallowed.',
+        'Step 5 — cost of the replacement shares: 500 × $30 = $15,000.',
+        'Step 6 — add the disallowed loss to that cost: $15,000 + $6,000 = $21,000 adjusted basis, or $21,000 ÷ 500 = $42 per share. The replacement shares also inherit the original holding period.',
+        'Step 7 — sanity check the economics. If the client later sells the replacement shares at $46 (500 × $46 = $23,000), the gain is $23,000 − $21,000 = $2,000, not $23,000 − $15,000 = $8,000. The $6,000 was deferred, not destroyed.',
+      ],
+      answer:
+        'The $6,000 loss is disallowed this year. The 500 replacement shares carry an adjusted basis of $21,000 ($42 per share) and tack on the original holding period.',
+      watchOut:
+        "Subtracting the disallowed loss from the replacement basis instead of adding it. Adding is what defers the deduction to the eventual sale. The one case where the loss really does vanish is a repurchase inside the client's own IRA — there is no basis in an IRA to add it to.",
+    },
+    {
+      title: 'Taxable-equivalent yield on a municipal bond',
+      setup:
+        'A client in the 32% federal marginal bracket is choosing between a general obligation municipal bond yielding 3.40% (federally tax-exempt) and a comparable-quality corporate bond yielding 4.75%. Ignore state tax and the NIIT.',
+      steps: [
+        'Step 1 — write the formula: TEY = tax-free yield ÷ (1 − marginal rate).',
+        'Step 2 — substitute: TEY = 3.40% ÷ (1 − 0.32) = 3.40% ÷ 0.68.',
+        'Step 3 — divide: 3.40 ÷ 0.68 = 5.00%.',
+        'Step 4 — compare: the muni is worth 5.00% of taxable yield to this client; the corporate offers only 4.75%. The muni wins by 25 basis points.',
+        "Step 5 — confirm from the other direction. Corporate after tax = 4.75% × (1 − 0.32) = 4.75% × 0.68 = 3.23%, which is below the muni's 3.40%. Same conclusion, so the arithmetic is consistent.",
+      ],
+      answer:
+        'The taxable-equivalent yield of the 3.40% muni is 5.00%. Since the corporate yields only 4.75% pre-tax (3.23% after tax), the municipal bond is the better after-tax choice for this client.',
+      watchOut:
+        "Multiplying by (1 − rate) instead of dividing when converting a muni yield up to a taxable equivalent. That gives 3.40% × 0.68 = 2.31% and makes the muni look terrible. Divide to go tax-free → taxable; multiply to go taxable → tax-free. Also use the MARGINAL rate here, never the effective rate.",
+    },
+    {
+      title: 'Stepped-up basis at death versus carryover basis on a lifetime gift',
+      setup:
+        "A parent bought 1,000 shares years ago at $12 per share. The shares are worth $50 per share today. Compare two paths: (a) the parent holds the shares until death, when they are worth $50, and the child inherits them; (b) the parent gifts the shares today at $50. In both cases the child later sells all 1,000 shares at $56. Assume a 15% long-term capital gains rate.",
+      steps: [
+        "Step 1 — the parent's basis: 1,000 × $12 = $12,000. Current value: 1,000 × $50 = $50,000. Sale proceeds either way: 1,000 × $56 = $56,000.",
+        'Step 2 — path (a), inheritance. Basis steps up to fair market value at death: $50,000. Holding period is automatically long-term.',
+        'Step 3 — gain on the inherited shares: $56,000 − $50,000 = $6,000. Tax at 15% = $900.',
+        "Step 4 — path (b), lifetime gift. Value at the gift date ($50,000) exceeds the donor's basis ($12,000), so the plain carryover rule applies: the child takes a $12,000 basis and tacks on the donor's holding period.",
+        'Step 5 — gain on the gifted shares: $56,000 − $12,000 = $44,000. Tax at 15% = $6,600.',
+        'Step 6 — the cost of gifting instead of bequeathing: $6,600 − $900 = $5,700 of extra tax, which is 15% of the $38,000 of appreciation that the step-up would have erased.',
+      ],
+      answer:
+        'Inherited: $6,000 gain and $900 of tax. Gifted: $44,000 gain and $6,600 of tax. Gifting the low-basis shares during life costs the family $5,700 more.',
+      watchOut:
+        "Applying a step-up to a lifetime gift. Only transfers at death reset basis to fair market value. This is exactly why the planning rule runs the other way: gift the HIGH-basis assets and hold the low-basis appreciated ones until death. (Separate special rule: if the gift-date value were BELOW the donor's basis, the donee would use that lower value when computing a later loss.)",
+    },
+    {
+      title: 'Marginal rate versus effective rate on the same income',
+      setup:
+        "Assume this year a single filer faces these given brackets: 10% on the first $12,000 of taxable income, 12% on income from $12,000 to $48,000, 22% on income from $48,000 to $100,000, and 24% above $100,000. (Treat these figures as supplied by the question; real brackets are indexed and move each year.) The client has $90,000 of taxable income.",
+      steps: [
+        'Step 1 — fill the 10% bracket: 10% × $12,000 = $1,200.',
+        'Step 2 — fill the 12% bracket: the slice is $48,000 − $12,000 = $36,000, so 12% × $36,000 = $4,320.',
+        'Step 3 — fill the 22% bracket only up to the income actually earned: the slice is $90,000 − $48,000 = $42,000, so 22% × $42,000 = $9,240.',
+        'Step 4 — the 24% bracket is never reached, because income stops at $90,000.',
+        'Step 5 — total tax: $1,200 + $4,320 + $9,240 = $14,760.',
+        'Step 6 — effective (average) rate: $14,760 ÷ $90,000 = 0.164 = 16.4%.',
+        'Step 7 — marginal rate: the next dollar earned lands in the 22% bracket, so the marginal rate is 22%.',
+      ],
+      answer:
+        'Total tax $14,760. Marginal rate 22%; effective rate 16.4%. Every at-the-margin decision — a taxable-equivalent yield, the value of one more deductible dollar — uses 22%.',
+      watchOut:
+        'Multiplying all income by the top bracket rate: 22% × $90,000 = $19,800, overstating the tax by $5,040. Brackets are filled in slices, not applied to the whole. The mirror error is plugging the 16.4% effective rate into a taxable-equivalent yield calculation, which understates the value of a municipal bond.',
+    },
+    {
+      title: 'After-tax value of tax-deferred growth versus an annually taxed account',
+      setup:
+        'A client invests $10,000 of after-tax money for 20 years and earns 7% per year. In Account A (a non-qualified tax-deferred annuity) nothing is taxed until withdrawal, when the accumulated earnings are taxed as ordinary income. In Account B the 7% is taxed as ordinary income every year as it is earned. The marginal rate is 24% throughout. Compare the amounts the client can actually spend at the end.',
+      steps: [
+        'Step 1 — Account A grows at the full 7%: $10,000 × 1.07^20 = $10,000 × 3.869684 = $38,696.84.',
+        'Step 2 — separate the taxable earnings from the after-tax principal: $38,696.84 − $10,000 = $28,696.84 of earnings. The $10,000 of basis comes back tax-free.',
+        'Step 3 — tax on the earnings at withdrawal: 24% × $28,696.84 = $6,887.24.',
+        'Step 4 — Account A after tax: $38,696.84 − $6,887.24 = $31,809.60.',
+        'Step 5 — Account B compounds at the after-tax rate: 7% × (1 − 0.24) = 5.32% per year.',
+        'Step 6 — Account B ending value: $10,000 × 1.0532^20 = $10,000 × 2.819792 = $28,197.92. Nothing further is owed; the tax was paid annually.',
+        'Step 7 — difference: $31,809.60 − $28,197.92 = $3,611.68, about 12.8% more spendable money, at the identical 7% gross return and the identical 24% rate.',
+      ],
+      answer:
+        'Account A (deferred) delivers $31,809.60 after tax; Account B (annually taxed) delivers $28,197.92. Deferral is worth $3,611.68 here purely from compounding on dollars that would otherwise have gone to the IRS each year.',
+      watchOut:
+        "Comparing the deferred account's PRE-tax balance of $38,696.84 with the taxable account's after-tax $28,197.92 and claiming a $10,499 advantage. That is not a fair comparison — subtract the deferred tax first. A second trap: deferral converts what might have been long-term capital gain into ordinary income inside an annuity, so a high-turnover comparison is not always this favorable.",
+    },
+    {
+      title: 'A capital gains distribution right after purchase — why it is not free money',
+      setup:
+        'On December 10 a client invests $20,000 in a mutual fund at a NAV of $40.00, buying 500 shares. On December 15 the fund pays a long-term capital gain distribution of $2.00 per share, and the NAV drops to $38.00. The client reinvests the distribution. The client is in the 15% long-term capital gains bracket.',
+      steps: [
+        'Step 1 — shares purchased: $20,000 ÷ $40.00 = 500 shares.',
+        'Step 2 — distribution received: 500 × $2.00 = $1,000.',
+        'Step 3 — value of the original shares after the NAV drop: 500 × $38.00 = $19,000.',
+        'Step 4 — total value immediately after the distribution: $19,000 + $1,000 = $20,000. Exactly what the client started with. The distribution moved value out of the share price; it did not create any.',
+        'Step 5 — reinvest: $1,000 ÷ $38.00 = 26.3158 additional shares, for 526.3158 shares. Confirm: 526.3158 × $38.00 = $20,000. Still unchanged.',
+        "Step 6 — the tax bill: $1,000 × 15% = $150. The distribution is LONG-TERM to the shareholder even though the client has owned the fund for five days, because the fund's holding period controls.",
+        'Step 7 — net position: $20,000 of value less $150 owed to the IRS = $19,850 economically. Basis rises to $20,000 + $1,000 = $21,000, so the $150 is a prepayment, not a permanent loss — but it is a prepayment for no benefit.',
+      ],
+      answer:
+        'The account is worth the same $20,000 it was before the distribution, but the client now owes $150 of tax — a real economic loss of $150 from buying five days too early. Waiting until after the record date would have avoided it.',
+      watchOut:
+        'Assuming a five-day holding period makes the distribution short-term. Capital gain distributions from a fund are always long-term to the shareholder regardless of how briefly the shares were held. The related error is treating the distribution as investment income the client came out ahead on — the NAV fell by exactly the distribution.',
+    },
+  ],
 };

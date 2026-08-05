@@ -185,4 +185,100 @@ The pre-2020 lifetime "stretch" is gone for most non-spouse beneficiaries. A des
       note: 'Reduced to 10% if corrected within the two-year correction window under SECURE 2.0.',
     },
   ],
+  workedExamples: [
+    {
+      title: 'Required minimum distribution and the excise tax on a shortfall',
+      setup:
+        "A client turns 73 this year and must take a first RMD from a Traditional IRA. The IRA balance on December 31 of the PRIOR year was $850,000. Assume the Uniform Lifetime Table factor for age 73 is 26.5. The client withdraws only $20,000 and does not correct the shortfall.",
+      steps: [
+        'Step 1 — identify the correct balance. The RMD always uses the prior December 31 balance, not the current balance and not an average.',
+        'Step 2 — write the formula: RMD = prior year-end balance ÷ life expectancy factor.',
+        'Step 3 — substitute: RMD = $850,000 ÷ 26.5.',
+        'Step 4 — divide: $850,000 ÷ 26.5 = $32,075.47.',
+        'Step 5 — measure the shortfall: $32,075.47 − $20,000 = $12,075.47 not taken.',
+        'Step 6 — apply the excise tax: 25% × $12,075.47 = $3,018.87.',
+        'Step 7 — note the correction relief. If the shortfall is made up inside the two-year correction window, the excise drops to 10% × $12,075.47 = $1,207.55.',
+        'Step 8 — remember the excise is on top of ordinary income tax on the amount actually distributed. It is a penalty, not a substitute for the tax.',
+      ],
+      answer:
+        'The RMD is $32,075.47. Taking only $20,000 leaves a $12,075.47 shortfall and a 25% excise tax of $3,018.87, reduced to $1,207.55 if timely corrected.',
+      watchOut:
+        "Multiplying by the life expectancy factor instead of dividing — $850,000 × 26.5 produces an absurd $22,525,000, which should be an instant signal the operation is inverted. The other frequent error is using the CURRENT year-end balance; the divisor year and the balance year are different on purpose.",
+    },
+    {
+      title: 'The 20% mandatory withholding trap on an indirect rollover',
+      setup:
+        "A participant leaves an employer and asks for a check for the full $200,000 401(k) balance, intending to redeposit it into an IRA within 60 days. The participant is 52 years old and is in the 24% marginal bracket. How much arrives, and how much must be deposited?",
+      steps: [
+        'Step 1 — apply mandatory withholding. An eligible rollover distribution paid to the participant from an employer plan is subject to 20% federal withholding: 20% × $200,000 = $40,000.',
+        'Step 2 — cash actually received: $200,000 − $40,000 = $160,000.',
+        'Step 3 — determine what must be deposited. To roll over the FULL distribution, the participant must deposit $200,000 into the IRA within 60 days — the withheld amount does not get a pass.',
+        'Step 4 — compute the out-of-pocket gap: $200,000 − $160,000 = $40,000 must come from other savings.',
+        'Step 5 — if the participant deposits only the $160,000 received, the missing $40,000 is treated as a taxable distribution. Income tax: 24% × $40,000 = $9,600.',
+        'Step 6 — add the early distribution penalty, since the participant is under 59½ and separation occurred before age 55: 10% × $40,000 = $4,000.',
+        'Step 7 — total cost of the shortfall: $9,600 + $4,000 = $13,600. The $40,000 that was withheld is credited against that bill at filing, so the participant gets back $40,000 − $13,600 = $26,400 as a refund — many months later, and $13,600 poorer.',
+        'Step 8 — the fix: a DIRECT trustee-to-trustee rollover has no withholding, no 60-day clock, and no annual frequency limit. Nothing about this problem exists if the check never goes to the participant.',
+      ],
+      answer:
+        'The participant receives a check for $160,000 but must deposit $200,000 within 60 days, adding $40,000 from other funds. Depositing only the $160,000 makes $40,000 taxable, costing $9,600 of tax plus a $4,000 penalty — $13,600 in all.',
+      watchOut:
+        "Forgetting that the withheld 20% must still be replaced out of pocket. Students routinely answer that depositing the $160,000 received completes the rollover. It does not — the rollover is measured against the gross distribution, and the $40,000 withheld is only credited back as a tax prepayment when the return is filed, months later.",
+    },
+    {
+      title: 'Graded vesting applied to an employer account balance',
+      setup:
+        "A participant with exactly 4 years of service leaves a 401(k) plan. The account holds $48,000 of the participant's own elective deferrals (plus earnings on them) and $30,000 of employer matching contributions. The plan uses a six-year graded schedule: 0% after year 1, 20% after year 2, 40% after year 3, 60% after year 4, 80% after year 5, 100% after year 6.",
+      steps: [
+        'Step 1 — separate the two buckets. Vesting schedules apply ONLY to employer money.',
+        "Step 2 — employee elective deferrals are always 100% vested from day one: the full $48,000 belongs to the participant.",
+        'Step 3 — read the schedule at 4 years of service: 60% vested.',
+        'Step 4 — apply that percentage to the employer bucket only: 60% × $30,000 = $18,000.',
+        'Step 5 — total vested balance: $48,000 + $18,000 = $66,000.',
+        'Step 6 — compute the forfeiture: the unvested 40% of employer money, 40% × $30,000 = $12,000, is forfeited on separation.',
+        'Step 7 — cross-check: $66,000 vested + $12,000 forfeited = $78,000, the full account balance.',
+      ],
+      answer:
+        'The participant may roll over or keep $66,000 — all $48,000 of deferrals plus $18,000 of the match. $12,000 of unvested employer money is forfeited.',
+      watchOut:
+        "Applying the vesting percentage to the entire balance: 60% × $78,000 = $46,800 wrongly strips $19,200 of the participant's own deferrals. Employee contributions can never be forfeited. Contrast this with a CLIFF schedule, where 4 years of service under a 3-year cliff would mean 100% vested and no forfeiture at all.",
+    },
+    {
+      title: 'Traditional versus Roth at a constant tax rate — why they tie',
+      setup:
+        "A client has $6,000 of PRE-TAX earnings available to save, faces a 24% marginal rate now, and expects a 24% rate in retirement. The money will be invested for 20 years at 7% per year. Compare a fully deductible Traditional IRA contribution with a Roth contribution funded from the same $6,000 of pre-tax earnings.",
+      steps: [
+        'Step 1 — Traditional path. The contribution is deductible, so all $6,000 of pre-tax earnings goes into the account; no tax is paid now.',
+        'Step 2 — grow it: $6,000 × 1.07^20 = $6,000 × 3.869684 = $23,218.11.',
+        'Step 3 — tax the entire withdrawal at 24%: $23,218.11 × (1 − 0.24) = $23,218.11 × 0.76 = $17,645.76 spendable.',
+        'Step 4 — Roth path. Roth contributions are not deductible, so the $6,000 of earnings is taxed first: $6,000 × (1 − 0.24) = $4,560 is what can actually be contributed.',
+        'Step 5 — grow it at the same rate: $4,560 × 3.869684 = $17,645.76.',
+        'Step 6 — qualified Roth withdrawals are tax-free, so that full amount is spendable.',
+        'Step 7 — see why they are identical: multiplication is commutative. $6,000 × 3.869684 × 0.76 and $6,000 × 0.76 × 3.869684 are the same product. Whether the 24% haircut is taken at the front or the back does not matter if the rate is unchanged.',
+        'Step 8 — break the tie by changing the rate. If the retirement rate falls to 12%: Traditional = $23,218.11 × 0.88 = about $20,432, which beats the Roth $17,645.76. If it rises to 32%: Traditional = $23,218.11 × 0.68 = $15,788.31, and the Roth wins.',
+      ],
+      answer:
+        'Both produce exactly $17,645.76 when the tax rate is the same at contribution and at withdrawal. The Traditional-versus-Roth decision turns entirely on whether the rate at withdrawal is expected to be lower or higher than the rate today.',
+      watchOut:
+        "Comparing a $6,000 Traditional contribution with a $6,000 Roth contribution. That is not an equal comparison: a $6,000 Roth contribution costs $7,894.74 of pre-tax earnings at a 24% rate, so it is a larger real commitment. Equalize the PRE-TAX dollars committed, or the Roth will always appear to win for the wrong reason.",
+    },
+    {
+      title: 'The taxable portion of a Roth IRA withdrawal under the ordering rules',
+      setup:
+        "A client is 45 years old and opened a first Roth IRA nine years ago. The account holds $30,000 of regular contributions, a $20,000 conversion done three years ago, and $25,000 of earnings — $75,000 in total. The client withdraws $58,000. Assume a 22% ordinary marginal rate. No penalty exception applies.",
+      steps: [
+        'Step 1 — test whether the distribution is QUALIFIED. Five taxable years have passed (nine years), but the client is 45 — no age 59½, death, disability, or first-home event. So it is a NON-qualified distribution and the ordering rules apply layer by layer.',
+        'Step 2 — layer one, regular contributions, come out first: $30,000. Always tax-free and penalty-free, at any age, in any year.',
+        'Step 3 — remaining withdrawal after layer one: $58,000 − $30,000 = $28,000.',
+        'Step 4 — layer two, conversions, come out next: the full $20,000. Conversion dollars were already taxed at conversion, so there is no income tax. But this conversion is only three years old and the client is under 59½, so the conversion five-year clock is not satisfied: a 10% penalty applies. 10% × $20,000 = $2,000.',
+        'Step 5 — remaining withdrawal after layer two: $28,000 − $20,000 = $8,000. This must come from earnings.',
+        'Step 6 — layer three, earnings, in a non-qualified distribution are ordinary income: $8,000 taxable. Tax at 22% = $1,760.',
+        'Step 7 — earnings also carry the 10% early distribution penalty: 10% × $8,000 = $800.',
+        'Step 8 — total: taxable income $8,000; penalties $2,000 + $800 = $2,800; income tax $1,760. Total cost = $2,800 + $1,760 = $4,560. The remaining $17,000 of earnings stays in the account.',
+      ],
+      answer:
+        'Only $8,000 of the $58,000 is taxable income. Total tax cost is $4,560 — $1,760 of income tax on the earnings plus $2,800 of penalties ($2,000 on the conversion layer and $800 on the earnings layer).',
+      watchOut:
+        "Assuming a nine-year-old Roth makes everything tax-free. The five-year clock is only half the test — a qualifying EVENT (59½, death, disability, first home) is also required, and at 45 there is none. The second trap is pro-rating the withdrawal across contributions, conversions, and earnings. Roth IRAs use strict ordering, not pro-rata; pro-rata is the rule for a Traditional IRA holding non-deductible basis.",
+    },
+  ],
 };

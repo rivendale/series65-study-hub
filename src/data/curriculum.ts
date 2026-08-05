@@ -11,6 +11,18 @@ export interface Topic {
   confusions?: { dont: string; with: string }[];
   /** Formulas worth memorizing for this topic. */
   formulas?: { name: string; formula: string; note?: string }[];
+  /**
+   * Fully solved problems for the quantitative topics. Each shows the setup,
+   * every intermediate step, and the trap that most often costs the mark, so
+   * a student can follow the method rather than only checking an answer.
+   */
+  workedExamples?: {
+    title: string;
+    setup: string;
+    steps: string[];
+    answer: string;
+    watchOut?: string;
+  }[];
 }
 
 import { topic as t_business_cycles } from './topics/business-cycles';
