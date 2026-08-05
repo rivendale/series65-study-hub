@@ -1,0 +1,88 @@
+import type { Question } from '../questions';
+
+export const items: Question[] = [
+  {
+    id: 231,
+    topic: 'securities-registration',
+    q: 'Registration by qualification differs from the other two methods of state securities registration in that it:',
+    choices: [
+      'Is available only to seasoned issuers with a five-year operating history',
+      'Is available to any issuer and becomes effective only when the Administrator so orders',
+      'Becomes effective automatically at the moment the federal registration statement becomes effective',
+      'Requires only a notice filing, a fee and a consent to service of process',
+    ],
+    answer: 1,
+    exp: 'Qualification is the most burdensome method, is available to any issuer, and is the method used when no federal registration statement is involved — an intrastate offering, for example. It becomes effective only when the Administrator orders it effective.',
+    difficulty: 'easy',
+  },
+  {
+    id: 232,
+    topic: 'securities-registration',
+    q: 'Larkspur Foods has filed a registration statement with the SEC for its initial public offering and plans to sell shares in eleven states. The shares will trade over the counter and will not be listed on any national securities exchange. The appropriate method of state registration is:',
+    choices: [
+      'Notification',
+      'Coordination',
+      'Qualification',
+      'A notice filing, because every SEC-registered offering is a federal covered security',
+    ],
+    answer: 1,
+    exp: 'Coordination is used when the same offering is registered with the SEC under the Securities Act of 1933 and simultaneously registered in the states; state effectiveness occurs automatically at the moment federal effectiveness occurs, provided the filing conditions are met. Registration with the SEC alone does not make a security federal covered — exchange listing or a specific NSMIA category does.',
+    difficulty: 'medium',
+  },
+  {
+    id: 233,
+    topic: 'securities-registration',
+    q: 'With respect to a federal covered security, the National Securities Markets Improvement Act permits a state Administrator to:',
+    choices: [
+      'Require registration by qualification before sales may be made to residents of the state',
+      'Require a notice filing and a fee, require a consent to service of process, and bring an enforcement action for fraud',
+      'Impose no requirement of any kind and take no enforcement action whatsoever',
+      'Conduct a merit review and deny the offering if the Administrator considers the price excessive',
+    ],
+    answer: 1,
+    exp: 'NSMIA preempts state registration and merit review of federal covered securities, but the states keep the power to collect notice filings and fees and to police fraud. Preemption of registration is never preemption of the antifraud provisions.',
+    difficulty: 'medium',
+  },
+  {
+    id: 234,
+    topic: 'securities-registration',
+    q: 'Fenwick Industries raises $4 million in a Regulation D offering conducted under Rule 504. For state law purposes the securities are:',
+    choices: [
+      'Federal covered securities requiring only a notice filing, exactly like a Rule 506 offering',
+      'Not federal covered, so the offering must be registered in each state where sales occur or must fit a state exemption',
+      'Entirely outside state law, because Regulation D is a federal exemption',
+      'Federal covered only if every purchaser is an accredited investor',
+    ],
+    answer: 1,
+    exp: 'Only Rule 506 offerings are federal covered securities under NSMIA. Rule 504 offerings are not preempted, so the issuer must satisfy state registration or locate a state exemption in every state in which it sells.',
+    difficulty: 'medium',
+  },
+  {
+    id: 235,
+    topic: 'securities-registration',
+    q: 'A state securities registration statement that has become effective generally remains effective for:',
+    choices: [
+      'Ninety days from the effective date',
+      'One year from the effective date, and may continue while the same offering is still being distributed by the underwriters',
+      'Three years, subject to payment of an annual renewal fee',
+      'An indefinite period, until the Administrator orders otherwise',
+    ],
+    answer: 1,
+    exp: 'A registration statement is effective for one year from its effective date and may run past the year while the underwriters continue distributing the same offering. Do not confuse this with registration of persons, which expires on December 31 and must be renewed annually.',
+    difficulty: 'medium',
+  },
+  {
+    id: 236,
+    topic: 'securities-registration',
+    q: 'A pre-revenue biotechnology company files a registration by qualification. The prospectus discloses prominently that investors could lose their entire investment. The Administrator considers the offering highly speculative. The Administrator:',
+    choices: [
+      'Must deny the registration, because speculative offerings may not be sold to the public',
+      'May deny the registration solely on the ground that the offering is speculative',
+      'May not deny registration solely because the offering is speculative where the risks are adequately and prominently disclosed',
+      'May approve the registration, thereby signifying that the Administrator has passed on the merits of the offering',
+    ],
+    answer: 2,
+    exp: 'Disclosure rather than merit controls the outcome: an Administrator may not deny an otherwise complete registration merely because the investment is risky when the risks are fully and prominently disclosed. No Administrator ever approves or endorses the merits of a security, and representing otherwise is itself a prohibited practice.',
+    difficulty: 'hard',
+  },
+];
