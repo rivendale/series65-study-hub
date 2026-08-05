@@ -1,4 +1,4 @@
-# Managed by rivendale/rygiel-shared. Edit the panel there, not here.
+# Managed by rivendale/ci-workflows. Edit the panel there, not here.
 name: AI review
 
 on:
@@ -23,6 +23,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    uses: rivendale/rygiel-shared/.github/workflows/ai-review.yml@main
+    uses: rivendale/ci-workflows/.github/workflows/ai-review.yml@main
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
