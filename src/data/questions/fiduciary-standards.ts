@@ -1,0 +1,88 @@
+import type { Question } from '../questions';
+
+export const items: Question[] = [
+  {
+    id: 245,
+    topic: 'fiduciary-standards',
+    q: 'The fiduciary duty an investment adviser owes its clients under the Investment Advisers Act is composed of:',
+    choices: [
+      'A duty of loyalty and a duty of care, which together form a single overarching obligation',
+      'A duty of suitability and a duty of disclosure',
+      'A duty of best execution and nothing further',
+      'A duty of confidentiality and a duty to produce competitive returns',
+    ],
+    answer: 0,
+    exp: "The federal fiduciary standard comprises a duty of loyalty — putting the client's interest first and eliminating or fully disclosing conflicts — and a duty of care, which covers providing advice in the client's best interest, seeking best execution, and monitoring over the course of the relationship.",
+    difficulty: 'easy',
+  },
+  {
+    id: 246,
+    topic: 'fiduciary-standards',
+    q: 'An adviser wants to recommend a proprietary mutual fund that pays the adviser an additional management fee at the fund level. The adviser may make the recommendation only if it:',
+    choices: [
+      'Discloses the conflict orally at the next quarterly review meeting',
+      'Obtains prior written approval of the arrangement from the Administrator',
+      'Reduces its advisory fee by the exact amount of the fund-level fee',
+      'Provides full and fair disclosure of the conflict, specific enough that the client can give informed consent',
+    ],
+    answer: 3,
+    exp: 'Conflicts do not have to be eliminated, but they must be either eliminated or disclosed fully and fairly, in terms specific enough that a client can understand the conflict and give informed consent. Boilerplate stating that the adviser "may" have conflicts is not sufficient when the conflict actually exists.',
+    difficulty: 'medium',
+  },
+  {
+    id: 247,
+    topic: 'fiduciary-standards',
+    q: 'An advisory contract states that the client waives any right of action against the adviser for losses arising from the advice given. Under the Investment Advisers Act, this clause is:',
+    choices: [
+      'Enforceable if the client initials it separately',
+      'Enforceable against institutional clients but not retail clients',
+      'Void, because any provision purporting to waive compliance with the Act is unenforceable and the fiduciary duty itself cannot be waived',
+      'Permissible so long as the adviser carries errors and omissions coverage',
+    ],
+    answer: 2,
+    exp: 'Section 215 makes void any condition or provision that purports to waive compliance with the Advisers Act, and the fiduciary duty cannot be contracted away. Hedge clauses of this kind are also treated as misleading statements that violate §206.',
+    difficulty: 'medium',
+  },
+  {
+    id: 248,
+    topic: 'fiduciary-standards',
+    q: 'Which of the following correctly pair a standard of conduct with the person it governs?\n\nI. Fiduciary duty of loyalty and care — investment adviser\nII. Best interest at the time of a recommendation to a retail customer — broker-dealer under Regulation Best Interest\nIII. Prudent expert standard — fiduciary of an ERISA retirement plan\nIV. Continuous fiduciary duty for the life of the account — broker-dealer executing unsolicited trades in a self-directed account',
+    choices: [
+      'I and II only',
+      'I, II and III only',
+      'II and IV only',
+      'I, II, III and IV',
+    ],
+    answer: 1,
+    exp: 'Advisers owe an ongoing fiduciary duty, Reg BI imposes a best-interest obligation on broker-dealers at the time a recommendation is made, and ERISA holds plan fiduciaries to a prudent expert standard. Statement IV is wrong because Reg BI attaches to recommendations and does not convert a self-directed brokerage account into a continuous fiduciary relationship.',
+    difficulty: 'medium',
+  },
+  {
+    id: 249,
+    topic: 'fiduciary-standards',
+    q: 'An adviser routes all client trades to a broker-dealer whose commissions are noticeably higher than those of competing firms, because that broker provides the adviser with free office space. The adviser has most likely violated:',
+    choices: [
+      'The recordkeeping rules only',
+      'Regulation Best Interest, which governs advisers as well as broker-dealers',
+      'Nothing, because commission rates are freely negotiable',
+      'The duty of best execution and the duty of loyalty, and the arrangement falls outside the §28(e) soft dollar safe harbor',
+    ],
+    answer: 3,
+    exp: "Best execution requires seeking the most favorable terms reasonably available under the circumstances, weighing more than commission price alone. Office space is ordinary overhead that does not qualify as brokerage or research under the §28(e) safe harbor, so the arrangement is an undisclosed conflict and a breach of the adviser's duty of loyalty.",
+    difficulty: 'medium',
+  },
+  {
+    id: 250,
+    topic: 'fiduciary-standards',
+    q: 'Regarding the state of mind that must be shown in an enforcement action, which statement is correct?',
+    choices: [
+      'Both §206 of the Advisers Act and SEC Rule 10b-5 always require proof of scienter',
+      'Neither provision requires any showing of fault on the part of the defendant',
+      'Rule 10b-5 requires scienter, while a claim under §206(2) of the Advisers Act may be established on a showing of negligence',
+      'Section 206 requires scienter throughout, while Rule 10b-5 may be established on a showing of negligence',
+    ],
+    answer: 2,
+    exp: 'Rule 10b-5 requires scienter — intent to deceive, or at least recklessness. Because an adviser is a fiduciary, §206(2) reaches any transaction, practice or course of business that operates as a fraud, and negligence can suffice in a civil enforcement action; §206(1), by contrast, does require scienter.',
+    difficulty: 'hard',
+  },
+];
