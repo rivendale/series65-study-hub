@@ -33,7 +33,25 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         navigateFallback: '/series65-study-hub/index.html',
         navigateFallbackDenylist: [/^\/api/],
+        // The whole curriculum and question bank ship inline so the app works
+        // offline. That is well past workbox's 2 MiB default per-file cap.
+        maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
       },
     }),
   ],
+  build: {
+    // Content dwarfs application code here, so keep it in its own chunks.
+    // A curriculum edit then invalidates only that chunk for returning users
+    // instead of forcing a re-download of the entire bundle.
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('/src/data/topics/')) return 'curriculum';
+          if (id.includes('/src/data/questions/')) return 'questions';
+          if (id.includes('node_modules')) return 'vendor';
+        },
+      },
+    },
+    chunkSizeWarningLimit: 3000,
+  },
 });
