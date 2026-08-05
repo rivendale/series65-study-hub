@@ -9,6 +9,7 @@ export interface Question {
 }
 
 import { items as q_administrative_oversight } from './questions/administrative-oversight';
+import { items as q_advisor_practice_skills } from './questions/advisor-practice-skills';
 import { items as q_advisory_contracts_fees } from './questions/advisory-contracts-fees';
 import { items as q_alternative_investments } from './questions/alternative-investments';
 import { items as q_anti_fraud } from './questions/anti-fraud';
@@ -17,6 +18,12 @@ import { items as q_bond_pricing_yields } from './questions/bond-pricing-yields'
 import { items as q_business_cycles } from './questions/business-cycles';
 import { items as q_capital_market_theory } from './questions/capital-market-theory';
 import { items as q_cash_equivalents } from './questions/cash-equivalents';
+import { items as q_cfp_education_planning } from './questions/cfp-education-planning';
+import { items as q_cfp_estate_planning } from './questions/cfp-estate-planning';
+import { items as q_cfp_insurance_planning } from './questions/cfp-insurance-planning';
+import { items as q_cfp_planning_process } from './questions/cfp-planning-process';
+import { items as q_cfp_retirement_planning } from './questions/cfp-retirement-planning';
+import { items as q_cfp_tax_planning } from './questions/cfp-tax-planning';
 import { items as q_client_profiling } from './questions/client-profiling';
 import { items as q_communications_marketing } from './questions/communications-marketing';
 import { items as q_custody_safekeeping } from './questions/custody-safekeeping';
@@ -50,6 +57,7 @@ import { items as q_unethical_practices } from './questions/unethical-practices'
 
 export const questions: Question[] = [
   ...q_administrative_oversight,
+  ...q_advisor_practice_skills,
   ...q_advisory_contracts_fees,
   ...q_alternative_investments,
   ...q_anti_fraud,
@@ -58,6 +66,12 @@ export const questions: Question[] = [
   ...q_business_cycles,
   ...q_capital_market_theory,
   ...q_cash_equivalents,
+  ...q_cfp_education_planning,
+  ...q_cfp_estate_planning,
+  ...q_cfp_insurance_planning,
+  ...q_cfp_planning_process,
+  ...q_cfp_retirement_planning,
+  ...q_cfp_tax_planning,
   ...q_client_profiling,
   ...q_communications_marketing,
   ...q_custody_safekeeping,
