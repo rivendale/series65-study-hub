@@ -54,7 +54,7 @@ export const items: Question[] = [
       'High-yield bond fund in the taxable account; small-cap growth fund in the traditional IRA',
     ],
     answer: 0,
-    exp: 'High-yield interest is ordinary income, so it belongs where ordinary income does no annual damage — the tax-deferred account. The highest-expected-return asset belongs in the Roth, because that is the account whose growth is never shared with the IRS. Location is a real but bounded win; do not let it fragment the portfolio past the point of rebalancing.',
+    exp: "High-yield interest is ordinary income, so it belongs where ordinary income does no annual damage — the tax-deferred account. The highest-expected-return asset belongs in the Roth, because that is the account whose growth is never shared with the IRS. Understand WHY the Roth draws the growth asset, because the reasoning travels further than the ordering does: the Roth is usually the longest-horizon money in the plan — no lifetime RMDs, typically spent last, often left to heirs — so it has the most time for compounding to be worth shielding. Where that is not true the ordering can legitimately move, and putting the high-yield fund in the Roth is not an error in every fact pattern. Time horizon drives the allocation, and asset location is applied to the allocation rather than the other way round. Location is a real but bounded win; do not let it fragment the portfolio past the point of rebalancing.",
     difficulty: 'medium',
   },
   {

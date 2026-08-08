@@ -68,7 +68,7 @@ export const items: Question[] = [
       'Both delay to 70, because delayed retirement credits apply to spousal benefits as well as worker benefits',
     ],
     answer: 0,
-    exp: 'The higher earner claiming decision is really a joint-life decision, because the survivor keeps the larger of the two benefits and loses the smaller one. Delaying his benefit buys an inflation-adjusted, government-backed income for the survivor, which is often a widow facing decades alone. Percentage growth is identical for both, but 8% of $1,100 is a far smaller dollar purchase, and delayed credits never apply to spousal benefits.',
+    exp: "The higher earner claiming decision is really a joint-life decision, because the survivor keeps the larger of the two benefits and loses the smaller one. Delaying his benefit buys an inflation-adjusted, government-backed income for the survivor, who is often a widow facing decades alone. Percentage growth is identical for both, but 8% of $1,100 is a far smaller dollar purchase, and delayed credits never apply to spousal benefits. Note what would change the answer: HEALTH. The stem stipulates good health for a reason — a materially impaired life expectancy on the higher earner's side is the fact that makes earlier claiming defensible, and it is the first thing to ask about rather than the breakeven arithmetic.",
     difficulty: 'medium',
   },
   {
@@ -138,7 +138,7 @@ export const items: Question[] = [
       'Take the single-life pension, because the higher monthly payment maximizes lifetime household income',
     ],
     answer: 1,
-    exp: 'The $700 monthly difference is the price of survivor protection, and the wife faces the double loss of the pension and one Social Security benefit while filing as a single taxpayer. Pension maximization can work, but only with permanent rather than term coverage that will still be in force in her nineties, priced and underwritten before the election is made. Both single-life answers and the reflexive lump sum ignore whose risk is actually being carried.',
+    exp: "The $700 monthly difference is the price of survivor protection, and the wife faces the double loss of the pension and one Social Security benefit while filing as a single taxpayer. The joint election is the default because it prices an uncertainty nobody can resolve — neither spouse knows who will live longer, and the survivor bears the whole consequence. Pension maximization can work, but only with permanent rather than term coverage that will still be in force in her nineties, priced and underwritten BEFORE the election is made. The fact most likely to justify departing from the default is HEALTH: a materially impaired life expectancy on the pensioner's side, or an insurability problem that makes the substitute coverage unavailable or unaffordable, is what turns this from a defensible strategy into the wrong one. Both single-life answers and the reflexive lump sum ignore whose risk is actually being carried.",
     difficulty: 'hard',
   },
 ];

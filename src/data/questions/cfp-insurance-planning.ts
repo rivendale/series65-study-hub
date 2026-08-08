@@ -138,7 +138,7 @@ export const items: Question[] = [
       'Buy the same contract the neighbor bought, since the rider provides a guaranteed income floor and the neighbor is satisfied with it',
     ],
     answer: 2,
-    exp: 'An income annuity does one thing a portfolio cannot — it pools longevity risk — but it is worth buying only in the amount needed to cover the identified shortfall in essential spending. Sizing to the gap rather than to a round percentage is the discipline; a product chosen because a neighbor owns it is not a recommendation. A blanket refusal is as unthinking as a blanket sale.',
+    exp: "An income annuity does one thing a portfolio cannot — it pools longevity risk — but it is worth buying only in the amount needed to cover the identified shortfall in essential spending. Sizing to the gap rather than to a round percentage is the discipline; a product chosen because a neighbor owns it is not a recommendation. A blanket refusal is as unthinking as a blanket sale. The reason this is keyed as a process rather than a product answer is that the recommendation cannot be made from the numbers alone: it follows from the client's goals and objectives and his overall situation — what the money is for, what other resources and obligations exist, how he would actually behave in a drawdown — and the gap analysis is what makes that conversation concrete rather than abstract.",
     difficulty: 'hard',
   },
 ];

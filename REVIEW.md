@@ -6,14 +6,14 @@ This file lists the places where internal consistency was not enough. Each entry
 
 Each item states exactly what the app currently tells a student, why it was flagged rather than asserted, and the single specific thing to check. The intent is that a review is an hour or two of targeted checking rather than a re-read of the whole curriculum.
 
-**29 items — 7 open, 9 confirmed, 13 corrected — across 17 chapters and 38 questions.**
+**29 items — 0 open, 15 confirmed, 14 corrected — across 17 chapters and 38 questions.**
 
 | Category | Items | Open | What the category means |
 |---|---:|---:|---|
 | Sources disagree | 2 | 0 | Study material and primary sources give different answers. The app picked the better-supported one and says so, but it is worth confirming which is tested. |
 | Inflation-indexed figure | 4 | 0 | The figure changes with inflation. The app avoids asserting a current number, supplying it as a scenario given instead. Confirm the treatment reads correctly for this year. |
 | Varies by state | 7 | 0 | The Uniform Securities Act is model legislation and adopting states differ. The app describes the structure rather than pinning a national number. |
-| Reasonable advisors differ | 7 | 7 | There is no single correct answer, only a defensible one. Confirm the keyed answer matches how you would actually advise. |
+| Reasonable advisors differ | 7 | 0 | There is no single correct answer, only a defensible one. Confirm the keyed answer matches how you would actually advise. |
 | Scope or nuance | 9 | 0 | The rule is right but its boundary is easy to state too broadly or too narrowly. |
 
 *Generated from [`src/data/reviewItems.ts`](src/data/reviewItems.ts) by `npm run review:md`. Edit that file, not this one — the in-app `/review` page renders the same data, so the two cannot disagree.*
@@ -46,13 +46,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Reasonable advisors differ**
 
-- [ ] [Delaying Social Security to 70 for the higher earner](#cfp-social-security-delay) — Retirement Planning and Income Distribution · Q1019
-- [ ] [Joint and survivor versus pension maximization](#cfp-pension-election) — Retirement Planning and Income Distribution · Q1024
-- [ ] [Sizing an annuity to the essential-spending gap](#cfp-annuity-sizing) — Retirement Planning and Income Distribution · Q1004
-- [ ] [Asset location ordering](#cfp-asset-location) — Tax Planning for Advisors · Q1008
-- [ ] [Mental accounting against high-interest debt](#cfp-mental-accounting) — Advisor Practice Skills and Behavioral Finance · Q1049
-- [ ] [Deferring irreversible decisions after a death](#cfp-widow-deferral) — Advisor Practice Skills and Behavioral Finance · Q1052
-- [ ] [Safe withdrawal rate and replacement ratios](#withdrawal-heuristics) — Retirement Planning and Income Distribution · Q1016, Q1018
+- [x] [Delaying Social Security to 70 for the higher earner](#cfp-social-security-delay) — Retirement Planning and Income Distribution · confirmed, no action needed
+- [x] [Joint and survivor versus pension maximization](#cfp-pension-election) — Retirement Planning and Income Distribution · confirmed, no action needed
+- [x] [Sizing an annuity to the essential-spending gap](#cfp-annuity-sizing) — Retirement Planning and Income Distribution · confirmed, no action needed
+- [x] [Asset location ordering](#cfp-asset-location) — Tax Planning for Advisors · corrected, no action needed
+- [x] [Mental accounting against high-interest debt](#cfp-mental-accounting) — Advisor Practice Skills and Behavioral Finance · confirmed, no action needed
+- [x] [Deferring irreversible decisions after a death](#cfp-widow-deferral) — Advisor Practice Skills and Behavioral Finance · confirmed, no action needed
+- [x] [Safe withdrawal rate and replacement ratios](#withdrawal-heuristics) — Retirement Planning and Income Distribution · confirmed, no action needed
 
 **Scope or nuance**
 
@@ -320,7 +320,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Delaying Social Security to 70 for the higher earner
 
-**Status:** Open · **Item id:** `cfp-social-security-delay`
+**Status:** Confirmed · **Item id:** `cfp-social-security-delay`
 
 **Chapter:** [Retirement Planning and Income Distribution](src/data/topics/cfp-retirement-planning.ts) — topic id `cfp-retirement-planning` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/cfp-retirement-planning)
 
@@ -332,11 +332,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 1019 in [`src/data/questions/cfp-retirement-planning.ts`](src/data/questions/cfp-retirement-planning.ts)
 
+**Resolution.** Confirmed on practitioner review: delay the higher earner to 70 unless there is a health concern. The keyed answer stands and the stem already stipulates good health, but the explanation was leaving the override implicit. It now says outright that health is the fact that flips this, and that impaired life expectancy on the higher earner's side is the first thing to ask about rather than the breakeven arithmetic - which is how the decision is actually made in practice, and a better instinct to teach than a calculation.
+
 <a id="cfp-pension-election"></a>
 
 ### Joint and survivor versus pension maximization
 
-**Status:** Open · **Item id:** `cfp-pension-election`
+**Status:** Confirmed · **Item id:** `cfp-pension-election`
 
 **Chapter:** [Retirement Planning and Income Distribution](src/data/topics/cfp-retirement-planning.ts) — topic id `cfp-retirement-planning` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/cfp-retirement-planning)
 
@@ -348,11 +350,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 1024 in [`src/data/questions/cfp-retirement-planning.ts`](src/data/questions/cfp-retirement-planning.ts)
 
+**Resolution.** Confirmed on practitioner review: lean joint-and-survivor, because the election is pricing an uncertainty nobody can resolve - neither spouse knows who outlives the other and the survivor bears the whole consequence. Health is the main thing that would change the view. The explanation now names that reasoning explicitly and identifies the two facts that make pension maximization genuinely competitive rather than merely arguable: materially impaired life expectancy on the pensioner's side, or an insurability problem that makes the substitute coverage unavailable or unaffordable. The distractor's flaw remains its 'always', which no set of facts rescues.
+
 <a id="cfp-annuity-sizing"></a>
 
 ### Sizing an annuity to the essential-spending gap
 
-**Status:** Open · **Item id:** `cfp-annuity-sizing`
+**Status:** Confirmed · **Item id:** `cfp-annuity-sizing`
 
 **Chapter:** [Retirement Planning and Income Distribution](src/data/topics/cfp-retirement-planning.ts) — topic id `cfp-retirement-planning` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/cfp-retirement-planning)
 
@@ -364,11 +368,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 1004 in [`src/data/questions/cfp-insurance-planning.ts`](src/data/questions/cfp-insurance-planning.ts)
 
+**Resolution.** Confirmed on practitioner review: proceed on the basis of the client's goals and objectives and his overall situation. The process framing is right and the keyed answer stands. The explanation now says why it is keyed as process rather than product - the recommendation cannot be read off the numbers, because what the money is for, what other resources and obligations exist, and how the client would actually behave in a drawdown all bear on it. The gap analysis earns its place by making that conversation concrete rather than abstract.
+
 <a id="cfp-asset-location"></a>
 
 ### Asset location ordering
 
-**Status:** Open · **Item id:** `cfp-asset-location`
+**Status:** Corrected · **Item id:** `cfp-asset-location`
 
 **Chapter:** [Tax Planning for Advisors](src/data/topics/cfp-tax-planning.ts) — topic id `cfp-tax-planning` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/cfp-tax-planning)
 
@@ -380,11 +386,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 1008 in [`src/data/questions/cfp-tax-planning.ts`](src/data/questions/cfp-tax-planning.ts)
 
+**Resolution.** Practitioner review sharpened this one. The keyed ordering stands as the textbook answer, but the reviewer noted that high-yield in the Roth is defensible in some fact patterns and that time horizon is what actually drives the decision - longer horizon, more growth. The explanation had stated the ordering as though it followed from tax character alone. It now explains WHY the Roth draws the growth asset: the Roth is usually the longest-horizon money in the plan, with no lifetime RMDs, typically spent last and often left to heirs, so it has the most time for compounding to be worth shielding. Where that is not true the ordering can legitimately move. Time horizon drives the allocation; asset location is applied to the allocation, not the reverse.
+
 <a id="cfp-mental-accounting"></a>
 
 ### Mental accounting against high-interest debt
 
-**Status:** Open · **Item id:** `cfp-mental-accounting`
+**Status:** Confirmed · **Item id:** `cfp-mental-accounting`
 
 **Chapter:** [Advisor Practice Skills and Behavioral Finance](src/data/topics/advisor-practice-skills.ts) — topic id `advisor-practice-skills` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/advisor-practice-skills)
 
@@ -396,11 +404,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 1049 in [`src/data/questions/advisor-practice-skills.ts`](src/data/questions/advisor-practice-skills.ts)
 
+**Resolution.** Confirmed on practitioner review with no issue found. The keyed answer - pay the guaranteed 19% while honouring the emotional label - stands, and the distractor's flaw remains that it lectures rather than that it reaches the wrong destination. No content change.
+
 <a id="cfp-widow-deferral"></a>
 
 ### Deferring irreversible decisions after a death
 
-**Status:** Open · **Item id:** `cfp-widow-deferral`
+**Status:** Confirmed · **Item id:** `cfp-widow-deferral`
 
 **Chapter:** [Advisor Practice Skills and Behavioral Finance](src/data/topics/advisor-practice-skills.ts) — topic id `advisor-practice-skills` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/advisor-practice-skills)
 
@@ -412,11 +422,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 1052 in [`src/data/questions/advisor-practice-skills.ts`](src/data/questions/advisor-practice-skills.ts)
 
+**Resolution.** Confirmed on practitioner review: deferring is right, precisely so the client can get a better sense of things like whether to sell the home, and a year of covered cash is generally enough room to do that. The stem's stipulation does the work it was meant to do. No content change.
+
 <a id="withdrawal-heuristics"></a>
 
 ### Safe withdrawal rate and replacement ratios
 
-**Status:** Open · **Item id:** `withdrawal-heuristics`
+**Status:** Confirmed · **Item id:** `withdrawal-heuristics`
 
 **Chapter:** [Retirement Planning and Income Distribution](src/data/topics/cfp-retirement-planning.ts) — topic id `cfp-retirement-planning` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/cfp-retirement-planning)
 
@@ -427,6 +439,8 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **To verify.** Confirm the framing is one you would stand behind with a client.
 
 **Questions that change with it.** 1016, 1018 in [`src/data/questions/cfp-retirement-planning.ts`](src/data/questions/cfp-retirement-planning.ts)
+
+**Resolution.** Confirmed on practitioner review: the research in this area has moved a great deal, but 4% remains the right anchor for exam purposes including the CFP exam. That is exactly how the app presents it - question 1018 calls it a starting heuristic and lists the assumptions attached (a 30-year horizon, a balanced portfolio, a rigid inflation-adjusted spending path, a particular historical return environment) and directs the student to sensitivity-test rather than present one number. Question 1016 likewise treats the replacement ratio as a sanity check on a budget rather than a substitute for one. No content change.
 
 ## Scope or nuance
 

@@ -403,74 +403,86 @@ export const reviewItems: ReviewItem[] = [
     topic: 'cfp-retirement-planning',
     title: 'Delaying Social Security to 70 for the higher earner',
     category: 'contested-judgment',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'Keyed as the better course for a healthy couple with adequate bridge assets, with those facts stipulated in the stem.',
     concern:
       'Widely accepted, but a minority favour earlier claiming on breakeven or portfolio-return grounds.',
     verify: 'Confirm this matches how you would advise.',
     questionIds: [1019],
+    resolution:
+      'Confirmed on practitioner review: delay the higher earner to 70 unless there is a health concern. The keyed answer stands and the stem already stipulates good health, but the explanation was leaving the override implicit. It now says outright that health is the fact that flips this, and that impaired life expectancy on the higher earner\'s side is the first thing to ask about rather than the breakeven arithmetic - which is how the decision is actually made in practice, and a better instinct to teach than a calculation.',
   },
   {
     id: 'cfp-pension-election',
     topic: 'cfp-retirement-planning',
     title: 'Joint and survivor versus pension maximization',
     category: 'contested-judgment',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'Keyed toward joint and survivor unless a properly priced permanent policy genuinely covers the need. The distractor fails on "term" and "always" rather than on the strategy.',
     concern: 'Advisors who routinely run pension max would call the single-life election defensible.',
     verify: 'Confirm the keyed reasoning.',
     questionIds: [1024],
+    resolution:
+      'Confirmed on practitioner review: lean joint-and-survivor, because the election is pricing an uncertainty nobody can resolve - neither spouse knows who outlives the other and the survivor bears the whole consequence. Health is the main thing that would change the view. The explanation now names that reasoning explicitly and identifies the two facts that make pension maximization genuinely competitive rather than merely arguable: materially impaired life expectancy on the pensioner\'s side, or an insurability problem that makes the substitute coverage unavailable or unaffordable. The distractor\'s flaw remains its \'always\', which no set of facts rescues.',
   },
   {
     id: 'cfp-annuity-sizing',
     topic: 'cfp-retirement-planning',
     title: 'Sizing an annuity to the essential-spending gap',
     category: 'contested-judgment',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'Keyed as a process answer — quantify the gap, compare against cheaper alternatives — rather than a product recommendation.',
     concern: 'Some advisors would decline any annuity here; others would annuitize more.',
     verify: 'Confirm the process framing is the right answer to teach.',
     questionIds: [1004],
+    resolution:
+      'Confirmed on practitioner review: proceed on the basis of the client\'s goals and objectives and his overall situation. The process framing is right and the keyed answer stands. The explanation now says why it is keyed as process rather than product - the recommendation cannot be read off the numbers, because what the money is for, what other resources and obligations exist, and how the client would actually behave in a drawdown all bear on it. The gap analysis earns its place by making that conversation concrete rather than abstract.',
   },
   {
     id: 'cfp-asset-location',
     topic: 'cfp-tax-planning',
     title: 'Asset location ordering',
     category: 'contested-judgment',
-    status: 'open',
+    status: 'corrected',
     asserted:
       'High-yield in the IRA, growth in the Roth, with the explanation flagging that location is a bounded win.',
     concern: 'A real client\'s liquidity needs and horizon can override the standard ordering.',
     verify: 'Confirm the ordering and the caveat.',
     questionIds: [1008],
+    resolution:
+      'Practitioner review sharpened this one. The keyed ordering stands as the textbook answer, but the reviewer noted that high-yield in the Roth is defensible in some fact patterns and that time horizon is what actually drives the decision - longer horizon, more growth. The explanation had stated the ordering as though it followed from tax character alone. It now explains WHY the Roth draws the growth asset: the Roth is usually the longest-horizon money in the plan, with no lifetime RMDs, typically spent last and often left to heirs, so it has the most time for compounding to be worth shielding. Where that is not true the ordering can legitimately move. Time horizon drives the allocation; asset location is applied to the allocation, not the reverse.',
   },
   {
     id: 'cfp-mental-accounting',
     topic: 'advisor-practice-skills',
     title: 'Mental accounting against high-interest debt',
     category: 'contested-judgment',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'The fuller answer — pay the guaranteed 19% while honouring the emotional label — is keyed over the purely quantitative one, whose flaw is that it lectures.',
     concern:
       'A purely quantitative advisor might prefer the other answer, which reaches the same destination.',
     verify: 'Confirm the keyed answer teaches the right instinct.',
     questionIds: [1049],
+    resolution:
+      'Confirmed on practitioner review with no issue found. The keyed answer - pay the guaranteed 19% while honouring the emotional label - stands, and the distractor\'s flaw remains that it lectures rather than that it reaches the wrong destination. No content change.',
   },
   {
     id: 'cfp-widow-deferral',
     topic: 'advisor-practice-skills',
     title: 'Deferring irreversible decisions after a death',
     category: 'contested-judgment',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'Keyed as deferring, with the stem stipulating that cash needs are covered for a year.',
     concern: 'Occasionally a relocation genuinely is urgent.',
     verify: 'Confirm the stipulation makes deferral clearly best.',
     questionIds: [1052],
+    resolution:
+      'Confirmed on practitioner review: deferring is right, precisely so the client can get a better sense of things like whether to sell the home, and a year of covered cash is generally enough room to do that. The stem\'s stipulation does the work it was meant to do. No content change.',
   },
 
   /* ---------------------------------------------------------------- */
@@ -481,12 +493,14 @@ export const reviewItems: ReviewItem[] = [
     topic: 'cfp-retirement-planning',
     title: 'Safe withdrawal rate and replacement ratios',
     category: 'contested-judgment',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'The 4% rule and wage replacement ratios are presented as starting heuristics with their assumptions named, not as settled fact.',
     concern: 'Both are actively contested in the profession.',
     verify: 'Confirm the framing is one you would stand behind with a client.',
     questionIds: [1016, 1018],
+    resolution:
+      'Confirmed on practitioner review: the research in this area has moved a great deal, but 4% remains the right anchor for exam purposes including the CFP exam. That is exactly how the app presents it - question 1018 calls it a starting heuristic and lists the assumptions attached (a 30-year horizon, a balanced portfolio, a rigid inflation-adjusted spending path, a particular historical return environment) and directs the student to sensitivity-test rather than present one number. Question 1016 likewise treats the replacement ratio as a sanity check on a budget rather than a substitute for one. No content change.',
   },
 ];
 
