@@ -62,7 +62,7 @@ const topRules: string[] = [
   'Uncovered call writing carries theoretically unlimited risk; a covered call caps upside, a protective put caps downside.',
   'Lost profits are NOT recoverable under civil rescission — principal plus interest, minus income received, plus reasonable attorney fees.',
   'The Administrator can deny, suspend, revoke, and issue cease-and-desist orders — but cannot imprison. That is a court function.',
-  'Securities-related misdemeanors have no time limit as a disqualifier; non-securities felonies use a 10-year window.',
+  'Conviction grounds: a felony (any category) or a securities/fraud/property misdemeanor within the past 10 years works under either model act. Past 10 years they split — the 1956 act cuts off both, the 2002 act keeps any felony indefinitely. A non-qualifying misdemeanor (e.g. DUI) is never a ground, however recent.',
 ];
 
 export default function CheatSheet() {

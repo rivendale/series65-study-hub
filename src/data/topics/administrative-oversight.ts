@@ -51,7 +51,7 @@ An adverse action must be **in the public interest** AND supported by at least o
 
 - Filing an application that was **incomplete, false, or misleading in any material respect**
 - **Willful violation** of the state act, a rule or order under it, or federal securities, commodities, banking, or insurance law
-- **Conviction of a felony within the past 10 years**, or conviction at any time of a **misdemeanor involving securities, an investment-related business, fraud, false statements, or the wrongful taking of property** — there is **no 10-year limit on securities-related misdemeanors** in the classic formulation, though many states apply the 10-year lookback to both; know the tested rule: **any felony within 10 years, or a securities-related misdemeanor**
+- **Criminal conviction** — the two model acts draw the time limit differently, so read the section below rather than memorising one sentence
 - Being **permanently or temporarily enjoined by a court** from engaging in the securities business
 - Being the subject of an **order of another state Administrator, the SEC, or a federal agency**, or **expulsion or suspension by an SRO** such as FINRA
 - Engaging in **dishonest or unethical practices** in the securities, commodities, banking, or insurance business
@@ -64,13 +64,30 @@ An adverse action must be **in the public interest** AND supported by at least o
 
 The Administrator **may not** base a denial solely on **lack of experience** if training and knowledge are adequate, and must consider that an **agent or representative** is not required to have the same qualifications as a **principal or supervisor**. The Administrator **may** require an applicant who has not been registered in any state within the prior two years to pass an examination, including one written or oral.
 
+### Criminal convictions: two dimensions, and a genuine split between the acts
+
+Two things decide whether a conviction is an enumerated ground: **what kind of offense it was** and **how long ago**.
+
+**Kind of offense.** For a **misdemeanor**, only certain categories count — securities, an investment-related business, fraud, false statements, or the wrongful taking of property. A misdemeanor outside those categories is not an enumerated ground however recent. For a **felony**, the category does not matter; any felony can qualify.
+
+**How long ago.** Here the model acts genuinely differ, and study material often states one as though it were universal:
+
+| | 1956 act §204(a)(2)(B) | 2002 act §412(d)(3) |
+| --- | --- | --- |
+| Felony | within the past 10 years | **any felony, no time limit** |
+| Qualifying misdemeanor | within the past 10 years | within the previous 10 years |
+
+**Safe ground under either act:** a **felony or a qualifying misdemeanor within the past 10 years** is an enumerated ground. Beyond 10 years the acts part company, and which answer is right depends on the version your state adopted. Be wary of any source asserting that qualifying *misdemeanors* have no time limit — neither model act says that, and it inverts the 2002 act's actual structure.
+
 ### Worked scenario: which convictions disqualify
 
-An applicant in 2026 discloses three items: a **felony** conviction for aggravated assault in 2013, a **misdemeanor** conviction for check fraud in 2009, and a **misdemeanor** for driving under the influence in 2021.
+An applicant in 2026 discloses three items: a **felony** conviction for aggravated assault in **2019**, a **misdemeanor** conviction for check fraud in **2021**, and a **misdemeanor** for driving under the influence in **2020**.
 
-Take them separately. The felony is an automatic ground only inside the **10-year** window, and 2013 falls outside it — the Administrator may still weigh the conduct in the public-interest determination, but it is not an enumerated ground. The 2009 check-fraud misdemeanor is fraud-related and involves the wrongful taking of property, and in the classic formulation **no 10-year limit** applies to that category, so age does not save it. The DUI is recent but is a misdemeanor unrelated to securities, investments, fraud, false statements, or property, and is not an enumerated ground at all.
+Take them separately. The 2019 felony is inside the 10-year window, so it is an enumerated ground under **either** act — the category of a felony never matters. The 2021 check-fraud misdemeanor is fraud-related and involves the wrongful taking of property, and it is inside the window, so it qualifies under either act too. The DUI is the most recent of the three and is **not** an enumerated ground at all: it is a misdemeanor unrelated to securities, investments, fraud, false statements, or property.
 
-The trap is assuming recency decides. For a **felony the calendar decides**; for a **misdemeanor the nature of the offense decides**.
+The trap is assuming recency decides. **The DUI is newer than both of the others and counts for nothing.** For a misdemeanor the nature of the offense has to clear the bar before the calendar is even consulted.
+
+Now change one fact and watch the acts diverge: move the assault felony back to **2013**. Under the **1956 act** it falls outside the 10-year window and stops being an enumerated ground, though the Administrator may still weigh the conduct in the public-interest determination. Under the **2002 act** it remains a ground indefinitely. Nothing about the applicant changed — only which statute the state enacted.
 
 ## Due process
 
@@ -189,7 +206,7 @@ Every application for registration, and every notice filing, must be accompanied
     "Criminal penalties under the model act are up to $5,000 and three years per violation, and a person who had no knowledge of the rule or order cannot be criminally liable — though administrative and civil exposure remains.",
     "A hearing must be granted within 15 days of a WRITTEN request; the Administrator is not required to hold a hearing that nobody asks for, and a summary order stays in effect until modified or vacated.",
     "A consent order in which the respondent neither admits nor denies the findings is still a public disciplinary event: it is reportable on Form U-4 and Form ADV and can itself be the enumerated ground for another state's proceeding.",
-    "A felony is an enumerated ground only within the 10-year window, but a securities-, fraud-, or property-related misdemeanor has no such time limit in the classic formulation — for felonies the calendar decides, for misdemeanors the nature of the offense decides.",
+    "For a misdemeanor the nature of the offense decides before the calendar is consulted: only securities, investment-related, fraud, false-statement, or wrongful-taking offenses qualify, so a recent DUI counts for nothing. A felony qualifies whatever its category. On timing the model acts split — the 1956 act applies a 10-year window to both, the 2002 act keeps any felony available indefinitely while holding misdemeanors to 10 years. A conviction within the past 10 years is a ground under either.",
   ],
   keyTerms: [
     {

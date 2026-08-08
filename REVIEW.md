@@ -6,15 +6,15 @@ This file lists the places where internal consistency was not enough. Each entry
 
 Each item states exactly what the app currently tells a student, why it was flagged rather than asserted, and the single specific thing to check. The intent is that a review is an hour or two of targeted checking rather than a re-read of the whole curriculum.
 
-**29 items — 13 open, 6 confirmed, 10 corrected — across 17 chapters and 38 questions.**
+**29 items — 7 open, 9 confirmed, 13 corrected — across 17 chapters and 38 questions.**
 
 | Category | Items | Open | What the category means |
 |---|---:|---:|---|
 | Sources disagree | 2 | 0 | Study material and primary sources give different answers. The app picked the better-supported one and says so, but it is worth confirming which is tested. |
 | Inflation-indexed figure | 4 | 0 | The figure changes with inflation. The app avoids asserting a current number, supplying it as a scenario given instead. Confirm the treatment reads correctly for this year. |
-| Varies by state | 7 | 4 | The Uniform Securities Act is model legislation and adopting states differ. The app describes the structure rather than pinning a national number. |
+| Varies by state | 7 | 0 | The Uniform Securities Act is model legislation and adopting states differ. The app describes the structure rather than pinning a national number. |
 | Reasonable advisors differ | 7 | 7 | There is no single correct answer, only a defensible one. Confirm the keyed answer matches how you would actually advise. |
-| Scope or nuance | 9 | 2 | The rule is right but its boundary is easy to state too broadly or too narrowly. |
+| Scope or nuance | 9 | 0 | The rule is right but its boundary is easy to state too broadly or too narrowly. |
 
 *Generated from [`src/data/reviewItems.ts`](src/data/reviewItems.ts) by `npm run review:md`. Edit that file, not this one — the in-app `/review` page renders the same data, so the two cannot disagree.*
 
@@ -36,12 +36,12 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Varies by state**
 
-- [ ] [Dual registration as agent and IAR](#dual-registration) — Broker-Dealer and Agent Registration · Q565
-- [ ] [Minimum net worth and bonding amounts](#net-worth-bonding) — Investment Adviser and IAR Registration · Q546, Q547, Q571
-- [ ] [State private placement purchaser limit](#private-placement-limit) — Exempt Securities and Exempt Transactions · Q241
+- [x] [Dual registration as agent and IAR](#dual-registration) — Broker-Dealer and Agent Registration · confirmed, no action needed
+- [x] [Minimum net worth and bonding amounts](#net-worth-bonding) — Investment Adviser and IAR Registration · corrected, no action needed
+- [x] [State private placement purchaser limit](#private-placement-limit) — Exempt Securities and Exempt Transactions · confirmed, no action needed
 - [x] [Standing letter of authorization and custody relief](#sloa-custody) — Custody, Safekeeping, and Client Assets · confirmed, no action needed
 - [x] [Criminal penalties and statute of limitations](#criminal-penalties) — Administrative Oversight, Remedies, and Penalties · corrected, no action needed
-- [ ] [Statutory disqualification lookback](#felony-window) — Administrative Oversight, Remedies, and Penalties · Q669
+- [x] [Statutory disqualification lookback](#felony-window) — Administrative Oversight, Remedies, and Penalties · corrected, no action needed
 - [x] [Registration by coordination filing period](#coordination-period) — Registration of Securities · corrected, no action needed
 
 **Reasonable advisors differ**
@@ -59,9 +59,9 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 - [x] [Pension consultant SEC registration threshold](#pension-consultant-threshold) — Investment Adviser and IAR Registration · confirmed, no action needed
 - [x] [Issuer-representative exclusion and the no-commission condition](#issuer-rep-exclusion) — Broker-Dealer and Agent Registration · confirmed, no action needed
 - [x] [Accredited investor and qualified purchaser qualification routes](#accredited-qualified-purchaser) — Alternative Investments and Direct Participation · corrected, no action needed
-- [ ] [Coverdell excess contribution excise tax](#coverdell-excise) — Education and Special-Needs Accounts · Q505
+- [x] [Coverdell excess contribution excise tax](#coverdell-excise) — Education and Special-Needs Accounts · corrected, no action needed
 - [x] [Governmental versus tax-exempt 457(b) early withdrawal](#457b-penalty) — Retirement Plans and Accounts · corrected, no action needed
-- [ ] [Municipal bond de minimis rule](#muni-de-minimis) — Fixed-Income Securities · chapter text only
+- [x] [Municipal bond de minimis rule](#muni-de-minimis) — Fixed-Income Securities · confirmed, no action needed
 - [x] [Marketing Rule promoter agreement de minimis](#promoter-de-minimis) — Communications, Advertising, and the Marketing Rule · confirmed, no action needed
 - [x] [Regulation S-P breach notification window](#reg-sp-breach) — Cybersecurity, Privacy, and Business Continuity · confirmed, no action needed
 - [x] [Form CRS amendment delivery timing](#form-crs-amendment) — Advisory Contracts, Fees, and Compensation · corrected, no action needed
@@ -190,7 +190,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Dual registration as agent and IAR
 
-**Status:** Open · **Item id:** `dual-registration`
+**Status:** Confirmed · **Item id:** `dual-registration`
 
 **Chapter:** [Broker-Dealer and Agent Registration](src/data/topics/bd-agent-registration.ts) — topic id `bd-agent-registration` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/bd-agent-registration)
 
@@ -202,11 +202,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 565 in [`src/data/questions/bd-agent-registration.ts`](src/data/questions/bd-agent-registration.ts)
 
+**Resolution.** Left as a state-variation item because it genuinely is one, but question 565 was checked and does not depend on the variation: its keyed answer says dual registration is permitted where the Administrator allows it, commonly conditioned on both firms consenting and disclosure to the Administrator. The three distractors fail on grounds no state changes - a blanket prohibition, automatic effectiveness on filing a second Form U4, and an institutional-clients-only limit. That is the right design for a rule that differs by state: make the question turn on what is uniform. No content change.
+
 <a id="net-worth-bonding"></a>
 
 ### Minimum net worth and bonding amounts
 
-**Status:** Open · **Item id:** `net-worth-bonding`
+**Status:** Corrected · **Item id:** `net-worth-bonding`
 
 **Chapter:** [Investment Adviser and IAR Registration](src/data/topics/ia-iar-registration.ts) — topic id `ia-iar-registration` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/ia-iar-registration)
 
@@ -218,11 +220,13 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Questions that change with it.** 546, 547 in [`src/data/questions/ia-iar-registration.ts`](src/data/questions/ia-iar-registration.ts); 571 in [`src/data/questions/bd-agent-registration.ts`](src/data/questions/bd-agent-registration.ts)
 
+**Resolution.** The notice duty is confirmed as the durable point, and verification added two things the chapter was missing. First the NASAA model rule (202(d)-1) figures, which adopting states start from even where they vary: \$35,000 with custody, \$10,000 with discretion and no custody, and a merely positive net worth for an adviser taking prepayment over \$500 per client six or more months ahead. The chapter described the tiering without ever naming it, which left a testable structure unlearnable. Second, the reporting duty is two deadlines rather than one - notice to the Administrator by the close of the next business day, then a detailed financial report by the close of the business day after that. The chapter had said only 'shortly afterward'.
+
 <a id="private-placement-limit"></a>
 
 ### State private placement purchaser limit
 
-**Status:** Open · **Item id:** `private-placement-limit`
+**Status:** Confirmed · **Item id:** `private-placement-limit`
 
 **Chapter:** [Exempt Securities and Exempt Transactions](src/data/topics/exempt-securities-transactions.ts) — topic id `exempt-securities-transactions` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/exempt-securities-transactions)
 
@@ -233,6 +237,8 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **To verify.** Confirm the model-act figure is what the exam tests.
 
 **Questions that change with it.** 241 in [`src/data/questions/exempt-securities-transactions.ts`](src/data/questions/exempt-securities-transactions.ts)
+
+**Resolution.** Confirmed against USA 402(b)(9): a transaction pursuant to an offer directed to not more than ten persons other than institutional investors during any twelve consecutive months. Adopting states do vary - Massachusetts allows twenty-five - and the chapter already says so. Worth recording that this manifest entry was itself sloppier than the chapter it described: it summarised the rule as ten 'purchasers', while the chapter correctly explains that the count is of OFFEREES, that an eleventh retail person who is merely offered the security breaks the exemption even if they never buy, and that offers to institutions are unlimited. The asserted field has been corrected to match the chapter. No content change.
 
 <a id="sloa-custody"></a>
 
@@ -274,7 +280,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Statutory disqualification lookback
 
-**Status:** Open · **Item id:** `felony-window`
+**Status:** Corrected · **Item id:** `felony-window`
 
 **Chapter:** [Administrative Oversight, Remedies, and Penalties](src/data/topics/administrative-oversight.ts) — topic id `administrative-oversight` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/administrative-oversight)
 
@@ -285,6 +291,8 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **To verify.** Confirm which formulation the exam expects.
 
 **Questions that change with it.** 669 in [`src/data/questions/administrative-oversight.ts`](src/data/questions/administrative-oversight.ts)
+
+**Resolution.** This was not a formulation question - the app had the rule inverted, the same defect found and fixed in the Series 63 repo in this session. The chapter asserted that qualifying misdemeanors carry NO time limit while felonies are held to ten years. Neither model act says that. The 1956 act 204(a)(2)(B) reaches convictions within the past ten years for qualifying misdemeanors AND felonies alike; the 2002 act 412(d)(3) reaches any felony with no time limit plus a qualifying misdemeanor within the previous ten years. The app's version is the precise inverse of the 2002 act. It had propagated into two roman-numeral questions that treated a fourteen-year-old and an eighteen-year-old securities misdemeanor as live grounds - wrong under both acts, so both keyed answers were wrong. The chapter now carries a table of the split with the safe common ground stated (a felony or qualifying misdemeanor within ten years works under either act). The worked scenario, whose reasoning ran on the inverted rule, was rebuilt to turn on the durable point - that for a misdemeanor the CATEGORY of offense must clear the bar before the calendar matters, so a one-year-old DUI counts for nothing while a three-year-old securities fraud misdemeanor counts - with a closing variant that moves a felony outside ten years to show the acts diverging. Questions 285 and 669 rewritten to sit inside the window where the acts agree; 669's key moved from index 2 to 1.
 
 <a id="coordination-period"></a>
 
@@ -482,7 +490,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Coverdell excess contribution excise tax
 
-**Status:** Open · **Item id:** `coverdell-excise`
+**Status:** Corrected · **Item id:** `coverdell-excise`
 
 **Chapter:** [Education and Special-Needs Accounts](src/data/topics/education-accounts.ts) — topic id `education-accounts` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/education-accounts)
 
@@ -493,6 +501,8 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **To verify.** Confirm the attribution framing.
 
 **Questions that change with it.** 505 in [`src/data/questions/education-accounts.ts`](src/data/questions/education-accounts.ts)
+
+**Resolution.** The attribution question is answered: the 6% excise under IRC 4973 is imposed on the DESIGNATED BENEFICIARY and reported on Form 5329, not traced back to whichever contributor happened to go over. That follows from the cap being measured per beneficiary across all contributors combined - the excess belongs to the account, not to a person. Question 505 now says so, and gains the correction mechanism verification surfaced: withdrawing the excess plus its attributable earnings before June 1 of the following year avoids the tax, which otherwise applies for every year the excess remains.
 
 <a id="457b-penalty"></a>
 
@@ -516,7 +526,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 ### Municipal bond de minimis rule
 
-**Status:** Open · **Item id:** `muni-de-minimis`
+**Status:** Confirmed · **Item id:** `muni-de-minimis`
 
 **Chapter:** [Fixed-Income Securities](src/data/topics/fixed-income-basics.ts) — topic id `fixed-income-basics` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/fixed-income-basics)
 
@@ -527,6 +537,8 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **To verify.** Confirm both framings are correct and consistently presented.
 
 **Questions that change with it.** None — this one is chapter text only.
+
+**Resolution.** Both framings verified and they agree. The chapter computes a threshold of 0.25% of par per full year to maturity and subtracts it from par, and the formulas page states Threshold Price = Par - (0.25% x Par x Full Years Remaining) - the same operation described two ways, price-based in both cases. The worked example was re-derived independently: 0.25% x 8 years = 2 points, threshold 98, purchase at 92 sits below it so the full 8 points of market discount is ordinary income; \$80 per bond x 50 bonds = \$4,000, taxed at 35% is \$1,400 against \$600 at the 15% capital gain rate, a cost of \$800. Every figure checks. No content change.
 
 <a id="promoter-de-minimis"></a>
 

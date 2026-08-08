@@ -18,7 +18,7 @@ export const items: Question[] = [
   {
     id: 285,
     topic: 'administrative-oversight',
-    q: 'Which of the following would provide grounds for the Administrator to deny, suspend, or revoke a registration?\n\nI. A felony conviction unrelated to securities entered nine years ago\nII. A misdemeanor conviction involving securities entered fourteen years ago\nIII. Expulsion of the applicant from a self-regulatory organization\nIV. Insolvency of a broker-dealer applicant',
+    q: 'Which of the following would provide grounds for the Administrator to deny, suspend, or revoke a registration?\n\nI. A felony conviction unrelated to securities entered nine years ago\nII. A misdemeanor conviction involving securities entered four years ago\nIII. Expulsion of the applicant from a self-regulatory organization\nIV. Insolvency of a broker-dealer applicant',
     choices: [
       'I and III only',
       'I, III and IV only',
@@ -26,7 +26,7 @@ export const items: Question[] = [
       'I, II, III and IV',
     ],
     answer: 3,
-    exp: "Any felony within the past ten years is a statutory ground, and a securities-related misdemeanor is a ground with no time limitation. SRO expulsion and insolvency are both independently listed grounds as well.",
+    exp: "All four are enumerated grounds. A felony qualifies whatever its subject matter, and nine years is inside the ten-year window; a securities-related misdemeanor four years old is inside the window as well. SRO expulsion and insolvency are independently listed. Both convictions here sit inside ten years, so the answer does not turn on the split between the model acts — the 1956 act applies a ten-year window to felonies and qualifying misdemeanors alike, while the 2002 act keeps any felony available indefinitely.",
     difficulty: 'medium',
   },
   {
@@ -158,15 +158,15 @@ export const items: Question[] = [
   {
     id: 669,
     topic: 'administrative-oversight',
-    q: 'Which of the following give the Administrator grounds for an adverse registration action?\nI. A felony conviction for arson entered eleven years ago\nII. A felony conviction for arson entered four years ago\nIII. A misdemeanor conviction for securities fraud entered eighteen years ago\nIV. A permanent injunction entered by a court barring the person from engaging in the securities business',
+    q: 'Which of the following give the Administrator grounds for an adverse registration action?\nI. A felony conviction for arson entered four years ago\nII. A misdemeanor conviction for driving under the influence entered one year ago\nIII. A misdemeanor conviction for securities fraud entered three years ago\nIV. A permanent injunction entered by a court barring the person from engaging in the securities business',
     choices: [
-      'I, II and IV only',
-      'II and III only',
+      'I and III only',
+      'I, III and IV only',
       'II, III and IV only',
       'I, II, III and IV',
     ],
-    answer: 2,
-    exp: "Any felony conviction within the past ten years is a ground, so the four-year arson conviction counts while the eleven-year-old one falls outside the window. A securities-related misdemeanor is a ground with no time limitation, and a permanent injunction from the securities business is independently listed.",
+    answer: 1,
+    exp: "Two dimensions decide a conviction: the category of the offense and how long ago it was. For a FELONY the category is irrelevant, so the arson conviction counts. For a MISDEMEANOR only certain categories qualify — securities, investment-related business, fraud, false statements, or the wrongful taking of property — so the securities fraud misdemeanor counts and the DUI does not, even though the DUI is the most recent item on the list. A permanent injunction from the securities business is independently listed. Note that every conviction here sits inside ten years, so nothing turns on the divergence between the model acts: the 1956 act applies a ten-year window to felonies and qualifying misdemeanors alike, while the 2002 act removes the limit for felonies only.",
     difficulty: 'medium',
   },
   {

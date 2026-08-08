@@ -124,7 +124,7 @@ export const items: Question[] = [
       '$2,400, because parents are exempt from the Coverdell limit',
     ],
     answer: 0,
-    exp: "The $2,000 Coverdell limit is per beneficiary per year from ALL sources combined, not per contributor. The grandparents have already put in $1,200 + $1,200 = $2,400, which is $400 over the cap, so the parent may contribute nothing and the $400 excess carries a 6% excise tax each year until withdrawn or absorbed.",
+    exp: "The $2,000 Coverdell limit is per beneficiary per year from ALL sources combined, not per contributor. The grandparents have already put in $1,200 + $1,200 = $2,400, which is $400 over the cap, so the parent may contribute nothing and the $400 excess carries a 6% excise tax under IRC 4973 each year it remains. Note where the tax lands: it is imposed on the DESIGNATED BENEFICIARY and reported on Form 5329, not apportioned back to whichever grandparent contributed last — the cap is measured on the account, so the excess belongs to the account. It can be cured by withdrawing the excess plus its attributable earnings before June 1 of the following year.",
     difficulty: 'medium',
   },
   {

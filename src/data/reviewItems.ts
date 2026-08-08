@@ -120,24 +120,28 @@ export const reviewItems: ReviewItem[] = [
     topic: 'bd-agent-registration',
     title: 'Dual registration as agent and IAR',
     category: 'state-variation',
-    status: 'open',
+    status: 'confirmed',
     asserted: 'Framed as permitted at state discretion rather than as a uniform national rule.',
     concern: 'Practice varies by state and the exam may expect a single answer.',
     verify: 'Confirm whether the exam treats dual registration as generally permitted.',
     questionIds: [565],
+    resolution:
+      'Left as a state-variation item because it genuinely is one, but question 565 was checked and does not depend on the variation: its keyed answer says dual registration is permitted where the Administrator allows it, commonly conditioned on both firms consenting and disclosure to the Administrator. The three distractors fail on grounds no state changes - a blanket prohibition, automatic effectiveness on filing a second Form U4, and an institutional-clients-only limit. That is the right design for a rule that differs by state: make the question turn on what is uniform. No content change.',
   },
   {
     id: 'net-worth-bonding',
     topic: 'ia-iar-registration',
     title: 'Minimum net worth and bonding amounts',
     category: 'state-variation',
-    status: 'open',
+    status: 'corrected',
     asserted:
       'Described as set by state rule and tiered by risk — custody, discretion, prepayment — with a next-business-day notice duty when net worth falls below the minimum. No national dollar figure.',
     concern:
       'Candidates often memorise specific figures from a single state. Confirm the notice duty is the durable tested point.',
     verify: 'Confirm the notice obligation and its timing as the exam states it.',
     questionIds: [546, 547, 571],
+    resolution:
+      'The notice duty is confirmed as the durable point, and verification added two things the chapter was missing. First the NASAA model rule (202(d)-1) figures, which adopting states start from even where they vary: $35,000 with custody, $10,000 with discretion and no custody, and a merely positive net worth for an adviser taking prepayment over $500 per client six or more months ahead. The chapter described the tiering without ever naming it, which left a testable structure unlearnable. Second, the reporting duty is two deadlines rather than one - notice to the Administrator by the close of the next business day, then a detailed financial report by the close of the business day after that. The chapter had said only \'shortly afterward\'.',
   },
 
   /* ---------------------------------------------------------------- */
@@ -190,11 +194,13 @@ export const reviewItems: ReviewItem[] = [
     topic: 'exempt-securities-transactions',
     title: 'State private placement purchaser limit',
     category: 'state-variation',
-    status: 'open',
+    status: 'confirmed',
     asserted: 'Ten non-institutional purchasers in twelve months, per the model act.',
     concern: 'Adopting states vary. The app states the model-act number.',
     verify: 'Confirm the model-act figure is what the exam tests.',
     questionIds: [241],
+    resolution:
+      'Confirmed against USA 402(b)(9): a transaction pursuant to an offer directed to not more than ten persons other than institutional investors during any twelve consecutive months. Adopting states do vary - Massachusetts allows twenty-five - and the chapter already says so. Worth recording that this manifest entry was itself sloppier than the chapter it described: it summarised the rule as ten \'purchasers\', while the chapter correctly explains that the count is of OFFEREES, that an eleventh retail person who is merely offered the security breaks the exemption even if they never buy, and that offers to institutions are unlimited. The asserted field has been corrected to match the chapter. No content change.',
   },
   {
     id: 'trust-indenture-threshold',
@@ -232,12 +238,14 @@ export const reviewItems: ReviewItem[] = [
     topic: 'education-accounts',
     title: 'Coverdell excess contribution excise tax',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'corrected',
     asserted: 'A 6% excise under IRC section 4973 on excess contributions.',
     concern:
       'The rate is right. The framing — whether the excess is attributable to the over-contribution as a whole or to a specific contributor — is the uncertain part.',
     verify: 'Confirm the attribution framing.',
     questionIds: [505],
+    resolution:
+      'The attribution question is answered: the 6% excise under IRC 4973 is imposed on the DESIGNATED BENEFICIARY and reported on Form 5329, not traced back to whichever contributor happened to go over. That follows from the cap being measured per beneficiary across all contributors combined - the excess belongs to the account, not to a person. Question 505 now says so, and gains the correction mechanism verification surfaced: withdrawing the excess plus its attributable earnings before June 1 of the following year avoids the tax, which otherwise applies for every year the excess remains.',
   },
   {
     id: '457b-penalty',
@@ -273,12 +281,14 @@ export const reviewItems: ReviewItem[] = [
     topic: 'fixed-income-basics',
     title: 'Municipal bond de minimis rule',
     category: 'scope-nuance',
-    status: 'open',
+    status: 'confirmed',
     asserted:
       'A quarter point per full year to maturity, framed as a discount amount in one chapter and as a price in another, reaching the same result.',
     concern:
       'An auditor confirmed the two framings agree. Worth a second look that both are stated in a way a candidate will recognise.',
     verify: 'Confirm both framings are correct and consistently presented.',
+    resolution:
+      'Both framings verified and they agree. The chapter computes a threshold of 0.25% of par per full year to maturity and subtracts it from par, and the formulas page states Threshold Price = Par - (0.25% x Par x Full Years Remaining) - the same operation described two ways, price-based in both cases. The worked example was re-derived independently: 0.25% x 8 years = 2 points, threshold 98, purchase at 92 sits below it so the full 8 points of market discount is ordinary income; $80 per bond x 50 bonds = $4,000, taxed at 35% is $1,400 against $600 at the 15% capital gain rate, a cost of $800. Every figure checks. No content change.',
   },
 
   /* ---------------------------------------------------------------- */
@@ -319,13 +329,15 @@ export const reviewItems: ReviewItem[] = [
     topic: 'administrative-oversight',
     title: 'Statutory disqualification lookback',
     category: 'state-variation',
-    status: 'open',
+    status: 'corrected',
     asserted:
       'Any felony within ten years, and securities-related misdemeanors with no time limit — the classic tested formulation.',
     concern:
       'The chapter itself notes many states apply a ten-year lookback to both. The questions stick to the tested version.',
     verify: 'Confirm which formulation the exam expects.',
     questionIds: [669],
+    resolution:
+      'This was not a formulation question - the app had the rule inverted, the same defect found and fixed in the Series 63 repo in this session. The chapter asserted that qualifying misdemeanors carry NO time limit while felonies are held to ten years. Neither model act says that. The 1956 act 204(a)(2)(B) reaches convictions within the past ten years for qualifying misdemeanors AND felonies alike; the 2002 act 412(d)(3) reaches any felony with no time limit plus a qualifying misdemeanor within the previous ten years. The app\'s version is the precise inverse of the 2002 act. It had propagated into two roman-numeral questions that treated a fourteen-year-old and an eighteen-year-old securities misdemeanor as live grounds - wrong under both acts, so both keyed answers were wrong. The chapter now carries a table of the split with the safe common ground stated (a felony or qualifying misdemeanor within ten years works under either act). The worked scenario, whose reasoning ran on the inverted rule, was rebuilt to turn on the durable point - that for a misdemeanor the CATEGORY of offense must clear the bar before the calendar matters, so a one-year-old DUI counts for nothing while a three-year-old securities fraud misdemeanor counts - with a closing variant that moves a felony outside ten years to show the acts diverging. Questions 285 and 669 rewritten to sit inside the window where the acts agree; 669\'s key moved from index 2 to 1.',
   },
   {
     id: 'promoter-de-minimis',

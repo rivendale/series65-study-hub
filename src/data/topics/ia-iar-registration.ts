@@ -167,7 +167,9 @@ States, not the SEC, set financial requirements for state-registered advisers, a
 
 A state may permit a **surety bond** in place of net worth, and may require one of an adviser with discretion or custody; the bond runs for the benefit of clients the adviser harms.
 
-**The notice obligation is the part candidates skip.** An adviser whose net worth falls below the minimum must **notify the Administrator by the close of the next business day** and then file a detailed financial report shortly afterward. The duty is self-reporting.
+The **NASAA model rule (202(d)-1)** puts numbers on that structure, and adopting states start from them even where they vary: **$35,000** minimum net worth with **custody**, **$10,000** with **discretion** but no custody, and merely a **positive** net worth — not negative — for an adviser accepting prepayment of **more than $500 per client six or more months in advance**. Hold these as the shape of the tiering rather than as a national standard, because your own state's figures govern.
+
+**The notice obligation is the part candidates skip.** An adviser whose net worth falls below the minimum must **notify the Administrator by the close of the next business day**, and then file a **detailed financial report by the close of business on the business day after that**. Two deadlines one day apart, and the duty is **self-reporting** — nobody comes asking first.
 
 One preemption point completes the picture. Under **Section 222 of the Advisers Act**, a state may not impose net worth or bonding requirements on an adviser whose **principal place of business is in another state**, so long as the adviser complies with its home state's requirements. An adviser registered in four states meets one net worth standard, not four.
 
@@ -184,7 +186,7 @@ The **NASAA Model Rule on IAR continuing education** requires **12 credits annua
     "The 48-hour / 5-business-day brochure timing is the NASAA model rule for state-registered advisers, not federal law. Under it the 5-business-day rescission right arises only when the brochure is delivered at contract signing, and delivering 48 hours early avoids the rescission period entirely. An SEC-registered adviser follows Rule 204-3 instead: before or at the time of contracting, with no rescission window at all.",
     "Crossing the federal threshold is not symmetric: registration with the SEC is mandatory at $110M, but an SEC-registered adviser only becomes ineligible below $90M.",
     "Filing Form ADV-W does not end the matter. Withdrawal takes effect only after a waiting period — 30 days after filing under the model act, subject to the Administrator shortening it and to variation among adopting states, and 60 days under SEC Rule 203-2 for a federal covered adviser — a pending proceeding suspends it, and the Administrator retains jurisdiction for a year afterward.",
-    "Net worth and bonding minimums are set by the states and vary; an adviser must also notify the Administrator by the close of the next business day if its net worth falls below the minimum.",
+    "Net worth and bonding minimums are set by the states and vary, but the NASAA model rule figures are the pattern: $35,000 with custody, $10,000 with discretion, positive net worth for substantial prepayment. An adviser must notify the Administrator by the close of the next business day if net worth falls below the minimum, then file a financial report by the close of the business day after that — two deadlines, not one.",
   ],
   keyTerms: [
     {
