@@ -405,9 +405,18 @@ function syncReadme(items) {
 
   const questions = new Set(items.flatMap((i) => i.questionIds ?? [])).size;
   const chapters = new Set(items.map((i) => i.topic)).size;
+  // Report open and resolved separately. A bare "29 items are flagged" reads as
+  // 29 outstanding problems even when every one has been settled, which is the
+  // opposite of what a closed manifest should communicate.
+  const open = items.filter((i) => i.status === 'open').length;
+  const resolved = items.length - open;
+  const scope = `spanning ${plural(questions, 'question')} across ${plural(chapters, 'chapter')}`;
   const sentence =
-    `**${plural(items.length, 'item')} are currently flagged**, spanning ` +
-    `${plural(questions, 'question')} across ${plural(chapters, 'chapter')}.`;
+    open === 0
+      ? `**All ${plural(items.length, 'item')} reviewed and resolved** — ${scope}.`
+      : `**${plural(open, 'item')} still open**` +
+        (resolved > 0 ? `, ${resolved} resolved` : '') +
+        `, ${scope}.`;
 
   const next = `${text.slice(0, start)}${README_START}\n${sentence}\n${text.slice(end)}`;
   if (next !== text) {

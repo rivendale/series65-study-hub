@@ -73,6 +73,22 @@ Content is written as of 2026. Things that are easy to get wrong because older s
 
 Inflation-indexed figures (IRA/401(k) contribution limits, gift exclusion, estate exemption, IRMAA and NIIT thresholds) drift every year. Prefer testing the *concept*; where a number is unavoidable, say it is indexed and approximate.
 
+### Rules this repo previously stated wrongly — do not reintroduce
+
+The review manifest is closed (29 items, 0 open). These are the ones that were actually **wrong**, recorded so a future pass does not restore them:
+
+- **Statutory disqualification was inverted.** The app said qualifying misdemeanors carry no time limit while felonies are capped at 10 years. Neither model act says that. The **1956 act** (§204(a)(2)(B)) applies 10 years to qualifying misdemeanors *and* felonies alike; the **2002 act** (§412(d)(3)) removes the limit for **felonies only**. It had propagated into questions 285 and 669, both of which treated a 14- and an 18-year-old securities misdemeanor as live grounds — wrong under both acts. Safe ground either way: a conviction within the past 10 years.
+- **Qualified client** was stale for about six weeks. Now **$1.4M AUM / $2.7M net worth**, effective 2026-06-29, existing contracts grandfathered.
+- **457(b) scoping was half applied.** The comparison table said "governmental"; the plan-type list forty lines earlier did not. Only a **governmental** 457(b) escapes the 10% early-withdrawal penalty, and a tax-exempt top-hat 457(b) is a different animal — creditor exposure, separation-only distributions, no IRA rollover.
+- **Accredited investor** stated the 2020 Rule 501(a) routes too narrowly. Series 7/65/82 holders in good standing and knowledgeable employees qualify on credential alone; the dollar tests were unchanged in 2020.
+- **ERISA long-term part-time** is **two** consecutive years of 500+ hours (SECURE 2.0, plan years from 2025, ERISA 403(b) included) — the old three-year figure is superseded.
+- **Asset location** was stated as though it followed from tax character alone. **Time horizon drives the allocation**; location is applied to the allocation, not the reverse. The Roth draws the growth asset because it is usually the longest-horizon money (no lifetime RMDs, spent last, often inherited), and where that is not true the ordering can legitimately move.
+- **NASAA net worth minimums** were described without ever being named. Model Rule 202(d)-1: **$35,000** with custody, **$10,000** with discretion, positive net worth for substantial prepayment — and the reporting duty is **two** deadlines a day apart, not one.
+
+### Method note
+
+Every one of the above was invisible to reading a single file — each file was internally coherent. They surfaced by grouping every assertion about a given rule across all chapters, all questions and the cheat sheet, then reading them side by side. When correcting a rule, fix the chapter body, `pitfalls`, `keyTerms`, `confusions`, **every question in `questionIds`**, and the cheat sheet in the same pass; a half-applied correction leaves the app contradicting itself. Prefer verifying by execution over inspection — the worked examples' arithmetic and the schedulers were all checked by running them.
+
 ### Pushing to GitHub
 
 Direct `git push` does not work in the sandbox — there are no HTTPS credentials. Use the `mcp__github__push_files` MCP tool. Keep each push payload under ~30 KB or the stream times out. Topic files run 6–10 KB, so **3 per push** is the right batch size. Push batches sequentially; concurrent pushes to the same branch conflict.
