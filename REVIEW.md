@@ -2,9 +2,13 @@
 
 The curriculum and question bank in this app are original work, written from public sources: the Uniform Securities Act model law, NASAA model rules and Statements of Policy, and the Investment Advisers Act of 1940 and the rules under it. The material is internally consistent — chapters agree with the questions written from them, and a figure is stated the same way everywhere it appears.
 
-This file lists the places where internal consistency was not enough. Each entry marks a point where the writer or the auditor stopped short of asserting something flatly: sources disagree about what is actually tested, a figure is inflation-indexed and will drift, a rule varies by adopting state, or the answer is a matter of judgment on which competent advisors differ. **Nothing here is known to be wrong.** These are the points where certainty ran out, and where a licensed reviewer's judgment is worth more than another pass through the same public sources.
+This file lists the places where internal consistency was not enough. Entries arrive here two ways, and the status on each says which.
 
-Each item states exactly what the app currently tells a student, why it was flagged rather than asserted, and the single specific thing to check. The intent is that a review is an hour or two of targeted checking rather than a re-read of the whole curriculum.
+**Open** items are points where the writer or the auditor stopped short of asserting something flatly: sources disagree about what is actually tested, a figure is inflation-indexed and will drift, a rule varies by adopting state, or the answer is a matter of judgment on which competent advisors differ. Nothing in an open item is known to be wrong — these are the points where certainty ran out, and where a licensed reviewer's judgment is worth more than another pass through the same public sources.
+
+**Confirmed** and **corrected** items have been resolved. A corrected entry means something *was* wrong and has been fixed, with the resolution recording what changed and why; several were found by comparing the same rule across files rather than by reading any file on its own. They stay in the list because the reasoning is worth keeping, and because anyone reopening the question should be able to see what was already decided.
+
+Each item states exactly what the app currently tells a student, why it was flagged, and the single specific thing to check. The intent is that a review is an hour or two of targeted checking rather than a re-read of the whole curriculum.
 
 **29 items — 0 open, 15 confirmed, 14 corrected — across 17 chapters and 38 questions.**
 
