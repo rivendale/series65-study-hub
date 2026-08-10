@@ -15,7 +15,7 @@ import {
   LifeBuoy,
 } from 'lucide-react';
 import { readQuarantinedRecord, useProgress } from '../hooks/useProgress';
-import { formatBytes, refreshEstimate } from '../lib/storage';
+import { formatBytes, refreshEstimate } from '../core/storage';
 import {
   overallStats,
   statsByTopic,

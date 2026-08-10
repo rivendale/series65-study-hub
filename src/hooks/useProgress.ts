@@ -11,7 +11,7 @@ import {
   reportWriteOk,
   subscribeStorage,
   type StorageState,
-} from '../lib/storage';
+} from '../core/storage';
 
 const STORAGE_KEY = 'series65_progress';
 
