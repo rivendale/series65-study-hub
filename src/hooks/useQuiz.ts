@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { questions, type Question } from '../data/questions';
-import { sample, shuffle } from '../lib/shuffle';
+import { sample, shuffle } from '../core/shuffle';
 import {
   OFFICIAL_CATEGORIES,
   TOPIC_TO_CATEGORY,
