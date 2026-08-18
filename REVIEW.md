@@ -119,11 +119,11 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 **Chapter:** [Administrative Oversight, Remedies, and Penalties](src/data/topics/administrative-oversight.ts) — topic id `administrative-oversight` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/administrative-oversight)
 
-**The app asserts.** The 1956 act (§410(f)) bars suit more than 3 years after the contract of sale or the rendering of investment advice, or more than 2 years after discovery, whichever first occurs. The 2002 act uses the earlier of 2 years after discovery or 5 years after the violation.
+**The app asserts.** The 1956 act (§410(f)) bars suit more than 3 years after the contract of sale or the rendering of investment advice, or more than 2 years after discovery, whichever first occurs. The 2002 act splits by claim type: fraud (§509(j)(2)) uses the earlier of 2 years after discovery or 5 years after the violation, while a registration violation (§509(j)(1)) gets 1 flat year.
 
 **Why it is flagged.** This entry exists as a warning, not a doubt. An automated content pass twice rewrote this rule away from the correct text on the reasoning that the widely taught "3 and 2" pairing looked like a prep-industry convention with no statutory basis. It is not a convention — it is §410(f) verbatim. The first rewrite asserted a single 2-year trigger from the contract of sale; the second invented a split by claim type with a 4-year outer cap. The phrase "four years" appears nowhere in the act. Both versions were fluent, internally consistent, and wrong.
 
-**To verify.** Nothing outstanding. If a future pass is tempted to "correct" the 3-and-2 pair again, read §410(f) of the 1956 act with NASAA updates before touching it — and note that the limitations provision is §410(f); §410(e) is survival of the cause of action after death.
+**To verify.** On the 1956 act, nothing outstanding — but if a future pass is tempted to "correct" the 3-and-2 pair again, read §410(f) with the NASAA updates before touching it, and note that the limitations provision is §410(f); §410(e) is survival of the cause of action after death. Still unchecked against a primary PDF: the §509(j)(1) / §509(j)(2) split for the 2002 act, corroborated only from secondary sources because every host carrying the text is blocked by the authoring sandbox’s egress proxy.
 
 **Questions that change with it.** None — this one is chapter text only.
 
