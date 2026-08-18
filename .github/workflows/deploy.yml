@@ -56,13 +56,22 @@ jobs:
           // it must be unregistered and its caches destroyed on the way out.
           (async () => {
             try {
+              // SCOPED teardown: this origin hosts the Series 63 app too.
+              // getRegistrations() and caches.keys() are ORIGIN-wide, so an
+              // unfiltered sweep would kill the sibling's worker and delete
+              // its offline cache. Only this app's scope and caches go.
+              const APP = '/series65-study-hub/';
               if ('serviceWorker' in navigator) {
                 const regs = await navigator.serviceWorker.getRegistrations();
-                await Promise.all(regs.map(r => r.unregister()));
+                await Promise.all(regs
+                  .filter(r => new URL(r.scope).pathname.startsWith(APP))
+                  .map(r => r.unregister()));
               }
               if (window.caches) {
                 const keys = await caches.keys();
-                await Promise.all(keys.map(k => caches.delete(k)));
+                await Promise.all(keys
+                  .filter(k => k.includes('series65-study-hub'))
+                  .map(k => caches.delete(k)));
               }
             } catch (e) { /* redirect regardless */ }
             // HashRouter: the route lives in the fragment, so carrying hash +
@@ -83,8 +92,13 @@ jobs:
           self.addEventListener('install', () => self.skipWaiting());
           self.addEventListener('activate', (e) => {
             e.waitUntil((async () => {
+              // Cache Storage is ORIGIN-wide and the Series 63 app shares this
+              // origin: delete only this app's caches (workbox names embed the
+              // scope URL), never the sibling's.
               const keys = await caches.keys();
-              await Promise.all(keys.map((k) => caches.delete(k)));
+              await Promise.all(keys
+                .filter((k) => k.includes('series65-study-hub'))
+                .map((k) => caches.delete(k)));
               await self.registration.unregister();
               const cs = await self.clients.matchAll({ type: 'window' });
               cs.forEach((c) => c.navigate(c.url));
@@ -97,3 +111,8 @@ jobs:
           path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Pages capacity problems are documented in this repo's history: one
+          # deploy timed out at ten minutes (the action default), another never
+          # got a runner. Match the 30-minute timeout the sibling app kept.
+          timeout: 1800000
