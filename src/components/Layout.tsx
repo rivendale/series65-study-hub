@@ -25,6 +25,7 @@ const desktopLinks = [
   { to: '/glossary', label: 'Glossary', end: true },
   { to: '/cheatsheet', label: 'Cheat Sheet', end: true },
   { to: '/progress', label: 'Progress', end: true },
+  { to: '/sync', label: 'Sync', end: true },
   { to: '/about', label: 'About', end: true },
 ];
 
