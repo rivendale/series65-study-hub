@@ -191,21 +191,19 @@ NSMIA divided **registration** authority — federal covered advisers and covere
 
 ## Statute of limitations
 
-The two model acts set **different** civil periods, and a third pairing circulates widely in study material without matching either. Learn the structure first, then the numbers.
+The **civil** clock under the 1956 act runs from the **earlier** of two triggers, and a candidate needs both.
 
-| Act | Claim | Civil limitations period |
-| --- | --- | --- |
-| **1956** (§410(e), as amended) | Sale in violation of **registration or licensing** (§410(a)(1)) | **2 years after the contract of sale** |
-| **1956** (§410(e), as amended) | **Fraud or misstatement** (§410(a)(2)) | **2 years** after the buyer knew or should have known, but **never more than 4 years** after the contract of sale |
-| **2002** (§509(j)) | Either | the **earlier** of **2 years after discovery** of the facts constituting the violation or **5 years after the violation** |
-
-Note that the 1956 act splits by claim type. A registration or licensing defect runs from the **sale** alone, because nothing needs discovering — the security was unregistered or the seller unlicensed on the day it happened. A fraud claim gets a **discovery** prong, because the buyer may have no way of knowing, with an **outer cap** so the exposure is not indefinite. That pairing of a discovery trigger against a long-stop is the shape the 2002 act keeps and widens to 5 years.
-
-Most states still operate under statutes based on the **1956 act**, so that is the family to reach for when a fact pattern does not name an act — but check which branch the facts describe before reaching for a number. Be ready for other materials to show **3 years from the violation or 2 years from discovery**. That pairing is a teaching convention rather than the text of either model act: it borrows the right *shape* from the 1956 fraud branch — a discovery trigger under an outer cap — but reports the cap as 3 years when the act says 4, and the 2002 act says 5. Recognise it rather than being thrown by it.
-
-The durable point behind all three versions is the **structure**: the clock runs from the **earlier** of two triggers, one tied to the **conduct** and one tied to **discovery**. A plaintiff cannot revive a stale claim merely by saying they have only just found out.
-
+- **Civil — 1956 act (§410(f)).** No suit more than **3 years after the contract of sale *or the rendering of investment advice***, or more than **2 years after discovery** of the facts constituting the violation, **whichever first occurs**.
+- **Civil — 2002 act.** The **earlier** of **2 years after discovery** or **5 years after the violation**. A minority of states have adopted the newer act.
 - **Criminal:** generally **5 years** under the model act — a separate clock, and not to be carried across from the civil side.
+
+Two things about the 1956 figures are worth pinning down, because both are easy to get wrong.
+
+**The second trigger is not only a sale.** §410(f) names *"the contract of sale, or the rendering of investment advice."* That matters far more on this exam than on the Series 63: an advisory claim runs from **when the advice was given**, so the clock starts for an adviser who never sold the client a thing. A fact pattern about bad advice with no transaction is not outside the statute — it is squarely inside it, timed from the advice.
+
+**Whichever first occurs, not whichever is longer.** Discovery does not extend the 3-year outer limit; it can only cut the period short. A plaintiff who discovers a violation four years after the contract of sale is out of time under the 1956 act even though the discovery was yesterday — and a plaintiff who discovered it on day one has 2 years, not 3.
+
+Most states still operate under statutes based on the **1956 act**, so the 3-and-2 pair is the one to reach for when a fact pattern does not name an act.
 
 ## Consent to service of process
 

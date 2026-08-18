@@ -325,6 +325,22 @@ export const reviewItems: ReviewItem[] = [
       'Question 286 rescoped to the model act and its explanation now notes that adopting states set higher fines and different limitations periods.',
   },
   {
+    id: 'civil-sol-1956',
+    topic: 'administrative-oversight',
+    title: 'Civil statute of limitations under the 1956 act',
+    category: 'source-disagreement',
+    status: 'corrected',
+    asserted:
+      'The 1956 act (§410(f)) bars suit more than 3 years after the contract of sale or the rendering of investment advice, or more than 2 years after discovery, whichever first occurs. The 2002 act uses the earlier of 2 years after discovery or 5 years after the violation.',
+    concern:
+      'This entry exists as a warning, not a doubt. An automated content pass twice rewrote this rule away from the correct text on the reasoning that the widely taught "3 and 2" pairing looked like a prep-industry convention with no statutory basis. It is not a convention — it is §410(f) verbatim. The first rewrite asserted a single 2-year trigger from the contract of sale; the second invented a split by claim type with a 4-year outer cap. The phrase "four years" appears nowhere in the act. Both versions were fluent, internally consistent, and wrong.',
+    verify:
+      'Nothing outstanding. If a future pass is tempted to "correct" the 3-and-2 pair again, read §410(f) of the 1956 act with NASAA updates before touching it — and note that the limitations provision is §410(f); §410(e) is survival of the cause of action after death.',
+    questionIds: [],
+    resolution:
+      'Reverted to the statutory text and added the trigger the original omitted: §410(f) runs from "the contract of sale, or the rendering of investment advice". That second trigger matters on the Series 65 specifically, because an advisory claim runs from when the advice was given even if nothing was ever sold. The chapter also now spells out that discovery cannot extend the 3-year outer limit, only shorten the period. Cheat sheet reduced from three rows to two to match. No question in the bank was keyed on the civil pair — every limitations hit in the question bank is the criminal 5-year clock.',
+  },
+  {
     id: 'felony-window',
     topic: 'administrative-oversight',
     title: 'Statutory disqualification lookback',
