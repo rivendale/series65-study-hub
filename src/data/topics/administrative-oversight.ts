@@ -191,8 +191,18 @@ NSMIA divided **registration** authority — federal covered advisers and covere
 
 ## Statute of limitations
 
-- **Civil:** generally the **earlier of 3 years after the sale or contract for sale, or 2 years after discovery** of the violation. States vary — several use 2 years after discovery but not more than 5 years after the transaction.
-- **Criminal:** generally **5 years** under the model act.
+The two model acts set **different** civil periods, and a third pairing circulates widely in study material without matching either. Learn the structure first, then the numbers.
+
+| | Civil limitations period |
+| --- | --- |
+| **1956 act** (§410(e)) | **2 years after the contract of sale** — a single trigger, with no discovery prong |
+| **2002 act** (§509(j)) | the **earlier** of **2 years after discovery** of the facts constituting the violation or **5 years after the violation** |
+
+Most states still operate under statutes based on the **1956 act**, so that is the figure to reach for when a fact pattern does not name an act. Be ready for other materials to show **3 years from the violation or 2 years from discovery** — that pairing is a teaching convention rather than the text of either model act, so recognise it rather than being thrown by it.
+
+The durable point behind all three versions is the **structure**: the clock runs from the **earlier** of two triggers, one tied to the **conduct** and one tied to **discovery**. A plaintiff cannot revive a stale claim merely by saying they have only just found out.
+
+- **Criminal:** generally **5 years** under the model act — a separate clock, and not to be carried across from the civil side.
 
 ## Consent to service of process
 
