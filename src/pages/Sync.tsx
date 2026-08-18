@@ -856,18 +856,19 @@ export default function Sync() {
                 className="w-5 h-5 text-slate-500 dark:text-slate-400"
                 aria-hidden="true"
               />
-              <h2 className="font-semibold text-lg">Sync is off</h2>
+              <h2 className="font-semibold text-lg">Self-hosted sync is off</h2>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400">
-              Nothing you do in this app leaves this device. Your answers, topics
-              read and mock attempts sit in this browser&rsquo;s local storage and
-              are never sent anywhere. That stays true unless you deliberately
-              turn sync on below.
+              This is the second, optional mechanism: a sync endpoint you host
+              yourself, for anyone who would rather not sign in with a Google
+              account. It is not configured, so nothing is being sent to a server
+              of your own. Cloud sync in the card above is separate and has its
+              own switch &mdash; check there for whether your progress is syncing.
             </p>
           </section>
 
           <section className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
-            <h2 className="font-semibold text-lg mb-3">What sync would do</h2>
+            <h2 className="font-semibold text-lg mb-3">What self-hosted sync would do</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Smartphone
@@ -988,7 +989,7 @@ export default function Sync() {
                 className="w-5 h-5 text-emerald-600 dark:text-emerald-400"
                 aria-hidden="true"
               />
-              <h2 className="font-semibold text-lg">Sync is on</h2>
+              <h2 className="font-semibold text-lg">Self-hosted sync is on</h2>
             </div>
 
             <dl className="space-y-3 text-sm">

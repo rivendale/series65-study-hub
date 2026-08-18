@@ -100,6 +100,10 @@ async function pushMerge(
           // and the corrupt text survives in the version the transaction read.
         }
       }
+      // These two field names are an allowlist in firestore.rules
+      // (keys().hasOnly). Adding a third here without adding it there makes
+      // EVERY write fail with "Missing or insufficient permissions" — which
+      // reads as a broken sign-in, not as a schema change. Change both.
       tx.set(ref, { record: JSON.stringify(next), updatedAt: fs.serverTimestamp() });
       return next;
     });

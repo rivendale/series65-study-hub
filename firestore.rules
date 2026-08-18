@@ -31,10 +31,26 @@ service cloud.firestore {
 
       // The size guard belongs only where a document is actually written.
       // A progress record is kilobytes; a megabyte write is not a record.
+      //
+      // toUtf8().size() is BYTES. String.size() counts CHARACTERS, so the
+      // first version of this guard did not enforce the limit it claimed —
+      // a record of non-ASCII characters passes a 262144-character check
+      // while being far larger than 256 KiB on the wire.
+      //
+      // hasOnly is what makes the size guard mean anything. Without it a
+      // signed-in user can keep `record` small and push the document to
+      // Firestore's 1 MiB ceiling with extra fields the app never reads.
+      // The blast radius is their own document, which is why this is
+      // hardening and not a hole — but the guard is pointless without it.
+      //
+      // *** ADDING A FIELD TO THE WRITE IN cloudSync.ts REQUIRES ADDING IT
+      // *** HERE FIRST, or every write fails with PERMISSION_DENIED, which
+      // *** looks exactly like a broken sign-in. See the header.
       allow create, update: if request.auth != null
         && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['record', 'updatedAt'])
         && request.resource.data.record is string
-        && request.resource.data.record.size() < 262144;
+        && request.resource.data.record.toUtf8().size() < 262144;
 
       // `request.resource` is absent on delete, so it cannot be referenced here.
       allow delete: if request.auth != null && request.auth.uid == uid;
