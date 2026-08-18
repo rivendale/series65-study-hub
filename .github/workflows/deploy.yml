@@ -1,45 +1,125 @@
-name: Deploy to GitHub Pages
-
+# The app moved to https://rygiel.family/learn/series65/ on 2026-08-18.
+#
+# This workflow used to build and deploy the app to GitHub Pages. It now
+# deploys a REDIRECT, plus two files whose job is killing the old PWA:
+#
+#   index.html / 404.html  unregister any service worker, delete caches, then
+#                          redirect carrying search + hash (HashRouter keeps
+#                          the route in the fragment, so deep links survive).
+#   sw.js                  a self-destructing service worker at the old sw
+#                          path. Without it, clients running the installed PWA
+#                          may NEVER reach the redirect: the old worker serves
+#                          the cached app for every navigation. Their next
+#                          update check fetches this, which activates, deletes
+#                          every cache, unregisters itself, and reloads.
+#   registerSW.js          no-op, so the cached app's own registration script
+#                          404s nowhere and re-registers nothing.
+#
+# Deleting the workflow instead would leave the old build serving a stale copy
+# forever — a student mid-course studying content that no longer receives
+# corrections.
+name: Deploy redirect to old GitHub Pages URL
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
+  group: pages
+  cancel-in-progress: true
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm install --no-audit --no-fund
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: build
+  redirect:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Build redirect + PWA teardown
+        run: |
+          mkdir -p dist
+          cat > dist/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Moved to rygiel.family</title>
+          <link rel="canonical" href="https://rygiel.family/learn/series65/">
+          <p>This study hub moved to
+          <a href="https://rygiel.family/learn/series65/">rygiel.family/learn/series65</a>.
+          Progress saved on this old address does not follow automatically —
+          if you studied here before, open the old app from the new page's
+          "import" option or ask Nick.</p>
+          <script>
+          // Kill the old PWA first or this page may never be reached again:
+          // the old service worker serves the cached app for navigations, so
+          // it must be unregistered and its caches destroyed on the way out.
+          (async () => {
+            try {
+              // SCOPED teardown: this origin hosts the Series 63 app too.
+              // getRegistrations() and caches.keys() are ORIGIN-wide, so an
+              // unfiltered sweep would kill the sibling's worker and delete
+              // its offline cache. Only this app's scope and caches go.
+              const APP = '/series65-study-hub/';
+              if ('serviceWorker' in navigator) {
+                const regs = await navigator.serviceWorker.getRegistrations();
+                await Promise.all(regs
+                  .filter(r => new URL(r.scope).pathname.startsWith(APP))
+                  .map(r => r.unregister()));
+              }
+              if (window.caches) {
+                const keys = await caches.keys();
+                await Promise.all(keys
+                  .filter(k => k.includes('series65-study-hub'))
+                  .map(k => caches.delete(k)));
+              }
+            } catch (e) { /* redirect regardless */ }
+            // HashRouter: the route lives in the fragment, so carrying hash +
+            // search preserves a deep link like .../#/quiz exactly.
+            location.replace('https://rygiel.family/learn/series65/'
+              + location.search + location.hash);
+          })();
+          </script>
+          <noscript><meta http-equiv="refresh"
+            content="0; url=https://rygiel.family/learn/series65/"></noscript>
+          HTML
+          cp dist/index.html dist/404.html
+          cat > dist/sw.js <<'JS'
+          // Self-destructing service worker. Deployed at the exact path of the
+          // old app's sw.js so clients still running the cached PWA fetch this
+          // on their next update check, activate it, and it removes itself and
+          // every cache, then reloads each open window onto the redirect page.
+          self.addEventListener('install', () => self.skipWaiting());
+          self.addEventListener('activate', (e) => {
+            e.waitUntil((async () => {
+              // Claim first: matchAll() by default excludes clients still
+              // controlled by the OLD worker, which is every already-open
+              // window of the installed PWA — precisely the clients this
+              // worker exists to rescue. Unfiltered includeUncontrolled is
+              // wrong on this shared origin (it would navigate Series 63
+              // windows); claiming scopes us to our own path's clients.
+              await self.clients.claim();
+              // Cache Storage is ORIGIN-wide and the Series 63 app shares this
+              // origin: delete only this app's caches (workbox names embed the
+              // scope URL), never the sibling's.
+              const keys = await caches.keys();
+              await Promise.all(keys
+                .filter((k) => k.includes('series65-study-hub'))
+                .map((k) => caches.delete(k)));
+              await self.registration.unregister();
+              const cs = await self.clients.matchAll({ type: 'window' });
+              cs.forEach((c) => c.navigate(c.url));
+            })());
+          });
+          JS
+          echo '// intentionally empty: the old app re-registers nothing' > dist/registerSW.js
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
         with:
-          # The action polls Pages for deployment_in_progress and aborts at its
-          # default 600000 ms. On 2026-08-06 the Series 63 repo saw a deploy take
-          # 8m09s and squeak through, then hit this ceiling and fail with a clean
-          # build and a healthy artifact. Same workflow here, so same exposure.
+          # Pages capacity problems are documented in this repo's history: one
+          # deploy timed out at ten minutes (the action default), another never
+          # got a runner. Match the 30-minute timeout the sibling app kept.
           timeout: 1800000
