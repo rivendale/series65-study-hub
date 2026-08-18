@@ -33,6 +33,7 @@ import {
   syncNow,
   type SyncConfig,
 } from '../lib/syncClient';
+import CloudSyncCard from '../components/CloudSyncCard';
 import {
   generateSyncKey,
   formatSyncKey,
@@ -838,9 +839,13 @@ export default function Sync() {
       <header>
         <h1 className="text-2xl font-bold">Sync</h1>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-          Optional, off by default, and pointed at an endpoint you own.
+          Sign in once and progress follows you between devices. Everything
+          below the first card is optional plumbing for people who prefer to
+          run their own.
         </p>
       </header>
+
+      <CloudSyncCard />
 
       {!config ? (
         <>
