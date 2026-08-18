@@ -61,7 +61,21 @@ let lastCloud: string | null = null;
 
 const canon = (p: Progress) => JSON.stringify(p);
 
-async function pushMerge(fs: Fs, db: import('firebase/firestore').Firestore, uid: string) {
+/**
+ * `seat` decides whose PREFERENCES win when both sides have them (study data
+ * always unions regardless). 'local-writes' is the normal case: a debounced
+ * push only fires after a real local action, so the person who just acted
+ * wins. 'cloud-wins' is for the FIRST reconcile after sign-in: a virgin
+ * browser's defaults are nobody's action, and letting them ride the writer
+ * seat would reset the theme on every other device each time a new device
+ * signs in.
+ */
+async function pushMerge(
+  fs: Fs,
+  db: import('firebase/firestore').Firestore,
+  uid: string,
+  seat: 'local-writes' | 'cloud-wins' = 'local-writes'
+) {
   const ref = fs.doc(db, 'apps', APP_ID, 'users', uid);
   try {
     const merged = await fs.runTransaction(db, async (tx) => {
@@ -76,7 +90,11 @@ async function pushMerge(fs: Fs, db: import('firebase/firestore').Firestore, uid
           // device — so local rides in the incoming seat. Reversed, a stale
           // cloud theme overwrites the one just picked. (The snapshot path
           // below is the mirror case: there the cloud is the writer.)
-          next = mergeProgress(JSON.parse(remoteRaw) as Progress, local, 'incoming');
+          const cloud = JSON.parse(remoteRaw) as Progress;
+          next =
+            seat === 'cloud-wins'
+              ? mergeProgress(local, cloud, 'incoming')
+              : mergeProgress(cloud, local, 'incoming');
         } catch {
           // An unreadable cloud record must not block saving; ours replaces it
           // and the corrupt text survives in the version the transaction read.
@@ -150,8 +168,9 @@ export async function initCloudSync(): Promise<void> {
       const db = fs.getFirestore(app);
       setStatus({ state: 'syncing', email: user.email ?? undefined });
 
-      // First reconcile, then keep both directions flowing.
-      await pushMerge(fs, db, user.uid);
+      // First reconcile: cloud preferences win — a fresh browser's defaults
+      // are not an action. Study data unions either way.
+      await pushMerge(fs, db, user.uid, 'cloud-wins');
       subscribeProgress(() => {
         // Ignore the notification for a record we just adopted from the cloud.
         if (canon(getProgress()) === lastCloud) return;
