@@ -1,20 +1,43 @@
 rules_version = '2';
 // Per-user isolation is the entire security model: a signed-in family member
 // can read and write exactly ONE document — their own record for this app —
-// and nothing else in the database. There is no cross-user read, no listing,
-// and no unauthenticated access. Server-side enforcement; the client is not
-// trusted.
+// and nothing else in the database. Server-side enforcement; the client is
+// not trusted.
 //
-// Deploy: Firebase console → Firestore → Rules → paste → Publish.
+// 2026-08-18: the first version of this file DENIED EVERY READ. It put the
+// record-size guard in a single clause covering read and write together:
+//
+//   allow read, write: if ... && (request.resource == null
+//                                 || request.resource.data.record is string && ...)
+//
+// `request.resource` is the post-write state of the document and is populated
+// ONLY for create and update. It is absent on get/list — and on delete. So a
+// signed-in user reading their own document was forced to evaluate a variable
+// that does not exist during a read, and the rule refused. Sign-in worked, the
+// uid matched, and the read still failed with "Missing or insufficient
+// permissions", which reads exactly like a missing grant.
+//
+// The rule is therefore split by operation. A read must never mention
+// `request.resource`.
+//
+// Deploy: Firebase console → Firestore Database → Rules → paste → Publish.
 service cloud.firestore {
   match /databases/{database}/documents {
     match /apps/{appId}/users/{uid} {
-      allow read, write: if request.auth != null
+
+      // `get`, not `read`: `read` also grants `list`, and the paragraph above
+      // promises no listing. A single-document listener evaluates as `get`.
+      allow get: if request.auth != null && request.auth.uid == uid;
+
+      // The size guard belongs only where a document is actually written.
+      // A progress record is kilobytes; a megabyte write is not a record.
+      allow create, update: if request.auth != null
         && request.auth.uid == uid
-        // A progress record is kilobytes; a megabyte write is not a record.
-        && (request.resource == null
-            || request.resource.data.record is string
-                && request.resource.data.record.size() < 262144);
+        && request.resource.data.record is string
+        && request.resource.data.record.size() < 262144;
+
+      // `request.resource` is absent on delete, so it cannot be referenced here.
+      allow delete: if request.auth != null && request.auth.uid == uid;
     }
   }
 }
