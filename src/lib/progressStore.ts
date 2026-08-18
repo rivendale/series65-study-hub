@@ -434,7 +434,7 @@ export function initCrossTabSync(): void {
       return;
     }
     if (remote?.schemaVersion !== SCHEMA_VERSION) return;
-    const merged = mergeProgress(current, remote);
+    const merged = mergeProgress(current, remote, 'incoming');
     if (canonical(merged) !== canonical(remote)) {
       current = save(merged);
     } else {

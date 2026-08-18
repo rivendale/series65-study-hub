@@ -371,5 +371,38 @@ const survivor = mergeProgress(afterReset, { ...preResetFile,
   answers: { 9: { correct: true, ts: 6000, selected: 1 } } });
 check('device-import: post-reset entries in the file DO survive', !!survivor.answers[9]);
 
+// ---- preference conflict must not loop (adopt-the-writer on sync paths) -----
+closeAllTabs();
+backing.set('series65_progress', JSON.stringify(seed));
+const W2 = await asTab('W', () => import(`${modPath}?tab=W`));
+const X2 = await asTab('X', () => import(`${modPath}?tab=X`));
+await asTab('W', () => W2.initCrossTabSync());
+await asTab('X', () => X2.initCrossTabSync());
+pauseDelivery = true;
+await asTab('W', () => W2.updateProgress((p) => ({ ...p, preferences: { ...p.preferences, theme: 'dark' } })));
+await asTab('X', () => X2.updateProgress((p) => ({ ...p, preferences: { ...p.preferences, theme: 'light' } })));
+let prefWrites = 0;
+const origSet4 = localStorageStub.setItem;
+localStorageStub.setItem = (k, v) => { if (k === 'series65_progress') prefWrites++; return origSet4(k, v); };
+flushDelivery();
+localStorageStub.setItem = origSet4;
+check('pref-conflict: exchange converges (bounded writes)', prefWrites <= 4,
+  `saw ${prefWrites} writes — local-wins preferences re-opened the loop`);
+// Crossing writes can SWAP themes transiently (each adopts the other's and
+// goes silent — same accepted class as the 3-tab bound: stable disk, divergent
+// memories, heals on the next activity). Assert the healing, not instant unity.
+await asTab('X', () => X2.updateProgress((p) => ({ ...p })));
+check('pref-conflict: tabs agree after the next activity',
+  W2.getProgress().preferences.theme === X2.getProgress().preferences.theme,
+  `W=${W2.getProgress().preferences.theme} X=${X2.getProgress().preferences.theme}`);
+check('pref-conflict: disk matches both',
+  JSON.parse(backing.get('series65_progress')).preferences.theme === W2.getProgress().preferences.theme);
+// file IMPORT keeps the local theme (deliberately different semantics)
+const { mergeProgress: mp2 } = await import('../src/lib/mergeProgress.ts?tab=lib2');
+const imp = mp2({ ...seed, preferences: { fontSize: 'md', theme: 'dark' } },
+                { ...seed, preferences: { fontSize: 'lg', theme: 'light', studyPlan: 'eight-week' } });
+check('import keeps local theme, fills missing studyPlan',
+  imp.preferences.theme === 'dark' && imp.preferences.studyPlan === 'eight-week');
+
 console.log(`\n${pass} ok, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -155,15 +155,41 @@ function mergeMockAttempts(a: MockAttempt[], b: MockAttempt[]): MockAttempt[] {
  */
 function mergePreferences(
   local: Progress['preferences'],
-  incoming: Progress['preferences']
+  incoming: Progress['preferences'],
+  prefs: PreferenceConflict
 ): Progress['preferences'] {
+  if (prefs === 'incoming') {
+    return {
+      ...incoming,
+      studyPlan: incoming.studyPlan ?? local.studyPlan,
+    };
+  }
   return {
     ...local,
     studyPlan: local.studyPlan ?? incoming.studyPlan,
   };
 }
 
-export function mergeProgress(local: Progress, incoming: Progress): Progress {
+/**
+ * How preference conflicts resolve — and the two transports NEED different
+ * answers, which review proved the hard way:
+ *
+ *  'local'    (default; file import): importing an old backup must not clobber
+ *             the theme you are looking at. Only a missing studyPlan fills in.
+ *  'incoming' (cross-tab and cloud sync): the writer's preferences win. This
+ *             is load-bearing for termination, not taste — with local-wins,
+ *             tab A (dark) and tab B (light) each preserve their own theme and
+ *             alternately rewrite storage forever, because every merge differs
+ *             from the record it just read. Same loop over Firestore, with
+ *             billable writes. Adopt-the-writer converges in one exchange.
+ */
+export type PreferenceConflict = 'local' | 'incoming';
+
+export function mergeProgress(
+  local: Progress,
+  incoming: Progress,
+  prefs: PreferenceConflict = 'local'
+): Progress {
   // The reset tombstone binds BOTH transports (cross-tab and device sync): a
   // reset on one side must not be merged back from the other side's memory.
   // Entries stamped after the reset survive; older ones stay gone. An entry
@@ -186,7 +212,7 @@ export function mergeProgress(local: Progress, incoming: Progress): Progress {
       filterAttempts(local.mockAttempts),
       filterAttempts(incoming.mockAttempts)
     ),
-    preferences: mergePreferences(local.preferences, incoming.preferences),
+    preferences: mergePreferences(local.preferences, incoming.preferences, prefs),
     ...(resetAt > 0 ? { resetAt } : {}),
   };
 }
