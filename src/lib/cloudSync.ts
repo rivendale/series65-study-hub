@@ -219,15 +219,19 @@ export async function signInWithGoogle(): Promise<void> {
     await authMod.signInWithPopup(auth, provider);
   } catch (err) {
     const code = (err as { code?: string })?.code ?? '';
-    if (
-      code === 'auth/popup-blocked' ||
-      code === 'auth/operation-not-supported-in-this-environment' ||
-      code === 'auth/cancelled-popup-request'
-    ) {
+    // Taxonomy per review: ONLY popup-blocked earns the redirect fallback.
+    // cancelled-popup-request means a NEWER popup superseded this one — falling
+    // back to redirect there would race the newer popup and navigate away from
+    // it, so it returns quietly alongside popup-closed-by-user. Everything
+    // else (including operation-not-supported) rethrows into the error card,
+    // where "try again" is an honest answer.
+    if (code === 'auth/popup-blocked') {
       await authMod.signInWithRedirect(auth, provider);
       return;
     }
-    if (code === 'auth/popup-closed-by-user') return; // not an error
+    if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') {
+      return;
+    }
     throw err;
   }
 }
