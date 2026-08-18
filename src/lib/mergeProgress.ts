@@ -1,4 +1,4 @@
-import type { Progress, MockAttempt } from '../hooks/useProgress';
+import type { Progress, MockAttempt } from './progressStore';
 
 /**
  * Merging progress from two devices.
@@ -89,7 +89,30 @@ function mergeTopicsRead(
  * repeated sync of the same attempt does not duplicate it.
  */
 function attemptKey(m: MockAttempt): string {
-  return `${m.ts}:${m.total}:${m.correct}:${m.timeUsed}`;
+  // JSON.stringify per field keeps the key type-preserving: a malformed
+  // timeUsed of [] and one of "" must not share an identity, or two distinct
+  // attempts dedupe into one. Found by review in the sibling repo.
+  return [m.ts, m.total, m.correct, m.timeUsed].map((v) => JSON.stringify(v)).join(':');
+}
+
+/**
+ * Field comparator that stays a strict weak order for ANY JSON value: records
+ * are accepted from localStorage and (eventually) a sync endpoint, and raw
+ * subtraction on a malformed field yields NaN — an INCONSISTENT comparator,
+ * under which the engine's sort produces arbitrary, cross-tab-different
+ * orders, re-opening the write oscillation the identity tiebreak closes.
+ */
+function cmpField(a: unknown, b: unknown): number {
+  const na = Number(a);
+  const nb = Number(b);
+  const fa = Number.isFinite(na);
+  const fb = Number.isFinite(nb);
+  if (fa && fb) return nb - na;
+  if (fa) return -1;
+  if (fb) return 1;
+  const sa = JSON.stringify(a) ?? 'null';
+  const sb = JSON.stringify(b) ?? 'null';
+  return sa < sb ? -1 : sa > sb ? 1 : 0;
 }
 
 function mergeMockAttempts(a: MockAttempt[], b: MockAttempt[]): MockAttempt[] {
@@ -104,8 +127,20 @@ function mergeMockAttempts(a: MockAttempt[], b: MockAttempt[]): MockAttempt[] {
     else if ((m.answers?.length ?? 0) === (existing.answers?.length ?? 0))
       byKey.set(k, pickDeterministic(existing, m));
   }
+  // TOTAL order independent of argument roles: ts alone leaves equal-ts
+  // attempts in insertion order, so two tabs derive mirror-ordered arrays and
+  // oscillate forever (the byte values genuinely alternate, so the browser's
+  // same-value event suppression never triggers). Identity fields tiebreak,
+  // identity STRING last — total for any JSON values.
   return [...byKey.values()]
-    .sort((x, y) => y.ts - x.ts)
+    .sort(
+      (x, y) =>
+        cmpField(x.ts, y.ts) ||
+        cmpField(x.timeUsed, y.timeUsed) ||
+        cmpField(x.correct, y.correct) ||
+        cmpField(x.total, y.total) ||
+        (attemptKey(x) < attemptKey(y) ? -1 : attemptKey(x) > attemptKey(y) ? 1 : 0)
+    )
     .slice(0, MAX_MOCK_ATTEMPTS);
 }
 
@@ -129,12 +164,30 @@ function mergePreferences(
 }
 
 export function mergeProgress(local: Progress, incoming: Progress): Progress {
+  // The reset tombstone binds BOTH transports (cross-tab and device sync): a
+  // reset on one side must not be merged back from the other side's memory.
+  // Entries stamped after the reset survive; older ones stay gone. An entry
+  // with no timestamp cannot be placed relative to a reset — with no reset
+  // anywhere it is kept (dropping data over a missing field is the bug this
+  // module exists to prevent); once a reset exists it counts as pre-reset.
+  const resetAt = Math.max(local.resetAt ?? 0, incoming.resetAt ?? 0);
+  const keep = (ts: number | undefined) => (resetAt === 0 ? true : (ts ?? 0) >= resetAt);
+  const filterAnswers = (a: Progress['answers']) =>
+    Object.fromEntries(Object.entries(a).filter(([, v]) => keep(v.ts))) as Progress['answers'];
+  const filterTopics = (t: Progress['topicsRead']) =>
+    Object.fromEntries(Object.entries(t).filter(([, ts]) => keep(ts)));
+  const filterAttempts = (m: MockAttempt[]) => m.filter((x) => keep(x.ts));
+
   return {
     schemaVersion: 1,
-    answers: mergeAnswers(local.answers, incoming.answers),
-    topicsRead: mergeTopicsRead(local.topicsRead, incoming.topicsRead),
-    mockAttempts: mergeMockAttempts(local.mockAttempts, incoming.mockAttempts),
+    answers: mergeAnswers(filterAnswers(local.answers), filterAnswers(incoming.answers)),
+    topicsRead: mergeTopicsRead(filterTopics(local.topicsRead), filterTopics(incoming.topicsRead)),
+    mockAttempts: mergeMockAttempts(
+      filterAttempts(local.mockAttempts),
+      filterAttempts(incoming.mockAttempts)
+    ),
     preferences: mergePreferences(local.preferences, incoming.preferences),
+    ...(resetAt > 0 ? { resetAt } : {}),
   };
 }
 
