@@ -92,6 +92,13 @@ jobs:
           self.addEventListener('install', () => self.skipWaiting());
           self.addEventListener('activate', (e) => {
             e.waitUntil((async () => {
+              // Claim first: matchAll() by default excludes clients still
+              // controlled by the OLD worker, which is every already-open
+              // window of the installed PWA — precisely the clients this
+              // worker exists to rescue. Unfiltered includeUncontrolled is
+              // wrong on this shared origin (it would navigate Series 63
+              // windows); claiming scopes us to our own path's clients.
+              await self.clients.claim();
               // Cache Storage is ORIGIN-wide and the Series 63 app shares this
               // origin: delete only this app's caches (workbox names embed the
               // scope URL), never the sibling's.
