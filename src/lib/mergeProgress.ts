@@ -1,4 +1,4 @@
-import type { Progress, MockAttempt } from '../hooks/useProgress';
+import type { Progress, MockAttempt } from './progressStore';
 
 /**
  * Merging progress from two devices.
@@ -89,7 +89,30 @@ function mergeTopicsRead(
  * repeated sync of the same attempt does not duplicate it.
  */
 function attemptKey(m: MockAttempt): string {
-  return `${m.ts}:${m.total}:${m.correct}:${m.timeUsed}`;
+  // JSON.stringify per field keeps the key type-preserving: a malformed
+  // timeUsed of [] and one of "" must not share an identity, or two distinct
+  // attempts dedupe into one. Found by review in the sibling repo.
+  return [m.ts, m.total, m.correct, m.timeUsed].map((v) => JSON.stringify(v)).join(':');
+}
+
+/**
+ * Field comparator that stays a strict weak order for ANY JSON value: records
+ * are accepted from localStorage and (eventually) a sync endpoint, and raw
+ * subtraction on a malformed field yields NaN — an INCONSISTENT comparator,
+ * under which the engine's sort produces arbitrary, cross-tab-different
+ * orders, re-opening the write oscillation the identity tiebreak closes.
+ */
+function cmpField(a: unknown, b: unknown): number {
+  const na = Number(a);
+  const nb = Number(b);
+  const fa = Number.isFinite(na);
+  const fb = Number.isFinite(nb);
+  if (fa && fb) return nb - na;
+  if (fa) return -1;
+  if (fb) return 1;
+  const sa = JSON.stringify(a) ?? 'null';
+  const sb = JSON.stringify(b) ?? 'null';
+  return sa < sb ? -1 : sa > sb ? 1 : 0;
 }
 
 function mergeMockAttempts(a: MockAttempt[], b: MockAttempt[]): MockAttempt[] {
@@ -104,8 +127,20 @@ function mergeMockAttempts(a: MockAttempt[], b: MockAttempt[]): MockAttempt[] {
     else if ((m.answers?.length ?? 0) === (existing.answers?.length ?? 0))
       byKey.set(k, pickDeterministic(existing, m));
   }
+  // TOTAL order independent of argument roles: ts alone leaves equal-ts
+  // attempts in insertion order, so two tabs derive mirror-ordered arrays and
+  // oscillate forever (the byte values genuinely alternate, so the browser's
+  // same-value event suppression never triggers). Identity fields tiebreak,
+  // identity STRING last — total for any JSON values.
   return [...byKey.values()]
-    .sort((x, y) => y.ts - x.ts)
+    .sort(
+      (x, y) =>
+        cmpField(x.ts, y.ts) ||
+        cmpField(x.timeUsed, y.timeUsed) ||
+        cmpField(x.correct, y.correct) ||
+        cmpField(x.total, y.total) ||
+        (attemptKey(x) < attemptKey(y) ? -1 : attemptKey(x) > attemptKey(y) ? 1 : 0)
+    )
     .slice(0, MAX_MOCK_ATTEMPTS);
 }
 
@@ -120,21 +155,65 @@ function mergeMockAttempts(a: MockAttempt[], b: MockAttempt[]): MockAttempt[] {
  */
 function mergePreferences(
   local: Progress['preferences'],
-  incoming: Progress['preferences']
+  incoming: Progress['preferences'],
+  prefs: PreferenceConflict
 ): Progress['preferences'] {
+  if (prefs === 'incoming') {
+    return {
+      ...incoming,
+      studyPlan: incoming.studyPlan ?? local.studyPlan,
+    };
+  }
   return {
     ...local,
     studyPlan: local.studyPlan ?? incoming.studyPlan,
   };
 }
 
-export function mergeProgress(local: Progress, incoming: Progress): Progress {
+/**
+ * How preference conflicts resolve — and the two transports NEED different
+ * answers, which review proved the hard way:
+ *
+ *  'local'    (default; file import): importing an old backup must not clobber
+ *             the theme you are looking at. Only a missing studyPlan fills in.
+ *  'incoming' (cross-tab and cloud sync): the writer's preferences win. This
+ *             is load-bearing for termination, not taste — with local-wins,
+ *             tab A (dark) and tab B (light) each preserve their own theme and
+ *             alternately rewrite storage forever, because every merge differs
+ *             from the record it just read. Same loop over Firestore, with
+ *             billable writes. Adopt-the-writer converges in one exchange.
+ */
+export type PreferenceConflict = 'local' | 'incoming';
+
+export function mergeProgress(
+  local: Progress,
+  incoming: Progress,
+  prefs: PreferenceConflict = 'local'
+): Progress {
+  // The reset tombstone binds BOTH transports (cross-tab and device sync): a
+  // reset on one side must not be merged back from the other side's memory.
+  // Entries stamped after the reset survive; older ones stay gone. An entry
+  // with no timestamp cannot be placed relative to a reset — with no reset
+  // anywhere it is kept (dropping data over a missing field is the bug this
+  // module exists to prevent); once a reset exists it counts as pre-reset.
+  const resetAt = Math.max(local.resetAt ?? 0, incoming.resetAt ?? 0);
+  const keep = (ts: number | undefined) => (resetAt === 0 ? true : (ts ?? 0) >= resetAt);
+  const filterAnswers = (a: Progress['answers']) =>
+    Object.fromEntries(Object.entries(a).filter(([, v]) => keep(v.ts))) as Progress['answers'];
+  const filterTopics = (t: Progress['topicsRead']) =>
+    Object.fromEntries(Object.entries(t).filter(([, ts]) => keep(ts)));
+  const filterAttempts = (m: MockAttempt[]) => m.filter((x) => keep(x.ts));
+
   return {
     schemaVersion: 1,
-    answers: mergeAnswers(local.answers, incoming.answers),
-    topicsRead: mergeTopicsRead(local.topicsRead, incoming.topicsRead),
-    mockAttempts: mergeMockAttempts(local.mockAttempts, incoming.mockAttempts),
-    preferences: mergePreferences(local.preferences, incoming.preferences),
+    answers: mergeAnswers(filterAnswers(local.answers), filterAnswers(incoming.answers)),
+    topicsRead: mergeTopicsRead(filterTopics(local.topicsRead), filterTopics(incoming.topicsRead)),
+    mockAttempts: mergeMockAttempts(
+      filterAttempts(local.mockAttempts),
+      filterAttempts(incoming.mockAttempts)
+    ),
+    preferences: mergePreferences(local.preferences, incoming.preferences, prefs),
+    ...(resetAt > 0 ? { resetAt } : {}),
   };
 }
 
