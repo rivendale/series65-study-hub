@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import CloudSyncCard from '../components/CloudSyncCard';
 import { Link } from 'react-router-dom';
 import {
   Download,
@@ -292,9 +293,13 @@ export default function ProgressPage() {
       <header>
         <h1 className="text-2xl font-bold">Progress</h1>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-          All data is stored locally in your browser. Nothing leaves this device.
+          Progress is stored on this device. Sign in below and it also follows
+          you between your phone and laptop; without signing in, nothing ever
+          leaves this browser.
         </p>
       </header>
+
+      <CloudSyncCard />
 
       <section className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
         <h2 className="font-semibold mb-3">Overall</h2>

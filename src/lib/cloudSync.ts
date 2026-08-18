@@ -205,7 +205,35 @@ export async function signInWithGoogle(): Promise<void> {
   const app = await getFirebaseApp();
   const authMod = await import('firebase/auth');
   const auth = authMod.getAuth(app);
-  await authMod.signInWithRedirect(auth, new authMod.GoogleAuthProvider());
+  const provider = new authMod.GoogleAuthProvider();
+  // POPUP FIRST, redirect only as fallback — learned live, not from docs:
+  // the first sign-in test went through Google's prompts and came back
+  // signed out. signInWithRedirect stores its result on the authDomain
+  // origin (rygiel-family.firebaseapp.com), and browsers that partition
+  // third-party storage will not let this origin read it back, so the
+  // round-trip silently yields nothing. A popup opened from the click
+  // completes over postMessage and needs no shared storage. If the popup
+  // is blocked (some standalone-PWA contexts), fall back to redirect,
+  // which still works where partitioning is off.
+  try {
+    await authMod.signInWithPopup(auth, provider);
+  } catch (err) {
+    const code = (err as { code?: string })?.code ?? '';
+    // Taxonomy per review: ONLY popup-blocked earns the redirect fallback.
+    // cancelled-popup-request means a NEWER popup superseded this one — falling
+    // back to redirect there would race the newer popup and navigate away from
+    // it, so it returns quietly alongside popup-closed-by-user. Everything
+    // else (including operation-not-supported) rethrows into the error card,
+    // where "try again" is an honest answer.
+    if (code === 'auth/popup-blocked') {
+      await authMod.signInWithRedirect(auth, provider);
+      return;
+    }
+    if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') {
+      return;
+    }
+    throw err;
+  }
 }
 
 export async function signOutCloud(): Promise<void> {
