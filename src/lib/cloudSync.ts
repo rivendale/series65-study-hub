@@ -71,7 +71,7 @@ async function pushMerge(fs: Fs, db: import('firebase/firestore').Firestore, uid
       let next = local;
       if (remoteRaw) {
         try {
-          next = mergeProgress(local, JSON.parse(remoteRaw) as Progress);
+          next = mergeProgress(local, JSON.parse(remoteRaw) as Progress, 'incoming');
         } catch {
           // An unreadable cloud record must not block saving; ours replaces it
           // and the corrupt text survives in the version the transaction read.
@@ -158,7 +158,7 @@ export async function initCloudSync(): Promise<void> {
         try {
           const remote = JSON.parse(raw) as Progress;
           lastCloud = raw;
-          updateProgress((p) => mergeProgress(p, remote));
+          updateProgress((p) => mergeProgress(p, remote, 'incoming'));
         } catch {
           // A corrupt cloud record is repaired by our next push; never adopt it.
         }
