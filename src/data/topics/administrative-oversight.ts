@@ -193,12 +193,15 @@ NSMIA divided **registration** authority — federal covered advisers and covere
 
 The two model acts set **different** civil periods, and a third pairing circulates widely in study material without matching either. Learn the structure first, then the numbers.
 
-| | Civil limitations period |
-| --- | --- |
-| **1956 act** (§410(e)) | **2 years after the contract of sale** — a single trigger, with no discovery prong |
-| **2002 act** (§509(j)) | the **earlier** of **2 years after discovery** of the facts constituting the violation or **5 years after the violation** |
+| Act | Claim | Civil limitations period |
+| --- | --- | --- |
+| **1956** (§410(e), as amended) | Sale in violation of **registration or licensing** (§410(a)(1)) | **2 years after the contract of sale** |
+| **1956** (§410(e), as amended) | **Fraud or misstatement** (§410(a)(2)) | **2 years** after the buyer knew or should have known, but **never more than 4 years** after the contract of sale |
+| **2002** (§509(j)) | Either | the **earlier** of **2 years after discovery** of the facts constituting the violation or **5 years after the violation** |
 
-Most states still operate under statutes based on the **1956 act**, so that is the figure to reach for when a fact pattern does not name an act. Be ready for other materials to show **3 years from the violation or 2 years from discovery** — that pairing is a teaching convention rather than the text of either model act, so recognise it rather than being thrown by it.
+Note that the 1956 act splits by claim type. A registration or licensing defect runs from the **sale** alone, because nothing needs discovering — the security was unregistered or the seller unlicensed on the day it happened. A fraud claim gets a **discovery** prong, because the buyer may have no way of knowing, with an **outer cap** so the exposure is not indefinite. That pairing of a discovery trigger against a long-stop is the shape the 2002 act keeps and widens to 5 years.
+
+Most states still operate under statutes based on the **1956 act**, so that is the family to reach for when a fact pattern does not name an act — but check which branch the facts describe before reaching for a number. Be ready for other materials to show **3 years from the violation or 2 years from discovery**. That pairing is a teaching convention rather than the text of either model act: it borrows the right *shape* from the 1956 fraud branch — a discovery trigger under an outer cap — but reports the cap as 3 years when the act says 4, and the 2002 act says 5. Recognise it rather than being thrown by it.
 
 The durable point behind all three versions is the **structure**: the clock runs from the **earlier** of two triggers, one tied to the **conduct** and one tied to **discovery**. A plaintiff cannot revive a stale claim merely by saying they have only just found out.
 
