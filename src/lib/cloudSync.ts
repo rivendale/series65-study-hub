@@ -104,11 +104,15 @@ async function pushMerge(
       return next;
     });
     lastCloud = canon(merged);
-    // Adopt what the transaction settled on, so local, cloud and every other
-    // device converge on one record rather than three near-copies.
-    if (canon(getProgress()) !== lastCloud) {
-      updateProgress(() => merged);
-    }
+    // Adopt what the transaction settled on — BY MERGING, never by replacing.
+    // A real user action can land between the transaction's read of
+    // getProgress() and this line; replacement would discard it and the next
+    // debounced push would persist the loss. Merging with the live record in
+    // the writer's seat keeps the fresh action on every path, including the
+    // cloud-wins first reconcile (an action beats a default even there).
+    updateProgress((p) =>
+      canon(p) === lastCloud ? merged : mergeProgress(merged, p, 'incoming')
+    );
     setStatus({ ...status, state: 'synced', lastSyncedAt: Date.now() });
   } catch (err) {
     setStatus({ ...status, state: 'error', detail: err instanceof Error ? err.message : String(err) });
