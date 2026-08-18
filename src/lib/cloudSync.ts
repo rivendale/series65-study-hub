@@ -71,7 +71,12 @@ async function pushMerge(fs: Fs, db: import('firebase/firestore').Firestore, uid
       let next = local;
       if (remoteRaw) {
         try {
-          next = mergeProgress(local, JSON.parse(remoteRaw) as Progress, 'incoming');
+          // Argument order carries meaning: 'incoming' means the SECOND
+          // record's preferences win, and on a PUSH the writer is the LOCAL
+          // device — so local rides in the incoming seat. Reversed, a stale
+          // cloud theme overwrites the one just picked. (The snapshot path
+          // below is the mirror case: there the cloud is the writer.)
+          next = mergeProgress(JSON.parse(remoteRaw) as Progress, local, 'incoming');
         } catch {
           // An unreadable cloud record must not block saving; ours replaces it
           // and the corrupt text survives in the version the transaction read.
