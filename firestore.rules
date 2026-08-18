@@ -1,20 +1,59 @@
 rules_version = '2';
 // Per-user isolation is the entire security model: a signed-in family member
 // can read and write exactly ONE document — their own record for this app —
-// and nothing else in the database. There is no cross-user read, no listing,
-// and no unauthenticated access. Server-side enforcement; the client is not
-// trusted.
+// and nothing else in the database. Server-side enforcement; the client is
+// not trusted.
 //
-// Deploy: Firebase console → Firestore → Rules → paste → Publish.
+// 2026-08-18: the first version of this file DENIED EVERY READ. It put the
+// record-size guard in a single clause covering read and write together:
+//
+//   allow read, write: if ... && (request.resource == null
+//                                 || request.resource.data.record is string && ...)
+//
+// `request.resource` is the post-write state of the document and is populated
+// ONLY for create and update. It is absent on get/list — and on delete. So a
+// signed-in user reading their own document was forced to evaluate a variable
+// that does not exist during a read, and the rule refused. Sign-in worked, the
+// uid matched, and the read still failed with "Missing or insufficient
+// permissions", which reads exactly like a missing grant.
+//
+// The rule is therefore split by operation. A read must never mention
+// `request.resource`.
+//
+// Deploy: Firebase console → Firestore Database → Rules → paste → Publish.
 service cloud.firestore {
   match /databases/{database}/documents {
     match /apps/{appId}/users/{uid} {
-      allow read, write: if request.auth != null
+
+      // `get`, not `read`: `read` also grants `list`, and the paragraph above
+      // promises no listing. A single-document listener evaluates as `get`.
+      allow get: if request.auth != null && request.auth.uid == uid;
+
+      // The size guard belongs only where a document is actually written.
+      // A progress record is kilobytes; a megabyte write is not a record.
+      //
+      // toUtf8().size() is BYTES. String.size() counts CHARACTERS, so the
+      // first version of this guard did not enforce the limit it claimed —
+      // a record of non-ASCII characters passes a 262144-character check
+      // while being far larger than 256 KiB on the wire.
+      //
+      // hasOnly is what makes the size guard mean anything. Without it a
+      // signed-in user can keep `record` small and push the document to
+      // Firestore's 1 MiB ceiling with extra fields the app never reads.
+      // The blast radius is their own document, which is why this is
+      // hardening and not a hole — but the guard is pointless without it.
+      //
+      // *** ADDING A FIELD TO THE WRITE IN cloudSync.ts REQUIRES ADDING IT
+      // *** HERE FIRST, or every write fails with PERMISSION_DENIED, which
+      // *** looks exactly like a broken sign-in. See the header.
+      allow create, update: if request.auth != null
         && request.auth.uid == uid
-        // A progress record is kilobytes; a megabyte write is not a record.
-        && (request.resource == null
-            || request.resource.data.record is string
-                && request.resource.data.record.size() < 262144);
+        && request.resource.data.keys().hasOnly(['record', 'updatedAt'])
+        && request.resource.data.record is string
+        && request.resource.data.record.toUtf8().size() < 262144;
+
+      // `request.resource` is absent on delete, so it cannot be referenced here.
+      allow delete: if request.auth != null && request.auth.uid == uid;
     }
   }
 }
