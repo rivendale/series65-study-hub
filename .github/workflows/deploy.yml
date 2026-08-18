@@ -1,45 +1,45 @@
-name: Deploy to GitHub Pages
-
+# The app moved to https://rygiel.family/learn/series65/ on 2026-08-18.
+#
+# This workflow used to build and deploy the app to GitHub Pages. Deploying the
+# app from here again would ship broken asset paths (base is /learn/series65/),
+# and deleting the workflow would leave the OLD build serving stale content at
+# the old URL forever — worse than either, because a student mid-course keeps
+# studying a copy that no longer gets corrections. So the old URL now serves a
+# redirect, and anything bookmarked keeps working.
+name: Deploy redirect to old GitHub Pages URL
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
+  group: pages
+  cancel-in-progress: true
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm install --no-audit --no-fund
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: build
+  redirect:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Build redirect page
+        run: |
+          mkdir -p dist
+          cat > dist/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Moved to rygiel.family</title>
+          <meta http-equiv="refresh" content="0; url=https://rygiel.family/learn/series65/">
+          <link rel="canonical" href="https://rygiel.family/learn/series65/">
+          <p>This study hub moved to
+          <a href="https://rygiel.family/learn/series65/">rygiel.family/learn/series65</a>.</p>
+          HTML
+          cp dist/index.html dist/404.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          # The action polls Pages for deployment_in_progress and aborts at its
-          # default 600000 ms. On 2026-08-06 the Series 63 repo saw a deploy take
-          # 8m09s and squeak through, then hit this ceiling and fail with a clean
-          # build and a healthy artifact. Same workflow here, so same exposure.
-          timeout: 1800000
