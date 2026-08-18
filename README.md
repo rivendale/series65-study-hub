@@ -24,7 +24,7 @@ The content is original and researched. Where the sources ran out — study mate
 **All 30 items reviewed and resolved** — spanning 38 questions across 17 chapters.
 <!-- review-counts:end -->
 
-Fourteen were **corrected** — including two rules that were stated backwards and had propagated into keyed answers — and fifteen were **confirmed** against primary sources or settled on the judgment of a licensed IAR/CFP. Each entry records what the app tells a student, why it was flagged, what was decided and why. Both [`REVIEW.md`](./REVIEW.md) and the in-app `/review` page render from `src/data/reviewItems.ts`, so the two cannot drift apart.
+Fifteen were **corrected** — including two rules that were stated backwards and had propagated into keyed answers, and one where an automated pass replaced a correct rule with a fluent invention and was caught on review against the statute — and fifteen were **confirmed** against primary sources or settled on the judgment of a licensed IAR/CFP. Each entry records what the app tells a student, why it was flagged, what was decided and why. Both [`REVIEW.md`](./REVIEW.md) and the in-app `/review` page render from `src/data/reviewItems.ts`, so the two cannot drift apart.
 
 A closed manifest is not a guarantee of correctness — it means every point someone thought worth questioning has an answer on the record. New flags are welcome.
 
