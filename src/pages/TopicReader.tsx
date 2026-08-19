@@ -1,4 +1,5 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
+import TopicVideo from '../components/TopicVideo';
 import {
   ArrowLeft,
   AlertTriangle,
@@ -82,6 +83,7 @@ export default function TopicReader() {
       </header>
 
       <div className="mt-6 prose prose-slate dark:prose-invert max-w-none prose-headings:font-semibold prose-h2:mt-8 prose-h2:mb-3 prose-h3:mt-6 prose-h3:mb-2 prose-p:leading-relaxed prose-table:text-sm prose-td:align-top">
+        <TopicVideo topicId={topic.id} title={topic.title} />
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{topic.body}</ReactMarkdown>
       </div>
 
