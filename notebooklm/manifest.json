@@ -1,0 +1,281 @@
+{
+  "generated": "run scripts/export-notebooklm.mjs to regenerate",
+  "topics": [
+    {
+      "id": "business-cycles",
+      "title": "Business Cycles and Economic Indicators",
+      "file": "series65-01-business-cycles-and-economic-indicators.md",
+      "youtubeId": null
+    },
+    {
+      "id": "monetary-fiscal-policy",
+      "title": "Monetary and Fiscal Policy",
+      "file": "series65-02-monetary-and-fiscal-policy.md",
+      "youtubeId": null
+    },
+    {
+      "id": "interest-rates-inflation",
+      "title": "Interest Rates, Inflation, and the Yield Curve",
+      "file": "series65-03-interest-rates-inflation-and-the-yield-curve.md",
+      "youtubeId": null
+    },
+    {
+      "id": "financial-statements",
+      "title": "Financial Statements",
+      "file": "series65-04-financial-statements.md",
+      "youtubeId": null
+    },
+    {
+      "id": "financial-ratios",
+      "title": "Financial Ratio Analysis",
+      "file": "series65-05-financial-ratio-analysis.md",
+      "youtubeId": null
+    },
+    {
+      "id": "quantitative-methods",
+      "title": "Quantitative Methods and Time Value of Money",
+      "file": "series65-06-quantitative-methods-and-time-value-of-money.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cash-equivalents",
+      "title": "Cash and Cash Equivalents",
+      "file": "series65-07-cash-and-cash-equivalents.md",
+      "youtubeId": null
+    },
+    {
+      "id": "equity-securities",
+      "title": "Equity Securities",
+      "file": "series65-08-equity-securities.md",
+      "youtubeId": null
+    },
+    {
+      "id": "fixed-income-basics",
+      "title": "Fixed-Income Securities",
+      "file": "series65-09-fixed-income-securities.md",
+      "youtubeId": null
+    },
+    {
+      "id": "bond-pricing-yields",
+      "title": "Bond Pricing, Yields, and Duration",
+      "file": "series65-10-bond-pricing-yields-and-duration.md",
+      "youtubeId": null
+    },
+    {
+      "id": "pooled-investments",
+      "title": "Investment Companies and Mutual Funds",
+      "file": "series65-11-investment-companies-and-mutual-funds.md",
+      "youtubeId": null
+    },
+    {
+      "id": "etfs-closed-end",
+      "title": "ETFs, Closed-End Funds, and UITs",
+      "file": "series65-12-etfs-closed-end-funds-and-uits.md",
+      "youtubeId": null
+    },
+    {
+      "id": "derivatives",
+      "title": "Options, Futures, and Other Derivatives",
+      "file": "series65-13-options-futures-and-other-derivatives.md",
+      "youtubeId": null
+    },
+    {
+      "id": "insurance-annuities",
+      "title": "Insurance-Based Products and Annuities",
+      "file": "series65-14-insurance-based-products-and-annuities.md",
+      "youtubeId": null
+    },
+    {
+      "id": "alternative-investments",
+      "title": "Alternative Investments and Direct Participation",
+      "file": "series65-15-alternative-investments-and-direct-participation.md",
+      "youtubeId": null
+    },
+    {
+      "id": "client-profiling",
+      "title": "Client Profiling and Suitability",
+      "file": "series65-16-client-profiling-and-suitability.md",
+      "youtubeId": null
+    },
+    {
+      "id": "types-of-clients",
+      "title": "Types of Clients and Account Registration",
+      "file": "series65-17-types-of-clients-and-account-registration.md",
+      "youtubeId": null
+    },
+    {
+      "id": "capital-market-theory",
+      "title": "Capital Market Theory and Portfolio Construction",
+      "file": "series65-18-capital-market-theory-and-portfolio-construction.md",
+      "youtubeId": null
+    },
+    {
+      "id": "risk-types",
+      "title": "Types of Investment Risk",
+      "file": "series65-19-types-of-investment-risk.md",
+      "youtubeId": null
+    },
+    {
+      "id": "portfolio-strategies",
+      "title": "Portfolio Management Styles and Strategies",
+      "file": "series65-20-portfolio-management-styles-and-strategies.md",
+      "youtubeId": null
+    },
+    {
+      "id": "performance-measurement",
+      "title": "Performance Measurement and Reporting",
+      "file": "series65-21-performance-measurement-and-reporting.md",
+      "youtubeId": null
+    },
+    {
+      "id": "investment-taxation",
+      "title": "Taxation of Investments",
+      "file": "series65-22-taxation-of-investments.md",
+      "youtubeId": null
+    },
+    {
+      "id": "retirement-plans",
+      "title": "Retirement Plans and Accounts",
+      "file": "series65-23-retirement-plans-and-accounts.md",
+      "youtubeId": null
+    },
+    {
+      "id": "erisa-fiduciary",
+      "title": "ERISA and Retirement Plan Fiduciary Rules",
+      "file": "series65-24-erisa-and-retirement-plan-fiduciary-rules.md",
+      "youtubeId": null
+    },
+    {
+      "id": "education-accounts",
+      "title": "Education and Special-Needs Accounts",
+      "file": "series65-25-education-and-special-needs-accounts.md",
+      "youtubeId": null
+    },
+    {
+      "id": "estate-gift-basics",
+      "title": "Estate and Gift Planning Basics",
+      "file": "series65-26-estate-and-gift-planning-basics.md",
+      "youtubeId": null
+    },
+    {
+      "id": "trading-mechanics",
+      "title": "Trading, Orders, and Market Mechanics",
+      "file": "series65-27-trading-orders-and-market-mechanics.md",
+      "youtubeId": null
+    },
+    {
+      "id": "ia-iar-registration",
+      "title": "Investment Adviser and IAR Registration",
+      "file": "series65-28-investment-adviser-and-iar-registration.md",
+      "youtubeId": null
+    },
+    {
+      "id": "bd-agent-registration",
+      "title": "Broker-Dealer and Agent Registration",
+      "file": "series65-29-broker-dealer-and-agent-registration.md",
+      "youtubeId": null
+    },
+    {
+      "id": "securities-registration",
+      "title": "Registration of Securities",
+      "file": "series65-30-registration-of-securities.md",
+      "youtubeId": null
+    },
+    {
+      "id": "exempt-securities-transactions",
+      "title": "Exempt Securities and Exempt Transactions",
+      "file": "series65-31-exempt-securities-and-exempt-transactions.md",
+      "youtubeId": null
+    },
+    {
+      "id": "fiduciary-standards",
+      "title": "Fiduciary Duty and Standards of Conduct",
+      "file": "series65-32-fiduciary-duty-and-standards-of-conduct.md",
+      "youtubeId": null
+    },
+    {
+      "id": "advisory-contracts-fees",
+      "title": "Advisory Contracts, Fees, and Compensation",
+      "file": "series65-33-advisory-contracts-fees-and-compensation.md",
+      "youtubeId": null
+    },
+    {
+      "id": "custody-safekeeping",
+      "title": "Custody, Safekeeping, and Client Assets",
+      "file": "series65-34-custody-safekeeping-and-client-assets.md",
+      "youtubeId": null
+    },
+    {
+      "id": "unethical-practices",
+      "title": "Prohibited and Unethical Business Practices",
+      "file": "series65-35-prohibited-and-unethical-business-practices.md",
+      "youtubeId": null
+    },
+    {
+      "id": "anti-fraud",
+      "title": "Anti-Fraud Provisions and Insider Trading",
+      "file": "series65-36-anti-fraud-provisions-and-insider-trading.md",
+      "youtubeId": null
+    },
+    {
+      "id": "administrative-oversight",
+      "title": "Administrative Oversight, Remedies, and Penalties",
+      "file": "series65-37-administrative-oversight-remedies-and-penalties.md",
+      "youtubeId": null
+    },
+    {
+      "id": "communications-marketing",
+      "title": "Communications, Advertising, and the Marketing Rule",
+      "file": "series65-38-communications-advertising-and-the-marketing-rule.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cybersecurity-privacy",
+      "title": "Cybersecurity, Privacy, and Business Continuity",
+      "file": "series65-39-cybersecurity-privacy-and-business-continuity.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cfp-planning-process",
+      "title": "The Financial Planning Process",
+      "file": "series65-40-the-financial-planning-process.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cfp-insurance-planning",
+      "title": "Risk Management and Insurance Planning",
+      "file": "series65-41-risk-management-and-insurance-planning.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cfp-tax-planning",
+      "title": "Tax Planning for Advisors",
+      "file": "series65-42-tax-planning-for-advisors.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cfp-retirement-planning",
+      "title": "Retirement Planning and Income Distribution",
+      "file": "series65-43-retirement-planning-and-income-distribution.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cfp-estate-planning",
+      "title": "Estate Planning for Advisors",
+      "file": "series65-44-estate-planning-for-advisors.md",
+      "youtubeId": null
+    },
+    {
+      "id": "cfp-education-planning",
+      "title": "Education Funding and Planning",
+      "file": "series65-45-education-funding-and-planning.md",
+      "youtubeId": null
+    },
+    {
+      "id": "advisor-practice-skills",
+      "title": "Advisor Practice Skills and Behavioral Finance",
+      "file": "series65-46-advisor-practice-skills-and-behavioral-finance.md",
+      "youtubeId": null
+    }
+  ]
+}
