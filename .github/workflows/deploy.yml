@@ -1,7 +1,31 @@
 # The app moved to https://rygiel.family/learn/series65/ on 2026-08-18.
 #
-# This workflow used to build and deploy the app to GitHub Pages. It now
-# deploys a REDIRECT, plus two files whose job is killing the old PWA:
+# THIS WORKFLOW DOES NOT DEPLOY THE APP. Read that again before trusting a
+# green check here: it builds a redirect for the retired github.io address and
+# nothing else. Between 2026-08-18 and 2026-08-19 it reported success on every
+# merge while the live app did not move at all, because publishing was a step
+# somebody had to remember.
+#
+# THE REAL PUBLISH lives in the private repo that serves rygiel.family:
+#
+#     rivendale/rygiel-public  .github/workflows/publish-learn.yml
+#
+# It polls this repo's main every 30 minutes, builds it, commits the output to
+# public/learn/series65/, and then VERIFIES the served URL is actually serving
+# that build before it calls the run green. Cloudflare Pages is git-integrated
+# there, so the commit is the deploy.
+#
+# It pulls rather than being pushed to, deliberately. Anything that can push
+# into rygiel-public can publish to rygiel.family, and this repo is public --
+# a write credential for it would sit in a public repo's secrets alongside
+# every npm postinstall in this dependency tree.
+#
+# To publish immediately instead of waiting for the next poll:
+#
+#     gh workflow run publish-learn.yml --repo rivendale/rygiel-public
+#
+# What follows deploys a REDIRECT, plus two files whose job is killing the old
+# PWA:
 #
 #   index.html / 404.html  unregister any service worker, delete caches, then
 #                          redirect carrying search + hash (HashRouter keeps
