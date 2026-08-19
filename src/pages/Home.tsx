@@ -18,6 +18,7 @@ import { questions } from '../data/questions';
 import { examInfo } from '../data/examInfo';
 import { TOPIC_TO_CATEGORY } from '../data/categories';
 import ProgressBar from '../components/ProgressBar';
+import NextUp from '../components/NextUp';
 
 export default function Home() {
   const { progress } = useProgress();
@@ -36,6 +37,11 @@ export default function Home() {
 
   return (
     <div className="space-y-5">
+      {/* The one decision the app makes for the student. Everything that used to
+          be first — the stats banner and the eight-destination menu — is still
+          here, just no longer the thing she has to get past. */}
+      <NextUp progress={progress} />
+
       <section className="rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-5 sm:p-6 shadow-sm">
         <p className="text-sm font-medium text-white/80">Series 65</p>
         <h1 className="text-2xl sm:text-3xl font-bold mt-1">
