@@ -10,11 +10,11 @@ This file lists the places where internal consistency was not enough. Entries ar
 
 Each item states exactly what the app currently tells a student, why it was flagged, and the single specific thing to check. The intent is that a review is an hour or two of targeted checking rather than a re-read of the whole curriculum.
 
-**29 items — 0 open, 15 confirmed, 14 corrected — across 17 chapters and 38 questions.**
+**30 items — 0 open, 15 confirmed, 15 corrected — across 17 chapters and 38 questions.**
 
 | Category | Items | Open | What the category means |
 |---|---:|---:|---|
-| Sources disagree | 2 | 0 | Study material and primary sources give different answers. The app picked the better-supported one and says so, but it is worth confirming which is tested. |
+| Sources disagree | 3 | 0 | Study material and primary sources give different answers. The app picked the better-supported one and says so, but it is worth confirming which is tested. |
 | Inflation-indexed figure | 4 | 0 | The figure changes with inflation. The app avoids asserting a current number, supplying it as a scenario given instead. Confirm the treatment reads correctly for this year. |
 | Varies by state | 7 | 0 | The Uniform Securities Act is model legislation and adopting states differ. The app describes the structure rather than pinning a national number. |
 | Reasonable advisors differ | 7 | 0 | There is no single correct answer, only a defensible one. Confirm the keyed answer matches how you would actually advise. |
@@ -30,6 +30,7 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 
 - [x] [Form ADV-W effective timing](#adv-w-timing) — Investment Adviser and IAR Registration · corrected, no action needed
 - [x] [ERISA long-term part-time employee eligibility](#erisa-ltpt) — ERISA and Retirement Plan Fiduciary Rules · corrected, no action needed
+- [x] [Civil statute of limitations under the 1956 act](#civil-sol-1956) — Administrative Oversight, Remedies, and Penalties · corrected, no action needed
 
 **Inflation-indexed figure**
 
@@ -109,6 +110,24 @@ Paste this section into a GitHub issue or a PR body to track the review there; t
 **Questions that change with it.** 502 in [`src/data/questions/erisa-fiduciary.ts`](src/data/questions/erisa-fiduciary.ts)
 
 **Resolution.** The churn has settled, so the vagueness is no longer earning its keep. Confirmed: SECURE 2.0 cut the count from three consecutive years to two, effective for plan years beginning in 2025, and ERISA-covered 403(b) plans are in scope. Now stated concretely in the chapter and in question 502, whose correct choice previously read "a shorter period of consecutive years of limited hours" — true but untestable. Added the boundary that the obligation covers elective deferrals only; an employer may extend match or nonelective contributions but is not required to.
+
+<a id="civil-sol-1956"></a>
+
+### Civil statute of limitations under the 1956 act
+
+**Status:** Corrected · **Item id:** `civil-sol-1956`
+
+**Chapter:** [Administrative Oversight, Remedies, and Penalties](src/data/topics/administrative-oversight.ts) — topic id `administrative-oversight` · [read in the app](https://rivendale.github.io/series65-study-hub/#/curriculum/administrative-oversight)
+
+**The app asserts.** The 1956 act (§410(f)) bars suit more than 3 years after the contract of sale or the rendering of investment advice, or more than 2 years after discovery, whichever first occurs. The 2002 act splits by claim type: fraud (§509(j)(2)) uses the earlier of 2 years after discovery or 5 years after the violation, while a registration violation (§509(j)(1)) gets 1 flat year.
+
+**Why it is flagged.** This entry exists as a warning, not a doubt. An automated content pass twice rewrote this rule away from the correct text on the reasoning that the widely taught "3 and 2" pairing looked like a prep-industry convention with no statutory basis. It is not a convention — it is §410(f) verbatim. The first rewrite asserted a single 2-year trigger from the contract of sale; the second invented a split by claim type with a 4-year outer cap. The phrase "four years" appears nowhere in the act. Both versions were fluent, internally consistent, and wrong.
+
+**To verify.** On the 1956 act, nothing outstanding — but if a future pass is tempted to "correct" the 3-and-2 pair again, read §410(f) with the NASAA updates before touching it, and note that the limitations provision is §410(f); §410(e) is survival of the cause of action after death. Still unchecked against a primary PDF: the §509(j)(1) / §509(j)(2) split for the 2002 act, corroborated only from secondary sources because every host carrying the text is blocked by the authoring sandbox’s egress proxy.
+
+**Questions that change with it.** None — this one is chapter text only.
+
+**Resolution.** Reverted to the statutory text and added the trigger the original omitted: §410(f) runs from "the contract of sale, or the rendering of investment advice". That second trigger matters on the Series 65 specifically, because an advisory claim runs from when the advice was given even if nothing was ever sold. The chapter also now spells out that discovery cannot extend the 3-year outer limit, only shorten the period. Cheat sheet reduced from three rows to two to match. No question in the bank was keyed on the civil pair — every limitations hit in the question bank is the criminal 5-year clock.
 
 ## Inflation-indexed figure
 
